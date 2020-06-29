@@ -17,6 +17,9 @@ package lang.abasic;
  * b.初始化子类中的静态成员变量和静态代码块
  * c.初始化父类的普通成员变量和构造代码块(按次序)，再执行父类的构造方法(注意父类构造方法中的子类方法覆盖)
  * d.初始化子类的普通成员变量和构造代码块(按次序)，再执行子类的构造方法
+ *
+ * 加载  连接 验证 准备 解析 初始化 使用 卸载
+ *
  */
 public class MainClass {
     public static void main(String[] args) throws Exception {
