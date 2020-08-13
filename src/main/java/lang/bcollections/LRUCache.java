@@ -7,10 +7,10 @@ import java.util.Map;
  * @author pengzh
  * @since 2020-06-29
  */
-public class LRUCache1<K, V> extends LinkedHashMap<K, V> {
+public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     private int size;
 
-    public LRUCache1(int size) {
+    public LRUCache(int size) {
         super(size, 0.75F, true);
         this.size = size;
     }
@@ -30,7 +30,7 @@ public class LRUCache1<K, V> extends LinkedHashMap<K, V> {
     }
 
     public static void main(String[] args) {
-        LRUCache1<Integer,Integer> cache = new LRUCache1(3);
+        LRUCache<Integer,Integer> cache = new LRUCache(3);
         cache.put(1,1);
         cache.put(2,2);
         cache.put(3,3);

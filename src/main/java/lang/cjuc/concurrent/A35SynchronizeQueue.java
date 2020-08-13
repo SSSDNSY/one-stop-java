@@ -1,4 +1,4 @@
-package lang.cjuc.concurrent2;
+package lang.cjuc.concurrent;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;

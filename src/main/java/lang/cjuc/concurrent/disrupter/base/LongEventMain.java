@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * @date: 2019/9/16
  */
 public class LongEventMain {
-    static final int MAX_VALUE = 100;
+    static final int MAX_VALUE = 100000;
     public static void main(String[] args) {
         ExecutorService es = Executors.newCachedThreadPool();
         LongEventFactory factory = new LongEventFactory();

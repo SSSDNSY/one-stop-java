@@ -1,4 +1,4 @@
-package lang.cjuc.concurrent2;
+package lang.cjuc.concurrent;
 
 /**
 *@Description: 死锁测试

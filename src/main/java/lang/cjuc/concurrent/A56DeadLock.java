@@ -1,4 +1,4 @@
-package lang.cjuc.concurrent2;
+package lang.cjuc.concurrent;
 
 /**
  * @author ：pengzh

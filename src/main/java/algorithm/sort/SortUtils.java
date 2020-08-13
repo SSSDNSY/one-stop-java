@@ -1,6 +1,8 @@
 package algorithm.sort;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 /**
  * @description:排序工具集 排序算法有很多，包括插入排序，冒泡排序，堆排序，归并排序，选择排序，计数排序，基数排序，桶排序，快速排序等。
@@ -245,7 +247,7 @@ public class SortUtils {
             MinHeapFixdown(a,0,i);
             showGraph(a);
         }
-        System.out.println("基数排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
+        System.out.println("堆排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
         showArray(a);
     }
     //构建最小堆
@@ -355,11 +357,11 @@ public class SortUtils {
 
 
     public static void main(String[] args) {
-//        int[] arr = generateArray(100);
+        int[] arr = generateArray(100);
 //        int[] arr = genrateIncArray(100,1);
-//        long t0 = System.currentTimeMillis();
-//        quickSort(arr, 0, arr.length - 1);
-//        System.out.println("快速排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
+        long t0 = System.currentTimeMillis();
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println("快速排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
 //        showArray(arr);
 //        bubbleSort(arr);
 //        insertSort(arr);
@@ -369,7 +371,6 @@ public class SortUtils {
 //        MinHeapSort(arr,arr.length);
 //        HeapSort(arr);
 //        radixSort(arr);
-        System.out.println(new int[0xafffffff -1]);
     }
 
 }

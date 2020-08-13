@@ -22,9 +22,9 @@ public class ZooKeeperSynsDemo implements Watcher {
     static Stat stat = new Stat();
 
     public static void main(String[] args) throws InterruptedException, KeeperException, IOException {
-        System.out.println("启动客户端-" + Math.floor(Math.random() * 100)+"    args="+args[0]);
+//        System.out.println("启动客户端-" + Math.floor(Math.random() * 100)+"    args="+args[0]);
         //连接zookeeper并且注册一个默认的监听器
-        zk = new ZooKeeper("127.0.0.1:2181", 6666, new ZooKeeperSynsDemo());
+        zk = new ZooKeeper("111.229.192.247:2181", 6666, new ZooKeeperSynsDemo());
         //等待zk连接成功的通知
         connnectedSemaphore.await();
         //获取path目录节点的配置数据，并注册默认的监听器
