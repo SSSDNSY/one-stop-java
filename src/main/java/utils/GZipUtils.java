@@ -12,7 +12,7 @@ import java.util.zip.GZIPOutputStream;
  * @Author: pengzh
  * @date: 2019/10/20
  */
-public class GZipUtils {
+public final class GZipUtils {
 
     public static byte[] gzip(byte[] bytes) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

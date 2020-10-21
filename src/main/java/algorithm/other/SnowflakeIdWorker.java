@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.other;
 
 
 import org.apache.commons.lang3.RandomUtils;

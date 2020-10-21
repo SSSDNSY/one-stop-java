@@ -12,7 +12,7 @@ import java.time.temporal.TemporalAdjusters;
  * @author pengzh
  * @date 2020-03-25
  */
-public class TimeTool {
+public final class TimeTool {
     public static final long DAYMILLI = 86400000L;
     public static final long HOURMILLI = 3600000L;
     public static final long MINUTEMILLI = 60000L;
@@ -55,7 +55,7 @@ public class TimeTool {
     }
 
     public static LocalDateTime now() {
-        return  LocalDateTime.now();
+        return LocalDateTime.now();
     }
 
     public static LocalDate today() {
@@ -159,15 +159,15 @@ public class TimeTool {
 
     public static LocalDateTime addDays(int offset) {
         LocalDateTime now = now();
-        return now.plusDays((long)offset);
+        return now.plusDays((long) offset);
     }
 
     public static LocalDateTime addDays(LocalDateTime time, int offset) {
-        return time.plusDays((long)offset);
+        return time.plusDays((long) offset);
     }
 
     public static LocalDate addDays(LocalDate date, int offset) {
-        return date.plusDays((long)offset);
+        return date.plusDays((long) offset);
     }
 
     public static LocalDateTime getLastSecondDay(LocalDateTime time) {
@@ -191,15 +191,15 @@ public class TimeTool {
     }
 
     public static LocalDateTime addMonths(int offset) {
-        return now().plusMonths((long)offset);
+        return now().plusMonths((long) offset);
     }
 
     public static LocalDateTime addMonths(LocalDateTime time, int offset) {
-        return time.plusMonths((long)offset);
+        return time.plusMonths((long) offset);
     }
 
     public static LocalDate addMonths(LocalDate date, int offset) {
-        return date.plusMonths((long)offset);
+        return date.plusMonths((long) offset);
     }
 
     public static LocalDateTime getLastSecondMonth() {
@@ -283,15 +283,15 @@ public class TimeTool {
     }
 
     public static LocalDateTime addYears(int offset) {
-        return now().plusYears((long)offset);
+        return now().plusYears((long) offset);
     }
 
     public static LocalDateTime addYears(LocalDateTime time, int offset) {
-        return time.plusYears((long)offset);
+        return time.plusYears((long) offset);
     }
 
     public static LocalDate addYears(LocalDate date, int offset) {
-        return date.plusYears((long)offset);
+        return date.plusYears((long) offset);
     }
 
     public static LocalDate getLastDayYear() {
@@ -338,7 +338,7 @@ public class TimeTool {
         if (cancelAbsoluteTime != null) {
             return cancelAbsoluteTime;
         } else {
-            switch(cancelTag) {
+            switch (cancelTag) {
                 case 0:
                     return addSeconds(now(), -1L);
                 case 1:
@@ -366,12 +366,12 @@ public class TimeTool {
     }
 
     public static LocalDateTime startTime(int enableTag, LocalDateTime absoluteTime, int offset, int unit) {
-        switch(enableTag) {
+        switch (enableTag) {
             case 0:
                 return startTimeOffset(now(), offset, unit);
             case 1:
             case 3:
-                return startTimeOffset(getFirstSecondMonth((LocalDateTime)now(), 1), offset, unit);
+                return startTimeOffset(getFirstSecondMonth((LocalDateTime) now(), 1), offset, unit);
             case 2:
                 return startTimeOffset(getFirstSecondDay(addDays(1)), offset, unit);
             case 4:
@@ -395,7 +395,7 @@ public class TimeTool {
         if (offset == 0) {
             return time;
         } else {
-            switch(unit) {
+            switch (unit) {
                 case 0:
                 case 1:
                     return getFirstSecondDay(addDays(time, offset));
@@ -407,9 +407,9 @@ public class TimeTool {
                 case 5:
                     return getLastSecondYear(addYears(offset - 1));
                 case 6:
-                    return addHours(time, (long)offset);
+                    return addHours(time, (long) offset);
                 case 7:
-                    return addMinutes(time, (long)offset);
+                    return addMinutes(time, (long) offset);
                 default:
                     return time;
             }
@@ -417,7 +417,7 @@ public class TimeTool {
     }
 
     public static LocalDateTime endTime(LocalDateTime startTime, int endEnableTag, LocalDateTime absoluteTime, int offset, int unit) {
-        switch(endEnableTag) {
+        switch (endEnableTag) {
             case 0:
                 return absoluteTime;
             case 1:
@@ -434,7 +434,7 @@ public class TimeTool {
         if (offset == 0) {
             return time;
         } else {
-            switch(unit) {
+            switch (unit) {
                 case 0:
                 case 1:
                     return getLastSecondDay(addDays(time, offset));
@@ -446,9 +446,9 @@ public class TimeTool {
                 case 5:
                     return getLastSecondYear(addYears(offset - 1));
                 case 6:
-                    return addHours(time, (long)offset);
+                    return addHours(time, (long) offset);
                 case 7:
-                    return addMinutes(time, (long)offset);
+                    return addMinutes(time, (long) offset);
                 default:
                     return time;
             }

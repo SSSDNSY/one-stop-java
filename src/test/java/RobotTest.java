@@ -1,5 +1,3 @@
-package utils;
-
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -7,7 +5,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.File;
 
 /**
@@ -16,7 +13,7 @@ import java.io.File;
  */
 
 @Slf4j
-public class RobotTest {
+public  class RobotTest {
     @Test
     public void Test4R() throws Exception {
         final Robot robot = new Robot();
