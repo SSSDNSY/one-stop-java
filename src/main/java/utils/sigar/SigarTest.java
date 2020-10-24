@@ -1,3 +1,4 @@
+package utils.sigar;
 
 import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;

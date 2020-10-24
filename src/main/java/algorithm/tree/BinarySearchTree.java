@@ -18,7 +18,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     private int height;
     private Node<T> root;
     private Comparator comparator;
-    private static final int MAX_VAL = 50;
+    private static final int MAX_VAL = 500;
 
     static final class Node<T> {
         T element;
