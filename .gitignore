@@ -1,6 +1,8 @@
-./.idea
+.idea
+target
+doc/wade
+
 *.class
 *.jar
-/.idea
-/target
-./doc/wade
+
+
