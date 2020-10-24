@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="jboss-marshalling-1.3.0.CR9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jar/jboss-marshalling-1.3.0.CR9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/jboss-marshalling-serial-1.3.0.CR9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-core-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-example-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-filter-compression-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-http-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-integration-beans-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-integration-jmx-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-integration-ognl-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-statemachine-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-transport-apr-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/mina-integration-xbean-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../jar/protobuf-java-2.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
