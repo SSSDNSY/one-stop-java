@@ -1,7 +1,6 @@
 package algorithm.queue;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
 * @Description:
@@ -9,7 +8,7 @@ import java.util.List;
 * @Author:         pengzh
 * @CreateDate:     2019/5/30 19:31
 */
-public class MyQueue {
+public class MyQueue<T> implements Queue {
 //    new Queue
     // store elements
     private List<Integer> data;
@@ -36,10 +35,37 @@ public class MyQueue {
     public int Front() {
         return data.get(p_start);
     }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
     /** Checks whether the algorithm.queue is empty or not. */
     public boolean isEmpty() {
         return p_start >= data.size();
     }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return null;
+    }
+
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public Object[] toArray(Object[] objects) {
+        return new Object[0];
+    }
+
     public static void main(String[] args) {
         MyQueue q = new MyQueue();
         q.enQueue(5);
@@ -55,6 +81,66 @@ public class MyQueue {
         if (q.isEmpty() == false) {
             System.out.println(q.Front());
         }
+    }
+
+    @Override
+    public boolean add(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection collection) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public boolean retainAll(Collection collection) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection collection) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection collection) {
+        return false;
+    }
+
+    @Override
+    public boolean offer(Object o) {
+        return false;
+    }
+
+    @Override
+    public Object remove() {
+        return null;
+    }
+
+    @Override
+    public Object poll() {
+        return null;
+    }
+
+    @Override
+    public Object element() {
+        return null;
+    }
+
+    @Override
+    public Object peek() {
+        return null;
     }
 }
 
