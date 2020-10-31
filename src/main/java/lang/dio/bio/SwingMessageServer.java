@@ -1,6 +1,8 @@
 package lang.dio.bio;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -9,7 +11,7 @@ import java.net.Socket;
  * @Date: 2019/5/9 12:29
  * @Description:
  */
-public class MessageServer {
+public class SwingMessageServer {
 
     static ServerSocket sskt;
     static Socket skt;

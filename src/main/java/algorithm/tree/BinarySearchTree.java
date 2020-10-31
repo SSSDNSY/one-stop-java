@@ -18,7 +18,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     private int height;
     private Node<T> root;
     private Comparator comparator;
-    private static final int MAX_VAL = 500;
+    private static final int MAX_VAL = 150;
 
     static final class Node<T> {
         T element;
@@ -107,7 +107,13 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     }
 
-    public boolean contains() {
+    public boolean contains(T node) {
+        Node n = root;
+        if(node == null){
+            return true;
+        }
+            
+
         return false;
     }
 

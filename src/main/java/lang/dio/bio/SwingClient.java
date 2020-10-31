@@ -4,11 +4,7 @@ package lang.dio.bio; /**
  * @Description:
  */
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -49,7 +45,7 @@ public class SwingClient {
             frame.setVisible(true);
         }
         public static void  sendMessage( String msg) throws  Exception{
-            Socket skt = new Socket("127.0.0.1",8899);
+            Socket skt = new Socket("127.0.0.1",3333);
             ps = new PrintWriter(skt.getOutputStream());
             ps.write(msg);
             ps.flush();

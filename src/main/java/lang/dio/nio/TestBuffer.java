@@ -12,7 +12,7 @@ public class TestBuffer {
         intBuffer.put( 5);
         intBuffer.flip();
         System.out.println("intBuffer=" + intBuffer);
-//        intBuffer.get(1);
+//        intBuffer.get();
 //        intBuffer.get();
 //        intBuffer.put(1,123);
         for (int i = 0; i < intBuffer.limit(); i++) {
