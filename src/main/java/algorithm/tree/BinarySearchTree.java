@@ -18,7 +18,9 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     private int height;
     private Node<T> root;
     private Comparator comparator;
-    private static final int MAX_VAL = 150;
+    private static final int MAX_VAL = 20;
+    private static final boolean USER_ARRAY = true;
+    private static final int[] ARRAY = {6,2,8,1,0,9,10,3,4,5,7};
 
     static final class Node<T> {
         T element;
@@ -33,16 +35,26 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     }
 
     public static void main(String[] args) {
+        System.out.println(12312321);
         final BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-        for (int i = 0; i < MAX_VAL; i++) {
-            bst.add((int) Math.floor(Math.random() * MAX_VAL));
+        if (USER_ARRAY) {
+            for (int i = 0; i < ARRAY.length; i++) {
+                bst.add(ARRAY[i]);
+            }
+        } else {
+            for (int i = 0; i < MAX_VAL; i++) {
+                bst.add((int) Math.floor(Math.random() * MAX_VAL));
+            }
         }
-        BinaryTrees.print(bst);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-//        levelOrder(bst.root);
-        System.out.println(bst);
+
+        BinaryTrees.println(bst);
+//        levelOrder(bst.root); //层析遍历
+//        System.out.println(bst); //树状打印2
+//        System.out.println(bst.find(3).element);//查找
+//        bst.update(3, 33);//更新
+        bst.remove(8);
+        BinaryTrees.println(bst);
+
 
     }
 
@@ -88,8 +100,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
                 curNode = curNode.right;
             } else if (cmp < 0) {
                 curNode = curNode.left;
-            } else {
-                curNode.element = element;
+            }else {
                 return;
             }
         }
@@ -103,17 +114,70 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         size++;
     }
 
-    public void remove() {
+    public Node<T> find(T node) {
+        Node<T> target = root;
+        while (target != null) {
+            int cmp = compareTo(target.element, node);
+            if (cmp > 0) {
+                target = target.left;
+            } else if (cmp < 0) {
+                target = target.right;
+            } else {
+                return target;
+            }
+        }
+        return null;
+    }
 
+    public void update(T node, T newNode) {
+        Node<T> target = root;
+        while (target != null) {
+            int cmp = compareTo(target.element, node);
+            if (cmp > 0) {
+                target = target.left;
+            } else if (cmp < 0) {
+                target = target.right;
+            } else {
+                target.element = newNode;
+            }
+        }
+    }
+
+
+    public void remove(T node) {
+        Node<T> target = root;
+        int cmp = 0;
+        while (target != null) {
+            cmp = compareTo(target.element, node);
+            if (cmp > 0) {
+                target = target.left;
+            } else if (cmp < 0) {
+                target = target.right;
+            } else {
+                break;
+            }
+        }
+        if (target.left != null) {
+            target.left = null;
+        }
+        if (target.right != null) {
+            target.right = null;
+        }
+        if (cmp > 0) {
+            target.parent.left = null;
+        } else {
+            target.parent.right = null;
+        }
+        target.element = null;
+        target = null;
+        return;
     }
 
     public boolean contains(T node) {
         Node n = root;
-        if(node == null){
+        if (node == null) {
             return true;
         }
-            
-
         return false;
     }
 
@@ -126,7 +190,6 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
      * 遍历：前    中     后     层
      * 根左右  左根右 左右根  一层一层
      */
-
     static void preOrder(Node node) {
         System.out.println("\nPreOrder Order Begin :");
         if (node == null) return;

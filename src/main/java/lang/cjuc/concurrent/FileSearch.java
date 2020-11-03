@@ -3,6 +3,9 @@ package lang.cjuc.concurrent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description:
@@ -37,11 +40,30 @@ public class FileSearch extends Thread{
     }
 
     public static void main(String[] args) {
-        searchTargetFile( new File("W:\\code\\sql"),"4 、内联视图子查询");
+        final long t1 = System.currentTimeMillis();
+        searchTargetFile( new File("W:\\code\\algorithm\\Javascript"),"var");
+        System.out.println("多线程耗时="+(System.currentTimeMillis()-t1));
+
+        final long t2 = System.currentTimeMillis();
+        final ThreadPoolExecutor pools = new ThreadPoolExecutor(100, 100, 0, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        searchTargetFileByJUC( new File("W:\\code\\algorithm\\Javascript"),"var",pools);
+        pools.shutdown();
+        System.out.println("线程池耗时="+(System.currentTimeMillis()-t2));
+
     }
     static void searchTargetFile(File f,String tar){
         if(f.isFile()){
             new FileSearch(f,tar).start();
+        }else{
+            for(File _f :f.listFiles()){
+                searchTargetFile(_f,tar);
+            }
+        }
+    }
+
+    static void searchTargetFileByJUC(File f,String tar,ThreadPoolExecutor pools){
+        if(f.isFile()){
+            pools.execute(new FileSearch(f,tar));
         }else{
             for(File _f :f.listFiles()){
                 searchTargetFile(_f,tar);
