@@ -35,7 +35,6 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     }
 
     public static void main(String[] args) {
-        System.out.println(12312321);
         final BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         if (USER_ARRAY) {
             for (int i = 0; i < ARRAY.length; i++) {
@@ -50,10 +49,10 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         BinaryTrees.println(bst);
 //        levelOrder(bst.root); //层析遍历
 //        System.out.println(bst); //树状打印2
-//        System.out.println(bst.find(3).element);//查找
 //        bst.update(3, 33);//更新
-        bst.remove(8);
-        BinaryTrees.println(bst);
+//        bst.remove(8);
+//        BinaryTrees.println(bst);
+//        System.out.println(bst.find(0).element);//查找
 
 
     }
@@ -168,7 +167,6 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         } else {
             target.parent.right = null;
         }
-        target.element = null;
         target = null;
         return;
     }
