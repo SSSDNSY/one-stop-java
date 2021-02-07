@@ -12,15 +12,18 @@ import java.util.Random;
  * @createDate: 2019/6/5$ 16:15$
  */
 public class SortUtils {
+
     public static List<int[]> stepList = null;
-    static {
+
+    public static void initWindow() {
         try {
-             SortGraph.MainFrame();
+            SortGraph.MainFrame();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static void showGraph(int[] arr){
+
+    public static void showGraph(int[] arr) {
         try {
             SortGraph.showGrp(arr);
             Thread.sleep(300);
@@ -28,6 +31,7 @@ public class SortUtils {
             e.printStackTrace();
         }
     }
+
     /**
      * @description: 冒泡排序
      * @author: pengzh
@@ -45,7 +49,7 @@ public class SortUtils {
                     arr[j] = arr[j] - arr[j - 1];
                     swapFlag = true;
                 }
-                showGraph(arr);
+//                showGraph(arr);
             }
             if (!swapFlag) {
                 break;
@@ -63,15 +67,15 @@ public class SortUtils {
      */
     public static void selectSort(int[] arr) {
         long t0 = System.currentTimeMillis();
-        for(int i=0;i<arr.length-1;i++){
+        for (int i = 0; i < arr.length - 1; i++) {
             int minVal = i;
-            for(int j =i+1;j<arr.length;j++){
-                if(arr[j]<arr[minVal]){
-                    minVal=j;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minVal]) {
+                    minVal = j;
                 }
             }
-            if(minVal != i){
-                swap(arr,minVal,i);
+            if (minVal != i) {
+                swap(arr, minVal, i);
             }
             showGraph(arr);
         }
@@ -86,10 +90,10 @@ public class SortUtils {
     public static void insertSort(int[] arr) {
         long t0 = System.currentTimeMillis();
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i+1; j >0; j--) {
-                if (arr[j-1] > arr[j]) {
-                    swap(arr,j-1,j);
-                }else {
+            for (int j = i + 1; j > 0; j--) {
+                if (arr[j - 1] > arr[j]) {
+                    swap(arr, j - 1, j);
+                } else {
                     break;
                 }
             }
@@ -98,30 +102,31 @@ public class SortUtils {
         System.out.println("插入排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
         showArray(arr);
     }
-    /**
-    * @description:   希尔排序
-    * @author:         pengzh
-    * @createDate:     2019/6/8 17:54
-    */
-    public static void shellSort(int[] arr){
-        long t0 = System.currentTimeMillis();
-        int inc = arr.length/2;
-        while (true){
-            inc /=2;
-            for(int i =0;i<inc;i++){
 
-                for(int j=i+inc;j<arr.length;j+=inc){
-                    for(int m=j;m>i;m-=inc){
-                        if(arr[m]<arr[m-inc]){
-                            swap(arr,m,m-inc);
-                        }else {
+    /**
+     * @description: 希尔排序
+     * @author: pengzh
+     * @createDate: 2019/6/8 17:54
+     */
+    public static void shellSort(int[] arr) {
+        long t0 = System.currentTimeMillis();
+        int inc = arr.length / 2;
+        while (true) {
+            inc /= 2;
+            for (int i = 0; i < inc; i++) {
+
+                for (int j = i + inc; j < arr.length; j += inc) {
+                    for (int m = j; m > i; m -= inc) {
+                        if (arr[m] < arr[m - inc]) {
+                            swap(arr, m, m - inc);
+                        } else {
                             break;
                         }
                     }
                     showGraph(arr);
                 }
             }
-            if(inc ==1){
+            if (inc == 1) {
                 break;
             }
         }
@@ -163,51 +168,53 @@ public class SortUtils {
         quickSort(arr, l + 1, right);
 
     }
-    public static void showQuickSort(int size){
+
+    public static void showQuickSort(int size) {
         stepList = new ArrayList<int[]>();
-        quickSort(generateArray(size),0,size-1);
+        quickSort(generateArray(size), 0, size - 1);
     }
 
     /**
-    * @description:   归并排序
-    * @author:         pengzh
-    * @createDate:     2019/6/8 17:58
-    */
-    public static void mergeSort(int arr[],int first,int last,int[] temp){
+     * @description: 归并排序
+     * @author: pengzh
+     * @createDate: 2019/6/8 17:58
+     */
+    public static void mergeSort(int arr[], int first, int last, int[] temp) {
         long t0 = System.currentTimeMillis();
-        if(first < last){
-            int middle = (first + last)/2;
+        if (first < last) {
+            int middle = (first + last) / 2;
             //左半部分排好序
-            mergeSort(arr,first,middle,temp);
+            mergeSort(arr, first, middle, temp);
             //右半部分排好序
-            mergeSort(arr,middle+1,last,temp);
+            mergeSort(arr, middle + 1, last, temp);
             //合并左右部分
-            mergeArray(arr,first,middle,last,temp);
+            mergeArray(arr, first, middle, last, temp);
             showGraph(arr);
         }
         System.out.println("归并排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
         showArray(arr);
     }
-    public static void mergeArray(int[] a,int first,int middle,int end,int[] temp){
+
+    public static void mergeArray(int[] a, int first, int middle, int end, int[] temp) {
         int i = first;
         int m = middle;
-        int j = middle+1;
+        int j = middle + 1;
         int n = end;
         int k = 0;
-        while(i<=m && j<=n){
-            if(a[i] <= a[j]){
+        while (i <= m && j <= n) {
+            if (a[i] <= a[j]) {
                 temp[k++] = a[i++];
-            }else{
+            } else {
                 temp[k++] = a[j++];
             }
         }
-        while(i<=m){
+        while (i <= m) {
             temp[k++] = a[i++];
         }
-        while(j<=n){
+        while (j <= n) {
             temp[k++] = a[j++];
         }
-        for(int ii=0;ii<k;ii++){
+        for (int ii = 0; ii < k; ii++) {
             a[first + ii] = temp[ii];
         }
     }
@@ -230,48 +237,51 @@ public class SortUtils {
         System.out.println("基数排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
         showArray(maxArr);
     }
+
     /**
-    * @description:   堆排序
-    * @author:         pengzh
-    * @createDate:     2019/6/6 15:35
-    */
-    public static void MinHeapSort(int a[],int n){
+     * @description: 堆排序
+     * @author: pengzh
+     * @createDate: 2019/6/6 15:35
+     */
+    public static void MinHeapSort(int a[], int n) {
         long t0 = System.currentTimeMillis();
         int temp = 0;
-        MakeMinHeap(a,n);
+        MakeMinHeap(a, n);
 
-        for(int i=n-1;i>0;i--){
+        for (int i = n - 1; i > 0; i--) {
             temp = a[0];
             a[0] = a[i];
             a[i] = temp;
-            MinHeapFixdown(a,0,i);
+            MinHeapFixdown(a, 0, i);
             showGraph(a);
         }
         System.out.println("堆排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
         showArray(a);
     }
+
     //构建最小堆
-    public static void MakeMinHeap(int a[], int n){
-        for(int i=(n-1)/2 ; i>=0 ; i--){
-            MinHeapFixdown(a,i,n);
+    public static void MakeMinHeap(int a[], int n) {
+        for (int i = (n - 1) / 2; i >= 0; i--) {
+            MinHeapFixdown(a, i, n);
         }
     }
+
     /**
-    * @description:   //从i节点开始调整,n为节点总数 从0开始计算 i节点的子节点为 2*i+1, 2*i+2
-    * @author:         pengzh
-    * @createDate:     2019/6/8 21:19
-    */
-    public static void MinHeapFixdown(int a[],int i,int n){
+     * @description: //从i节点开始调整,n为节点总数 从0开始计算 i节点的子节点为 2*i+1, 2*i+2
+     * @author: pengzh
+     * @createDate: 2019/6/8 21:19
+     */
+    public static void MinHeapFixdown(int a[], int i, int n) {
         //子节点
-        int j = 2*i+1;
+        int j = 2 * i + 1;
         int temp = 0;
 
-        while(j<n){
+        while (j < n) {
             //在左右子节点中寻找最小的
-            if(j+1<n && a[j+1]<a[j]){
+            if (j + 1 < n && a[j + 1] < a[j]) {
                 j++;
             }
-            if(a[i] <= a[j]){
+            if (a[i] <= a[j]) {
                 break;
             }
 
@@ -281,9 +291,10 @@ public class SortUtils {
             a[j] = temp;
 
             i = j;
-            j = 2*i+1;
+            j = 2 * i + 1;
         }
     }
+
     /**
      * @description:
      * @author: pengzh
@@ -331,24 +342,25 @@ public class SortUtils {
                 min = arr[i];
             }
         }
-        System.out.println("\033[36;6m" + "生成数组size=" + size + "  maxV=" + max + "  minV=" + min +
-                "  time=" + (System.currentTimeMillis() - t0) + "ms" + "\033[6m");
+        System.out.println("\033[36;6m" + "生成数组 size：【" + size + "】  最大值max：【" + max + "】 最小值min：【" + min +
+                "】 耗时time:【" + (System.currentTimeMillis() - t0) + "ms】" + "\033[6m");
         showArray(arr);
         return arr;
     }
-    public static int[] genrateIncArray(int size,int step){
+
+    public static int[] genrateIncArray(int size, int step) {
         long t0 = System.currentTimeMillis();
         int[] arr = new int[size];
-        for(int i =0;i<size;i++){
-            arr[i] += i*step ;
+        for (int i = 0; i < size; i++) {
+            arr[i] += i * step;
         }
         int rand;
-        do{
+        do {
             rand = new Random().nextInt(size);
-        }while(rand<size/2);
+        } while (rand < size / 2);
 
-        for(int j = 0;j<rand;j++){
-            swap(arr,j,new Random().nextInt(size));
+        for (int j = 0; j < rand; j++) {
+            swap(arr, j, new Random().nextInt(size));
         }
         System.out.println("\033[36;6m" + "生成递增数组size=" + size + "  time=" + (System.currentTimeMillis() - t0) + "ms" + "\033[6m");
         showArray(arr);
@@ -357,7 +369,7 @@ public class SortUtils {
 
 
     public static void main(String[] args) {
-        int[] arr = generateArray(100);
+        int[] arr = generateArray(20);
 //        int[] arr = genrateIncArray(100,1);
         long t0 = System.currentTimeMillis();
         quickSort(arr, 0, arr.length - 1);

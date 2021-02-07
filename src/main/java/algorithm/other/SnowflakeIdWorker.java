@@ -216,7 +216,7 @@ public class SnowflakeIdWorker {
     public static void main(String[] args) {
         System.out.println(System.currentTimeMillis());
         long startTime = System.nanoTime();
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             long id = SnowflakeIdWorker.generateId();
             System.out.println(id);
         }
