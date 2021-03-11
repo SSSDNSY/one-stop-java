@@ -15,8 +15,8 @@ public class UseCondition {
     private Condition condition = reentrantLock.newCondition();
     public void m1() {
         try {
-            System.out.println(Thread.currentThread().getName()+"进入m1");
             reentrantLock.lock();
+            System.out.println(Thread.currentThread().getName()+"进入m1");
             System.out.println(Thread.currentThread().getName()+"等待");
             condition.await();
             Thread.sleep(1900);

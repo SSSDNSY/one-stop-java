@@ -12,7 +12,7 @@ package algorithm.tree;
  * @date 2013/11/07
  */
 
-public class AVLTree<T extends Comparable<T>> {
+public class AVLTree1<T extends Comparable<T>> {
     private AVLTreeNode<T> mRoot;    // 根结点
 
     // AVL树的节点(内部类)
@@ -31,7 +31,7 @@ public class AVLTree<T extends Comparable<T>> {
     }
 
     // 构造函数
-    public AVLTree() {
+    public AVLTree1() {
         mRoot = null;
     }
 
@@ -39,8 +39,9 @@ public class AVLTree<T extends Comparable<T>> {
      * 获取树的高度
      */
     private int height(AVLTreeNode<T> tree) {
-        if (tree != null)
+        if (tree != null) {
             return tree.height;
+        }
 
         return 0;
     }
@@ -171,8 +172,9 @@ public class AVLTree<T extends Comparable<T>> {
         if (tree == null)
             return null;
 
-        while(tree.right != null)
+        while(tree.right != null) {
             tree = tree.right;
+        }
         return tree;
     }
 

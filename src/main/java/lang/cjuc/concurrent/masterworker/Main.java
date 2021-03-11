@@ -21,7 +21,7 @@ public class Main {
             if(master.isComplete()){
                 long time = System.currentTimeMillis() - s1;
                float rlt =  master.getRusult();
-                System.out.println("最终结果"+rlt+",执行耗时"+time);
+                System.out.println("最终结果"+rlt+",执行耗时"+time+"ms");
                break;
             }
         }

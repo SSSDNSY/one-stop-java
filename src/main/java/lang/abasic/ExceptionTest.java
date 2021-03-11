@@ -42,10 +42,10 @@ public class ExceptionTest {
     }
 
     public static void main(String[] args) throws Exception {
-//        ExceptionTest test = new ExceptionTest(1000000);
-//        test.newObject();
-//        test.newException();
-//        test.catchException();
+        ExceptionTest test = new ExceptionTest(1000000);
+        test.newObject();
+        test.newException();
+        test.catchException();
         System.out.println(" main 报错前");
         testMethodException();
         System.out.println(" main 报错后");

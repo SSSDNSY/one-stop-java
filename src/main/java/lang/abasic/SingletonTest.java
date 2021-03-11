@@ -33,7 +33,7 @@ class LazySinglon {
 
 
 /**
- * 懒汉式
+ * 饿汉式
  */
 class FuckSinglon {
     private static FuckSinglon instance = new FuckSinglon();
@@ -76,6 +76,9 @@ class DbCheckLazySingleton {
         if (instance == null) {
             synchronized (DbCheckLazySingleton.class) {
                 if (instance == null) {
+                    //1 声明变量分配内存空间
+                    //2 绑定
+                    //3 初始化
                     instance = new DbCheckLazySingleton();
                 }
             }

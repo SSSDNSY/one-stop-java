@@ -153,7 +153,27 @@
             <artifactId>jdom</artifactId>
             <version>1.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core-benchmarks</artifactId>
+            <version>1.27</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.27</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.27</version>
+            <!--
+            the processor artifact is required only during compilation and
+            does not need to be transitive, hence provided scope
+            -->
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 

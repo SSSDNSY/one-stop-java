@@ -20,8 +20,8 @@ public class A32CountDownLatch {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + ",还剩" + countDownLatch.getCount() + "个国家");
                 countDownLatch.countDown();
+                System.out.println(Thread.currentThread().getName() + ",还剩" + countDownLatch.getCount() + "个国家");
             }, CountryEnum.foreachCountryEnum(i).getRetName() + "已经灭亡").start();
         }
         countDownLatch.await();

@@ -12,9 +12,11 @@ import java.util.concurrent.BlockingQueue;
 public class A35BlockingQueue {
     public static void main(String[] args) {
         BlockingQueue bq = new ArrayBlockingQueue(3);
-      bq.add(1);
-      bq.add(1);
-        System.out.println(bq.add(1));;
+        bq.add(1);
+        bq.add(1);
+        System.out.println(bq.add(1));
+
+        //Exception in thread "main" java.lang.IllegalStateException: Queue full
         bq.add(1);
     }
 }

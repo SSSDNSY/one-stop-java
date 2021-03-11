@@ -25,7 +25,7 @@ public class A45ForkJoin {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         ForkJoinPool pool = new ForkJoinPool();
-        ForkJoinTask task = new SumTask(1, 1000);
+        ForkJoinTask task = new SumTask(1, 99999);
         pool.submit(task);
         System.out.println("获取计算结果:sum=" + task.get());
         pool.shutdownNow();

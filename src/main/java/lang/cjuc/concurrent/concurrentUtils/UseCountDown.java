@@ -36,7 +36,7 @@ public class UseCountDown {
                 }
                 System.out.println("T2线程初始化完成，通知T1");
                 countDown.countDown();
-            }
+            }/////
         },"T2").start();
 
         new Thread(new Runnable(){

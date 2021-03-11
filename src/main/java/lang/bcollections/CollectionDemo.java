@@ -62,13 +62,17 @@ public class CollectionDemo {
         q.offer(1);
         q.offer(9);
         q.offer(7);
-        q.remove(1);
         System.out.println(q);
+        q.poll();
+        System.out.println(q);
+        q.poll();
+        System.out.println(q);
+        q.remove(1);
     }
 
     private static void fastFailDemo() {
         final ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100000; i++) {
             list.add("i" + i);
         }
         new Thread(new Runnable() {
@@ -77,7 +81,7 @@ public class CollectionDemo {
                 int i = 0;
                 final Iterator<String> iterator = list.iterator();
                 while (iterator.hasNext()) {
-                    if (i == 2) {
+                    if (i % 157==0) {
                         list.remove(i);//ConcurrentModificationException
 //                        iterator.remove();
                     }
