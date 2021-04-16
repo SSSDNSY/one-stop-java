@@ -1,27 +1,25 @@
-package middleware.lucenes;
+package middleware.solr.entity;
+
+import org.apache.solr.client.solrj.beans.Field;
 
 /**
  * @author fun.pengzh
- * @class middleware.lucenes.TestLunceneByFile
- * @desc 从140k条产品记录中索引
- * @since 2021-04-03
+ * @class middleware.solr.entity.Product
+ * @desc
+ * @since 2021-04-16
  */
-public class TestLunceneByFile {
-    public static void main(String[] args) throws Exception {
-        System.out.println(SearchFileUtil.search("小米"));
-    }
-}
-
-/**
- * 产品实体类
- */
-class Product {
+public class Product {
+    @Field
     int id;
+    @Field
     String name;
+    @Field
     String category;
+    @Field
     float price;
+    @Field
     String place;
-
+    @Field
     String code;
 
     public int getId() {
@@ -77,4 +75,6 @@ class Product {
         return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", place="
                 + place + ", code=" + code + "]";
     }
+
+
 }
