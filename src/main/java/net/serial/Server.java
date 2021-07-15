@@ -11,7 +11,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import net.netty.DiscardServerHandler;
 
 /**
  * @Description: netty 使用marshalling包 编解码
@@ -35,7 +34,6 @@ public class Server {
                     protected void initChannel(SocketChannel sc) throws Exception {
                         sc.pipeline().addLast(MarshallingCodeFactory.buildMarshallingEncoder());
                         sc.pipeline().addLast(MarshallingCodeFactory.buildMarshallingDecoder());
-                        sc.pipeline().addLast(new ServerHandler());
                     }
                 });
         ChannelFuture f = bootstrap.bind(5678).sync();

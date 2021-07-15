@@ -46,63 +46,10 @@ public class Test {
     }
 
     public static void main(String[] args) throws Exception {
-
-    String String ;
-    String = "asdf";
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;String  "+String);
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;Date  "+new Date());
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;Math.round()  "+Math.round(-153.6));
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;; Double.doubleToRawLongBits(a) "+ Double.doubleToRawLongBits(1));
-        int i =Integer.MAX_VALUE;
-        long b = i+2l;
-        System.out.println(Integer.MAX_VALUE+2L);
+        boolean b ;
+        String s ="";
+        b = s instanceof  String;
         System.out.println(b);
-        System.out.println(Integer.MIN_VALUE);
-        float f = 1.3f;
-        long num = 100;
-        int x=10;
-        double y =20.2;
-        long z=10l;
-        System.out.println(""+x+y*z);
-        Map map = new HashMap();
-        map.put("TOTAL_FEE",9661);
-        long a = (long)map.get("TOTAL_FEE");
-        System.out.println(a);
-//        double f = Double.parseDouble((String) map.get("TOTAL_FEE"));
-//        double fees = ( f/100);
-//        long fee = 10;
-//        System.out.println(fees );
-//        double d1 = 1.01d;
-//        double d2 = 1.01d;
-//        double d3 = 1.00d;
-//        double d4 = 0.00d;
-//        System.out.println(d1 >= 1.01d);
-//        System.out.println(d1 == d2);
-//        System.out.println(d3 == d1);
-//        System.out.println(0d==0.0d);
-//        System.out.println(d4==0d);
-
-
-//        Class.forName("com.mysql.jdbc.Driver");
-//        Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/my2?useSSL=false", "root", "root");
-//
-//        String sql =
-//                "insert into my2.status(variable_name,variable_value) values('THREADS_CONNECTED',?)";
-//        PreparedStatement pspt = con.prepareStatement(sql);
-//        Random r = new Random();
-//
-//        while (true) {
-//            Thread.sleep(800);
-//            try {
-//                pspt.setInt(1, r.nextInt((int) System.currentTimeMillis() / 100));
-//            } catch (Exception e) {
-//            }
-//            pspt.executeUpdate();
-//
-//        }
-
-
 
     }
 

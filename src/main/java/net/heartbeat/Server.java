@@ -37,7 +37,6 @@ public class Server {
                     protected void initChannel(SocketChannel sc) throws Exception {
                         sc.pipeline().addLast(MarshallingCodeFactory.buildMarshallingDecoder());
                         sc.pipeline().addLast(MarshallingCodeFactory.buildMarshallingEncoder());
-                        sc.pipeline().addLast(new ServerHeartBeeatHandler());
                     }
                 });
 
