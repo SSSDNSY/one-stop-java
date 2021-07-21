@@ -1,8 +1,8 @@
-package designpattern;
+package designpattern.observer;
 
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * @author pengzh
@@ -32,13 +32,25 @@ import java.util.List;
  * 观察者模式的 UML 图
  * <p>
  * https://atts.w3cschool.cn/attachments/uploads/2014/08/observer_pattern_uml_diagram.jpg
+ * <p>
+ * <p>
+ * more example:
+ * <p>
+ * https://www.cnblogs.com/rickiyang/p/12001524.html
  */
 public class ObserverPattern {
 
-    public static void main(String[] args) {
+
+    /**
+     * 入门理解版
+     *
+     * @param args
+     */
+    @Test
+    public void ver1() {
 
         Subject subject = new Subject();
-        
+
         final HexaObserver hexaObserver = new HexaObserver(subject);
         final OctalObserver octalObserver = new OctalObserver(subject);
         final BinaryObserver binaryObserver = new BinaryObserver(subject);
@@ -49,8 +61,29 @@ public class ObserverPattern {
 
     }
 
+    /**
+     * jdk自带观察者（事件处理机制）版本
+     *
+     * @param args
+     */
+    @Test
+    public void ver2() {
+        DoorEvent openDoorEvent = new DoorEvent("openDoor", 1);
+        OpenDoorListener openDoorListener = new OpenDoorListener();
+        CloseDoorListener closeDoorListener = new CloseDoorListener();
+        List<DoorListener> listenerList = new ArrayList<>();
+        listenerList.add(openDoorListener);
+        listenerList.add(closeDoorListener);
+        listenerList.forEach(listener -> {
+            listener.dealDoorEvent(openDoorEvent);
+        });
+
+
+    }
+
 }
 
+/******************************************************* ver1 ********************************************************/
 
 /**
  * 观察者
@@ -133,8 +166,61 @@ class HexaObserver extends Observer {
         this.subject.attach(this);
     }
 
+
     @Override
     protected void update() {
         System.out.println("HexaObserver 观察到变化" + Integer.toHexString(subject.getState()));
     }
+
 }
+
+/******************************************************* ver1 ********************************************************/
+
+/******************************************************* ver2 ********************************************************/
+
+class DoorEvent extends EventObject {
+
+    private int status;
+
+    public DoorEvent(Object o) {
+        super(o);
+    }
+
+    public DoorEvent(Object o, int status) {
+        super(o);
+        this.status = status;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+}
+
+interface DoorListener extends EventListener {
+    void dealDoorEvent(DoorEvent doorEvent);
+}
+
+class OpenDoorListener implements DoorListener {
+
+    @Override
+    public void dealDoorEvent(DoorEvent doorEvent) {
+        if (doorEvent.getStatus() == 1) {
+            System.out.println("处理开门事件。。。");
+        }
+    }
+}
+
+class CloseDoorListener implements DoorListener {
+
+    @Override
+    public void dealDoorEvent(DoorEvent doorEvent) {
+        if (doorEvent.getStatus() == 2) {
+            System.out.println("处理关门事件...");
+        }
+    }
+}
+
