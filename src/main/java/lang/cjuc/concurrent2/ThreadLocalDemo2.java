@@ -35,5 +35,4 @@ public class ThreadLocalDemo2 {
         TimeUnit.SECONDS.sleep(5);
         executorService.shutdown();
     }
-
 }
