@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author fun.pengzh
  * @class lang.cjuc.concurrent2.ThreadLocalDemo2
- * @desc
+ * @desc TODO to resolve error
  * @since 2021-03-09
  */
 public class ThreadLocalDemo2 {
