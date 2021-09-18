@@ -1,11 +1,4 @@
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 /**
  * @Auther: imi
@@ -36,7 +29,6 @@ public class Test {
     private Test() {
     }
 
-    ;
 
     public static synchronized Test getTest() {
         if (TEST == null) {
@@ -46,11 +38,14 @@ public class Test {
     }
 
     public static void main(String[] args) throws Exception {
-        boolean b ;
-        String s ="";
-        b = s instanceof  String;
-        System.out.println(b);
-
+        try {
+            int i = 1;
+            return;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("finally");
+        }
     }
 
     public static void startTomcat() throws IOException {
@@ -60,6 +55,5 @@ public class Test {
     public static void stopTomcat() throws IOException {
         Runtime.getRuntime().exec("W:/server/nginx_proxy_tomcat/tomcat_8222/bin/showdown.bat");
     }
-
 
 }
