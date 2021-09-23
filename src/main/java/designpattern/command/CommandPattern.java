@@ -104,7 +104,7 @@ class Stock {
     }
 }
 
-//命令调用者（根据命令具体实现类确认调用那个明了）
+//命令调用者（根据命令具体实现类确认调用那个命令）
 class Broker {
     List<Command> commandList = new ArrayList<>();
 
