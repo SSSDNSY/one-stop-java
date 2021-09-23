@@ -4,5 +4,4 @@ doc/wade
 
 *.class
 *.jar
-
-
+.idea
