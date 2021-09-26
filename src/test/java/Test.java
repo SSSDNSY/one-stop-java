@@ -29,7 +29,6 @@ public class Test {
     private Test() {
     }
 
-
     public static synchronized Test getTest() {
         if (TEST == null) {
             TEST = new Test();
@@ -38,14 +37,16 @@ public class Test {
     }
 
     public static void main(String[] args) throws Exception {
-        try {
-            int i = 1;
-            return;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println("finally");
-        }
+
+        int b = 2;
+        a(1, b);
+        System.out.println(b);
+
+    }
+
+    static void a(int a, Integer b) {
+        b = 3;
+        System.out.println(a + " " + b);
     }
 
     public static void startTomcat() throws IOException {
