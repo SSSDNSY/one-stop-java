@@ -20,7 +20,7 @@ import java.util.concurrent.RecursiveTask;
 public class A45ForkJoin {
 
 
-    private static final int SIZE = 40;
+    private static final int SIZE = 999;
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
