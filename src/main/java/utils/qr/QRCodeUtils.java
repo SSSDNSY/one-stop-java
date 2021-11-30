@@ -4,7 +4,6 @@ import cn.hutool.core.io.FileUtil;
 import com.swetake.util.Qrcode;
 import jp.sourceforge.qrcode.QRCodeDecoder;
 import jp.sourceforge.qrcode.data.QRCodeImage;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,7 +16,6 @@ import java.io.File;
  * @author pengzh
  * @since 2020-05-27
  */
-@Slf4j
 public class QRCodeUtils {
 
     public static final String UTF_8 = "UTF8";
@@ -89,9 +87,9 @@ public class QRCodeUtils {
         final String fileName = "qrCode.png";
         File f = new File(fileName);
         QRCodeUtils.QrEncode("这就是二维码的%&%&*DKOK/*S类&**容:732390113@qq.com", f);
-        log.debug("\n是否生成图片: {}\n", FileUtil.exist(fileName));
+        System.out.println("\n是否生成图片: "+ FileUtil.exist(fileName));
         final String s = QRCodeUtils.QrDecode(f);
-        log.debug("\n读取二维码类容:{}\n", s);
+        System.out.println("\n读取二维码类容:"+ s);
 
     }
 }
