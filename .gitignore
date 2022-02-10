@@ -3,5 +3,4 @@ target/*
 doc/wade
 
 *.class
-*.jar
 .idea
