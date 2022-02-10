@@ -22,7 +22,7 @@ package lang.jvm.vmargs;
 public class VmTest1 {
 
     public static void main(String[] args) {
-        System.out.println(args[1]);
+//        System.out.println(args[1]);
         System.out.println("Max Memory     :" + Runtime.getRuntime().maxMemory());
         System.out.println("Free Memory    :" + Runtime.getRuntime().freeMemory());
         System.out.println("Total Memory   :" + Runtime.getRuntime().totalMemory());

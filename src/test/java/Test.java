@@ -1,4 +1,11 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.apache.commons.lang3.RandomUtils;
+
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Auther: imi
@@ -36,12 +43,31 @@ public class Test {
         return TEST;
     }
 
+    /**
+     * [B4, A1, A3, A2, B3, B1]
+     * [A1, A2, A3, B1, B3, B4]
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
 
-        int b = 2;
-        a(1, b);
-        System.out.println(b);
+        testBigDecimal();
+    }
 
+    public static void testBigDecimal(){
+        BigDecimal addAppend = new BigDecimal(2d).add(new BigDecimal(1d)).add(new BigDecimal(8d));
+        double score = addAppend.divide(new BigDecimal(3d),2,BigDecimal.ROUND_HALF_UP).doubleValue();
+        System.out.println(score);
+    }
+
+    @Data
+    @AllArgsConstructor
+    static
+    class Obj {
+//        private String l1;
+//        private String l2;
+        private String id;
     }
 
     static void a(int a, Integer b) {
@@ -56,5 +82,7 @@ public class Test {
     public static void stopTomcat() throws IOException {
         Runtime.getRuntime().exec("W:/server/nginx_proxy_tomcat/tomcat_8222/bin/showdown.bat");
     }
+
+
 
 }

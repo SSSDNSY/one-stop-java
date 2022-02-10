@@ -22,7 +22,7 @@ public class PrintInTurns {
 
     enum turn {th1, th2}
 
-    static volatile turn t = turn.th1;
+      turn t = turn.th1;
 
     static AtomicBoolean run = new AtomicBoolean(true);
 
