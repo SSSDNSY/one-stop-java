@@ -47,7 +47,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         }
 
         BinaryTrees.println(bst);
-//        levelOrder(bst.root); //层析遍历
+        levelOrder(bst.root); //层析遍历
 //        System.out.println(bst); //树状打印2
 //        bst.update(3, 33);//更新
 //        bst.remove(8);

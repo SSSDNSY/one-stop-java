@@ -9,13 +9,13 @@ import java.util.concurrent.Executors;
  * @since 2020-06-30
  */
 public class ThreadUnsafeExample {
-    private volatile int count;
+    private  int count;
 
-    public int getCount() {
+    public  int getCount() {
         return count;
     }
 
-    public void addCount() {
+    public  void addCount() {
         this.count++;
     }
 
@@ -25,12 +25,12 @@ public class ThreadUnsafeExample {
         final ThreadUnsafeExample example = new ThreadUnsafeExample();
         ExecutorService executors = Executors.newCachedThreadPool();
         for (int i = 0; i < threadSize; i++) {
-            countDownLatch.countDown();
 
             executors.submit(new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    example.addCount();
+                    countDownLatch.countDown();
+                        example.addCount();
                 }
             }));
         }

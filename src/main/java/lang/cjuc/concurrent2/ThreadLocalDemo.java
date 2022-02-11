@@ -24,5 +24,6 @@ public class ThreadLocalDemo {
         });
         t1.start();
         t2.start();
+
     }
 }
