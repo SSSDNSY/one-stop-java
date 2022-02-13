@@ -1,6 +1,6 @@
 .idea/*
 target/*
 doc/wade
-
+gh.iml
 *.class
 .idea
