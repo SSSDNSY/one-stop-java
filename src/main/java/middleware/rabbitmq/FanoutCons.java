@@ -10,7 +10,6 @@ import java.util.concurrent.TimeoutException;
  * @author ：pengzh
  * @date ：Created in 2020/2/9 17:22
  * @description：
- * @modified By：
  */
 public class FanoutCons {
     public final static String EXCHANGE_NAME="fanout_exchange";
