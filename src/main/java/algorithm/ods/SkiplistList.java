@@ -219,20 +219,22 @@ public class SkiplistList<T> extends AbstractList<T> {
 	
 	public static void main(String[] args) {
 		int n = 20;
-		List<Integer> l = new SkiplistList<Integer>();
+		List<Integer> sk = new SkiplistList<Integer>();
 		for (int i = 0; i < n; i++) {
-			l.add(i);
+			sk.add(i);
 		}
-		System.out.println(l);
+		System.out.println(sk);
 		for (int i = -1; i > -n; i--) {
-			l.add(0,i);
+			sk.add(0,i);
 		}
-		System.out.println(l);
+		System.out.println(sk);
 		for (int i = 0; i < 20; i++) {
-			l.add(n+i,1000+i);
+			sk.add(n+i,1000+i);
 		}
-		System.out.println(l);
+		System.out.println(sk);
 
+		Integer integer = sk.get(20);
+		System.out.println(sk);
 	}
 
 }
