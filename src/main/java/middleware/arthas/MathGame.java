@@ -29,7 +29,7 @@ public class MathGame {
 
     public void run() throws InterruptedException {
         // 这个生效，因为run()函数每次都可以完整结束
-        System.out.println("call run()");
+//        System.out.println("call run()");
         try {
             int number = random.nextInt();
             List<Integer> primeFactors = primeFactors(number);
