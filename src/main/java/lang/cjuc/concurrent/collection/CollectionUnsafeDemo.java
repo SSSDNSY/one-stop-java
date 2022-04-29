@@ -11,12 +11,12 @@ import java.util.concurrent.CopyOnWriteArraySet;
 public class CollectionUnsafeDemo {
     public static void main(String[] args) {
         ListUnsafe();
-        SetUnsafe();
+//        SetUnsafe();
     }
 
     static void ListUnsafe() {
         List<String> list = Arrays.asList("A", "B", "C");
-//        list.stream().forEach(System.out::println);
+        list.stream().forEach(System.out::println);
 
         List list2 = new Vector();
         List list3 = Collections.synchronizedList(new ArrayList<>());
@@ -25,8 +25,8 @@ public class CollectionUnsafeDemo {
         new CopyOnWriteArraySet<>();
         for (int i = 0; i < 30; i++) {
             new Thread(() -> {
-                list3.add(UUID.randomUUID().toString().substring(0, 8));
-                System.out.println(list3);
+                list.add(UUID.randomUUID().toString().substring(0, 8));
+                System.out.println(list);
             }, String.valueOf(i)).start();
         }
     }
