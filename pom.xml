@@ -19,12 +19,6 @@
 
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/QRCode/QRCode_swetake -->
-        <dependency>
-            <groupId>QRCode</groupId>
-            <artifactId>QRCode_swetake</artifactId>
-            <version>3.0.0</version>
-        </dependency>
 
         <!--  - Lucene Dependencies -->
         <dependency>
