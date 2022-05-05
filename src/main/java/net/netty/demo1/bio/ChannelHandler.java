@@ -1,4 +1,4 @@
-package net.netty.demo1;
+package net.netty.demo1.bio;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,7 +7,7 @@ import java.nio.charset.Charset;
 
 /**
  * @author fun.pengzh
- * @class net.netty.demo1.ChannelHandler
+ * @class net.netty.demo1.bio.ChannelHandler
  * @desc
  * @since 2022-05-03
  */

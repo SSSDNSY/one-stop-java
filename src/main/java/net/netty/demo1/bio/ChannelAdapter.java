@@ -1,4 +1,4 @@
-package net.netty.demo1;
+package net.netty.demo1.bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 
 /**
  * @author fun.pengzh
- * @class net.netty.demo1.ChannelAdapter
+ * @class net.netty.demo1.bio.ChannelAdapter
  * @desc
  * @since 2022-05-03
  */

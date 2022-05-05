@@ -1,7 +1,5 @@
 package net.netty.demo1.bio;
 
-import net.netty.demo1.ChannelHandler;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -27,10 +25,10 @@ public class BioServer extends Thread {
     public void run() {
         try {
             serverSocket = new ServerSocket();
-            serverSocket.bind(new InetSocketAddress(7397));
+            serverSocket.bind(new InetSocketAddress(8991));
             while (true) {
                 Socket socket = serverSocket.accept();
-                BioServerHandler handler = new BioServerHandler(socket, Charset.forName("GBK"));
+                BioServerHandler handler = new BioServerHandler(socket, Charset.forName("utf-8"));
                 handler.start();
             }
         } catch (IOException e) {
