@@ -41,6 +41,7 @@ public abstract class ChannelAdapter implements CompletionHandler<Integer, Objec
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        return;
                     }
                     buffer.flip();
                     channelRead(new ChannelHandler(channel, charset), charset.decode(buffer));
