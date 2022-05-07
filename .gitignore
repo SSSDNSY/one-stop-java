@@ -4,4 +4,4 @@ doc/wade
 gh.iml
 *.class
 .idea
-PassWordGeneratro.java
+/src/main/java/utils/security/PassWordGenerator.java
