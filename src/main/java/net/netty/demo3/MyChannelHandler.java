@@ -1,10 +1,10 @@
 package net.netty.demo3;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.socket.SocketChannel;
 
-import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,11 +16,23 @@ import java.util.Date;
 public class MyChannelHandler extends ChannelInboundHandlerAdapter {
 
     @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        SocketChannel socketChannel = (SocketChannel) ctx.channel();
+        System.out.println("客户端连接");
+        System.out.print("IP=" + socketChannel.remoteAddress().getHostString());
+        System.out.println(",PORT=" + socketChannel.remoteAddress().getPort());
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        SocketChannel socketChannel = (SocketChannel) ctx.channel();
+        System.out.println("客户端断开连接");
+        System.out.print("IP=" + socketChannel.remoteAddress().getHostString());
+        System.out.println(",PORT=" + socketChannel.remoteAddress().getPort());
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
-        byte[] bytes = new byte[buf.readableBytes()];
-        buf.readBytes(bytes);
-        System.out.println(new Date() + "接收到消息");
-        System.out.println(new String(bytes, Charset.forName("utf-8")));
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " 消息： " + msg);
     }
 }
