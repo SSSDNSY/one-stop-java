@@ -16,7 +16,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class NettyServer {
 
     public static void main(String[] args) {
-        new NettyServer().bind(8994);
+        new NettyServer().bind(8992);
     }
 
     private void bind(int port) {

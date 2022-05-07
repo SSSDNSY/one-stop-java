@@ -20,7 +20,7 @@ public class NettyServer {
     private transient final Logger log = LoggerFactory.getLogger(NettyServer.class);
 
     public static void main(String[] args) {
-        new NettyServer().bind(8996);
+        new NettyServer().bind(8994);
     }
 
     private void bind(int port) {

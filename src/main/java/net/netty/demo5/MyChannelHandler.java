@@ -1,17 +1,11 @@
-package net.netty.demo4;
+package net.netty.demo5;
 
 import cn.hutool.core.date.DateUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.SocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 
 /**
  * @author pengzh
@@ -21,17 +15,14 @@ import java.util.Date;
  */
 public class MyChannelHandler extends ChannelInboundHandlerAdapter {
 
-    private transient final Logger log = LoggerFactory.getLogger(MyChannelHandler.class);
+    private transient final Logger log = LoggerFactory.getLogger(net.netty.demo4.MyChannelHandler.class);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         SocketChannel channel = (SocketChannel) ctx.channel();
         log.info("{}:{}>>>已连接", channel.remoteAddress().getHostString(), channel.remoteAddress().getPort());
-
-        String msg = new Date() + "已建立连接！";
-        ByteBuf buf = Unpooled.buffer(msg.getBytes().length);
-        buf.writeBytes(msg.getBytes("utf-8"));
-        channel.writeAndFlush(buf);
+        String msg = DateUtil.now() + "已建立连接！";
+        channel.writeAndFlush(msg);
     }
 
     @Override
@@ -43,12 +34,10 @@ public class MyChannelHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("{} 收到消息：{}", DateUtil.now(), msg);
+        log.info(">>> 收到消息：{}", msg);
         //通知客户端链消息发送成功
-        String str = "服务端收到：" + new Date() + " " + msg + "\r\n";
-        ByteBuf buf = Unpooled.buffer(str.getBytes().length);
-        buf.writeBytes(str.getBytes("utf-8"));
-        ctx.writeAndFlush(buf);
+        String str = DateUtil.now() + "服务端收到：" + msg + "\r\n";
+        ctx.writeAndFlush(str);
     }
 
 
@@ -57,4 +46,5 @@ public class MyChannelHandler extends ChannelInboundHandlerAdapter {
         ctx.close();
         log.error("异常信息:", cause);
     }
+
 }

@@ -1,11 +1,11 @@
 ##Netty学习包简介
 
-- demo1: 入门初体验aio bio aio 
-- demo2: 接受消息
+- demo1: IO初体验 BIO NIO AIO 
+- demo2: 接收消息
 - demo3: 字符串解码器
-- demo4: 接入断开和收发消息
-- demo5: 
-- demo6: 
+- demo4: 收发消息
+- demo5: 字符串编码器
+- demo6: 群发消息
 - demo7: 
 - demo8: 
 - demo9: 
