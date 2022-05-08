@@ -9,7 +9,7 @@ import io.netty.channel.socket.SocketChannel;
  * @desc
  * @since 2022-05-06
  */
-public class MyChannelIntializer extends ChannelInitializer<SocketChannel> {
+public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
 
     @Override

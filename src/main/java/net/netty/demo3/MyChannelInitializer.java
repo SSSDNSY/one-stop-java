@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
  * @desc
  * @since 2022-05-06
  */
-public class MyChannelIntializer extends ChannelInitializer<SocketChannel> {
+public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
 
     @Override
@@ -24,7 +24,7 @@ public class MyChannelIntializer extends ChannelInitializer<SocketChannel> {
         // 基于指定字符串【换行符，这样功能等同于LineBasedFrameDecoder】
         // socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, false, Delimiters.lineDelimiter()));
         // 基于最大长度
-         socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(4));
+        socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(4));
         // 中添加解码格式
         socketChannel.pipeline().addLast(new StringDecoder(Charset.forName("utf-8")));
         // 数据处理方式

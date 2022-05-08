@@ -32,7 +32,7 @@ public class NettyServer {
             bootstrap.group(parentGroup, childGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 128)
-                    .childHandler(new MyChannelIntializer());
+                    .childHandler(new MyChannelInitializer());
             ChannelFuture future = bootstrap.bind(port).sync();
             logger.error("Netty Server listening on:{}", port);
             future.channel().closeFuture().sync();

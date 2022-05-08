@@ -29,7 +29,7 @@ public class NettyServer {
             ServerBootstrap bootstrap = new ServerBootstrap().group(parentGroup, childGroup)
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(new MyChannelIntializer());
+                    .childHandler(new MyChannelInitializer());
             ChannelFuture future = bootstrap.bind(port).sync();
             log.info("NettyServer start ,listen:{} <<<", port);
             future.channel().closeFuture().sync();

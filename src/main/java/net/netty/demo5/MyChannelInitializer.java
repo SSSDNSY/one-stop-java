@@ -13,7 +13,7 @@ import io.netty.util.CharsetUtil;
  * @class MyChannelIntializer
  * @since 2022-05-07
  */
-public class MyChannelIntializer extends ChannelInitializer<SocketChannel> {
+public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
 
     @Override
