@@ -6,12 +6,10 @@
 - demo4: 收发消息
 - demo5: 字符串编码器
 - demo6: 群发消息
-- demo7: 
+- demo7: 粘包、半包处理
 - demo8: 
 - demo9: 
 - demo10: 
-- demo11: 
-- demo12: 
 
 
-[netty教程](https://bugstack.cn/md/netty)
+[netty教程链接](https://bugstack.cn/md/netty)
