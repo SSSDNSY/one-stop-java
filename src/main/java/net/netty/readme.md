@@ -10,5 +10,7 @@
 - demo8: ChannelOut/In boundHandlerAdapter 使用
 - demo9: UDP的netty实例
 - demo10: 基于Netty提供的HTTP服务
+- demo10: 基于Netty提供的HTTP服务
+- demo11: 集成SpringBoot
 
 [netty教程链接](https://bugstack.cn/md/netty)
