@@ -1,37 +1,39 @@
-package net.netty.demo2;
+package net.netty.demo8;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * @author fun.pengzh
- * @class net.netty.demo2.NettyServer
+ * @author pengzh
  * @desc
- * @since 2022-05-06
+ * @class NettyServer
+ * @since 2022-05-10
  */
 public class NettyServer {
 
+    private final transient Logger log = LoggerFactory.getLogger(NettyServer.class);
+
     public static void main(String[] args) {
-        new NettyServer().bind(8992);
+        new NettyServer().bind(8998);
     }
 
     private void bind(int port) {
-        EventLoopGroup parentGroup = new NioEventLoopGroup();
-        EventLoopGroup childGroup = new NioEventLoopGroup();
-
+        NioEventLoopGroup parentGroup = new NioEventLoopGroup();
+        NioEventLoopGroup childGroup = new NioEventLoopGroup();
         try {
-            ServerBootstrap bootstrap = new ServerBootstrap();
-            bootstrap.group(parentGroup, childGroup)
-                    .channel(NioServerSocketChannel.class)
+            ServerBootstrap bootstrap = new ServerBootstrap().group(parentGroup, childGroup)
                     .option(ChannelOption.SO_BACKLOG, 128)
-                    .childHandler(new MyChannelInitializer());
+                    .channel(NioServerSocketChannel.class)
+                    .childHandler(new ServerChannelInitializer());
             ChannelFuture future = bootstrap.bind(port).sync();
-            System.out.println("server start");
+            log.info("NettyServer start ,listen:{} <<<", port);
             future.channel().closeFuture().sync();
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -39,5 +41,6 @@ public class NettyServer {
             childGroup.shutdownGracefully();
         }
     }
+
 
 }
