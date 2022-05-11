@@ -12,5 +12,6 @@
 - demo10: 基于Netty提供的HTTP服务
 - demo10: 基于Netty提供的HTTP服务
 - demo11: 集成SpringBoot
+- demo12: 集成protobuf
 
 [netty教程链接](https://bugstack.cn/md/netty)
