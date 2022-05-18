@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author pengzh
@@ -53,5 +52,34 @@ public class UnitTest {
         System.out.println(strVal);
         System.out.println("0" == strVal);
     }
+
+
+    @Test
+    public void test() {
+        B b = new B();
+        b.scan();  //我的输出结果是什么？
+    }
+
+    static class A {
+        public void scan() {
+            doScan();
+        }
+
+        protected void doScan() {
+            System.out.println("A.doScan");
+        }
+    }
+
+    static class B extends A {
+        @Override
+        protected void doScan() {
+            System.out.println("B.doScan");
+        }
+    }
+
+
+
+
+
 }
 
