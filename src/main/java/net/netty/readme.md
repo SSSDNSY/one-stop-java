@@ -1,4 +1,4 @@
-#Netty学习包简介
+##Netty学习包简介
 
 - demo1: IO初体验 BIO NIO AIO 
 - demo2: 接收消息
@@ -12,8 +12,7 @@
 - demo10: 基于Netty提供的HTTP服务
 - demo10: 基于Netty提供的HTTP服务
 - demo11: 集成SpringBoot
-- demo15: 心跳服务与断线重连
-
+- demo12: 集成protobuf
 
 [netty教程链接](https://bugstack.cn/md/netty)
 
