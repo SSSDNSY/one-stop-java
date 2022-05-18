@@ -1,4 +1,4 @@
-package middleware;
+package middleware.activiemq;
 
 import cn.hutool.core.util.NetUtil;
 import org.apache.activemq.ActiveMQConnectionFactory;
