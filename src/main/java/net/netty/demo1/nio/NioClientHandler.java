@@ -22,7 +22,7 @@ public class NioClientHandler extends ChannelAdapter {
     public void channelActive(ChannelHandler ctx) {
         try {
             System.out.println("链接报告LocalAddress:" + ctx.channel().getLocalAddress());
-            ctx.writeAndFlush("hi! 我是bugstack虫洞栈 NioClient to msg for you \r\n");
+            ctx.writeAndFlush("hi! 我是 NioClient to msg for you \r\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
