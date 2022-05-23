@@ -23,14 +23,14 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent e = (IdleStateEvent) evt;
             if (e.state() == IdleState.READER_IDLE) {
-                System.out.println("bugstack虫洞栈提醒=> Reader Idle");
+                System.out.println("PromiseTest=> Reader Idle");
                 ctx.writeAndFlush("读取等待：客户端你在吗[ctx.close()]{我结尾是一个换行符用于处理半包粘包}... ...\r\n");
                 ctx.close();
             } else if (e.state() == IdleState.WRITER_IDLE) {
-                System.out.println("bugstack虫洞栈提醒=> Write Idle");
+                System.out.println("PromiseTest=> Write Idle");
                 ctx.writeAndFlush("写入等待：客户端你在吗{我结尾是一个换行符用于处理半包粘包}... ...\r\n");
             } else if (e.state() == IdleState.ALL_IDLE) {
-                System.out.println("bugstack虫洞栈提醒=> All_IDLE");
+                System.out.println("PromiseTest=> All_IDLE");
                 ctx.writeAndFlush("全部时间：客户端你在吗{我结尾是一个换行符用于处理半包粘包}... ...\r\n");
             }
         }
