@@ -34,9 +34,9 @@ package net.netty.demo11;
 //            logger.error(e.getMessage());
 //        } finally {
 //            if (null != channelFuture && channelFuture.isSuccess()) {
-//                logger.info("itstack-demo-netty server start done. {关注公众号：bugstack虫洞栈，获取源码}");
+//                logger.info("itstack-demo-netty server start done.");
 //            } else {
-//                logger.error("itstack-demo-netty server start error. {关注公众号：bugstack虫洞栈，获取源码}");
+//                logger.error("itstack-demo-netty server start error.");
 //            }
 //        }
 //        return channelFuture;
