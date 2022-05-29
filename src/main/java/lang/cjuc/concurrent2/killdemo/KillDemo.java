@@ -67,7 +67,7 @@ public class KillDemo {
     }
 
     //10个商品的库存量 模拟数据库行
-    private Integer stock = 2;
+    private Integer stock = 5;
     //合并队列
     private BlockingQueue<UserPromise> queue = new LinkedBlockingQueue(10);
 
