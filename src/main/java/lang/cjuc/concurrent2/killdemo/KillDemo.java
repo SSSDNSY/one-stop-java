@@ -50,6 +50,7 @@ public class KillDemo {
             final Integer orderId = i;
             Future<UserResponse> future = threadPool.submit(() -> {
                 countDownLatch.countDown();
+                countDownLatch.await(1, TimeUnit.SECONDS);
                 return killDemo.operate(new UserRequest(id, orderId, 1));
             });
             futureList.add(future);
