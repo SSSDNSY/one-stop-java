@@ -73,15 +73,18 @@ public class KillDemo {
 
     public UserResponse operate(UserRequest request) throws InterruptedException {
         UserPromise promise = new UserPromise(request);
-        boolean enqueueSuccess = queue.offer(promise, 100, TimeUnit.MILLISECONDS);
-        if (!enqueueSuccess) {
-            return new UserResponse(false, "系统繁忙!");
-        }
         synchronized (promise) {
+            boolean enqueueSuccess = queue.offer(promise, 100, TimeUnit.MILLISECONDS);
+            if (!enqueueSuccess) {
+                return new UserResponse(false, "系统繁忙!");
+            }
             try {
                 promise.wait(200);
+                if (promise.getResponse() == null) {
+                    return new UserResponse(false, "等待超时");
+                }
             } catch (InterruptedException e) {
-                return new UserResponse(false, "等待超时");
+                e.printStackTrace();
             }
         }
         return promise.getResponse();
@@ -100,9 +103,12 @@ public class KillDemo {
                     }
                 }
 
-                while (queue.peek() != null) {
+                int batchSize = queue.size();
+                for (int i = 0; i < batchSize; i++) {
                     list.add(queue.poll());
+
                 }
+
 
                 System.out.println(Thread.currentThread().getName() + ":合并扣减库存：" + list);
 
@@ -127,11 +133,11 @@ public class KillDemo {
                     if (count <= stock) {
                         stock -= count;
                         promise.setResponse(new UserResponse(true, "ok"));
-                        synchronized (promise) {
-                            promise.notify();
-                        }
                     } else {
                         promise.setResponse(new UserResponse(false, "库存不足！"));
+                    }
+                    synchronized (promise) {
+                        promise.notify();
                     }
                 }
                 list.clear();
