@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @desc TODO to resolve error
  * @since 2021-03-09
  */
-public class ThreadLocalDemo2 {
+public class Thread_9_ThreadLocalDate {
 
 
     static SimpleDateFormat simpleDateFormat = new SimpleDateFormat();

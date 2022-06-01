@@ -4,7 +4,7 @@ package lang.cjuc.concurrent2;
  * @author pengzh
  * @since 2020-07-02
  */
-public class ThreadLocalDemo {
+public class Thread_8_ThreadLocalDemo {
     public static void main(String[] args) {
         ThreadLocal<String> threadLocal = new ThreadLocal<>();
         Thread t1  = new Thread(()->{

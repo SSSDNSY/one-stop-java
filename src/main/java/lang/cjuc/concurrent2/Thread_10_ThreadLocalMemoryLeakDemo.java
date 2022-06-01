@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @class ThreadLocalMemoryLeakDemo
  * @since 2022-02-10
  */
-public class ThreadLocalMemoryLeakDemo {
+public class Thread_10_ThreadLocalMemoryLeakDemo {
 
     private static class Variables {
         private long[] longArray = new long[1024 * 1024];

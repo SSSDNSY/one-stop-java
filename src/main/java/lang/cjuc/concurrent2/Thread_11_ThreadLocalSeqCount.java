@@ -5,7 +5,7 @@ package lang.cjuc.concurrent2;
  * @class ThreadLocalMemLeak
  * @since 2021-06-30
  */
-public class ThreadLocalSeqCount {
+public class Thread_11_ThreadLocalSeqCount {
 
     private static ThreadLocal<Integer> seqCount = new ThreadLocal<Integer>(){
         @Override
@@ -22,8 +22,8 @@ public class ThreadLocalSeqCount {
 
 
     private static class SeqThread extends Thread{
-        private ThreadLocalSeqCount seqCount;
-        SeqThread(ThreadLocalSeqCount seqCount){
+        private Thread_11_ThreadLocalSeqCount seqCount;
+        SeqThread(Thread_11_ThreadLocalSeqCount seqCount){
             this.seqCount = seqCount;
         }
         public void run() {
@@ -35,7 +35,7 @@ public class ThreadLocalSeqCount {
 
 
     public static void main(String[] args){
-        ThreadLocalSeqCount seqCount = new ThreadLocalSeqCount();
+        Thread_11_ThreadLocalSeqCount seqCount = new Thread_11_ThreadLocalSeqCount();
 
         SeqThread thread1 = new SeqThread(seqCount);
         SeqThread thread2 = new SeqThread(seqCount);

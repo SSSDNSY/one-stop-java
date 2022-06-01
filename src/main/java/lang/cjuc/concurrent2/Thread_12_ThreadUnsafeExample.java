@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
  * @author pengzh
  * @since 2020-06-30
  */
-public class ThreadUnsafeExample {
+public class Thread_12_ThreadUnsafeExample {
     private  int count;
 
     public  int getCount() {
@@ -22,7 +22,7 @@ public class ThreadUnsafeExample {
     public static void main(String[] args) throws Exception {
         int threadSize = 1000;
         CountDownLatch countDownLatch = new CountDownLatch(threadSize);
-        final ThreadUnsafeExample example = new ThreadUnsafeExample();
+        final Thread_12_ThreadUnsafeExample example = new Thread_12_ThreadUnsafeExample();
         ExecutorService executors = Executors.newCachedThreadPool();
         for (int i = 0; i < threadSize; i++) {
 

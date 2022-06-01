@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * @desc
  * @since 2020-11-26
  */
-public class WaitAndNotifyDemo {
+public class Thread_13_WaitAndNotifyDemo {
 
     public static void main(String[] args) throws InterruptedException {
         MyThread myThread = new MyThread();

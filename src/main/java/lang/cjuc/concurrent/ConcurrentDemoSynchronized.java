@@ -1,32 +1,44 @@
 package lang.cjuc.concurrent;
 
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+
 public class ConcurrentDemoSynchronized extends Thread{
-    int i =  5;
+
+    private static int SIZE = 1000;
+    CyclicBarrier cyclicBarrier;
+
+    public ConcurrentDemoSynchronized(CyclicBarrier cyclicBarrier) {
+        this.cyclicBarrier = cyclicBarrier;
+    }
+
     @Override
-    public synchronized void run() {
-        i--;
-        System.out.println("i="+i);
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " 准备就绪");
+        try {
+            SIZE--;
+            cyclicBarrier.await();
+        } catch (InterruptedException | BrokenBarrierException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
+        System.out.println("Start SIZE=" + SIZE);
+
         /**
          * synchnized 关键字：保证一个CPU时刻只有一个线程能获得对象锁
          * 锁竞争：当一个线程获得对象锁之后，其他线程一直不断在竞争该对象的锁，
          *        如果竞争的线程数量达到一定的级别之后，就会导致高CPU占用率。
          */
-        ConcurrentDemoSynchronized c = new ConcurrentDemoSynchronized();
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(SIZE);
+        ConcurrentDemoSynchronized c = new ConcurrentDemoSynchronized(cyclicBarrier);
 
-        Thread t1 = new Thread(c,"t1");
-        Thread t2 = new Thread(c,"t2");
-        Thread t3 = new Thread(c,"t3");
-        Thread t4 = new Thread(c,"t4");
-        Thread t5 = new Thread(c,"t5");
+        for (int i = 1; i <= SIZE; i++) {
+            new Thread(c, "t" + i).start();
+        }
+        System.out.println("End SIZE=" + SIZE);
 
-        t1.start();
-        t2.start();
-        t3.start();
-        t4.start();
-        t5.start();
     }
 
 
