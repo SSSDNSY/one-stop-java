@@ -1,6 +1,6 @@
 package middleware.activiemq;
 
-import cn.hutool.core.util.NetUtil;
+import cn.hutool.core.net.NetUtil;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
