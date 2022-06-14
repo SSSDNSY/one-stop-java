@@ -1,6 +1,5 @@
 package algorithm.queue;
 
-import com.sun.deploy.util.ArrayUtil;
 
 import java.util.*;
 

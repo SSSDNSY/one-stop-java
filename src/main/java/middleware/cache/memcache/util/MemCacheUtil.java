@@ -25,14 +25,14 @@ public final class MemCacheUtil {
         BufferedOutputStream bos = null;
         String out;
         try {
-            final String[] strs = StrUtil.split(hostIp, ":");
+            final String[] strs = StrUtil.splitToArray(hostIp, ":");
             socket = new Socket(strs[0], Integer.parseInt(strs[1]));
             bis = new BufferedInputStream(socket.getInputStream());
             bos = new BufferedOutputStream(socket.getOutputStream());
             bos.write((cmd + "\r\n").getBytes());
             bos.flush();
             for (out = readLine(bis); !"END".equals(out); out = readLine(bis)) {
-                String[] outs = StrUtil.split(out, " ");
+                String[] outs = StrUtil.splitToArray(out, " ");
                 rtn.put(outs[1], outs[2]);
             }
         } catch (Exception exception) {

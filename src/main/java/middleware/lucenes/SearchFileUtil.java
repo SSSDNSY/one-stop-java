@@ -13,13 +13,14 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.RAMDirectory;
 import org.springframework.lang.NonNull;
 import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.SynchronousQueue;
+
+//import org.apache.lucene.store.RAMDirectory;
 
 /**
  * 从140k记录文件中读取一个list
@@ -161,7 +162,7 @@ public final class SearchFileUtil {
     }
 
     static final Directory createIndex(IKAnalyzer ikAnalyzer) throws Exception {
-        Directory dir = new RAMDirectory();
+        Directory dir = null;
         IndexWriterConfig iwc = new IndexWriterConfig(ikAnalyzer);
         IndexWriter iw = new IndexWriter(dir, iwc);
         final List<Product> products = buildEntitis();
