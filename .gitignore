@@ -6,3 +6,5 @@ gh.iml
 .idea
 /src/main/java/utils/security/PassWordGenerator.java
 /logs/
+/temp/
+/tmp/
