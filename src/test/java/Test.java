@@ -1,11 +1,14 @@
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.apache.commons.lang3.RandomUtils;
+import org.junit.Assert;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @Auther: imi
@@ -31,9 +34,6 @@ public class Test {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    private Test() {
     }
 
     public static synchronized Test getTest() {
@@ -83,6 +83,48 @@ public class Test {
         Runtime.getRuntime().exec("W:/server/nginx_proxy_tomcat/tomcat_8222/bin/showdown.bat");
     }
 
+    @org.junit.Test
+    public void stringFormatTest(){
+        String updSql = " update %s set %d='%s' where id='%s' ";
+        String.format(updSql, "op_dj_base","atttachemt10","http//asdfzxc.comasdf.co",123);
+        System.out.printf(updSql);
+    }
 
+    public static boolean containsChinese(String Str) {
+        Pattern p = Pattern.compile("^.*([\\u4E00-\\uFA29]|[\\uE7C7-\\uE7F3])+.*$");
+        Matcher m = p.matcher(Str);
+        if (m.find()) {
+            return true;
+        }
+        return false;
+    }
+
+    @org.junit.Test
+    public void checkContainsChinese(){
+//        Assert.assertTrue(containsChinese("䒦"));//error
+//        Assert.assertTrue(containsChinese("发送到"));
+//        Assert.assertFalse(containsChinese("ff000"));
+//        Assert.assertFalse(containsChinese("fwefwefwef//.,431234#$#$#/.,"));
+        Assert.assertTrue(containChinese("䒦"));
+        Assert.assertTrue(containChinese("发送到"));
+        Assert.assertFalse(containChinese("ff0发f00"));
+        Assert.assertFalse(containChinese("fwefwefwef//.,431234#$#$#/.,"));
+    }
+    public boolean containChinese(char c) {
+        Character.UnicodeScript sc = Character.UnicodeScript.of(c);
+        if (sc == Character.UnicodeScript.HAN) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean containChinese(String str) {
+        for (char c:str.toCharArray()){
+            if(containChinese(c)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
