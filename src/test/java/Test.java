@@ -127,4 +127,15 @@ public class Test {
         return false;
     }
 
+    @org.junit.Test
+    public void TestExtends(){
+        Assert.assertTrue(new C() instanceof Object);
+    }
+    
+    class C extends B{}
+    
+    class B extends A{}
+    
+    class A{}
+
 }
