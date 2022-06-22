@@ -85,8 +85,8 @@ public class Test {
 
     @org.junit.Test
     public void stringFormatTest(){
-        String updSql = " update %s set %d='%s' where id='%s' ";
-        String.format(updSql, "op_dj_base","atttachemt10","http//asdfzxc.comasdf.co",123);
+        String updSql = " update %s set %s='%s' where id='%d' ";
+        updSql=String.format(updSql, "op_dj_base","atttachemt10","http//asdfzxc.comasdf.co",123);
         System.out.printf(updSql);
     }
 
@@ -105,9 +105,9 @@ public class Test {
 //        Assert.assertTrue(containsChinese("发送到"));
 //        Assert.assertFalse(containsChinese("ff000"));
 //        Assert.assertFalse(containsChinese("fwefwefwef//.,431234#$#$#/.,"));
-        Assert.assertTrue(containChinese("䒦"));
-        Assert.assertTrue(containChinese("发送到"));
-        Assert.assertFalse(containChinese("ff0发f00"));
+        Assert.assertTrue(containChinese("asdf䒦afd"));
+        Assert.assertTrue(containChinese("发送到234"));
+        Assert.assertFalse(containChinese("ff0f00"));
         Assert.assertFalse(containChinese("fwefwefwef//.,431234#$#$#/.,"));
     }
     public boolean containChinese(char c) {
