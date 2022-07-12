@@ -5,10 +5,14 @@ import org.junit.Assert;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @Auther: imi
@@ -55,9 +59,9 @@ public class Test {
         testBigDecimal();
     }
 
-    public static void testBigDecimal(){
+    public static void testBigDecimal() {
         BigDecimal addAppend = new BigDecimal(2d).add(new BigDecimal(1d)).add(new BigDecimal(8d));
-        double score = addAppend.divide(new BigDecimal(3d),2,BigDecimal.ROUND_HALF_UP).doubleValue();
+        double score = addAppend.divide(new BigDecimal(3d), 2, BigDecimal.ROUND_HALF_UP).doubleValue();
         System.out.println(score);
     }
 
@@ -65,7 +69,7 @@ public class Test {
     @AllArgsConstructor
     static
     class Obj {
-//        private String l1;
+        //        private String l1;
 //        private String l2;
         private String id;
     }
@@ -84,9 +88,9 @@ public class Test {
     }
 
     @org.junit.Test
-    public void stringFormatTest(){
+    public void stringFormatTest() {
         String updSql = " update %s set %s='%s' where id='%d' ";
-        updSql=String.format(updSql, "op_dj_base","atttachemt10","http//asdfzxc.comasdf.co",123);
+        updSql = String.format(updSql, "op_dj_base", "atttachemt10", "http//asdfzxc.comasdf.co", 123);
         System.out.printf(updSql);
     }
 
@@ -100,7 +104,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void checkContainsChinese(){
+    public void checkContainsChinese() {
 //        Assert.assertTrue(containsChinese("䒦"));//error
 //        Assert.assertTrue(containsChinese("发送到"));
 //        Assert.assertFalse(containsChinese("ff000"));
@@ -110,6 +114,7 @@ public class Test {
         Assert.assertFalse(containChinese("ff0f00"));
         Assert.assertFalse(containChinese("fwefwefwef//.,431234#$#$#/.,"));
     }
+
     public boolean containChinese(char c) {
         Character.UnicodeScript sc = Character.UnicodeScript.of(c);
         if (sc == Character.UnicodeScript.HAN) {
@@ -119,8 +124,8 @@ public class Test {
     }
 
     public boolean containChinese(String str) {
-        for (char c:str.toCharArray()){
-            if(containChinese(c)){
+        for (char c : str.toCharArray()) {
+            if (containChinese(c)) {
                 return true;
             }
         }
@@ -128,14 +133,37 @@ public class Test {
     }
 
     @org.junit.Test
-    public void TestExtends(){
-        Assert.assertTrue(new C() instanceof Object);
+    public void TestExtends() {
+//        Assert.assertTrue(new C() instanceof Object);
+
+        String str = "asdfa";
+        String str1 = "asdfa,2341af";
+        String[] split = str1.split(",");
+        List<Long> l1 = new ArrayList<>();
+        l1.add(1L);
+        l1.add(2L);
+        l1.add(3L);
+        List<Long> l2 = new ArrayList<>();
+        l2.add(1L);
+        l2.add(2L);
+        List<Long> longs = subList(l1, l2);
+        System.out.printf(longs.toString());
     }
-    
-    class C extends B{}
-    
-    class B extends A{}
-    
-    class A{}
+
+    public static <T> List<T> subList(List<T> list1, List<T> list2) {
+        Map<T, T> tempMap = list2.parallelStream().collect(Collectors.toMap(Function.identity(), Function.identity(), (oldData, newData) -> newData));
+        return list1.parallelStream().filter(str -> {
+            return !tempMap.containsKey(str);
+        }).collect(Collectors.toList());
+    }
+
+    class C extends B {
+    }
+
+    class B extends A {
+    }
+
+    class A {
+    }
 
 }
