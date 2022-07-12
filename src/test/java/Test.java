@@ -157,13 +157,5 @@ public class Test {
         }).collect(Collectors.toList());
     }
 
-    class C extends B {
-    }
-
-    class B extends A {
-    }
-
-    class A {
-    }
 
 }
