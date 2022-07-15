@@ -8,3 +8,4 @@ gh.iml
 /logs/
 /temp/
 /tmp/
+*.obj
