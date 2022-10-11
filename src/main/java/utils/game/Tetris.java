@@ -40,10 +40,7 @@ public class Tetris extends JFrame {
         // frame.setUndecorated(true);
         frame.setVisible(true);
         frame.setResizable(false);
-
     }
-
-
 }
 
 
@@ -67,13 +64,16 @@ class Tetrisblok extends JPanel implements KeyListener {
             // l
             {{1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0}, {1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}, {0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
             // t
-            {{0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}, {1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0}}};
+            {{0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}, {1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0}}
+    };
+
     int j = 0;
     int flag = 0;
     // 定义已经放下的方块x=0-11,y=0-21;
     int[][] map = new int[13][23];
+
     // blockType 代表方块类型
-// turnState代表方块状态
+    // turnState代表方块状态
     private int blockType;
     private int score = 0;
     private int turnState;
