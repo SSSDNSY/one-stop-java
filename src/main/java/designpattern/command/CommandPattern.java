@@ -96,11 +96,11 @@ class Stock {
     private int quantity = 10;
 
     public void buy() {
-        System.out.println("Stock [ Name: " + name + ", Quantity: " + quantity + " ] bought");
+        System.out.println("Stock [ Name: " + name + ", Quantity: " + (quantity + 10) + " ] bought");
     }
 
     public void sell() {
-        System.out.println("Stock [ Name: " + name + ", Quantity: " + quantity + " ] sold");
+        System.out.println("Stock [ Name: " + name + ", Quantity: " + (quantity - 10) + " ] sold");
     }
 }
 
