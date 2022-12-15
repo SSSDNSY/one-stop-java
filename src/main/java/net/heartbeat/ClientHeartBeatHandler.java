@@ -55,7 +55,9 @@ public class ClientHeartBeatHandler extends ChannelHandlerAdapter {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCauone-stop-
+
+    javat(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         if (heartBeat != null) {
             heartBeat.cancel(true);

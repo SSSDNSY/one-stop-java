@@ -109,7 +109,7 @@ public class FreeMarkerUtil {
         data.put("sex", "男");
         data1.put("name", "pengzh");
         data.put("person", data1);
-        crateFile(data, FILE_NAME,"W:/code/algorithm/gh/src/main/java/utils/doc/pengzh.doc");
+        crateFile(data, FILE_NAME, "W:/code/algorithm/one-stop-java/src/main/java/utils/doc/pengzh.doc");
     }
 
 }

@@ -25,10 +25,10 @@ public class YFastTrie<T> implements SSet<T> {
 		public STreap<T> split(T x) {
 			YFastTrie.Node<T> u = findLast(x);
 			YFastTrie.Node<T> s = newNode();
-			if (u.right == null) {
-				u.right = s;
+			if (u.rione-stop-javat == null) {
+				u.rione-stop-javat = s;
 			} else {
-				u = u.right;
+				u = u.rione-stop-javat;
 				while (u.left != null)
 					u = u.left;
 				u.left = s;
@@ -36,7 +36,7 @@ public class YFastTrie<T> implements SSet<T> {
 			s.parent = u;
 			s.p = Integer.MIN_VALUE;
 			bubbleUp(s);
-			this.r = s.right;
+			this.r = s.rione-stop-javat;
 			if (this.r != null) this.r.parent = nil;
 			STreap<T> ret = new STreap<T>();
 			ret.r = s.left;
@@ -53,7 +53,7 @@ public class YFastTrie<T> implements SSet<T> {
 
 		public void absorb(STreap<T> t) {
 			YFastTrie.Node<T> s = newNode();
-			s.right = this.r;
+			s.rione-stop-javat = this.r;
 			if (this.r != null) this.r.parent = s;
 			s.left = t.r;
 			if (t.r != null) t.r.parent = s;

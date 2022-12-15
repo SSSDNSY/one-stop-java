@@ -1,11 +1,33 @@
-.idea/*
-target/*
-doc/wade
-gh.iml
-*.class
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
-/src/main/java/utils/security/PassWordGenerator.java
+*.iws
+*.iml
+*.ipr
+/target/
+one-stop-java.iml
+*.class
+!.mvn/wrapper/maven-wrapper.jar
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### Others ###
 /logs/
 /temp/
 /tmp/
 *.obj
+/src/main/java/utils/security/PassWordGenerator.java

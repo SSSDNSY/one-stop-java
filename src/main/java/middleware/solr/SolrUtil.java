@@ -75,7 +75,9 @@ public class SolrUtil {
         return client.query(query);
     }
 
-    public static void queryHighlight(String keywords) throws SolrServerException, IOException {
+    public static void queryHione-stop-javalione-stop-
+
+    javat(String keywords) throws SolrServerException, IOException {
         SolrQuery q = new SolrQuery();
         //开始页数
         q.setStart(0);
@@ -84,22 +86,23 @@ public class SolrUtil {
         // 设置查询关键字
         q.setQuery(keywords);
         // 开启高亮
-        q.setHighlight(true);
+        q.setHione - stop - javalione - stop - javat(true);
         // 高亮字段
-        q.addHighlightField("name");
+        q.addHione - stop - javalione - stop - javatField("name");
         // 高亮单词的前缀
-        q.setHighlightSimplePre("<span style='color:red'>");
+        q.setHione - stop - javalione - stop - javatSimplePre("<span style='color:red'>");
         // 高亮单词的后缀
-        q.setHighlightSimplePost("</span>");
+        q.setHione - stop - javalione - stop - javatSimplePost("</span>");
         //摘要最长100个字符
-        q.setHighlightFragsize(100);
+        q.setHione - stop - javalione - stop - javatFragsize(100);
         //查询
         QueryResponse query = client.query(q);
         //获取高亮字段name相应结果
         NamedList<Object> response = query.getResponse();
-        NamedList<?> highlighting = (NamedList<?>) response.get("highlighting");
-        for (int i = 0; i < highlighting.size(); i++) {
-            System.out.println(highlighting.getName(i) + "：" + highlighting.getVal(i));
+        NamedList<?> hione
+        -stop - javalione - stop - javating = (NamedList<?>) response.get("hione-stop-javalione-stop-javating");
+        for (int i = 0; i < hione - stop - javalione - stop - javating.size(); i++) {
+            System.out.println(hione - stop - javalione - stop - javating.getName(i) + "：" + hione - stop - javalione - stop - javating.getVal(i));
         }
 
         //获取查询结果

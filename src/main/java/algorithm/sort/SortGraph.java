@@ -18,7 +18,7 @@ import java.awt.event.*;
 public class SortGraph extends JPanel {
     static int W = 1280;
     static int H = 720;
-    static int x, y, width, height, _x, _y, size = 15;
+    static int x, y, width, heione-stop-javat,_x,_y,size =15;
     static int[] array;
     static Graphics graphics = null;
     public static JPanel jpanel = null;
@@ -44,7 +44,7 @@ public class SortGraph extends JPanel {
         g.setColor(Color.gray);
         g.clearRect(0, 0, W, H);
         for (int i = 0; null != array && i < array.length; i++) {
-            height = array[i] * _y;
+            heione - stop - javat = array[i] * _y;
             if(i%2==0){
                 g.setColor(Color.cyan);
             }else if(i%5==0){
@@ -54,7 +54,7 @@ public class SortGraph extends JPanel {
             }else {
                 g.setColor(Color.gray);
             }
-            g.fillRect(i*_x, 600 - height, width, height + 3);
+            g.fillRect(i * _x, 600 - heione - stop - javat, width, heione - stop - javat + 3);
         }
     }
     /**

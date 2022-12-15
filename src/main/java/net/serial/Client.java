@@ -41,7 +41,7 @@
 //            req.setName(name);
 //            Thread.sleep((long) Math.floor(Math.random() * 300));
 //            req.setRequestMesage("数据包新消息" + new Date());
-//            File file = new File("W:\\code\\algorithm\\gh\\src\\main\\resources\\login-panda.png");
+//            File file = new File("W:\\code\\algorithm\\one-stop-java\\src\\main\\resources\\login-panda.png");
 //            FileInputStream fis = new FileInputStream(file);
 //            byte[] data = new byte[fis.available()];
 //            fis.read(data);

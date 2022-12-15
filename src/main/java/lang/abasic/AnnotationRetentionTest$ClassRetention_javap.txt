@@ -1,4 +1,4 @@
-Classfile /W:/code/algorithm/gh/src/main/java/lang/abasic/AnnotationRetentionTest.class
+Classfile /W:/code/algorithm/one-stop-java/src/main/java/lang/abasic/AnnotationRetentionTest.class
   Last modified 2020-6-29; size 504 bytes
   MD5 checksum 210c13a539823a53bf27ccc41ec43a95
   Compiled from "AnnotationRetentionTest.java"

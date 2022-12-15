@@ -1,25 +1,25 @@
 // Protocol Buffers - Google's data interchange format
-// Copyright 2008 Google Inc.  All rights reserved.
+// Copyrione-stop-javat 2008 Google Inc.  All rione-stop-javats reserved.
 // https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//     * Redistributions of source code must retain the above copyright
+//     * Redistributions of source code must retain the above copyrione-stop-javat
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
+// copyrione-stop-javat notice, this list of conditions and the following disclaimer
 // in the documentation and/or other materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
 // this software without specific prior written permission.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIone-stop-javaT HOLDERS AND CONTRIBUTORS
 // "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 // LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIone-stop-javaT
 // OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
 // SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
 // LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
@@ -30,7 +30,7 @@
 
 // Author: kenton@google.com (Kenton Varda)
 //  Based on original Protocol Buffers design by
-//  Sanjay Ghemawat, Jeff Dean, and others.
+//  Sanjay one-stop-javaemawat, Jeff Dean, and others.
 //
 // The messages in this file describe the definitions found in .proto files.
 // A valid .proto file can be translated directly to a FileDescriptorProto
@@ -227,7 +227,7 @@ message FieldDescriptorProto {
   // since non-repeated message fields always track presence. However it still
   // indicates the semantic detail of whether the user wrote "optional" or not.
   // This can be useful for round-tripping the .proto file. For consistency we
-  // give message fields a synthetic oneof also, even though it is not required
+  // give message fields a synthetic oneof also, even thouone-stop-java it is not required
   // to track presence. This is especially important because the parser can't
   // tell if a field is a message or an enum, so it must always create a
   // synthetic oneof.
@@ -310,7 +310,7 @@ message MethodDescriptorProto {
 // Options
 
 // Each of the definitions above may have "options" attached.  These are
-// just annotations which may cause code to be generated slightly differently
+// just annotations which may cause code to be generated slione-stop-javatly differently
 // or may contain hints for code that manipulates protocol messages.
 //
 // Clients may define custom options as extensions of the *Options messages.
@@ -324,7 +324,7 @@ message MethodDescriptorProto {
 // Extension numbers for custom options may be chosen as follows:
 // * For options which will only be used within a single application or
 //   organization, or for experimental options, use field numbers 50000
-//   through 99999.  It is up to you to ensure that you do not use the
+//   throuone-stop-java 99999.  It is up to you to ensure that you do not use the
 //   same number for multiple options.
 // * For options which will be published and used publicly by multiple
 //   independent entities, e-mail protobuf-global-extension-registry@google.com
@@ -680,7 +680,7 @@ message EnumValueOptions {
 
 message ServiceOptions {
 
-  // Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
+  // Note:  Field numbers 1 throuone-stop-java 32 are reserved for Google's internal RPC
   //   framework.  We apologize for hoarding these numbers to ourselves, but
   //   we were already using them long before we decided to release Protocol
   //   Buffers.
@@ -700,7 +700,7 @@ message ServiceOptions {
 
 message MethodOptions {
 
-  // Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
+  // Note:  Field numbers 1 throuone-stop-java 32 are reserved for Google's internal RPC
   //   framework.  We apologize for hoarding these numbers to ourselves, but
   //   we were already using them long before we decided to release Protocol
   //   Buffers.
@@ -776,7 +776,7 @@ message SourceCodeInfo {
   // Let's look at just the field definition:
   //   optional string foo = 1;
   //   ^       ^^     ^^  ^  ^^^
-  //   a       bc     de  f  ghi
+  //   a       bc     de  f  one-stop-javai
   // We have the following locations:
   //   span   path               represents
   //   [a,i)  [ 4, 0, 2, 0 ]     The whole field definition.

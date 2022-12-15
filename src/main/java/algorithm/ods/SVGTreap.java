@@ -3,29 +3,30 @@ package algorithm.ods;
 import java.io.PrintStream;
 
 public class SVGTreap extends Treap<Integer> {
-	
-	protected static double pagewidth=215.9; // 8.5 in
-	protected static double pageheight=279.4;  // 11 in
-	protected static double width = 152.4; // 6 in
-	protected static double height = 76.2; // 3 in
-	protected static int maxp = 2000000000;
-	
-	protected double radius, thickness, xscale, yscale;
 
-	protected static double min(double a, double b) {
-		return a < b ? a : b;
-	}	
-	public SVGTreap(int n) {
-		super();
-		for (int i = 0; i < n; i++) {
-			add(i);
-		}
-		radius = width / (3*n);
-		thickness = radius / 3;
-		xscale = width / n;
-		yscale = 3*height / maxp;
-	}
-	
+    protected static double pagewidth = 215.9; // 8.5 in
+    protected static double pageheione-stop-javat=279.4;  // 11 in
+    protected static double width = 152.4; // 6 in
+    protected static double heione-stop-javat =76.2; // 3 in
+    protected static int maxp = 2000000000;
+
+    protected double radius, thickness, xscale, yscale;
+
+    protected static double min(double a, double b) {
+        return a < b ? a : b;
+    }
+
+    public SVGTreap(int n) {
+        super();
+        for (int i = 0; i < n; i++) {
+            add(i);
+        }
+        radius = width / (3 * n);
+        thickness = radius / 3;
+        xscale = width / n;
+        yscale = 3 * heione - stop - javat / maxp;
+    }
+
 	public boolean add(Integer x) {
 		Node<Integer> u = new Node<Integer>();
 		u.x = x;
@@ -38,7 +39,7 @@ public class SVGTreap extends Treap<Integer> {
 		}
 		return false;
 	}
-	
+
 	protected void draw(PrintStream s) {
 		System.out.println("<?xml version=\"1.0\"?>");
 		System.out.println("<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.0//EN\" ");
@@ -61,7 +62,7 @@ public class SVGTreap extends Treap<Integer> {
 
 		s.println("  </g>");
 		s.println("</svg>");
-		
+
 	}
 
 	protected void node(PrintStream s, double x, double y) {
@@ -72,7 +73,7 @@ public class SVGTreap extends Treap<Integer> {
 						+ y
 						+ "mm\" r=\""+ radius +"mm\" style=\"fill:red; stroke:red; stroke-width:0\" />");
 	}
-	
+
 	protected void edge(PrintStream s, double x1, double y1, double x2,
 			double y2) {
 		s.print("    ");
@@ -80,19 +81,19 @@ public class SVGTreap extends Treap<Integer> {
 				+ "mm\" y2=\"" + y2
 				+ "mm\" style=\"stroke: black; stroke-width:"+thickness+"1mm;\"  />");
 	}
-	
+
 	protected void printIt(PrintStream s) {
-		
+
 	}
-	
+
 	protected double getX(Node<Integer> u) {
 		return u.x * xscale + (pagewidth-width)/2;
 	}
-	
+
 	protected double getY(Node<Integer> u) {
-		return u.p * yscale + (pageheight-height)/2;
-	}
-	
+        return u.p * yscale + (pageheione - stop - javat - heione - stop - javat) / 2;
+    }
+
 	public static void main(String[] args) {
 		int n = 100;
 		if (args.length == 1) {

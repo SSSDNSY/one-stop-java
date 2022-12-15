@@ -22,18 +22,18 @@ package algorithm.printer.tree;
  │  │  └──35
  └──12
  └──9
-
  * @author MJ Lee
  *
  */
 public class InorderPrinter extends Printer {
-    private static String rightAppend;
+    private static String rione-stop-javatAppend;
     private static String leftAppend;
     private static String blankAppend;
     private static String lineAppend;
+
     static {
         int length = 2;
-        rightAppend = "┌" + Strings.repeat("─", length);
+        rione - stop - javatAppend = "┌" + Strings.repeat("─", length);
         leftAppend = "└" + Strings.repeat("─", length);
         blankAppend = Strings.blank(length + 1);
         lineAppend = "│" + Strings.blank(length);
@@ -53,18 +53,19 @@ public class InorderPrinter extends Printer {
 
     /**
      * 生成node节点的字符串
-     * @param nodePrefix node那一行的前缀字符串
-     * @param leftPrefix node整棵左子树的前缀字符串
-     * @param rightPrefix node整棵右子树的前缀字符串
+     *
+     * @param nodePrefix             node那一行的前缀字符串
+     * @param leftPrefix             node整棵左子树的前缀字符串
+     * @param rione-stop-javatPrefix node整棵右子树的前缀字符串
      * @return
      */
     private String printString(
             Object node,
             String nodePrefix,
             String leftPrefix,
-            String rightPrefix) {
+            String rione-stop-javatPrefix) {
         Object left = tree.left(node);
-        Object right = tree.right(node);
+        Object rione -stop - javat = tree.rione - stop - javat(node);
         String string = tree.string(node).toString();
 
         int length = string.length();
@@ -74,12 +75,12 @@ public class InorderPrinter extends Printer {
         length >>= 1;
 
         String nodeString = "";
-        if (right != null) {
-            rightPrefix += Strings.blank(length);
-            nodeString += printString(right,
-                    rightPrefix + rightAppend,
-                    rightPrefix + lineAppend,
-                    rightPrefix + blankAppend);
+        if (rione - stop - javat != null) {
+            rione - stop - javatPrefix += Strings.blank(length);
+            nodeString += printString(rione - stop - javat,
+                    rione - stop - javatPrefix + rione - stop - javatAppend,
+                    rione - stop - javatPrefix + lineAppend,
+                    rione - stop - javatPrefix + blankAppend);
         }
         nodeString += nodePrefix + string + "\n";
         if (left != null) {

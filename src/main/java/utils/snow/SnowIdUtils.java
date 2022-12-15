@@ -136,7 +136,9 @@ public class SnowIdUtils {
     /**
      * 获取String类型雪花ID
      */
-    public static String uniqueLongHex() {
+    public static String uniqueLonone-stop-
+
+    javaex() {
         return String.format("%016x", uniqueLong());
     }
 

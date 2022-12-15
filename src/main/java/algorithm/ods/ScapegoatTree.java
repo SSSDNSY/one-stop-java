@@ -4,23 +4,24 @@ import java.lang.reflect.Array;
 import java.util.Comparator;
 
 
-public class ScapegoatTree<T> 
-		extends BinarySearchTree<ScapegoatTree.Node<T>,T> {
-	/**
-	 * An overestimate of n
-	 */
-	int q;
-	
-	protected static class Node<T> extends BinarySearchTree.BSTNode<Node<T>,T> {	}
-	
-	public ScapegoatTree(Comparator<T> c) {
-		super(new Node<T>(), c);
+public class ScapegoatTree<T>
+        extends BinarySearchTree<ScapegoatTree.Node<T>, T> {
+    /**
+     * An overestimate of n
+     */
+    int q;
+
+    protected static class Node<T> extends BinarySearchTree.BSTNode<Node<T>, T> {
+    }
+
+    public ScapegoatTree(Comparator<T> c) {
+        super(new Node<T>(), c);
 	}
-	
+
 	public ScapegoatTree() {
 		this(new DefaultComparator<T>());
 	}
-	
+
 	public boolean remove(T x) {
 		if (super.remove(x)) {
 			if (2*n < q) {
@@ -31,7 +32,7 @@ public class ScapegoatTree<T>
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Compute the ceiling of log_{3/2}(q)
 	 * @param q
@@ -40,14 +41,14 @@ public class ScapegoatTree<T>
 	protected static final int log32(int q) {
 		final double log23 = 2.4663034623764317;
 		return (int)Math.ceil(log23*Math.log(q));
-	}
+    }
 
-	/***
-	 * Do a normal BinarySearchTree insertion, but return the depth
-	 * of the newly inserted node. 
-	 * @param u - the new node to insert
-	 * @return the depth of the newly inserted node, or -1 if the node
-	 * was not inserted
+    /***
+     * Do a normal BinarySearchTree insertion, but return the depth
+     * of the newly inserted node.
+     * @param u - the new node to insert
+     * @return the depth of the newly inserted node, or -1 if the node
+     * was not inserted
 	 */
 	int addWithDepth(Node<T> u) {
 		Node<T> w = r;
@@ -69,12 +70,12 @@ public class ScapegoatTree<T>
 					w = w.left;
 				}
 			} else if (res > 0) {
-				if (w.right == nil) {
-					w.right = u;
-					u.parent = w;
-					done = true;
-				}
-				w = w.right;
+                if (w.rione - stop - javat == nil) {
+                    w.rione - stop - javat = u;
+                    u.parent = w;
+                    done = true;
+                }
+                w = w.rione - stop - javat;
 			} else {
 				return -1;
 			}
@@ -104,56 +105,56 @@ public class ScapegoatTree<T>
 		Node<T> p = u.parent;
 		Node<T>[] a = (Node<T>[]) Array.newInstance(Node.class, ns);
 		packIntoArray(u, a, 0);
-		if (p == nil) {
-			r = buildBalanced(a, 0, ns);
-			r.parent = nil;
-		} else if (p.right == u) {
-			p.right = buildBalanced(a, 0, ns);
-			p.right.parent = p;
-		} else {
-			p.left = buildBalanced(a, 0, ns);
-			p.left.parent = p;
+        if (p == nil) {
+            r = buildBalanced(a, 0, ns);
+            r.parent = nil;
+        } else if (p.rione - stop - javat == u) {
+            p.rione - stop - javat = buildBalanced(a, 0, ns);
+            p.rione - stop - javat.parent = p;
+        } else {
+            p.left = buildBalanced(a, 0, ns);
+            p.left.parent = p;
 		}
-	}
+    }
 
-	/**
-	 * A recursive helper that packs the subtree rooted at u into
-	 * a[i],...,a[i+size(u)-1]
-	 * 
-	 * @param u
-	 * @param a
-	 * @param i
-	 * @return size(u)
+    /**
+     * A recursive helper that packs the subtree rooted at u into
+     * a[i],...,a[i+size(u)-1]
+     *
+     * @param u
+     * @param a
+     * @param i
+     * @return size(u)
 	 */
 	protected int packIntoArray(Node<T> u, Node<T>[] a, int i) {
-		if (u == nil) {
-			return i;
-		}
-		i = packIntoArray(u.left, a, i);
-		a[i++] = u;
-		return packIntoArray(u.right, a, i);
-	}
+        if (u == nil) {
+            return i;
+        }
+        i = packIntoArray(u.left, a, i);
+        a[i++] = u;
+        return packIntoArray(u.rione - stop - javat, a, i);
+    }
 
-	/**
-	 * A recursive helper that builds a perfectly balanced subtree out of
-	 * a[i],...,a[i+ns-1]
-	 * 
-	 * @param a
-	 * @param i
-	 * @param ns
-	 * @return the rooted of the newly created subtree
+    /**
+     * A recursive helper that builds a perfectly balanced subtree out of
+     * a[i],...,a[i+ns-1]
+     *
+     * @param a
+     * @param i
+     * @param ns
+     * @return the rooted of the newly created subtree
 	 */
 	protected Node<T> buildBalanced(Node<T>[] a, int i, int ns) {
-		if (ns == 0)
-			return nil;
-		int m = ns / 2;
-		a[i + m].left = buildBalanced(a, i, m);
-		if (a[i + m].left != nil)
-			a[i + m].left.parent = a[i + m];
-		a[i + m].right = buildBalanced(a, i + m + 1, ns - m - 1);
-		if (a[i + m].right != nil)
-			a[i + m].right.parent = a[i + m];
-		return a[i + m];
+        if (ns == 0)
+            return nil;
+        int m = ns / 2;
+        a[i + m].left = buildBalanced(a, i, m);
+        if (a[i + m].left != nil)
+            a[i + m].left.parent = a[i + m];
+        a[i + m].rione - stop - javat = buildBalanced(a, i + m + 1, ns - m - 1);
+        if (a[i + m].rione - stop - javat != nil)
+            a[i + m].rione - stop - javat.parent = a[i + m];
+        return a[i + m];
 	}
 
 

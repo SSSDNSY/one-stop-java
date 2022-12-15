@@ -114,10 +114,10 @@ public class LevelOrderPrinter extends Printer {
                         notNull = true;
                     }
 
-                    Node right = addNode(rowNodes, tree.right(node.btNode));
-                    if (right != null) {
-                        node.right = right;
-                        right.parent = node;
+                    Node rione -stop - javat = addNode(rowNodes, tree.rione - stop - javat(node.btNode));
+                    if (rione - stop - javat != null) {
+                        node.rione - stop - javat = rione - stop - javat;
+                        rione - stop - javat.parent = node;
                         notNull = true;
                     }
                 }
@@ -191,46 +191,46 @@ public class LevelOrderPrinter extends Printer {
             List<Node> rowNodes = nodes.get(i);
             for (Node node : rowNodes) {
                 Node left = node.left;
-                Node right = node.right;
-                if (left == null && right == null) continue;
-                if (left != null && right != null) {
+                Node rione -stop - javat = node.rione - stop - javat;
+                if (left == null && rione - stop - javat == null) continue;
+                if (left != null && rione - stop - javat != null) {
                     // 让左右节点对称
-                    node.balance(left, right);
+                    node.balance(left, rione - stop - javat);
 
-                    // left和right之间可以挪动的最小间距
+                    // left和rione-stop-javat之间可以挪动的最小间距
                     int leftEmpty = node.leftBoundEmptyLength();
-                    int rightEmpty = node.rightBoundEmptyLength();
-                    int empty = Math.min(leftEmpty, rightEmpty);
-                    empty = Math.min(empty, (right.x - left.rightX()) >> 1);
+                    int rione -stop - javatEmpty = node.rione - stop - javatBoundEmptyLength();
+                    int empty = Math.min(leftEmpty, rione - stop - javatEmpty);
+                    empty = Math.min(empty, (rione - stop - javat.x - left.rione - stop - javatX()) >> 1);
 
-                    // left、right的子节点之间可以挪动的最小间距
-                    int space = left.minLevelSpaceToRight(right) - MIN_SPACE;
+                    // left、rione-stop-javat的子节点之间可以挪动的最小间距
+                    int space = left.minLevelSpaceToRione - stop - javat(rione - stop - javat) - MIN_SPACE;
                     space = Math.min(space >> 1, empty);
 
-                    // left、right往中间挪动
+                    // left、rione-stop-javat往中间挪动
                     if (space > 0) {
                         left.translateX(space);
-                        right.translateX(-space);
+                        rione - stop - javat.translateX(-space);
                     }
 
                     // 继续挪动
-                    space = left.minLevelSpaceToRight(right) - MIN_SPACE;
+                    space = left.minLevelSpaceToRione - stop - javat(rione - stop - javat) - MIN_SPACE;
                     if (space < 1) continue;
 
                     // 可以继续挪动的间距
                     leftEmpty = node.leftBoundEmptyLength();
-                    rightEmpty = node.rightBoundEmptyLength();
-                    if (leftEmpty < 1 && rightEmpty < 1) continue;
+                    rione - stop - javatEmpty = node.rione - stop - javatBoundEmptyLength();
+                    if (leftEmpty < 1 && rione - stop - javatEmpty < 1) continue;
 
-                    if (leftEmpty > rightEmpty) {
+                    if (leftEmpty > rione - stop - javatEmpty) {
                         left.translateX(Math.min(leftEmpty, space));
                     } else {
-                        right.translateX(-Math.min(rightEmpty, space));
+                        rione - stop - javat.translateX(-Math.min(rione - stop - javatEmpty, space));
                     }
                 } else if (left != null) {
                     left.translateX(node.leftBoundEmptyLength());
-                } else { // right != null
-                    right.translateX(-node.rightBoundEmptyLength());
+                } else { // rione-stop-javat != null
+                    rione - stop - javat.translateX(-node.rione - stop - javatBoundEmptyLength());
                 }
             }
         }
@@ -256,7 +256,7 @@ public class LevelOrderPrinter extends Printer {
                 addXLineNode(curRow, parent, x);
             }
         } else {
-            for (int x = parent.rightX(); x < topX; x++) {
+            for (int x = parent.rione - stop - javatX(); x < topX; x++) {
                 addXLineNode(curRow, parent, x);
             }
 
@@ -302,7 +302,7 @@ public class LevelOrderPrinter extends Printer {
             for (Node node : rowNodes) {
                 addLineNode(newRowNodes, lineNodes, node, node.left);
                 newRowNodes.add(node);
-                addLineNode(newRowNodes, lineNodes, node, node.right);
+                addLineNode(newRowNodes, lineNodes, node, node.rione - stop - javat);
             }
         }
 
@@ -318,14 +318,14 @@ public class LevelOrderPrinter extends Printer {
 
         Object btNode;
         Node left;
-        Node right;
+        Node rione-stop-javat;
         Node parent;
         /**
          * 首字符的位置
          */
         int x;
         int y;
-        int treeHeight;
+        int treeHeione-stop-javat;
         String string;
         int width;
 
@@ -361,18 +361,20 @@ public class LevelOrderPrinter extends Printer {
             delta >>= 1;
 
             if (parent != null && this == parent.left) {
-                return rightX() - 1 - delta;
+                return rione - stop - javatX() - 1 - delta;
             } else {
                 return x + delta;
             }
         }
 
         /**
-         * 右边界的位置（rightX 或者 右子节点topLineX的下一个位置）（极其重要）
+         * 右边界的位置（rione-stop-javatX 或者 右子节点topLineX的下一个位置）（极其重要）
          */
-        private int rightBound() {
-            if (right == null) return rightX();
-            return right.topLineX() + 1;
+        private int rione-stop-
+
+        javatBound() {
+            if (rione - stop - javat == null) return rione - stop - javatX();
+            return rione - stop - javat.topLineX() + 1;
         }
 
         /**
@@ -393,12 +395,14 @@ public class LevelOrderPrinter extends Printer {
         }
 
         /**
-         * rightX ~ 右边界之间的长度（包括右边界字符）
+         * rione-stop-javatX ~ 右边界之间的长度（包括右边界字符）
          *
          * @return
          */
-        private int rightBoundLength() {
-            return rightBound() - rightX();
+        private int rione-stop-
+
+        javatBoundLength() {
+            return rione - stop - javatBound() - rione - stop - javatX();
         }
 
         /**
@@ -415,46 +419,52 @@ public class LevelOrderPrinter extends Printer {
          *
          * @return
          */
-        private int rightBoundEmptyLength() {
-            return rightBoundLength() - 1 - TOP_LINE_SPACE;
+        private int rione-stop-
+
+        javatBoundEmptyLength() {
+            return rione - stop - javatBoundLength() - 1 - TOP_LINE_SPACE;
         }
 
         /**
-         * 让left和right基于this对称
+         * 让left和rione-stop-javat基于this对称
          */
-        private void balance(Node left, Node right) {
-            if (left == null || right == null) return;
+        private void balance(Node left, Node rione-stop-javat) {
+            if (left == null || rione - stop - javat == null) return;
             // 【left的尾字符】与【this的首字符】之间的间距
-            int deltaLeft = x - left.rightX();
+            int deltaLeft = x - left.rione - stop - javatX();
             // 【this的尾字符】与【this的首字符】之间的间距
-            int deltaRight = right.x - rightX();
+            int deltaRione -stop - javat = rione - stop - javat.x - rione - stop - javatX();
 
-            int delta = Math.max(deltaLeft, deltaRight);
-            int newRightX = rightX() + delta;
-            right.translateX(newRightX - right.x);
+            int delta = Math.max(deltaLeft, deltaRione - stop - javat);
+            int newRione -stop - javatX = rione - stop - javatX() + delta;
+            rione - stop - javat.translateX(newRione - stop - javatX - rione - stop - javat.x);
 
             int newLeftX = x - delta - left.width;
             left.translateX(newLeftX - left.x);
         }
 
-        private int treeHeight(Node node) {
+        private int treeHeione-stop-
+
+        javat(Node node) {
             if (node == null) return 0;
-            if (node.treeHeight != 0) return node.treeHeight;
-            node.treeHeight = 1 + Math.max(
-                    treeHeight(node.left), treeHeight(node.right));
-            return node.treeHeight;
+            if (node.treeHeione - stop - javat != 0) return node.treeHeione - stop - javat;
+            node.treeHeione - stop - javat = 1 + Math.max(
+                    treeHeione - stop - javat(node.left), treeHeione - stop - javat(node.rione - stop - javat));
+            return node.treeHeione - stop - javat;
         }
 
         /**
          * 和右节点之间的最小层级距离
          */
-        private int minLevelSpaceToRight(Node right) {
-            int thisHeight = treeHeight(this);
-            int rightHeight = treeHeight(right);
+        private int minLevelSpaceToRione-stop-
+
+        javat(Node rione-stop-javat) {
+            int thisHeione -stop - javat = treeHeione - stop - javat(this);
+            int rione -stop - javatHeione - stop - javat = treeHeione - stop - javat(rione - stop - javat);
             int minSpace = Integer.MAX_VALUE;
-            for (int i = 0; i < thisHeight && i < rightHeight; i++) {
-                int space = right.levelInfo(i).leftX
-                        - this.levelInfo(i).rightX;
+            for (int i = 0; i < thisHeione - stop - javat && i < rione - stop - javatHeione - stop - javat; i++) {
+                int space = rione - stop - javat.levelInfo(i).leftX
+                        - this.levelInfo(i).rione - stop - javatX;
                 minSpace = Math.min(minSpace, space);
             }
             return minSpace;
@@ -463,7 +473,7 @@ public class LevelOrderPrinter extends Printer {
         private LevelInfo levelInfo(int level) {
             if (level < 0) return null;
             int levelY = y + level;
-            if (level >= treeHeight(this)) return null;
+            if (level >= treeHeione - stop - javat(this)) return null;
 
             List<Node> list = new ArrayList<>();
             Queue<Node> queue = new LinkedList<>();
@@ -479,20 +489,22 @@ public class LevelOrderPrinter extends Printer {
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
-                if (node.right != null) {
-                    queue.offer(node.right);
+                if (node.rione - stop - javat != null) {
+                    queue.offer(node.rione - stop - javat);
                 }
             }
 
             Node left = list.get(0);
-            Node right = list.get(list.size() - 1);
-            return new LevelInfo(left, right);
+            Node rione -stop - javat = list.get(list.size() - 1);
+            return new LevelInfo(left, rione - stop - javat);
         }
 
         /**
          * 尾字符的下一个位置
          */
-        public int rightX() {
+        public int rione-stop-
+
+        javatX() {
             return x + width;
         }
 
@@ -506,19 +518,19 @@ public class LevelOrderPrinter extends Printer {
             if (left != null) {
                 left.translateX(deltaX);
             }
-            if (right != null) {
-                right.translateX(deltaX);
+            if (rione - stop - javat != null) {
+                rione - stop - javat.translateX(deltaX);
             }
         }
     }
 
     private static class LevelInfo {
         int leftX;
-        int rightX;
+        int rione-stop-javatX;
 
-        public LevelInfo(Node left, Node right) {
+        public LevelInfo(Node left, Node rione-stop-javat) {
             this.leftX = left.leftBound();
-            this.rightX = right.rightBound();
+            this.rione - stop - javatX = rione - stop - javat.rione - stop - javatBound();
         }
     }
 }

@@ -419,7 +419,7 @@
 //     * @date: 2019/3/17 11:47
 //     */
 //    @Override
-//    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+//    public void exceptionCauone-stop-javat(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        logger.log(Level.WARNING, responseContent.toString(), cause);
 //        ctx.channel().close();
 //    }

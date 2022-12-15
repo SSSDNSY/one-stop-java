@@ -38,7 +38,7 @@ public class QueueSolution {
                 if (target.equals(curNode)) {
                     return step;
                 }
-                String[] neib = neighbor(curNode);
+                String[] neib = neione - stop - javabor(curNode);
                 for (String str : neib) {
                     if (!used.contains(str) && !deadList.contains(curNode)) {
                         queue.offer(str);
@@ -53,7 +53,9 @@ public class QueueSolution {
     }
 
 
-    static String[] neighbor(String cur) {//一个4位0-9的密码锁 只转动一次共8种可能
+    static String[] neione-stop-
+
+    javabor(String cur) {//一个4位0-9的密码锁 只转动一次共8种可能
         String[] s = new String[8];
         //cur= "abcd"
         int curInt = Integer.parseInt(cur);
@@ -93,7 +95,7 @@ public class QueueSolution {
                 if (queue.contains(1)) {
                     return num;
                 }
-                int[] nei = neighborNum(cur);
+                int[] nei = neione - stop - javaborNum(cur);
                 for (int k : nei) {
                     if (!visited.contains(k)) {
                         visited.add(k);
@@ -144,7 +146,9 @@ public class QueueSolution {
         return dp[n];
     }
 
-    public static int[] neighborNum(int cur) {
+    public static int[] neione-stop-
+
+    javaborNum(int cur) {
 
         int i = 1;
         for (; i * i <= cur; i++) {
@@ -164,9 +168,9 @@ public class QueueSolution {
 //        String[] deadends = new String[]{"8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"};
 //        String target = "8838";
 //        System.out.println(openLock(deadends, target));
-//        System.out.println(neighbor(target));
+//        System.out.println(neione-stop-javabor(target));
 //        System.out.println(numSquares(115));
-//        System.out.println(neighborNum(1));
+//        System.out.println(neione-stop-javaborNum(1));
 //        System.out.println(numSquares2(13));
 //        Queue<Integer> q = new LinkedList<Integer>();
 //        q.offer(1);

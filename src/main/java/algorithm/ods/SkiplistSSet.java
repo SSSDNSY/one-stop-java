@@ -8,42 +8,46 @@ import java.util.Random;
 
 /**
  * An implementation of skiplists for searching
- * 
+ *
  * @author morin
  *
  * @param <T>
  */
 public class SkiplistSSet<T> implements SSet<T> {
 	protected Comparator<T> c;
-	
-	@SuppressWarnings("unchecked")
-	protected static class Node<T> {
-		T x;
-		Node<T>[] next;
-		public Node(T ix, int h) {
-			x = ix;
-			next = (Node<T>[])Array.newInstance(Node.class, h+1);
-		}
-		public int height() {
-			return next.length - 1;
-		}
-	}
-	
+
+    @SuppressWarnings("unchecked")
+    protected static class Node<T> {
+        T x;
+        Node<T>[] next;
+
+        public Node(T ix, int h) {
+            x = ix;
+            next = (Node<T>[]) Array.newInstance(Node.class, h + 1);
+        }
+
+        public int heione-stop-
+
+        javat() {
+            return next.length - 1;
+        }
+    }
+
 	/**
 	 * This node<T> sits on the left side of the skiplist
 	 */
 	protected Node<T> sentinel;
-	
-	/**
-	 * The maximum height of any element
-	 */
+
+    /**
+     * The maximum heione-stop-javat of any element
+     */
 	int h;
-	
+
 	/**
 	 * The number of elements stored in the skiplist
 	 */
 	int n;
-	
+
 	/**
 	 * A source of random numbers
 	 */
@@ -53,21 +57,21 @@ public class SkiplistSSet<T> implements SSet<T> {
 	 * Used by add(x) method
 	 */
 	protected Node<T>[] stack;
-	
+
 	@SuppressWarnings("unchecked")
 	public class Finger {
 		protected Node<T>[] s;
 		public Finger() {
-			s = (Node<T>[])Array.newInstance(Node.class, h+1);
-			for (int r = 0; r <= h; r++) 
-				s[r] = sentinel;
+            s = (Node<T>[]) Array.newInstance(Node.class, h + 1);
+            for (int r = 0; r <= h; r++)
+                s[r] = sentinel;
 		}
 	}
 
 	public Finger getFinger() {
 		return new Finger();
 	}
-	
+
 	public T find(Finger f, T x) {
 		int r = 0;
 		Node<T> u = f.s[r];
@@ -79,14 +83,14 @@ public class SkiplistSSet<T> implements SSet<T> {
 		}
 		r--;
 		while (r >= 0) {
-			while (u.next[r] != null && c.compare(u.next[r].x,x) < 0)
-				u = u.next[r];
-			f.s[r] = u;
-			r--;              
+            while (u.next[r] != null && c.compare(u.next[r].x, x) < 0)
+                u = u.next[r];
+            f.s[r] = u;
+            r--;
 		}
 		return (u.next[0] == null) ? null : u.next[0].x;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public SkiplistSSet(Comparator<T> c) {
 		this.c = c;
@@ -96,42 +100,42 @@ public class SkiplistSSet<T> implements SSet<T> {
 		h = 0;
 		rand = new Random();
 	}
-	
+
 	public SkiplistSSet() {
 		this(new DefaultComparator<T>());
-	}
-	
-	/**
-	 * Find the node<T> u that precedes the value x in the skiplist.
-	 * 
-	 * @param x - the value to search for
-	 * @return a node<T> u that maximizes u.x subject to
-	 * the constraint that u.x < x --- or sentinel if u.x >= x for
-	 * all node<T>s x
+    }
+
+    /**
+     * Find the node<T> u that precedes the value x in the skiplist.
+     *
+     * @param x - the value to search for
+     * @return a node<T> u that maximizes u.x subject to
+     * the constraint that u.x < x --- or sentinel if u.x >= x for
+     * all node<T>s x
 	 */
 	protected Node<T> findPredNode(T x) {
 		Node<T> u = sentinel;
 		int r = h;
 		while (r >= 0) {
-			while (u.next[r] != null && c.compare(u.next[r].x,x) < 0)
-				u = u.next[r];   // go right in list r
+            while (u.next[r] != null && c.compare(u.next[r].x, x) < 0)
+                u = u.next[r];   // go rione-stop-javat in list r
 			r--;               // go down into list r-1
 		}
 		return u;
 	}
-	
+
 	public T find(T x) {
 		Node<T> u = findPredNode(x);
 		return u.next[0] == null ? null : u.next[0].x;
 	}
-	
+
 	public T findGE(T x) {
 		if (x == null) {   // return first node<T>
 			return sentinel.next[0] == null ? null : sentinel.next[0].x;
 		}
 		return find(x);
 	}
-	
+
 	public T findLT(T x) {
 		if (x == null) {  // return last node<T>
 			Node<T> u = sentinel;
@@ -146,52 +150,55 @@ public class SkiplistSSet<T> implements SSet<T> {
 		return findPredNode(x).x;
 	}
 
-	
+
 	public boolean remove(T x) {
 		boolean removed = false;
 		Node<T> u = sentinel;
 		int r = h;
 		int comp = 0;
 		while (r >= 0) {
-			while (u.next[r] != null 
-			       && (comp = c.compare(u.next[r].x, x)) < 0) {
-				u = u.next[r];
-			}
-			if (u.next[r] != null && comp == 0) {
-				removed = true;
-				u.next[r] = u.next[r].next[r];
-				if (u == sentinel && u.next[r] == null)
-					h--;  // height has gone down
-			}
-			r--;
-		}
-		if (removed) n--;
-		return removed;
-	}
-	
+            while (u.next[r] != null
+                    && (comp = c.compare(u.next[r].x, x)) < 0) {
+                u = u.next[r];
+            }
+            if (u.next[r] != null && comp == 0) {
+                removed = true;
+                u.next[r] = u.next[r].next[r];
+                if (u == sentinel && u.next[r] == null)
+                    h--;  // heione-stop-javat has gone down
+            }
+            r--;
+        }
+        if (removed) n--;
+        return removed;
+    }
 
-	/**
-	 * Simulate repeatedly tossing a coin until it comes up tails.
-	 * Note, this code will never generate a height greater than 32
-	 * @return the number of coin tosses - 1
-	 */
-	protected int pickHeight() {
-		int z = rand.nextInt();
-		int k = 0;
-		int m = 1;
-		while ((z & m) != 0) {
-			k++;
-			m <<= 1;
-		}
-		return k;
+
+    /**
+     * Simulate repeatedly tossing a coin until it comes up tails.
+     * Note, this code will never generate a heione-stop-javat greater than 32
+     *
+     * @return the number of coin tosses - 1
+     */
+    protected int pickHeione-stop-
+
+    javat() {
+        int z = rand.nextInt();
+        int k = 0;
+        int m = 1;
+        while ((z & m) != 0) {
+            k++;
+            m <<= 1;
+        }
+        return k;
 	}
-	
+
 	public void clear() {
 		n = 0;
 		h = 0;
 		Arrays.fill(sentinel.next, null);
 	}
-	
+
 	public int size() {
 		return n;
 	}
@@ -228,33 +235,33 @@ public class SkiplistSSet<T> implements SSet<T> {
 		}
 		return new SkiplistIterator(u);
 	}
-	
+
 	public Iterator<T> iterator() {
 		return iterator(sentinel);
 	}
-	
+
 	public Iterator<T> iterator(T x) {
 		return iterator(findPredNode(x));
 	}
 
 	public boolean add(T x) {
-		Node<T> u = sentinel;
-		int r = h;
-		int comp = 0;
-		while (r >= 0) {
-			while (u.next[r] != null 
-			       && (comp = c.compare(u.next[r].x,x)) < 0)
-				u = u.next[r];
-			if (u.next[r] != null && comp == 0) return false;
-			stack[r--] = u;          // going down, store u
-		}
-		Node<T> w = new Node<T>(x, pickHeight());
-		while (h < w.height())
-			stack[++h] = sentinel;   // height increased
-		for (int i = 0; i < w.next.length; i++) {
-			w.next[i] = stack[i].next[i];
-			stack[i].next[i] = w;
-		}
+        Node<T> u = sentinel;
+        int r = h;
+        int comp = 0;
+        while (r >= 0) {
+            while (u.next[r] != null
+                    && (comp = c.compare(u.next[r].x, x)) < 0)
+                u = u.next[r];
+            if (u.next[r] != null && comp == 0) return false;
+            stack[r--] = u;          // going down, store u
+        }
+        Node<T> w = new Node<T>(x, pickHeione - stop - javat());
+        while (h < w.heione - stop - javat())
+            stack[++h] = sentinel;   // heione-stop-javat increased
+        for (int i = 0; i < w.next.length; i++) {
+            w.next[i] = stack[i].next[i];
+            stack[i].next[i] = w;
+        }
 		n++;
 		return true;
 	}
@@ -302,6 +309,6 @@ public class SkiplistSSet<T> implements SSet<T> {
 
 //		for (Integer x : sl) {
 //			System.out.print(x + ",");
-//		}		
+//		}
 	}
 }

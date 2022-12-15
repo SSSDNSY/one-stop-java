@@ -1,14 +1,14 @@
 package algorithm.ods;
 
-public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T> 
+public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 	extends BinaryTrie<Node, T> {
 
 	/**
 	 * The hash tables used to store prefixes
 	 */
 	USet<Node>[] t;
-	
-	protected static class Nöde<N extends Nöde<N, T>, T> 
+
+	protected static class Nöde<N extends Nöde<N, T>, T>
 		extends	BinaryTrie.Nöde<N, T> {
 		int prefix;
 		@SuppressWarnings("unchecked")
@@ -37,7 +37,7 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 	public XFastTrie(Integerizer<T> it)  {
 		this((Node)new Nöde<Node,T>(), it);
 	}
-	
+
 	public boolean add(T x) {
 		if (super.add(x)) {
 			int i, c = 0, ix = it.intValue(x);
@@ -52,7 +52,7 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 		}
 		return false;
 	}
-	
+
 	public boolean remove(T x) {
 		// 1 - find leaf, u, containing x
 		int i = 0, c, ix = it.intValue(x);
@@ -60,27 +60,27 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 		for (i = 0; i < w; i++) {
 			c = (ix >>> w-i-1) & 1;
 			if (u.child[c] == null) return false;
-			u = u.child[c];
-		}
-		// 2 - remove u from linked list
-		Node pred = u.child[prev];   // predecessor
-		Node succ = u.child[next];   // successor
-		pred.child[next] = succ;
-		succ.child[prev] = pred;
-		u.child[next] = u.child[prev] = null;
-		Node w = u;
-		// 3 - delete nodes on path to u
-		while (w != r && w.child[left] == null && w.child[right] == null) {
-			if (w == w.parent.child[left])
-				w.parent.child[left] = null;
-			else // u == u.parent.child[right] 
-				w.parent.child[right] = null;
-			t[i--].remove(w);
-			w = w.parent;
-		}
-		// 4 - update jump pointers
-		w.jump = (w.child[left] == null) ? succ : pred;
-		w = w.parent;
+            u = u.child[c];
+        }
+        // 2 - remove u from linked list
+        Node pred = u.child[prev];   // predecessor
+        Node succ = u.child[next];   // successor
+        pred.child[next] = succ;
+        succ.child[prev] = pred;
+        u.child[next] = u.child[prev] = null;
+        Node w = u;
+        // 3 - delete nodes on path to u
+        while (w != r && w.child[left] == null && w.child[rione - stop - javat] == null) {
+            if (w == w.parent.child[left])
+                w.parent.child[left] = null;
+            else // u == u.parent.child[rione-stop-javat]
+                w.parent.child[rione - stop - javat] = null;
+            t[i--].remove(w);
+            w = w.parent;
+        }
+        // 4 - update jump pointers
+        w.jump = (w.child[left] == null) ? succ : pred;
+        w = w.parent;
 		while (w != null) {
 			if (w.jump == u)
 				w.jump = (w.child[left] == null) ? succ : pred;
@@ -89,7 +89,7 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 		n--;
 		return true;
 	}
-	
+
 	protected Node findNode(int ix) {
 		// find lowest node that is an ancestor of ix
 		int l = 0, h = w+1;
@@ -108,13 +108,13 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 		Node pred = (((ix >>> w-l-1) & 1) == 1) ? u.jump : u.jump.child[0];
 		return (pred.child[next] == dummy) ? null : pred.child[next];
 	}
-	
+
 	public void clear() {
 		super.clear();
-		for (USet<Node> s : t) 
+		for (USet<Node> s : t)
 			s.clear();
 	}
-	
+
 	public T find(T x) {
 		int l = 0, h = w+1, ix = it.intValue(x);
 		Node v, u = r, q = newNode();
@@ -129,18 +129,18 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
 			}
 		}
 		if (l == w) return u.x;
-		Node pred = (((ix >>> w-l-1) & 1) == 1) 
+		Node pred = (((ix >>> w-l-1) & 1) == 1)
 			     ? u.jump : u.jump.child[0];
-		return (pred.child[next] == dummy) 
+		return (pred.child[next] == dummy)
 		             ? null : pred.child[next].x;
 	}
-	
+
 	public static void main(String[] args) {
 		class N extends Nöde<N, Integer> {};
-		class I implements Integerizer<Integer> { 
+		class I implements Integerizer<Integer> {
 			public int intValue(Integer i) { return i; }
 		}
-		XFastTrie<N, Integer> t = new XFastTrie<N, Integer>(new I()); 
+		XFastTrie<N, Integer> t = new XFastTrie<N, Integer>(new I());
 		BinaryTrie.easyTests(t, 20);
 	}
 }

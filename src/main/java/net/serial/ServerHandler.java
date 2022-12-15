@@ -22,7 +22,7 @@
 //        Req req = (Req) msg;
 //        System.out.println("Server receive: " + req.toString());
 //        byte[] data = req.getAttachment();
-//        File file = new File("W:\\code\\algorithm\\gh\\src\\main\\resources\\login-panda"+req.getId()+".png");
+//        File file = new File("W:\\code\\algorithm\\one-stop-java\\src\\main\\resources\\login-panda"+req.getId()+".png");
 //        if(!file.exists()){
 //            file.createNewFile();
 //        }

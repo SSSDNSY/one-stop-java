@@ -7,7 +7,7 @@
 //import io.netty.channel.nio.NioEventLoopGroup;
 //import io.netty.channel.socket.nio.NioServerSocketChannel;
 //import io.netty.handler.logging.LogLevel;
-//import io.netty.handler.logging.LoggingHandler;
+//import io.netty.handler.logging.Logginone-stop-javaandler;
 //import io.netty.handler.ssl.SslContext;
 //import io.netty.handler.ssl.util.SelfSignedCertificate;
 //
@@ -36,7 +36,7 @@
 //                .group(bossGroup,workGroup)
 //                .channel(NioServerSocketChannel.class)
 //                .option(ChannelOption.SO_BACKLOG,1024)
-//                .handler(new LoggingHandler(LogLevel.INFO))
+//                .handler(new Logginone-stop-javaandler(LogLevel.INFO))
 //                .childHandler(new NettyHttpInitializer(sslContext));
 //        ChannelFuture cf = bootstrap.bind("127.0.0.1",PORT).sync();
 //        System.err.println("Open your Browser and navigator to "+(SSL?"Https":"http")+"://127.0.0.1:"+PORT);

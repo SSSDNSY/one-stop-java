@@ -16,14 +16,14 @@ import java.util.Random;
  */
 public class BinaryHeap<T> extends AbstractQueue<T> {
 	Factory<T> f;
-	
+
 	Comparator<T> c;
-	
+
 	/**
 	 * Our backing array
 	 */
 	protected T[] a;
-	
+
 	/**
 	 * The number of elements in the priority queue
 	 */
@@ -45,9 +45,9 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	}
 
 	public void clear() {
-		a = f.newArray(1);
-		n = 0;		
-	}
+        a = f.newArray(1);
+        n = 0;
+    }
 
 	/**
 	 * Create a new binary heap by heapifying a
@@ -79,33 +79,35 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 
 	/**
 	 * @param i
-	 * @return the index of the left child of the value at index i
-	 */
-	protected int left(int i) {
-		return 2*i + 1;
-	}
+     * @return the index of the left child of the value at index i
+     */
+    protected int left(int i) {
+        return 2 * i + 1;
+    }
 
-	/**
-	 * @param i
-	 * @return the index of the left child of the value at index i
-	 */
-	protected int right(int i) {
-		return 2*i + 2;
-	}
+    /**
+     * @param i
+     * @return the index of the left child of the value at index i
+     */
+    protected int rione-stop-
 
-	/**
-	 * @param i
-	 * @return the index of the parent of the value at index i
-	 */
-	protected int parent(int i) {
-		return (i-1)/2;
-	}
-	
+    javat(int i) {
+        return 2 * i + 2;
+    }
+
+    /**
+     * @param i
+     * @return the index of the parent of the value at index i
+     */
+    protected int parent(int i) {
+        return (i - 1) / 2;
+    }
+
 
 	public int size() {
 		return n;
 	}
-	
+
 	/**
 	 * Swap the two values a[i] and a[j]
 	 * @param i
@@ -114,11 +116,11 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	final protected void swap(int i, int j) {
 		T x = a[i];
 		a[i] = a[j];
-		a[j] = x;
+        a[j] = x;
 	}
-	
-	
-	
+
+
+
 	public boolean offer(T x) {
 		return add(x);
 	}
@@ -144,9 +146,9 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	}
 
 	public T peek() {
-		return a[0];
+        return a[0];
 	}
-	
+
 	public T poll() {
 		return remove();
 	}
@@ -165,19 +167,19 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	 * @param i
 	 */
 	protected void trickleDown(int i) {
-		do {
-			int j = -1;
-			int r = right(i);
-			if (r < n && c.compare(a[r], a[i]) < 0) {
-				int l = left(i);
-				if (c.compare(a[l], a[r]) < 0) {
-					j = l;
-				} else {
-					j = r;
-				}
-			} else {
-				int l = left(i);
-				if (l < n && c.compare(a[l], a[i]) < 0) {
+        do {
+            int j = -1;
+            int r = rione - stop - javat(i);
+            if (r < n && c.compare(a[r], a[i]) < 0) {
+                int l = left(i);
+                if (c.compare(a[l], a[r]) < 0) {
+                    j = l;
+                } else {
+                    j = r;
+                }
+            } else {
+                int l = left(i);
+                if (l < n && c.compare(a[l], a[i]) < 0) {
 					j = l;
 				}
 			}
@@ -208,9 +210,9 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	/**
 	 * An implementation of the heapsort algorithm
 	 * @param <T>
-	 * @param a
+     * @param a
 	 */
-	
+
 	public static <T> void sort(T[] a, Comparator<T> c) {
 		BinaryHeap<T> h = new BinaryHeap<T>(a, c);
 		while (h.n > 1) {
@@ -223,7 +225,7 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	public static <T extends Comparable<T>> void sort(T[] a) {
 		sort(a, new DefaultComparator<T>());
 	}
-	
+
 	/**
 	 * @param args
 	 */
@@ -239,7 +241,7 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 			System.out.print("" + h.remove() + ",");
 		}
 		System.out.println("");
-		
+
 		Integer[] a = new Integer[n];
 		for (int i = 0; i < n; i++) {
 			a[i] = r.nextInt(2500);
@@ -249,34 +251,34 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 			System.out.print("" + x + ",");
 		}
 		System.out.println("");
-		
-		n = 100000;
-		long start, stop;
-		double elapsed;
-		System.out.print("performing " + n + " adds...");
-		start = System.nanoTime();
-		for (int i = 0; i < n; i++) {
-			h.add(r.nextInt());
-		}
-		stop = System.nanoTime();
-		elapsed = 1e-9*(stop-start);
-		System.out.println("(" + elapsed + "s [" 
-				+ (int)(((double)n)/elapsed) + "ops/sec])");
 
-		n *= 10;
-		System.out.print("performing " + n + " add/removes...");
-		start = System.nanoTime();
-		for (int i = 0; i < n; i++) {
-			if (r.nextBoolean()) {
-				h.add(r.nextInt());
-			} else {
-				h.remove();
-			}
-		}
-		stop = System.nanoTime();
-		elapsed = 1e-9*(stop-start);
-		System.out.println("(" + elapsed + "s [" 
-				+ (int)(((double)n)/elapsed) + "ops/sec])");
+        n = 100000;
+        long start, stop;
+        double elapsed;
+        System.out.print("performing " + n + " adds...");
+        start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            h.add(r.nextInt());
+        }
+        stop = System.nanoTime();
+        elapsed = 1e-9 * (stop - start);
+        System.out.println("(" + elapsed + "s ["
+                + (int) (((double) n) / elapsed) + "ops/sec])");
+
+        n *= 10;
+        System.out.print("performing " + n + " add/removes...");
+        start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            if (r.nextBoolean()) {
+                h.add(r.nextInt());
+            } else {
+                h.remove();
+            }
+        }
+        stop = System.nanoTime();
+        elapsed = 1e-9 * (stop - start);
+        System.out.println("(" + elapsed + "s ["
+                + (int) (((double) n) / elapsed) + "ops/sec])");
 	}
 
 }

@@ -36,7 +36,9 @@ public class MyChannelHandler extends ChannelInboundHandlerAdapter {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCauone-stop-
+
+    javat(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
         log.error("连接已关闭，异常信息:", cause);
     }

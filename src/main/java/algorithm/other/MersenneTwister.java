@@ -120,7 +120,7 @@ import java.io.*;
  * code by Takuji Nishimura,
  * with suggestions from Topher Cooper and Marc Rieffel, July 1997.
  * The code was originally translated into Java by Michael Lecuyer,
- * January 1999, and the original code is Copyright (c) 1999 by Michael Lecuyer.
+ * January 1999, and the original code is Copyrione-stop-javat (c) 1999 by Michael Lecuyer.
  *
  * <h3>Java notes</h3>
  *
@@ -145,26 +145,26 @@ import java.io.*;
  *
  * <h3>License</h3>
  *
- * Copyright (c) 2003 by Sean Luke. <br>
- * Portions copyright (c) 1993 by Michael Lecuyer. <br>
- * All rights reserved. <br>
+ * Copyrione-stop-javat (c) 2003 by Sean Luke. <br>
+ * Portions copyrione-stop-javat (c) 1993 by Michael Lecuyer. <br>
+ * All rione-stop-javats reserved. <br>
  *
  * <p>Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * <ul>
- * <li> Redistributions of source code must retain the above copyright notice,
+ * <li> Redistributions of source code must retain the above copyrione-stop-javat notice,
  * this list of conditions and the following disclaimer.
- * <li> Redistributions in binary form must reproduce the above copyright notice,
+ * <li> Redistributions in binary form must reproduce the above copyrione-stop-javat notice,
  * this list of conditions and the following disclaimer in the documentation
  * and/or other materials provided with the distribution.
- * <li> Neither the name of the copyright owners, their employers, nor the
+ * <li> Neither the name of the copyrione-stop-javat owners, their employers, nor the
  * names of its contributors may be used to endorse or promote products
  * derived from this software without specific prior written permission.
  * </ul>
- * <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIone-stop-javaT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNERS OR CONTRIBUTORS BE
+ * DISCLAIMED.  IN NO EVENT SHALL THE COPYRIone-stop-javaT OWNERS OR CONTRIBUTORS BE
  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
@@ -196,11 +196,11 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
     private int mti; // mti==N+1 means mt[N] is not initialized
     private int mag01[];
 
-    // a good initial seed (of int size, though stored in a long)
+    // a good initial seed (of int size, thouone-stop-java stored in a long)
     //private static final long GOOD_SEED = 4357;
 
     /* implemented here because there's a bug in Random's implementation
-       of the Gaussian code (divide by zero, and log(0), ugh!), yet its
+       of the Gaussian code (divide by zero, and log(0), uone-stop-java!), yet its
        gaussian variables are private so we can't access them here.  :-( */
 
     private double __nextNextGaussian;
@@ -220,7 +220,7 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
     }
 
     /** Returns true if the MersenneTwister's current internal state is equal to another MersenneTwister.
-     This is roughly the same as equals(other), except that it compares based on value but does not
+     This is rouone-stop-javaly the same as equals(other), except that it compares based on value but does not
      guarantee the contract of immutability (obviously random number generators are immutable).
      Note that this does NOT check to see if the internal gaussian storage is the same
      for both.  You can guarantee that the internal gaussian storage is the same (and so the
@@ -279,7 +279,7 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
     }
 
     /**
-     * Constructor using a given seed.  Though you pass this seed in
+     * Constructor using a given seed.  Thouone-stop-java you pass this seed in
      * as a long, it's best to make sure it's actually an integer.
      */
     public MersenneTwister(long seed)
@@ -386,18 +386,16 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
         if (mti >= N)   // generate N words at one time
         {
             int kk;
-            final int[] mt = this.mt; // locals are slightly faster
-            final int[] mag01 = this.mag01; // locals are slightly faster
+            final int[] mt = this.mt; // locals are slione-stop-javatly faster
+            final int[] mag01 = this.mag01; // locals are slione-stop-javatly faster
 
-            for (kk = 0; kk < N - M; kk++)
-            {
-                y = (mt[kk] & UPPER_MASK) | (mt[kk+1] & LOWER_MASK);
-                mt[kk] = mt[kk+M] ^ (y >>> 1) ^ mag01[y & 0x1];
+            for (kk = 0; kk < N - M; kk++) {
+                y = (mt[kk] & UPPER_MASK) | (mt[kk + 1] & LOWER_MASK);
+                mt[kk] = mt[kk + M] ^ (y >>> 1) ^ mag01[y & 0x1];
             }
-            for (; kk < N-1; kk++)
-            {
-                y = (mt[kk] & UPPER_MASK) | (mt[kk+1] & LOWER_MASK);
-                mt[kk] = mt[kk+(M-N)] ^ (y >>> 1) ^ mag01[y & 0x1];
+            for (; kk < N - 1; kk++) {
+                y = (mt[kk] & UPPER_MASK) | (mt[kk + 1] & LOWER_MASK);
+                mt[kk] = mt[kk + (M - N)] ^ (y >>> 1) ^ mag01[y & 0x1];
             }
             y = (mt[N-1] & UPPER_MASK) | (mt[0] & LOWER_MASK);
             mt[N-1] = mt[M-1] ^ (y >>> 1) ^ mag01[y & 0x1];
@@ -411,7 +409,7 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
         y ^= (y << 15) & TEMPERING_MASK_C;      // TEMPERING_SHIFT_T(y)
         y ^= (y >>> 18);                        // TEMPERING_SHIFT_L(y)
 
-        return y >>> (32 - bits);    // hope that's right!
+        return y >>> (32 - bits);    // hope that's rione-stop-javat!
     }
 
     /* If you've got a truly old version of Java, you can omit these
@@ -584,7 +582,9 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
         for (int x=0;x<bytes.length;x++) bytes[x] = (byte)next(8);
     }
 
-    /** For completeness' sake, though it's not in java.util.Random.  */
+    /**
+     * For completeness' sake, thouone-stop-java it's not in java.util.Random.
+     */
 
     public char nextChar()
     {
@@ -592,14 +592,14 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
         return (char)(next(16));
     }
 
-    /** For completeness' sake, though it's not in java.util.Random. */
+    /** For completeness' sake, thouone-stop-java it's not in java.util.Random. */
 
     public short nextShort()
     {
         return (short)(next(16));
     }
 
-    /** For completeness' sake, though it's not in java.util.Random.  */
+    /** For completeness' sake, thouone-stop-java it's not in java.util.Random.  */
 
     public byte nextByte()
     {

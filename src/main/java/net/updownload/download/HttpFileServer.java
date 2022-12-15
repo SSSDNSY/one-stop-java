@@ -13,7 +13,7 @@
 //import io.netty.handler.codec.http.HttpRequestEncoder;
 //import io.netty.handler.codec.http.HttpResponseEncoder;
 //import io.netty.handler.logging.LogLevel;
-//import io.netty.handler.logging.LoggingHandler;
+//import io.netty.handler.logging.Logginone-stop-javaandler;
 //import io.netty.handler.stream.ChunkedWriteHandler;
 //import net.http.NettyHttpInitializer;
 //
@@ -30,7 +30,7 @@
 //                .group(bossGroup,workGroup)
 //                .channel(NioServerSocketChannel.class)
 ////                .option(ChannelOption.SO_BACKLOG,1024)
-////                .handler(new LoggingHandler(LogLevel.INFO))
+////                .handler(new Logginone-stop-javaandler(LogLevel.INFO))
 //                .childHandler(new ChannelInitializer<SocketChannel>() {
 //                    @Override
 //                    protected void initChannel(SocketChannel sc) throws Exception {

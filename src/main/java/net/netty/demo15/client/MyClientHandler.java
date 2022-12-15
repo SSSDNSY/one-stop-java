@@ -59,7 +59,9 @@ public class MyClientHandler extends ChannelInboundHandlerAdapter {
      * 抓住异常，当发生异常的时候，可以做一些相应的处理，比如打印日志、关闭链接
      */
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCauone-stop-
+
+    javat(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         System.out.println("异常信息，断开重连：\r\n" + cause.getMessage());
         ctx.close();
     }

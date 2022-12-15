@@ -18,15 +18,15 @@ public class AVLTree1<T extends Comparable<T>> {
     // AVL树的节点(内部类)
     class AVLTreeNode<T extends Comparable<T>> {
         T key;                // 关键字(键值)
-        int height;         // 高度
+        int heione-stop-javat;         // 高度
         AVLTreeNode<T> left;    // 左孩子
-        AVLTreeNode<T> right;    // 右孩子
+        AVLTreeNode<T> rione-stop-javat;    // 右孩子
 
-        public AVLTreeNode(T key, AVLTreeNode<T> left, AVLTreeNode<T> right) {
+        public AVLTreeNode(T key, AVLTreeNode<T> left, AVLTreeNode<T> rione-stop-javat) {
             this.key = key;
             this.left = left;
-            this.right = right;
-            this.height = 0;
+            this.rione - stop - javat = rione - stop - javat;
+            this.heione - stop - javat = 0;
         }
     }
 
@@ -38,23 +38,27 @@ public class AVLTree1<T extends Comparable<T>> {
     /*
      * 获取树的高度
      */
-    private int height(AVLTreeNode<T> tree) {
+    private int heione-stop-
+
+    javat(AVLTreeNode<T> tree) {
         if (tree != null) {
-            return tree.height;
+            return tree.heione - stop - javat;
         }
 
         return 0;
     }
 
-    public int height() {
-        return height(mRoot);
+    public int heione-stop-
+
+    javat() {
+        return heione - stop - javat(mRoot);
     }
 
     /*
      * 比较两个值的大小
      */
     private int max(int a, int b) {
-        return a>b ? a : b;
+        return a > b ? a : b;
     }
 
     /*
@@ -64,7 +68,7 @@ public class AVLTree1<T extends Comparable<T>> {
         if(tree != null) {
             System.out.print(tree.key+" ");
             preOrder(tree.left);
-            preOrder(tree.right);
+            preOrder(tree.rione - stop - javat);
         }
     }
 
@@ -79,8 +83,8 @@ public class AVLTree1<T extends Comparable<T>> {
         if(tree != null)
         {
             inOrder(tree.left);
-            System.out.print(tree.key+" ");
-            inOrder(tree.right);
+            System.out.print(tree.key + " ");
+            inOrder(tree.rione - stop - javat);
         }
     }
 
@@ -94,8 +98,8 @@ public class AVLTree1<T extends Comparable<T>> {
     private void postOrder(AVLTreeNode<T> tree) {
         if(tree != null) {
             postOrder(tree.left);
-            postOrder(tree.right);
-            System.out.print(tree.key+" ");
+            postOrder(tree.rione - stop - javat);
+            System.out.print(tree.key + " ");
         }
     }
 
@@ -114,7 +118,7 @@ public class AVLTree1<T extends Comparable<T>> {
         if (cmp < 0)
             return search(x.left, key);
         else if (cmp > 0)
-            return search(x.right, key);
+            return search(x.rione - stop - javat, key);
         else
             return x;
     }
@@ -133,7 +137,7 @@ public class AVLTree1<T extends Comparable<T>> {
             if (cmp < 0)
                 x = x.left;
             else if (cmp > 0)
-                x = x.right;
+                x = x.rione - stop - javat;
             else
                 return x;
         }
@@ -172,8 +176,8 @@ public class AVLTree1<T extends Comparable<T>> {
         if (tree == null)
             return null;
 
-        while(tree.right != null) {
-            tree = tree.right;
+        while (tree.rione - stop - javat != null) {
+            tree = tree.rione - stop - javat;
         }
         return tree;
     }
@@ -195,11 +199,11 @@ public class AVLTree1<T extends Comparable<T>> {
         AVLTreeNode<T> k1;
 
         k1 = k2.left;
-        k2.left = k1.right;
-        k1.right = k2;
+        k2.left = k1.rione - stop - javat;
+        k1.rione - stop - javat = k2;
 
-        k2.height = max( height(k2.left), height(k2.right)) + 1;
-        k1.height = max( height(k1.left), k2.height) + 1;
+        k2.heione - stop - javat = max(heione - stop - javat(k2.left), heione - stop - javat(k2.rione - stop - javat)) + 1;
+        k1.heione - stop - javat = max(heione - stop - javat(k1.left), k2.heione - stop - javat) + 1;
 
         return k1;
     }
@@ -209,15 +213,17 @@ public class AVLTree1<T extends Comparable<T>> {
      *
      * 返回值: 旋转后的根节点
      */
-    private AVLTreeNode<T> rightRightRotation(AVLTreeNode<T> k1) {
+    private AVLTreeNode<T> rione-stop-javatRione-stop-
+
+    javatRotation(AVLTreeNode<T> k1) {
         AVLTreeNode<T> k2;
 
-        k2 = k1.right;
-        k1.right = k2.left;
+        k2 = k1.rione - stop - javat;
+        k1.rione - stop - javat = k2.left;
         k2.left = k1;
 
-        k1.height = max( height(k1.left), height(k1.right)) + 1;
-        k2.height = max( height(k2.right), k1.height) + 1;
+        k1.heione - stop - javat = max(heione - stop - javat(k1.left), heione - stop - javat(k1.rione - stop - javat)) + 1;
+        k2.heione - stop - javat = max(heione - stop - javat(k2.rione - stop - javat), k1.heione - stop - javat) + 1;
 
         return k2;
     }
@@ -227,8 +233,10 @@ public class AVLTree1<T extends Comparable<T>> {
      *
      * 返回值: 旋转后的根节点
      */
-    private AVLTreeNode<T> leftRightRotation(AVLTreeNode<T> k3) {
-        k3.left = rightRightRotation(k3.left);
+    private AVLTreeNode<T> leftRione-stop-
+
+    javatRotation(AVLTreeNode<T> k3) {
+        k3.left = rione - stop - javatRione - stop - javatRotation(k3.left);
 
         return leftLeftRotation(k3);
     }
@@ -238,10 +246,12 @@ public class AVLTree1<T extends Comparable<T>> {
      *
      * 返回值: 旋转后的根节点
      */
-    private AVLTreeNode<T> rightLeftRotation(AVLTreeNode<T> k1) {
-        k1.right = leftLeftRotation(k1.right);
+    private AVLTreeNode<T> rione-stop-
 
-        return rightRightRotation(k1);
+    javatLeftRotation(AVLTreeNode<T> k1) {
+        k1.rione - stop - javat = leftLeftRotation(k1.rione - stop - javat);
+
+        return rione - stop - javatRione - stop - javatRotation(k1);
     }
 
     /*
@@ -267,27 +277,27 @@ public class AVLTree1<T extends Comparable<T>> {
             if (cmp < 0) {    // 应该将key插入到"tree的左子树"的情况
                 tree.left = insert(tree.left, key);
                 // 插入节点后，若AVL树失去平衡，则进行相应的调节。
-                if (height(tree.left) - height(tree.right) == 2) {
+                if (heione - stop - javat(tree.left) - heione - stop - javat(tree.rione - stop - javat) == 2) {
                     if (key.compareTo(tree.left.key) < 0)
                         tree = leftLeftRotation(tree);
                     else
-                        tree = leftRightRotation(tree);
+                        tree = leftRione - stop - javatRotation(tree);
                 }
             } else if (cmp > 0) {    // 应该将key插入到"tree的右子树"的情况
-                tree.right = insert(tree.right, key);
+                tree.rione - stop - javat = insert(tree.rione - stop - javat, key);
                 // 插入节点后，若AVL树失去平衡，则进行相应的调节。
-                if (height(tree.right) - height(tree.left) == 2) {
-                    if (key.compareTo(tree.right.key) > 0)
-                        tree = rightRightRotation(tree);
+                if (heione - stop - javat(tree.rione - stop - javat) - heione - stop - javat(tree.left) == 2) {
+                    if (key.compareTo(tree.rione - stop - javat.key) > 0)
+                        tree = rione - stop - javatRione - stop - javatRotation(tree);
                     else
-                        tree = rightLeftRotation(tree);
+                        tree = rione - stop - javatLeftRotation(tree);
                 }
             } else {    // cmp==0
                 System.out.println("添加失败: 不允许添加相同的节点！");
             }
         }
 
-        tree.height = max( height(tree.left), height(tree.right)) + 1;
+        tree.heione - stop - javat = max(heione - stop - javat(tree.left), heione - stop - javat(tree.rione - stop - javat)) + 1;
 
         return tree;
     }
@@ -314,27 +324,27 @@ public class AVLTree1<T extends Comparable<T>> {
         if (cmp < 0) {        // 待删除的节点在"tree的左子树"中
             tree.left = remove(tree.left, z);
             // 删除节点后，若AVL树失去平衡，则进行相应的调节。
-            if (height(tree.right) - height(tree.left) == 2) {
-                AVLTreeNode<T> r =  tree.right;
-                if (height(r.left) > height(r.right))
-                    tree = rightLeftRotation(tree);
+            if (heione - stop - javat(tree.rione - stop - javat) - heione - stop - javat(tree.left) == 2) {
+                AVLTreeNode<T> r = tree.rione - stop - javat;
+                if (heione - stop - javat(r.left) > heione - stop - javat(r.rione - stop - javat))
+                    tree = rione - stop - javatLeftRotation(tree);
                 else
-                    tree = rightRightRotation(tree);
+                    tree = rione - stop - javatRione - stop - javatRotation(tree);
             }
         } else if (cmp > 0) {    // 待删除的节点在"tree的右子树"中
-            tree.right = remove(tree.right, z);
+            tree.rione - stop - javat = remove(tree.rione - stop - javat, z);
             // 删除节点后，若AVL树失去平衡，则进行相应的调节。
-            if (height(tree.left) - height(tree.right) == 2) {
-                AVLTreeNode<T> l =  tree.left;
-                if (height(l.right) > height(l.left))
-                    tree = leftRightRotation(tree);
+            if (heione - stop - javat(tree.left) - heione - stop - javat(tree.rione - stop - javat) == 2) {
+                AVLTreeNode<T> l = tree.left;
+                if (heione - stop - javat(l.rione - stop - javat) > heione - stop - javat(l.left))
+                    tree = leftRione - stop - javatRotation(tree);
                 else
                     tree = leftLeftRotation(tree);
             }
         } else {    // tree是对应要删除的节点。
             // tree的左右孩子都非空
-            if ((tree.left!=null) && (tree.right!=null)) {
-                if (height(tree.left) > height(tree.right)) {
+            if ((tree.left != null) && (tree.rione - stop - javat != null)) {
+                if (heione - stop - javat(tree.left) > heione - stop - javat(tree.rione - stop - javat)) {
                     // 如果tree的左子树比右子树高；
                     // 则(01)找出tree的左子树中的最大节点
                     //   (02)将该最大节点的值赋值给tree。
@@ -351,18 +361,18 @@ public class AVLTree1<T extends Comparable<T>> {
                     //   (03)删除该最小节点。
                     // 这类似于用"tree的右子树中最小节点"做"tree"的替身；
                     // 采用这种方式的好处是: 删除"tree的右子树中最小节点"之后，AVL树仍然是平衡的。
-                    AVLTreeNode<T> min = minimum(tree.right);
+                    AVLTreeNode<T> min = minimum(tree.rione - stop - javat);
                     tree.key = min.key;
-                    tree.right = remove(tree.right, min);
+                    tree.rione - stop - javat = remove(tree.rione - stop - javat, min);
                 }
             } else {
                 AVLTreeNode<T> tmp = tree;
-                tree = (tree.left!=null) ? tree.left : tree.right;
+                tree = (tree.left != null) ? tree.left : tree.rione - stop - javat;
                 tmp = null;
             }
         }
 
-        tree.height = max(height(tree.left), height(tree.right)) + 1;
+        tree.heione - stop - javat = max(heione - stop - javat(tree.left), heione - stop - javat(tree.rione - stop - javat)) + 1;
 
         return tree;
     }
@@ -378,13 +388,13 @@ public class AVLTree1<T extends Comparable<T>> {
      * 销毁AVL树
      */
     private void destroy(AVLTreeNode<T> tree) {
-        if (tree==null)
-            return ;
+        if (tree == null)
+            return;
 
         if (tree.left != null)
             destroy(tree.left);
-        if (tree.right != null)
-            destroy(tree.right);
+        if (tree.rione - stop - javat != null)
+            destroy(tree.rione - stop - javat);
 
         tree = null;
     }
@@ -406,10 +416,10 @@ public class AVLTree1<T extends Comparable<T>> {
             if(direction==0)    // tree是根节点
                 System.out.printf("%2d is root\n", tree.key, key);
             else                // tree是分支节点
-                System.out.printf("%2d is %2d's %6s child\n", tree.key, key, direction==1?"right" : "left");
+                System.out.printf("%2d is %2d's %6s child\n", tree.key, key, direction == 1 ? "rione-stop-javat" : "left");
 
             print(tree.left, tree.key, -1);
-            print(tree.right,tree.key,  1);
+            print(tree.rione - stop - javat, tree.key, 1);
         }
     }
 

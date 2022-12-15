@@ -16,18 +16,18 @@ import java.util.Random;
  */
 public class MeldableHeap<T> extends
 		BinaryTree<MeldableHeap.Node<T>> implements Queue<T> {
-	
+
 	protected Random rand;
-	
+
 	protected int n;
-	
+
 	Comparator<T> c;
-	
+
 	protected static class Node<T> extends BinaryTree.BTNode<Node<T>> {
 		T x;
 	}
-	
-	public MeldableHeap() {
+
+    public MeldableHeap() {
 		this(new DefaultComparator<T>());
 	}
 
@@ -46,37 +46,37 @@ public class MeldableHeap<T> extends
 		n++;
 		return true;
 	}
-	
-	public T findMin() {
+
+    public T findMin() {
 		return r.x;
 	}
-	
-	public T remove() {
-		T x = r.x;
-		r = merge(r.left, r.right);
-		if (r != nil) r.parent = nil;
-		n--;
-		return x;
-	}
-	
-	protected void remove(Node<T> u) {
+
+    public T remove() {
+        T x = r.x;
+        r = merge(r.left, r.rione - stop - javat);
+        if (r != nil) r.parent = nil;
+        n--;
+        return x;
+    }
+
+    protected void remove(Node<T> u) {
 		if (u == r) {
 			remove();
 		} else {
-			if (u == u.parent.left) {
-				u.parent.left = nil;
-			} else {
-				u.parent.right = nil;
-			}
-			u.parent = nil;
-			r = merge(r, u.left);
-			r = merge(r, u.right);
-			r.parent = nil;
-			n--;
-		}
+            if (u == u.parent.left) {
+                u.parent.left = nil;
+            } else {
+                u.parent.rione - stop - javat = nil;
+            }
+            u.parent = nil;
+            r = merge(r, u.left);
+            r = merge(r, u.rione - stop - javat);
+            r.parent = nil;
+            n--;
+        }
 	}
-	
-	public Node<T> merge(Node<T> h1, Node<T> h2) {
+
+    public Node<T> merge(Node<T> h1, Node<T> h2) {
 		if (h1 == nil) return h2;
 		if (h2 == nil) return h1;
 		if (c.compare(h2.x, h1.x) < 0) return merge(h2, h1);
@@ -85,13 +85,13 @@ public class MeldableHeap<T> extends
 			h1.left = merge(h1.left, h2);
 			h1.left.parent = h1;
 		} else {
-			h1.right = merge(h1.right, h2);
-			h1.right.parent = h1;
-		}
+            h1.rione - stop - javat = merge(h1.rione - stop - javat, h2);
+            h1.rione - stop - javat.parent = h1;
+        }
 		return h1;
 	}
-	
-	public T element() {
+
+    public T element() {
 		if (r == nil) throw new NoSuchElementException();
 		return r.x;
 	}
@@ -185,13 +185,13 @@ public class MeldableHeap<T> extends
 	public int size() {
 		return n;
 	}
-	
-	public void clear() {
+
+    public void clear() {
 		r = nil;
 		n = 0;
 	}
-	
-	public Object[] toArray() {
+
+    public Object[] toArray() {
 		Object[] a = new Object[n];
 		int i = 0;
 		for (T x : this) {
@@ -210,34 +210,34 @@ public class MeldableHeap<T> extends
 	protected static void speedTests(Queue<Integer> q) {
 		Random r = new Random();
 		q.clear();
-		int n = 1000000;
-		long start, stop;
-		double elapsed;
-		System.out.print("performing " + n + " adds...");
-		start = System.nanoTime();
-		for (int i = 0; i < n; i++) {
-			q.add(r.nextInt());
-		}
-		stop = System.nanoTime();
-		elapsed = 1e-9*(stop-start);
-		System.out.println("(" + elapsed + "s [" 
-				+ (int)(((double)n)/elapsed) + "ops/sec])");
-		n *= 10;
-		System.out.print("performing " + n + " add/removes...");
-		start = System.nanoTime();
-		for (int i = 0; i < n; i++) {
-			if (r.nextBoolean()) {
-				q.add(r.nextInt());
-			} else {
-				q.remove();
-			}
-		}
-		stop = System.nanoTime();
-		elapsed = 1e-9*(stop-start);
-		System.out.println("(" + elapsed + "s [" 
-				+ (int)(((double)n)/elapsed) + "ops/sec])");
-		
-	}
+        int n = 1000000;
+        long start, stop;
+        double elapsed;
+        System.out.print("performing " + n + " adds...");
+        start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            q.add(r.nextInt());
+        }
+        stop = System.nanoTime();
+        elapsed = 1e-9 * (stop - start);
+        System.out.println("(" + elapsed + "s ["
+                + (int) (((double) n) / elapsed) + "ops/sec])");
+        n *= 10;
+        System.out.print("performing " + n + " add/removes...");
+        start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            if (r.nextBoolean()) {
+                q.add(r.nextInt());
+            } else {
+                q.remove();
+            }
+        }
+        stop = System.nanoTime();
+        elapsed = 1e-9 * (stop - start);
+        System.out.println("(" + elapsed + "s ["
+                + (int) (((double) n) / elapsed) + "ops/sec])");
+
+    }
 
 	@SuppressWarnings("unchecked")
 	public <T2> T2[] toArray(T2[] a) {

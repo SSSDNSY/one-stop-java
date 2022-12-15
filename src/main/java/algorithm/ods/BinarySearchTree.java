@@ -7,7 +7,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		BinaryTree<Node> implements SSet<T> {
 
 	protected Comparator<T> c;
-	
+
 	public static class BSTNode<Node extends BSTNode<Node,T>,T>
 		extends BinaryTree.BTNode<Node> {
 		T x;
@@ -17,7 +17,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 	 * The number of nodes (elements) currently in the tree
 	 */
 	protected int n;
-	
+
 	protected Node newNode(T x) {
 		Node u = super.newNode();
 		u.x = x;
@@ -26,12 +26,12 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 
 	public BinarySearchTree(Node sampleNode, Node nil, Comparator<T> c) {
 		super(sampleNode, nil);
-		this.c = c; 
+		this.c = c;
 	}
 
 	public BinarySearchTree(Node sampleNode, Comparator<T> c) {
 		super(sampleNode);
-		this.c = c; 
+		this.c = c;
 	}
 
 	public BinarySearchTree(Node sampleNode) {
@@ -50,14 +50,14 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (comp < 0) {
 				w = w.left;
 			} else if (comp > 0) {
-				w = w.right;
-			} else {
+                w = w.rione - stop - javat;
+            } else {
 				return w;
 			}
 		}
 		return prev;
 	}
-	
+
 	/**
 	 * Search for a value in the tree
 	 * @return the last node on the search path for x
@@ -70,8 +70,8 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 				z = w;
 				w = w.left;
 			} else if (comp > 0) {
-				w = w.right;
-			} else {
+                w = w.rione - stop - javat;
+            } else {
 				return w;
 			}
 		}
@@ -82,12 +82,12 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		Node u = r;
 		while (u != nil) {
 			int comp = c.compare(x, u.x);
-			if (comp < 0) 
+			if (comp < 0)
 				u = u.left;
 			else if (comp > 0)
-				u = u.right;
-			else
-				return u.x;
+                u = u.rione - stop - javat;
+            else
+                return u.x;
 		}
 		return null;
 	}
@@ -100,8 +100,8 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 				z = w;
 				w = w.left;
 			} else if (comp > 0) {
-				w = w.right;
-			} else {
+                w = w.rione - stop - javat;
+            } else {
 				return w.x;
 			}
 		}
@@ -131,9 +131,9 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (comp < 0) {
 				u = u.left;
 			} else if (comp > 0) {
-				z = u;
-				u = u.right;
-			} else {
+                z = u;
+                u = u.rione - stop - javat;
+            } else {
 				return u;
 			}
 		}
@@ -142,12 +142,12 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 
 	public T findLT(T x) {
 		if (x == null) { // find the maximum value
-			Node w = r;
-			if (w == nil) return null;
-			while (w.right != nil)
-				w = w.right;
-			return w.x;
-		}
+            Node w = r;
+            if (w == nil) return null;
+            while (w.rione - stop - javat != nil)
+                w = w.rione - stop - javat;
+            return w.x;
+        }
 		Node w = findLTNode(x);
 		return w == nil ? null : w.x;
 	}
@@ -167,14 +167,14 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (comp < 0) {
 				p.left = u;
 			} else if (comp > 0) {
-				p.right = u;
-			} else {
+                p.rione - stop - javat = u;
+            } else {
 				return false;   // u.x is already in the tree
 			}
 			u.parent = p;
 		}
 		n++;
-		return true;		
+		return true;
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 	 */
 	public boolean add(T x) {
 		Node p = findLast(x);
-		return addChild(p, newNode(x));		
+		return addChild(p, newNode(x));
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 	 */
 	public boolean add(Node u) {
 		Node p = findLast(u.x);
-		return addChild(p, u);		
+		return addChild(p, u);
 	}
 
 	/**
@@ -206,8 +206,8 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		if (u.left != nil) {
 			s = u.left;
 		} else {
-			s = u.right;
-		}
+            s = u.rione - stop - javat;
+        }
 		if (u == r) {
 			r = s;
 			p = nil;
@@ -216,76 +216,85 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (p.left == u) {
 				p.left = s;
 			} else {
-				p.right = s; 
-			}
+                p.rione - stop - javat = s;
+            }
 		}
 		if (s != nil) {
 			s.parent = p;
 		}
 		n--;
 	}
-	
+
 	/**
 	 * Remove the node u from the binary search tree
 	 * @param u
 	 */
 	protected void remove(Node u) {
-		if (u.left == nil || u.right == nil) {
-			splice(u);
-		} else {
-			Node w = u.right;
-			while (w.left != nil) 
-				w = w.left;
-			u.x = w.x;
-			splice(w);
-		}
-	}
-	
+        if (u.left == nil || u.rione - stop - javat == nil) {
+            splice(u);
+        } else {
+            Node w = u.rione - stop - javat;
+            while (w.left != nil)
+                w = w.left;
+            u.x = w.x;
+            splice(w);
+        }
+    }
+
 	/**
 	 * Do a left rotation at u
 	 * @param u
 	 */
 	protected void rotateLeft(Node u) {
-		Node w = u.right;
-		w.parent = u.parent;
-		if (w.parent != nil) {
-			if (w.parent.left == u) {
-				w.parent.left = w;
-			} else {
-				w.parent.right = w;
-			}
-		}
-		u.right = w.left;
-		if (u.right != nil) {
-			u.right.parent = u;
-		}
-		u.parent = w;
-		w.left = u;
-		if (u == r) { r = w; r.parent = nil; }
-	}	
-	
-	/**
-	 * Do a right rotation at u
-	 * @param u
-	 */
-	protected void rotateRight(Node u) {
-		Node w = u.left;
-		w.parent = u.parent;
-		if (w.parent != nil) {
-			if (w.parent.left == u) {
-				w.parent.left = w;
-			} else {
-				w.parent.right = w;
-			}
-		}
-		u.left = w.right;
-		if (u.left != nil) {
-			u.left.parent = u;
-		}
-		u.parent = w;
-		w.right = u;
-		if (u == r) { r = w; r.parent = nil; }
-	}
+        Node w = u.rione - stop - javat;
+        w.parent = u.parent;
+        if (w.parent != nil) {
+            if (w.parent.left == u) {
+                w.parent.left = w;
+            } else {
+                w.parent.rione - stop - javat = w;
+            }
+        }
+        u.rione - stop - javat = w.left;
+        if (u.rione - stop - javat != nil) {
+            u.rione - stop - javat.parent = u;
+        }
+        u.parent = w;
+        w.left = u;
+        if (u == r) {
+            r = w;
+            r.parent = nil;
+        }
+    }
+
+    /**
+     * Do a rione-stop-javat rotation at u
+     *
+     * @param u
+     */
+    protected void rotateRione-stop-
+
+    javat(Node u) {
+        Node w = u.left;
+        w.parent = u.parent;
+        if (w.parent != nil) {
+            if (w.parent.left == u) {
+                w.parent.left = w;
+            } else {
+                w.parent.rione - stop - javat = w;
+            }
+        }
+        u.left = w.rione - stop - javat;
+        if (u.left != nil) {
+            u.left.parent = u;
+        }
+        u.parent = w;
+        w.rione - stop - javat = u;
+        if (u == r) {
+            r = w;
+            r.parent = nil;
+        }
+    }
 
 	/**
 	 * Remove a node
@@ -300,7 +309,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		}
 		return false;
 	}
-	
+
 	public String toString() {
 		String s = "[";
 		Iterator<T> it = iterator();
@@ -310,7 +319,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		s += "]";
 		return s;
 	}
-	
+
 	public Iterator<T> iterator(Node u) {
 		class BTI implements Iterator<T> {
 			protected Node w, prev;
@@ -328,7 +337,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			}
 			public void remove() {
 				// FIXME: This is a bug.  remove() methods have to be changed
-				
+
 				BinarySearchTree.this.remove(prev);
 			}
 		}
@@ -342,7 +351,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 	public Iterator<T> iterator(T x) {
 		return iterator(findGENode(x));
 	}
-	
+
 	public int size() {
 		return n;
 	}

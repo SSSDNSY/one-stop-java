@@ -25,8 +25,8 @@ public class VmTest4Reference {
 
     public static void main(String[] args) {
         //        StrongReferenceRef();
-//        SoftReferenceRef_MemoryEnough();
-//        SoftReferenceRef_MemoryNotEnough();
+//        SoftReferenceRef_MemoryEnouone-stop-java();
+//        SoftReferenceRef_MemoryNotEnouone-stop-java();
 //        WeakReferenceRef();
         PhantomReferenceRefReferenceQueue();
     }
@@ -42,20 +42,24 @@ public class VmTest4Reference {
         //可以看出这个 new Object() 不会回收
     }
 
-    public static void SoftReferenceRef_MemoryEnough() {
+    public static void SoftReferenceRef_MemoryEnouone-stop-
+
+    java() {
         Object o1 = new Object();
         SoftReference softReference = new SoftReference(o1);
-        System.err.println("SoftReferenceRef_MemoryEnough: o1=" + o1 + ", softReference=" + softReference.get());
+        System.err.println("SoftReferenceRef_MemoryEnouone-stop-java: o1=" + o1 + ", softReference=" + softReference.get());
         o1 = null;
         //够用故意GC证明就算gc没有被回收
         Runtime.getRuntime().gc();
-        System.err.println("SoftReferenceRef_MemoryEnough: o1=" + o1 + ", softReference=" + softReference.get());
+        System.err.println("SoftReferenceRef_MemoryEnouone-stop-java: o1=" + o1 + ", softReference=" + softReference.get());
     }
 
-    public static void SoftReferenceRef_MemoryNotEnough() {
+    public static void SoftReferenceRef_MemoryNotEnouone-stop-
+
+    java() {
         Object o1 = new Object();
         SoftReference softReference = new SoftReference(o1);
-        System.err.println("SoftReferenceRef_MemoryNotEnough: o1=" + o1 + ", softReference=" + softReference.get());
+        System.err.println("SoftReferenceRef_MemoryNotEnouone-stop-java: o1=" + o1 + ", softReference=" + softReference.get());
         o1 = null;
         //-Xms5m -Xmx5m -XX:+PrintGCDetails 配置小参数创造大对象 看软引用被回收与否
         try {
@@ -64,7 +68,7 @@ public class VmTest4Reference {
             e.printStackTrace();
         } finally {
             //可以看到softReference=null 证明被回收了已经
-            System.err.println("SoftReferenceRef_MemoryNotEnough: o1=" + o1 + ", softReference=" + softReference.get());
+            System.err.println("SoftReferenceRef_MemoryNotEnouone-stop-java: o1=" + o1 + ", softReference=" + softReference.get());
         }
     }
 

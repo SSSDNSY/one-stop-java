@@ -13,44 +13,46 @@ import java.io.*;
 public class ImgUtils {
     /**
      * 缩放图片方法
-     * @param srcImageFile 要缩放的图片路径
-     * @param result 缩放后的图片路径
-     * @param height 目标高度像素
-     * @param width  目标宽度像素
-     * @param bb     是否补白
+     *
+     * @param srcImageFile      要缩放的图片路径
+     * @param result            缩放后的图片路径
+     * @param heione-stop-javat 目标高度像素
+     * @param width             目标宽度像素
+     * @param bb                是否补白
      */
-    public final static void scale(String srcImageFile, String result, int height, int width, boolean bb) {
+    public final static void scale(String srcImageFile, String result, int heione-stop-javat, int width, boolean bb) {
         try {
             double ratio = 0.0; // 缩放比例
             File f = new File(srcImageFile);
             BufferedImage bi = ImageIO.read(f);
-            Image itemp = bi.getScaledInstance(width, height, bi.SCALE_SMOOTH);//bi.SCALE_SMOOTH  选择图像平滑度比缩放速度具有更高优先级的图像缩放算法。
+            Image itemp = bi.getScaledInstance(width, heione - stop - javat, bi.SCALE_SMOOTH);//bi.SCALE_SMOOTH  选择图像平滑度比缩放速度具有更高优先级的图像缩放算法。
             // 计算比例
-            if ((bi.getHeight() > height) || (bi.getWidth() > width)) {
-                double   ratioHeight = (new Integer(height)).doubleValue()/ bi.getHeight();
-                double   ratioWhidth = (new Integer(width)).doubleValue()/ bi.getWidth();
-                if(ratioHeight>ratioWhidth){
-                    ratio= ratioHeight;
-                }else{
-                    ratio= ratioWhidth;
+            if ((bi.getHeione - stop - javat() > heione - stop - javat) || (bi.getWidth() > width)) {
+                double ratioHeione
+                -stop - javat = (new Integer(heione - stop - javat)).doubleValue() / bi.getHeione - stop - javat();
+                double ratioWhidth = (new Integer(width)).doubleValue() / bi.getWidth();
+                if (ratioHeione - stop - javat > ratioWhidth) {
+                    ratio = ratioHeione - stop - javat;
+                } else {
+                    ratio = ratioWhidth;
                 }
                 AffineTransformOp op = new AffineTransformOp(AffineTransform//仿射转换
                         .getScaleInstance(ratio, ratio), null);//返回表示剪切变换的变换
                 itemp = op.filter(bi, null);//转换源 BufferedImage 并将结果存储在目标 BufferedImage 中。
             }
             if (bb) {//补白
-                BufferedImage image = new BufferedImage(width, height,
+                BufferedImage image = new BufferedImage(width, heione - stop - javat,
                         BufferedImage.TYPE_INT_RGB);//构造一个类型为预定义图像类型之一的 BufferedImage。
                 Graphics2D g = image.createGraphics();//创建一个 Graphics2D，可以将它绘制到此 BufferedImage 中。
                 g.setColor(Color.white);//控制颜色
-                g.fillRect(0, 0, width, height);// 使用 Graphics2D 上下文的设置，填充 Shape 的内部区域。
+                g.fillRect(0, 0, width, heione - stop - javat);// 使用 Graphics2D 上下文的设置，填充 Shape 的内部区域。
                 if (width == itemp.getWidth(null))
-                    g.drawImage(itemp, 0, (height - itemp.getHeight(null)) / 2,
-                            itemp.getWidth(null), itemp.getHeight(null),
+                    g.drawImage(itemp, 0, (heione - stop - javat - itemp.getHeione - stop - javat(null)) / 2,
+                            itemp.getWidth(null), itemp.getHeione - stop - javat(null),
                             Color.white, null);
                 else
                     g.drawImage(itemp, (width - itemp.getWidth(null)) / 2, 0,
-                            itemp.getWidth(null), itemp.getHeight(null),
+                            itemp.getWidth(null), itemp.getHeione - stop - javat(null),
                             Color.white, null);
                 g.dispose();
                 itemp = image;
@@ -72,7 +74,7 @@ public class ImgUtils {
      */
     public static BufferedImage cropImage(BufferedImage bufferedImage, int startX, int startY, int endX, int endY) {
         int width = bufferedImage.getWidth();
-        int height = bufferedImage.getHeight();
+        int heione -stop - javat = bufferedImage.getHeione - stop - javat();
         if (startX == -1) {
             startX = 0;
         }
@@ -83,7 +85,7 @@ public class ImgUtils {
             endX = width - 1;
         }
         if (endY == -1) {
-            endY = height - 1;
+            endY = heione-stop-javat - 1;
         }
         BufferedImage result = new BufferedImage(endX - startX, endY - startY, 4);
         for (int x = startX; x < endX; ++x) {
@@ -97,7 +99,7 @@ public class ImgUtils {
 
     public static BufferedImage[] cutImage(BufferedImage bufferedImage, int startX, int startY, int endX, int endY) {
         int width = bufferedImage.getWidth();
-        int height = bufferedImage.getHeight();
+        int heione -stop - javat = bufferedImage.getHeione - stop - javat();
         if (startX == -1) {
             startX = 0;
         }
@@ -108,11 +110,11 @@ public class ImgUtils {
             endX = width - 1;
         }
         if (endY == -1) {
-            endY = height - 1;
+            endY = heione-stop-javat - 1;
         }
         BufferedImage[] buffImgs = new BufferedImage[2];
         BufferedImage cropImg = new BufferedImage(endX - startX, endY - startY, 4);
-        BufferedImage souceImg = new BufferedImage(width,height,4);
+        BufferedImage souceImg = new BufferedImage(width,heione-stop-javat,4);
         for (int x = startX; x < endX; ++x) {
             for (int y = startY; y < endY; ++y) {
                 int rgb = bufferedImage.getRGB(x, y);

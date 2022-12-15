@@ -26,27 +26,27 @@ public class BTree<T> implements SSet<T> {
 
     /** b div 2
      */
-	int B; 
-	
+	int B;
+
 	/**
 	 * Number of elements stored in the tree
 	 */
 	int n;
-	
+
 	/**
 	 * The block storage mechanism
 	 */
 	BlockStore<Node> bs;
-	
+
 	/**
 	 * The index of the root node
 	 */
 	int ri;
-	
+
 	/**
 	 * Find the index, i, at which x should be inserted into the null-padded
 	 * sorted array, a
-	 * 
+	 *
 	 * @param a
 	 *            the sorted array (padded with null entries)
 	 * @param x
@@ -71,7 +71,7 @@ public class BTree<T> implements SSet<T> {
 	static class DuplicateValueException extends Exception {
 		private static final long serialVersionUID = 1L;
 	}
-	
+
 	/**
 	 * A node in a B-tree which has an array of up to b keys and up to b children
 	 */
@@ -80,17 +80,17 @@ public class BTree<T> implements SSet<T> {
 		 * This block's index
 		 */
 		int id;
-		
+
 		/**
 		 * The keys stored in this block
 		 */
 		T[] keys;
-		
+
 		/**
 		 * The indicies of the children of this block (if any)
 		 */
 		int[] children;
-		
+
 		/**
 		 * Constructor
 		 */
@@ -100,14 +100,14 @@ public class BTree<T> implements SSet<T> {
 			Arrays.fill(children, 0, children.length, -1);
 			id = bs.placeBlock(this);
 		}
-		
+
 		public boolean isLeaf() {
 			return children[0] < 0;
 		}
 
 		/**
 		 * Test if this block is full (contains b keys)
-		 * 
+		 *
 		 * @return true if the block is full
 		 */
 		public boolean isFull() {
@@ -116,7 +116,7 @@ public class BTree<T> implements SSet<T> {
 
 		/**
 		 * Count the number of keys in this block, using binary search
-		 * 
+		 *
 		 * @return the number of keys in this block
 		 */
 		public int size() {
@@ -133,7 +133,7 @@ public class BTree<T> implements SSet<T> {
 
 		/**
 		 * Add the value x to this block
-		 * 
+		 *
 		 * @param x
 		 *            the value to add
 		 * @param ci
@@ -149,11 +149,11 @@ public class BTree<T> implements SSet<T> {
 			children[i+1] = ci;
 			return true;
 		}
-		
+
 		/**
 		 * Remove the i'th value from this block - don't affect this block's
 		 * children
-		 * 
+		 *
 		 * @param i
 		 *            the index of the element to remove
 		 * @return the value of the element removed
@@ -164,10 +164,10 @@ public class BTree<T> implements SSet<T> {
 			keys[keys.length-1] = null;
 			return y;
 		}
-		
+
 		/**
 		 * Split this node into two nodes
-		 * 
+		 *
 		 * @return the newly created block, which has the larger keys
 		 */
 		protected Node split() {
@@ -192,16 +192,16 @@ public class BTree<T> implements SSet<T> {
 			return sb.toString();
 		}
 	}
-	
+
 	/**
-	 * Construct an empty BTree that uses a DefaultComparator 
+	 * Construct an empty BTree that uses a DefaultComparator
 	 * @param b the block size
 	 * @param clz the class of objects stored in this BTree
 	 */
 	public BTree(int b, Class<T> clz) {
 		this(b, new DefaultComparator<T>(), clz);
 	}
-	
+
 	/**
 	 * Construct an empty BTree
 	 * @param b the block size
@@ -218,7 +218,7 @@ public class BTree<T> implements SSet<T> {
 		ri = new Node().id;
 		n = 0;
 	}
-	
+
 	public boolean add(T x) {
 		Node w;
 		try {
@@ -239,14 +239,14 @@ public class BTree<T> implements SSet<T> {
 		n++;
 		return true;
 	}
-	
+
 	/**
 	 * Add the value x in the subtree rooted at the node with index ui
-	 * 
+	 *
 	 * This method adds x into the subtree rooted at the node u whose index is
 	 * ui. If u is split by this operation then the return value is the Node
 	 * that was created when u was split
-	 * 
+	 *
 	 * @param x
 	 *            the element to add
 	 * @param ui
@@ -263,7 +263,7 @@ public class BTree<T> implements SSet<T> {
 			bs.writeBlock(u.id, u);
 		} else {
 			Node w = addRecursive(x, u.children[i]);
-			if (w != null) {  // child was split, w is new child 
+			if (w != null) {  // child was split, w is new child
 				x = w.remove(0);
 				bs.writeBlock(w.id, w);
 				u.add(x, w.id);
@@ -272,13 +272,13 @@ public class BTree<T> implements SSet<T> {
 		}
 		return u.isFull() ? u.split() : null;
 	}
-	
+
 	public boolean remove(T x) {
 		if (removeRecursive(x, ri)) {
 			n--;
 			Node r = bs.readBlock(ri);
 			if (r.size() == 0 && n > 0) // root has only one child
-				ri = r.children[0];  
+				ri = r.children[0];
 			return true;
 		}
 		return false;
@@ -286,7 +286,7 @@ public class BTree<T> implements SSet<T> {
 
 	/**
 	 * Remove the value x from the subtree rooted at the node with index ui
-	 * 
+	 *
 	 * @param x
 	 *            the value to remove
 	 * @param ui
@@ -305,7 +305,7 @@ public class BTree<T> implements SSet<T> {
 				u.keys[i] = removeSmallest(u.children[i+1]);
 				checkUnderflow(u, i+1);
 			}
-			return true;  
+			return true;
 		} else if (removeRecursive(x, u.children[i])) {
 			checkUnderflow(u, i);
 			return true;
@@ -315,34 +315,34 @@ public class BTree<T> implements SSet<T> {
 
 	/**
 	 * Remove the smallest value in the subtree rooted at the node with index ui
-	 * 
+	 *
 	 * @param ui
 	 *            the index of a subtree
 	 * @return the value that was removed
 	 */
 	protected T removeSmallest(int ui) {
 		Node u = bs.readBlock(ui);
-		if (u.isLeaf()) 
+		if (u.isLeaf())
 			return u.remove(0);
-		T y = removeSmallest(u.children[0]);  
+		T y = removeSmallest(u.children[0]);
 		checkUnderflow(u, 0);
 		return y;
 	}
 
 	/**
-	 * Check if an underflow has occurred in the i'th child of u and, if so, fix it 
+	 * Check if an underflow has occurred in the i'th child of u and, if so, fix it
 	 * by borrowing from or merging with a sibling
-	 * @param u 
+	 * @param u
 	 * @param i
 	 */
 	protected void checkUnderflow(Node u, int i) {
 		if (u.children[i] < 0) return;
-		if (i == 0) 
-			checkUnderflowZero(u, i); // use u's right sibling
-		else
-			checkUnderflowNonZero(u,i);
+        if (i == 0)
+            checkUnderflowZero(u, i); // use u's rione-stop-javat sibling
+        else
+            checkUnderflowNonZero(u, i);
 	}
-	
+
 	protected void merge(Node u, int i, Node v, Node w) {
 		Utils.myassert(v.id == u.children[i]);
 		Utils.myassert(w.id == u.children[i+1]);
@@ -358,11 +358,11 @@ public class BTree<T> implements SSet<T> {
 		System.arraycopy(u.children, i+2, u.children, i+1, b-i-1);
 		u.children[b] = -1;
 	}
-	
+
 	/**
 	 * Check if an underflow has occured in the i'th child of u and, if so, fix
 	 * it
-	 * 
+	 *
 	 * @param u
 	 *            a node
 	 * @param i
@@ -379,18 +379,18 @@ public class BTree<T> implements SSet<T> {
 			}
 		}
 	}
-	
+
 	/**
 	 * Shift keys from v into w
-	 * 
+	 *
 	 * @param u
 	 *            the parent of v and w
 	 * @param i
-	 *            the index w in u.children
-	 * @param v
-	 *            the right sibling of w
-	 * @param w
-	 *            the left sibling of v
+     *            the index w in u.children
+     * @param v
+     *            the rione-stop-javat sibling of w
+     * @param w
+     *            the left sibling of v
 	 */
 	protected void shiftLR(Node u, int i, Node v, Node w) {
 		int sw = w.size();
@@ -408,27 +408,28 @@ public class BTree<T> implements SSet<T> {
 		Arrays.fill(v.children, sv-shift+1, sv+1, -1);
 	}
 
-	
+
 	protected void checkUnderflowZero(Node u, int i) {
 		Node w = bs.readBlock(u.children[i]); // w is child of u
 		if (w.size() < B-1) {  // underflow at w
-			Node v = bs.readBlock(u.children[i+1]); // v right of w
-			if (v.size() > B) { // w can borrow from v
-				shiftRL(u, i, v, w);
-			} else { // w will absorb w
-				merge(u, i, w, v);
-				u.children[i] = w.id;
-			}
-		}
+            Node v = bs.readBlock(u.children[i + 1]); // v rione-stop-javat of w
+            if (v.size() > B) { // w can borrow from v
+                shiftRL(u, i, v, w);
+            } else { // w will absorb w
+                merge(u, i, w, v);
+                u.children[i] = w.id;
+            }
+        }
 	}
 
-	/**
-	 * Shift keys from node v into node w
-	 * @param u the parent of v and w
-	 * @param i the index w in u.children
-	 * @param v the left sibling of w
-	 * @param w the right sibling of v
-	 */
+    /**
+     * Shift keys from node v into node w
+     *
+     * @param u the parent of v and w
+     * @param i the index w in u.children
+     * @param v the left sibling of w
+     * @param w the rione-stop-javat sibling of v
+     */
 	protected void shiftRL(Node u, int i, Node v, Node w) {
 		int sw = w.size();
 		int sv = v.size();
@@ -486,7 +487,7 @@ public class BTree<T> implements SSet<T> {
 		}
 		return z;
 	}
-	
+
 	protected class BTIterator implements Iterator<T> {
 		protected List<Node> nstack;
 		protected List<Integer> istack;
@@ -495,7 +496,7 @@ public class BTree<T> implements SSet<T> {
 			nstack = new ArrayList<Node>(); // <Node>(Node.class);
 			istack = new ArrayList<Integer>(); // <Integer>(Integer.class);
 			if (n == 0) return;
-			int ui = ri;		
+			int ui = ri;
 			do {
 				Node u = bs.readBlock(ui);
 				nstack.add(u);
@@ -537,7 +538,7 @@ public class BTree<T> implements SSet<T> {
 			advance();
 			return y;
 		}
-		
+
 		protected void advance() {
 			Node u = nstack.get(nstack.size()-1);
 			int i = istack.get(istack.size()-1);
@@ -547,7 +548,7 @@ public class BTree<T> implements SSet<T> {
 					istack.remove(istack.size()-1);
 					if (!nstack.isEmpty()) {
 						u = nstack.get(nstack.size()-1);
-						i = istack.get(istack.size()-1);					
+						i = istack.get(istack.size()-1);
 					}
 				}
 			} else { // this is an internal node, walk down
@@ -565,7 +566,7 @@ public class BTree<T> implements SSet<T> {
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
-		
+
 	}
 
 	public Iterator<T> iterator(T x) {
@@ -588,7 +589,7 @@ public class BTree<T> implements SSet<T> {
 
 	/**
 	 * A recursive algorithm for converting this tree into a string
-	 * 
+	 *
 	 * @param ui
 	 *            the subtree to add to the the string
 	 * @param sb
@@ -604,7 +605,7 @@ public class BTree<T> implements SSet<T> {
 		}
 		toString(u.children[i], sb);
 	}
-	
+
 
 	/**
 	 * Simple test method
@@ -626,7 +627,7 @@ public class BTree<T> implements SSet<T> {
 				for (Integer xx : t)
 					System.out.print(xx + ", ");
 				System.out.println();
-				Iterator<Integer> it = t.iterator(c*n/2); 
+				Iterator<Integer> it = t.iterator(c*n/2);
 				while (it.hasNext()) {
 					System.out.print(it.next() + ", ");
 				}
@@ -634,7 +635,7 @@ public class BTree<T> implements SSet<T> {
 			}
 			System.out.println("ss.size() = " + ss.size());
 			System.out.println("t.size()  = " + t.size());
-			
+
 			System.out.println("Checking equality");
 			for (int i = 0; i < n; i++) {
 				int x = rand.nextInt(c*n);
@@ -643,7 +644,7 @@ public class BTree<T> implements SSet<T> {
 				Utils.myassert(Utils.equals(t.findLT(x),Utils.findLT(ss, x)));
 				// System.out.println(t + " (added " + x + ")");
 			}
-	
+
 			System.out.println("Removing elements");
 			for (int i = 0; i < 10*c*n; i++) {
 				int x = rand.nextInt(c*n);

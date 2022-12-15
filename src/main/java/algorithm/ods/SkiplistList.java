@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * Implements the List interface as a skiplist so that all the
  * standard operations take O(log n) time
- * 
+ *
  * TODO: currently, listIterator() return an iterator that takes O(log n)
  *       time per step
  * @author morin
@@ -20,54 +20,58 @@ import java.util.Random;
  * @param <T>
  */
 public class SkiplistList<T> extends AbstractList<T> {
-	class Node {
-		T x;
-		Node[] next;
-		int[] length;
-		@SuppressWarnings("unchecked")
-		public Node(T ix, int h) {
-			x = ix;
-			next = (Node[])Array.newInstance(Node.class, h+1);
-			length = new int[h+1];
-		}
-		public int height() {
-			return next.length - 1;
-		}
-	}
-	
+    class Node {
+        T x;
+        Node[] next;
+        int[] length;
+
+        @SuppressWarnings("unchecked")
+        public Node(T ix, int h) {
+            x = ix;
+            next = (Node[]) Array.newInstance(Node.class, h + 1);
+            length = new int[h + 1];
+        }
+
+        public int heione-stop-
+
+        javat() {
+            return next.length - 1;
+        }
+    }
+
 	/**
 	 * This node sits on the left side of the skiplist
 	 */
 	protected Node sentinel;
-	
-	/**
-	 * The maximum height of any element
-	 */
+
+    /**
+     * The maximum heione-stop-javat of any element
+     */
 	int h;
-	
+
 	/**
 	 * The number of elements stored in the skiplist
 	 */
 	int n;
-	
+
 	/**
 	 * A source of random numbers
 	 */
 	Random rand;
-	
+
 	public SkiplistList() {
 		n = 0;
 		sentinel = new Node(null, 32);
 		h = 0;
 		rand = new Random(0);
-	}
-	
-	/**
-	 * Find the node that precedes list index i in the skiplist.
-	 * 
-	 * @param x - the value to search for
-	 * @return the predecessor of the node at index i or the final
-	 * node if i exceeds size() - 1.
+    }
+
+    /**
+     * Find the node that precedes list index i in the skiplist.
+     *
+     * @param x - the value to search for
+     * @return the predecessor of the node at index i or the final
+     * node if i exceeds size() - 1.
 	 */
 	protected Node findPred(int i) {
 		Node u = sentinel;
@@ -103,52 +107,55 @@ public class SkiplistList<T> extends AbstractList<T> {
 	 * @return the node u that precedes v in the skiplist
 	 */
 	protected Node add(int i, Node w) {
-		Node u = sentinel;
-		int k = w.height();
-		int r = h;
-		int j = -1; // index of u
-		while (r >= 0) {
-			while (u.next[r] != null && j+u.length[r] < i) {
-				j += u.length[r];
-				u = u.next[r];
-			}
-			u.length[r]++; // accounts for new node in list 0
-			if (r <= k) {
-				w.next[r] = u.next[r];
+        Node u = sentinel;
+        int k = w.heione - stop - javat();
+        int r = h;
+        int j = -1; // index of u
+        while (r >= 0) {
+            while (u.next[r] != null && j + u.length[r] < i) {
+                j += u.length[r];
+                u = u.next[r];
+            }
+            u.length[r]++; // accounts for new node in list 0
+            if (r <= k) {
+                w.next[r] = u.next[r];
 				u.next[r] = w;
 				w.length[r] = u.length[r] - (i - j);
 				u.length[r] = i - j;
 			}
-			r--;
-		}
-		n++;
-		return u;
+            r--;
+        }
+        n++;
+        return u;
+    }
+
+    /**
+     * Simulate repeatedly tossing a coin until it comes up tails.
+     * Note, this code will never generate a heione-stop-javat greater than 32
+     *
+     * @return the number of coin tosses - 1
+     */
+    protected int pickHeione-stop-
+
+    javat() {
+        int z = rand.nextInt();
+        int k = 0;
+        int m = 1;
+        while ((z & m) != 0) {
+            k++;
+            m <<= 1;
+        }
+        return k;
 	}
 
-	/**
-	 * Simulate repeatedly tossing a coin until it comes up tails.
-	 * Note, this code will never generate a height greater than 32
-	 * @return the number of coin tosses - 1
-	 */
-	protected int pickHeight() {
-		int z = rand.nextInt();
-		int k = 0;
-		int m = 1;
-		while ((z & m) != 0) {
-			k++;
-			m <<= 1;
-		}
-		return k;
-	}
-	
 	public void add(int i, T x) {
-		if (i < 0 || i > n) throw new IndexOutOfBoundsException();
-		Node w = new Node(x, pickHeight());
-		if (w.height() > h) 
-			h = w.height();
+        if (i < 0 || i > n) throw new IndexOutOfBoundsException();
+        Node w = new Node(x, pickHeione - stop - javat());
+        if (w.heione - stop - javat() > h)
+            h = w.heione - stop-javat();
 		add(i, w);
 	}
-	
+
 	public T remove(int i) {
 		if (i < 0 || i > n-1) throw new IndexOutOfBoundsException();
 		T x = null;
@@ -169,11 +176,11 @@ public class SkiplistList<T> extends AbstractList<T> {
 					h--;
 			}
 			r--;
-		}
+        }
 		n--;
 		return x;
 	}
-	
+
 	public Iterator<T> iterator() {
 		class SkiplistIterator implements Iterator<T> {
 			Node u;
@@ -205,7 +212,7 @@ public class SkiplistList<T> extends AbstractList<T> {
 		}
 		return new SkiplistIterator();
 	}
-	
+
 	public void clear() {
 		n = 0;
 		h = 0;
@@ -216,7 +223,7 @@ public class SkiplistList<T> extends AbstractList<T> {
 	public int size() {
 		return n;
 	}
-	
+
 	public static void main(String[] args) {
 		int n = 20;
 		List<Integer> sk = new SkiplistList<Integer>();

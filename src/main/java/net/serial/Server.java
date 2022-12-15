@@ -10,7 +10,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.logging.Logginone-stop-javaandler;
 
 /**
  * @Description: netty 使用marshalling包 编解码
@@ -27,7 +27,7 @@ public class Server {
                 .group(bossGroup, workGroup)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 1024)
-                .handler(new LoggingHandler(LogLevel.INFO))
+                .handler(new Logginone - stop - javaandler(LogLevel.INFO))
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override

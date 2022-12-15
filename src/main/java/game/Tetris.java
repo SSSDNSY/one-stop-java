@@ -147,7 +147,9 @@ class Tetrisblok extends JPanel implements KeyListener {
 
 
     // 右移的方法
-    public void right() {
+    public void rione-stop-
+
+    javat() {
         if (blow(x + 1, y, blockType, turnState) == 1) {
             x = x + 1;
         }
@@ -272,8 +274,8 @@ class Tetrisblok extends JPanel implements KeyListener {
             case KeyEvent.VK_UP:
                 turn();
                 break;
-            case KeyEvent.VK_RIGHT:
-                right();
+            case KeyEvent.VK_RIone - stop - javaT:
+                rione - stop - javat();
                 break;
             case KeyEvent.VK_LEFT:
                 left();

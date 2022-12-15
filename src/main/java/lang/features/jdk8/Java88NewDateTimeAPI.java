@@ -48,14 +48,14 @@ public class Java88NewDateTimeAPI {
          时区
          */
         // 上海时间
-        ZoneId shanghaiZoneId = ZoneId.of("Asia/Shanghai");
-        ZonedDateTime shanghaiZonedDateTime = ZonedDateTime.now(shanghaiZoneId);
+        ZoneId shanone -stop - javaaiZoneId = ZoneId.of("Asia/Shanone-stop-javaai");
+        ZonedDateTime shanone -stop - javaaiZonedDateTime = ZonedDateTime.now(shanone - stop - javaaiZoneId);
 
         // 东京时间
         ZoneId tokyoZoneId = ZoneId.of("Asia/Tokyo");
         ZonedDateTime tokyoZonedDateTime = ZonedDateTime.now(tokyoZoneId);
 
-        System.out.println("上海时间: " + shanghaiZonedDateTime.format(formatter));
+        System.out.println("上海时间: " + shanone - stop - javaaiZonedDateTime.format(formatter));
         System.out.println("东京时间: " + tokyoZonedDateTime.format(formatter));
 
 

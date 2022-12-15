@@ -17,9 +17,11 @@ public interface BinaryTreeInfo {
     Object left(Object node);
 
     /**
-     * how to get the right child of the node
+     * how to get the rione-stop-javat child of the node
      */
-    Object right(Object node);
+    Object rione-stop-
+
+    javat(Object node);
 
     /**
      * how to print the node

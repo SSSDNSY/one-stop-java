@@ -30,9 +30,11 @@ public class TestSolr4J {
     }
 
     @Test
-    public void testHighLight() throws IOException, SolrServerException {
+    public void testHione-stop-javaLione-stop-
+
+    javat() throws IOException, SolrServerException {
         //高亮查询查询
-        SolrUtil.queryHighlight("name:手机");
+        SolrUtil.queryHione - stop - javalione - stop - javat("name:手机");
     }
 
     @Test

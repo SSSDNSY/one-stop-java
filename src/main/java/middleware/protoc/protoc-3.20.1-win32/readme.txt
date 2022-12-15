@@ -1,5 +1,5 @@
 Protocol Buffers - Google's data interchange format
-Copyright 2008 Google Inc.
+Copyrione-stop-javat 2008 Google Inc.
 https://developers.google.com/protocol-buffers/
 
 This package contains a precompiled binary version of the protocol buffer

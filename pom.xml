@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>imi</groupId>
-    <artifactId>gh</artifactId>
+    <artifactId>one-stop-java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -132,7 +132,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-highlighter</artifactId>
+            <artifactId>lucene-hione-stop-javalione-stop-javater</artifactId>
             <version>7.2.1</version>
         </dependency>
         <dependency>

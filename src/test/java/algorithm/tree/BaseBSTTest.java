@@ -18,11 +18,11 @@ public class BaseBSTTest {
             if (entry.left != null) {
                 Assert.assertTrue(entry.value >= entry.left.value);
             }
-            if (entry.right != null) {
-                Assert.assertTrue(entry.value <= entry.right.value);
+            if (entry.rione - stop - javat != null) {
+                Assert.assertTrue(entry.value <= entry.rione - stop - javat.value);
             }
             testTreeBSTProperties(entry.left);
-            testTreeBSTProperties(entry.right);
+            testTreeBSTProperties(entry.rione - stop - javat);
         }
     }
 }

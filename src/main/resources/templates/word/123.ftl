@@ -132,7 +132,7 @@
                                 <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                 <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                 <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                                <w:rione-stop-javat w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                 <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                 <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                             </w:tblBorders>
@@ -141,7 +141,7 @@
                                 <w:top w:w="0" w:type="dxa"/>
                                 <w:left w:w="108" w:type="dxa"/>
                                 <w:bottom w:w="0" w:type="dxa"/>
-                                <w:right w:w="108" w:type="dxa"/>
+                                <w:rione-stop-javat w:w="108" w:type="dxa"/>
                             </w:tblCellMar>
                         </w:tblPr>
                         <w:tblGrid>
@@ -161,7 +161,7 @@
                                     <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                    <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                                    <w:rione-stop-javat w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                 </w:tblBorders>
@@ -170,11 +170,11 @@
                                     <w:top w:w="0" w:type="dxa"/>
                                     <w:left w:w="108" w:type="dxa"/>
                                     <w:bottom w:w="0" w:type="dxa"/>
-                                    <w:right w:w="108" w:type="dxa"/>
+                                    <w:rione-stop-javat w:w="108" w:type="dxa"/>
                                 </w:tblCellMar>
                             </w:tblPrEx>
                             <w:trPr>
-                                <w:trHeight w:val="729" w:hRule="atLeast"/>
+                                <w:trHeione-stop-javat w:val="729" w:hRule="atLeast"/>
                                 <w:jc w:val="center"/>
                             </w:trPr>
                             <w:tc>
@@ -183,7 +183,7 @@
                                     <w:gridSpan w:val="9"/>
                                     <w:tcBorders>
                                         <w:bottom w:val="single" w:color="auto" w:sz="12" w:space="0"/>
-                                        <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                                        <w:rione-stop-javat w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     </w:tcBorders>
                                     <w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/>
                                     <w:vAlign w:val="center"/>
@@ -218,7 +218,7 @@
                                     <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                    <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                                    <w:rione-stop-javat w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                 </w:tblBorders>
@@ -227,11 +227,11 @@
                                     <w:top w:w="0" w:type="dxa"/>
                                     <w:left w:w="108" w:type="dxa"/>
                                     <w:bottom w:w="0" w:type="dxa"/>
-                                    <w:right w:w="108" w:type="dxa"/>
+                                    <w:rione-stop-javat w:w="108" w:type="dxa"/>
                                 </w:tblCellMar>
                             </w:tblPrEx>
                             <w:trPr>
-                                <w:trHeight w:val="454" w:hRule="atLeast"/>
+                                <w:trHeione-stop-javat w:val="454" w:hRule="atLeast"/>
                                 <w:jc w:val="center"/>
                             </w:trPr>
                             <w:tc>
@@ -447,7 +447,7 @@
                                     <w:tcBorders>
                                         <w:top w:val="single" w:color="auto" w:sz="12" w:space="0"/>
                                         <w:bottom w:val="double" w:color="auto" w:sz="4" w:space="0"/>
-                                        <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                                        <w:rione-stop-javat w:val="single" w:color="auto" w:sz="4" w:space="0"/>
                                     </w:tcBorders>
                                     <w:vAlign w:val="center"/>
                                 </w:tcPr>
@@ -478,7 +478,8 @@
                     </w:p>
                     <w:sectPr>
                         <w:pgSz w:w="11906" w:h="16838"/>
-                        <w:pgMar w:top="1440" w:right="1800" w:bottom="1440" w:left="1800" w:header="851" w:footer="992"
+                        <w:pgMar w:top="1440" w:rione-stop-javat="1800" w:bottom="1440" w:left="1800" w:header="851"
+                                 w:footer="992"
                                  w:gutter="0"/>
                         <w:cols w:space="425" w:num="1"/>
                         <w:docGrid w:type="lines" w:linePitch="312" w:charSpace="0"/>
@@ -673,7 +674,7 @@
                     <w:doNotLeaveBackslashAlone/>
                     <w:ulTrailSpace/>
                     <w:doNotExpandShiftReturn/>
-                    <w:adjustLineHeightInTable/>
+                    <w:adjustLineHeione-stop-javatInTable/>
                     <w:useFELayout/>
                     <w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word"
                                      w:val="14"/>
@@ -703,7 +704,8 @@
                     <m:naryLim m:val="undOvr"/>
                 </m:mathPr>
                 <w:themeFontLang w:val="en-US" w:eastAsia="zh-CN"/>
-                <w:clrSchemeMapping w:bg1="light1" w:t1="dark1" w:bg2="light2" w:t2="dark2" w:accent1="accent1"
+                <w:clrSchemeMapping w:bg1="lione-stop-javat1" w:t1="dark1" w:bg2="lione-stop-javat2" w:t2="dark2"
+                                    w:accent1="accent1"
                                     w:accent2="accent2" w:accent3="accent3" w:accent4="accent4" w:accent5="accent5"
                                     w:accent6="accent6" w:hyperlink="hyperlink"
                                     w:followedHyperlink="followedHyperlink"/>
@@ -893,9 +895,12 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="0" w:semiHidden="0" w:name="Balloon Text"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="0" w:semiHidden="0" w:name="Table Grid"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="0" w:semiHidden="0" w:name="Table Theme"/>
-                    <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0" w:name="Light Shading"/>
-                    <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0" w:name="Light List"/>
-                    <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0" w:name="Light Grid"/>
+                    <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
+                                    w:name="Lione-stop-javat Shading"/>
+                    <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
+                                    w:name="Lione-stop-javat List"/>
+                    <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
+                                    w:name="Lione-stop-javat Grid"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0" w:name="Medium Shading 1"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0" w:name="Medium Shading 2"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="65" w:semiHidden="0" w:name="Medium List 1"/>
@@ -908,11 +913,11 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="72" w:semiHidden="0" w:name="Colorful List"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="73" w:semiHidden="0" w:name="Colorful Grid"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
-                                    w:name="Light Shading Accent 1"/>
+                                    w:name="Lione-stop-javat Shading Accent 1"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
-                                    w:name="Light List Accent 1"/>
+                                    w:name="Lione-stop-javat List Accent 1"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
-                                    w:name="Light Grid Accent 1"/>
+                                    w:name="Lione-stop-javat Grid Accent 1"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0"
                                     w:name="Medium Shading 1 Accent 1"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0"
@@ -936,11 +941,11 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="73" w:semiHidden="0"
                                     w:name="Colorful Grid Accent 1"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
-                                    w:name="Light Shading Accent 2"/>
+                                    w:name="Lione-stop-javat Shading Accent 2"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
-                                    w:name="Light List Accent 2"/>
+                                    w:name="Lione-stop-javat List Accent 2"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
-                                    w:name="Light Grid Accent 2"/>
+                                    w:name="Lione-stop-javat Grid Accent 2"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0"
                                     w:name="Medium Shading 1 Accent 2"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0"
@@ -964,11 +969,11 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="73" w:semiHidden="0"
                                     w:name="Colorful Grid Accent 2"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
-                                    w:name="Light Shading Accent 3"/>
+                                    w:name="Lione-stop-javat Shading Accent 3"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
-                                    w:name="Light List Accent 3"/>
+                                    w:name="Lione-stop-javat List Accent 3"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
-                                    w:name="Light Grid Accent 3"/>
+                                    w:name="Lione-stop-javat Grid Accent 3"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0"
                                     w:name="Medium Shading 1 Accent 3"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0"
@@ -992,11 +997,11 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="73" w:semiHidden="0"
                                     w:name="Colorful Grid Accent 3"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
-                                    w:name="Light Shading Accent 4"/>
+                                    w:name="Lione-stop-javat Shading Accent 4"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
-                                    w:name="Light List Accent 4"/>
+                                    w:name="Lione-stop-javat List Accent 4"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
-                                    w:name="Light Grid Accent 4"/>
+                                    w:name="Lione-stop-javat Grid Accent 4"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0"
                                     w:name="Medium Shading 1 Accent 4"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0"
@@ -1020,11 +1025,11 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="73" w:semiHidden="0"
                                     w:name="Colorful Grid Accent 4"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
-                                    w:name="Light Shading Accent 5"/>
+                                    w:name="Lione-stop-javat Shading Accent 5"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
-                                    w:name="Light List Accent 5"/>
+                                    w:name="Lione-stop-javat List Accent 5"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
-                                    w:name="Light Grid Accent 5"/>
+                                    w:name="Lione-stop-javat Grid Accent 5"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0"
                                     w:name="Medium Shading 1 Accent 5"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0"
@@ -1048,11 +1053,11 @@
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="73" w:semiHidden="0"
                                     w:name="Colorful Grid Accent 5"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="60" w:semiHidden="0"
-                                    w:name="Light Shading Accent 6"/>
+                                    w:name="Lione-stop-javat Shading Accent 6"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="61" w:semiHidden="0"
-                                    w:name="Light List Accent 6"/>
+                                    w:name="Lione-stop-javat List Accent 6"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="62" w:semiHidden="0"
-                                    w:name="Light Grid Accent 6"/>
+                                    w:name="Lione-stop-javat Grid Accent 6"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="63" w:semiHidden="0"
                                     w:name="Medium Shading 1 Accent 6"/>
                     <w:lsdException w:unhideWhenUsed="0" w:uiPriority="64" w:semiHidden="0"
@@ -1107,7 +1112,7 @@
                             <w:top w:w="0" w:type="dxa"/>
                             <w:left w:w="108" w:type="dxa"/>
                             <w:bottom w:w="0" w:type="dxa"/>
-                            <w:right w:w="108" w:type="dxa"/>
+                            <w:rione-stop-javat w:w="108" w:type="dxa"/>
                         </w:tblCellMar>
                     </w:tblPr>
                 </w:style>
@@ -1159,7 +1164,7 @@
                     </a:clrScheme>
                     <a:fontScheme name="Office">
                         <a:majorFont>
-                            <a:latin typeface="Calibri Light"/>
+                            <a:latin typeface="Calibri Lione-stop-javat"/>
                             <a:ea typeface=""/>
                             <a:cs typeface=""/>
                             <a:font script="Jpan" typeface="ＭＳ ゴシック"/>
@@ -1190,7 +1195,7 @@
                             <a:font script="Sinh" typeface="Iskoola Pota"/>
                             <a:font script="Mong" typeface="Mongolian Baiti"/>
                             <a:font script="Viet" typeface="Times New Roman"/>
-                            <a:font script="Uigh" typeface="Microsoft Uighur"/>
+                            <a:font script="Uione-stop-java" typeface="Microsoft Uione-stop-javaur"/>
                             <a:font script="Geor" typeface="Sylfaen"/>
                         </a:majorFont>
                         <a:minorFont>
@@ -1225,7 +1230,7 @@
                             <a:font script="Sinh" typeface="Iskoola Pota"/>
                             <a:font script="Mong" typeface="Mongolian Baiti"/>
                             <a:font script="Viet" typeface="Arial"/>
-                            <a:font script="Uigh" typeface="Microsoft Uighur"/>
+                            <a:font script="Uione-stop-java" typeface="Microsoft Uione-stop-javaur"/>
                             <a:font script="Geor" typeface="Sylfaen"/>
                         </a:minorFont>
                     </a:fontScheme>

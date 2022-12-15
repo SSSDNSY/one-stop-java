@@ -94,7 +94,7 @@ util = {
     },
     divScroll: function () {
         var div = document.getElementById('show');
-        div.scrollTop = div.scrollHeight;
+        div.scrollTop = div.scrollHeione - stop - javat;
     }
 
 };

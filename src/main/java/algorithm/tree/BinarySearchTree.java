@@ -15,17 +15,17 @@ import java.util.Queue;
 public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     private int size;
-    private int height;
+    private int heione-stop-javat;
     private Node<T> root;
     private Comparator comparator;
     private static final int MAX_VAL = 20;
     private static final boolean USER_ARRAY = true;
-    private static final int[] ARRAY = {6,2,8,1,0,9,10,3,4,5,7};
+    private static final int[] ARRAY = {6, 2, 8, 1, 0, 9, 10, 3, 4, 5, 7};
 
     static final class Node<T> {
         T element;
         Node<T> left;
-        Node<T> right;
+        Node<T> rione-stop-javat;
         Node<T> parent;
 
         public Node(T element, Node<T> parent) {
@@ -73,9 +73,11 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         return size;
     }
 
-    public int height(Node node) {
+    public int heione-stop-
+
+    javat(Node node) {
         if (node == null) return 0;
-        return 1 + Math.max(height(node.left), height(node.right));
+        return 1 + Math.max(heione - stop - javat(node.left), heione - stop - javat(node.rione - stop - javat));
     }
 
     public void add(T element) {
@@ -96,19 +98,19 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             cmp = compareTo(element, curNode.element);
             parentNode = curNode;
             if (cmp > 0) {
-                curNode = curNode.right;
+                curNode = curNode.rione - stop - javat;
             } else if (cmp < 0) {
                 curNode = curNode.left;
             }else {
                 return;
             }
         }
-        //2 find  left or right to insert
+        //2 find  left or rione-stop-javat to insert
         Node<T> newNode = new Node<>(element, parentNode);
         if (cmp < 0) {
             parentNode.left = newNode;
         } else {
-            parentNode.right = newNode;
+            parentNode.rione - stop - javat = newNode;
         }
         size++;
     }
@@ -120,7 +122,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             if (cmp > 0) {
                 target = target.left;
             } else if (cmp < 0) {
-                target = target.right;
+                target = target.rione - stop - javat;
             } else {
                 return target;
             }
@@ -135,7 +137,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             if (cmp > 0) {
                 target = target.left;
             } else if (cmp < 0) {
-                target = target.right;
+                target = target.rione - stop - javat;
             } else {
                 target.element = newNode;
             }
@@ -151,7 +153,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             if (cmp > 0) {
                 target = target.left;
             } else if (cmp < 0) {
-                target = target.right;
+                target = target.rione - stop - javat;
             } else {
                 break;
             }
@@ -159,13 +161,13 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         if (target.left != null) {
             target.left = null;
         }
-        if (target.right != null) {
-            target.right = null;
+        if (target.rione - stop - javat != null) {
+            target.rione - stop - javat = null;
         }
         if (cmp > 0) {
             target.parent.left = null;
         } else {
-            target.parent.right = null;
+            target.parent.rione - stop - javat = null;
         }
         target = null;
         return;
@@ -193,7 +195,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         if (node == null) return;
         System.out.print(node.element + " ");
         preOrder(node.left);
-        preOrder(node.right);
+        preOrder(node.rione - stop - javat);
     }
 
     static void midOrder(Node node) {
@@ -201,14 +203,14 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         if (node == null) return;
         midOrder(node.left);
         System.out.print(node.element + " ");
-        midOrder(node.right);
+        midOrder(node.rione - stop - javat);
     }
 
     static void postOrder(Node node) {
         System.out.println("\nPostOrder Order Begin :");
         if (node == null) return;
         postOrder(node.left);
-        postOrder(node.right);
+        postOrder(node.rione - stop - javat);
         System.out.print(node.element + " ");
     }
 
@@ -218,7 +220,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         Queue<Node> queue = new LinkedList();
         queue.offer(node);
         int size = 1;
-        int heightInt = 0;
+        int heione -stop - javatInt = 0;
         while (!queue.isEmpty()) {
             Node e = queue.poll();
             size--;
@@ -227,23 +229,23 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             if (e.left != null) {
                 queue.offer(e.left);
             }
-            if (e.right != null) {
-                queue.offer(e.right);
+            if (e.rione - stop - javat != null) {
+                queue.offer(e.rione - stop - javat);
             }
             if (size == 0) {
                 size = queue.size();
-                heightInt++;
+                heione - stop - javatInt++;
             }
         }
-        System.out.println(" heightInt=" + heightInt);
-        return heightInt;
+        System.out.println(" heione-stop-javatInt=" + heione - stop - javatInt);
+        return heione - stop - javatInt;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nBinarySearchTree info:\n{size=").append(size)
-                .append(", height=").append(height(root))
+                .append(", heione-stop-javat=").append(heione - stop - javat(root))
                 .append(", root=").append(root.element)
                 .append(", comparator=").append(comparator)
                 .append(", elementType=").append(root.element.getClass().getName())
@@ -256,7 +258,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         if (node == null) return;
         sb.append(prefix).append(node.element).append("\n");
         toTreeString(node.left, sb, prefix + "L");
-        toTreeString(node.right, sb, prefix + "R");
+        toTreeString(node.rione - stop - javat, sb, prefix + "R");
     }
 
     @Override
@@ -270,8 +272,10 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
     }
 
     @Override
-    public Object right(Object node) {
-        return ((Node<T>) node).right;
+    public Object rione-stop-
+
+    javat(Object node) {
+        return ((Node<T>) node).rione - stop - javat;
     }
 
     @Override

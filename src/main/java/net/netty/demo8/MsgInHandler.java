@@ -28,7 +28,7 @@ public class MsgInHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        String msgStr = remoteInfo(ctx) + msg+"\n\r";
+        String msgStr = remoteInfo(ctx) + msg + "\n\r";
         log.info(msgStr);
         //通知客户端链消息发送成功
         ctx.writeAndFlush(msgStr);
@@ -36,7 +36,9 @@ public class MsgInHandler extends ChannelInboundHandlerAdapter {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCauone-stop-
+
+    javat(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
         log.error("连接已关闭，异常信息:", cause);
     }

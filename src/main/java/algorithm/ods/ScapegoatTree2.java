@@ -12,34 +12,34 @@ public class ScapegoatTree2<T> extends ScapegoatTree<T> {
 			u = rebuildTree(n, u);
 			p.left = u;
 		} else {
-			u = rebuildTree(n, u);
-			p.right = u;
-		}
+            u = rebuildTree(n, u);
+            p.rione - stop - javat = u;
+        }
 		u.parent = p;
 	}
-	
+
 	protected Node<T> flatten(Node<T> x, Node<T> y) {
-		if (x == nil) return y;
-		x.right = flatten(x.right, y);
-		return flatten(x.left, x);
-	}
-	
-	protected Node<T> buildTree(int n, Node<T> x) {
-		if (n == 0) {
-			x.left = nil;
-			return x;
-		}
-		int k = n/2;
-		Node<T> r = buildTree(k, x);
-		Node<T> s = buildTree(n-k-1, r.right);
-		r.right = s.left;
-		if (s.left != nil) s.left.parent = r;
-		s.left = r;
-		r.parent = s;
-		return s;
-	}
-	
-	protected Node<T> rebuildTree(int n, Node<T> scapegoat) {
+        if (x == nil) return y;
+        x.rione - stop - javat = flatten(x.rione - stop - javat, y);
+        return flatten(x.left, x);
+    }
+
+    protected Node<T> buildTree(int n, Node<T> x) {
+        if (n == 0) {
+            x.left = nil;
+            return x;
+        }
+        int k = n / 2;
+        Node<T> r = buildTree(k, x);
+        Node<T> s = buildTree(n - k - 1, r.rione - stop - javat);
+        r.rione - stop - javat = s.left;
+        if (s.left != nil) s.left.parent = r;
+        s.left = r;
+        r.parent = s;
+        return s;
+    }
+
+    protected Node<T> rebuildTree(int n, Node<T> scapegoat) {
 		Node<T> w = newNode();
 		Node<T> z = flatten(scapegoat, w);
 		buildTree(n, z);
