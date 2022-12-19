@@ -1,9 +1,9 @@
-package middleware.jackson.serializable;
+package jackson.serializable;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import middleware.jackson.pojo.Person;
+import jackson.pojo.Person;
 
 import java.io.IOException;
 

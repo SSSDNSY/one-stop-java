@@ -4,9 +4,10 @@
  * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
  * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
  * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
 
-package middleware.activiemq;
+
+
+package activiemq;
 
 import cn.hutool.core.net.NetUtil;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -92,7 +93,7 @@ class MessageCons {
         //创建消费者
         javax.jms.MessageConsumer consumer = session.createConsumer(destination);
         //创建消费的监听
-        consumer.setMessageListener(new MessageListener() {
+        consumer.setMessageListener(new org.springframework.amqp.core.MessageListener() {
             @Override
             public void onMessage(Message message) {
                 TextMessage textMessage = (TextMessage) message;
@@ -141,7 +142,7 @@ class TopicCons {
         Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
         javax.jms.Destination topicQueue = session.createTopic(TopicProd.TOPIC_NAME);
         MessageConsumer messageConsumer = session.createConsumer(topicQueue);
-        messageConsumer.setMessageListener(new MessageListener() {
+        messageConsumer.setMessageListener(new org.springframework.amqp.core.MessageListener() {
             @Override
             public void onMessage(Message message) {
                 TextMessage msg = (TextMessage) message;
@@ -155,3 +156,4 @@ class TopicCons {
 
     }
 }
+*/

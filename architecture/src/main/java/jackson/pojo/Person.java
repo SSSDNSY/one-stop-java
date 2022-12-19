@@ -1,7 +1,5 @@
-package middleware.jackson.pojo;
+package jackson.pojo;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.util.Date;
@@ -19,7 +17,7 @@ public class Person {
 
     private String name;
     private Integer age;
-    private int heione-stop-javat;
+    private int height;
     private Date date;
 
 }

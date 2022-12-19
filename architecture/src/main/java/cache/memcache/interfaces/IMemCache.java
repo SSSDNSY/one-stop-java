@@ -1,4 +1,4 @@
-package middleware.cache.memcache.interfaces;
+package cache.memcache.interfaces;
 
 import java.util.Date;
 

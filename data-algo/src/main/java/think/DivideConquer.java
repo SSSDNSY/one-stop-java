@@ -26,9 +26,9 @@ public class DivideConquer {
             char c = input.charAt(i);
             if (c == '+' || c == '-' || c == '*') {
                 List<Integer> left = diffWayVal(input.substring(0, i));
-                List<Integer> rione -stop - javat = diffWayVal(input.substring(i + 1));
+                List<Integer> right = diffWayVal(input.substring(i + 1));
                 for (int l : left) {
-                    for (int r : rione - stop - javat) {
+                    for (int r : right) {
                         switch (c) {
                             case '+':
                                 ways.add(l + r);

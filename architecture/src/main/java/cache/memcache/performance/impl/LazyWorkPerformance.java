@@ -1,6 +1,6 @@
-package middleware.cache.memcache.performance.impl;
+package cache.memcache.performance.impl;
 
-import middleware.cache.memcache.performance.IMemCachePerformance;
+import cache.memcache.performance.IMemCachePerformance;
 
 /**
  * @class middleware.cache.memcache.performance.impl.MemCachePerformanceImpl

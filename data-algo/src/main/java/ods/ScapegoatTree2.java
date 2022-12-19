@@ -13,14 +13,14 @@ public class ScapegoatTree2<T> extends ScapegoatTree<T> {
 			p.left = u;
 		} else {
             u = rebuildTree(n, u);
-            p.rione - stop - javat = u;
+            p.right = u;
         }
 		u.parent = p;
 	}
 
 	protected Node<T> flatten(Node<T> x, Node<T> y) {
         if (x == nil) return y;
-        x.rione - stop - javat = flatten(x.rione - stop - javat, y);
+        x.right = flatten(x.right, y);
         return flatten(x.left, x);
     }
 
@@ -31,8 +31,8 @@ public class ScapegoatTree2<T> extends ScapegoatTree<T> {
         }
         int k = n / 2;
         Node<T> r = buildTree(k, x);
-        Node<T> s = buildTree(n - k - 1, r.rione - stop - javat);
-        r.rione - stop - javat = s.left;
+        Node<T> s = buildTree(n - k - 1, r.right);
+        r.right = s.left;
         if (s.left != nil) s.left.parent = r;
         s.left = r;
         r.parent = s;

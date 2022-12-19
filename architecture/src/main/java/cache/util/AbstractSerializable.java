@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.util;
+package cache.util;
 
 import org.apache.log4j.Logger;
 

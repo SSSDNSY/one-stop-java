@@ -1,6 +1,5 @@
 package designpattern.command;
 
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +42,6 @@ import java.util.List;
  */
 public class CommandPattern {
 
-    @Test
     public void command1() {
         Stock stock = new Stock();
         BuyStockCommand buyStockCommand = new BuyStockCommand(stock);
@@ -53,6 +51,10 @@ public class CommandPattern {
         broker.addCommand(buyStockCommand)
                 .add(sellStockCommand);
         broker.execute();
+    }
+
+    public static void main(String[] args) {
+        new CommandPattern().command1();
     }
 }
 
@@ -96,7 +98,7 @@ class Stock {
     private int quantity = 10;
 
     public void buy() {
-        System.out.println("Stock [ Name: " + name + ", Quantity: " + (quantity + 10) + " ] bouone-stop-javat");
+        System.out.println("Stock [ Name: " + name + ", Quantity: " + (quantity + 10) + " ] bought");
     }
 
     public void sell() {

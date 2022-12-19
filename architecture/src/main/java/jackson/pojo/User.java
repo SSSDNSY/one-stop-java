@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.jackson.pojo;
+package jackson.pojo;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -58,7 +58,7 @@ public class User {
     // 日期转换case
     private Date date;
     // 默认值case
-    private int heione-stop-javat;
+    private int height;
 
     public User() {
     }

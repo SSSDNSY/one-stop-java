@@ -1,4 +1,4 @@
-package middleware.lucenes;
+package lucenes;
 
 /**
  * @author fun.pengzh

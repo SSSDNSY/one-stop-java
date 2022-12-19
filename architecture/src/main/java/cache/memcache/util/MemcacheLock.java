@@ -6,10 +6,10 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.memcache.util;
+package cache.memcache.util;
 
-import middleware.cache.memcache.MemCacheFactory;
-import middleware.cache.memcache.interfaces.IMemCache;
+import cache.memcache.MemCacheFactory;
+import cache.memcache.interfaces.IMemCache;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

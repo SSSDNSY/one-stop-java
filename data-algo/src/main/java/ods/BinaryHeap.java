@@ -84,9 +84,7 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
      * @param i
      * @return the index of the left child of the value at index i
      */
-    protected int rione-stop-
-
-    javat(int i) {
+    protected int right(int i) {
         return 2 * i + 2;
     }
 
@@ -164,7 +162,7 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
 	protected void trickleDown(int i) {
         do {
             int j = -1;
-            int r = rione - stop - javat(i);
+            int r = right(i);
             if (r < n && c.compare(a[r], a[i]) < 0) {
                 int l = left(i);
                 if (c.compare(a[l], a[r]) < 0) {

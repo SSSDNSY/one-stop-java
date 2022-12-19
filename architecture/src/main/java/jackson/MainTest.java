@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.jackson;
+package jackson;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonFilter;
@@ -35,11 +35,11 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
-import middleware.jackson.deserializer.CustomDeserializer;
-import middleware.jackson.pojo.Person;
-import middleware.jackson.pojo.Student;
-import middleware.jackson.pojo.User;
-import middleware.jackson.serializable.CustomSerializer;
+import jackson.deserializer.CustomDeserializer;
+import jackson.pojo.Person;
+import jackson.pojo.Student;
+import jackson.pojo.User;
+import jackson.serializable.CustomSerializer;
 import org.junit.Test;
 
 import java.io.IOException;

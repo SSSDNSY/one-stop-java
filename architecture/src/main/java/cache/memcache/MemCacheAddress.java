@@ -1,4 +1,4 @@
-package middleware.cache.memcache;
+package cache.memcache;
 
 /**
  * @class middleware.cache.memcache.MemCacheAddress

@@ -1,4 +1,4 @@
-package middleware.pool;
+package pool;
 
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;

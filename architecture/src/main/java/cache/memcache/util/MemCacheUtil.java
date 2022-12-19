@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.memcache.util;
+package cache.memcache.util;
 
 import cn.hutool.core.util.StrUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -33,14 +33,14 @@ public final class MemCacheUtil {
         BufferedOutputStream bos = null;
         String out;
         try {
-            final String[] strs = StrUtil.splitToArray(hostIp, ":");
+            final String[] strs = StrUtil.split(hostIp, ":");
             socket = new Socket(strs[0], Integer.parseInt(strs[1]));
             bis = new BufferedInputStream(socket.getInputStream());
             bos = new BufferedOutputStream(socket.getOutputStream());
             bos.write((cmd + "\r\n").getBytes());
             bos.flush();
             for (out = readLine(bis); !"END".equals(out); out = readLine(bis)) {
-                String[] outs = StrUtil.splitToArray(out, " ");
+                String[] outs = StrUtil.split(out, " ");
                 rtn.put(outs[1], outs[2]);
             }
         } catch (Exception exception) {

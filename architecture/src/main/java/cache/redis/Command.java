@@ -1,4 +1,4 @@
-package middleware.cache.redis;
+package cache.redis;
 
 /**
  * @class middleware.cache.redis.Cammand

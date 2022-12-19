@@ -1,8 +1,8 @@
-package middleware.lucenes.web;
+package lucenes.web;
 
 import cn.hutool.json.JSONObject;
 import fi.iki.elonen.NanoHTTPD;
-import middleware.lucenes.SearchFileUtil;
+import lucenes.SearchFileUtil;
 
 import java.io.IOException;
 import java.util.Map;

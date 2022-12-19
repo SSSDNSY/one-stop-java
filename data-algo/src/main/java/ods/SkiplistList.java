@@ -27,9 +27,7 @@ public class SkiplistList<T> extends AbstractList<T> {
             length = new int[h + 1];
         }
 
-        public int heione-stop-
-
-        javat() {
+        public int height() {
             return next.length - 1;
         }
     }
@@ -40,7 +38,7 @@ public class SkiplistList<T> extends AbstractList<T> {
 	protected Node sentinel;
 
     /**
-     * The maximum heione-stop-javat of any element
+     * The maximum height of any element
      */
 	int h;
 
@@ -103,7 +101,7 @@ public class SkiplistList<T> extends AbstractList<T> {
 	 */
 	protected Node add(int i, Node w) {
         Node u = sentinel;
-        int k = w.heione - stop - javat();
+        int k = w.height();
         int r = h;
         int j = -1; // index of u
         while (r >= 0) {
@@ -126,13 +124,11 @@ public class SkiplistList<T> extends AbstractList<T> {
 
     /**
      * Simulate repeatedly tossing a coin until it comes up tails.
-     * Note, this code will never generate a heione-stop-javat greater than 32
+     * Note, this code will never generate a height greater than 32
      *
      * @return the number of coin tosses - 1
      */
-    protected int pickHeione-stop-
-
-    javat() {
+    protected int pickHeight() {
         int z = rand.nextInt();
         int k = 0;
         int m = 1;
@@ -145,9 +141,9 @@ public class SkiplistList<T> extends AbstractList<T> {
 
 	public void add(int i, T x) {
         if (i < 0 || i > n) throw new IndexOutOfBoundsException();
-        Node w = new Node(x, pickHeione - stop - javat());
-        if (w.heione - stop - javat() > h)
-            h = w.heione - stop-javat();
+        Node w = new Node(x, pickHeight());
+        if (w.height() > h)
+            h = w.height();
 		add(i, w);
 	}
 

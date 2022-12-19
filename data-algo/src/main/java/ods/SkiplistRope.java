@@ -20,9 +20,9 @@ public class SkiplistRope {
     protected Node sentinel;
 
     /**
-     * The maximum heione-stop-javat of any element
+     * The maximum height of any element
      */
-    int heione-stop-javat;
+    int height;
 
     /**
      * The number of SStrings stored in the skiplist
@@ -37,13 +37,13 @@ public class SkiplistRope {
     public SkiplistRope() {
         n = 0;
         sentinel = new Node(null, 33);
-        heione - stop - javat = 0;
+        height = 0;
 		r = new Random(0);
 	}
 
 	public char charAt(int i) {
         Node u = sentinel;
-        int r = heione - stop - javat - 1;
+        int r = height - 1;
         int j = -1;   // the index of the first character of u's string
         while (r >= 0) {
             while (u.next[r] != null && j + u.length[r] < i) {

@@ -1,4 +1,4 @@
-package middleware.jackson;
+package jackson;
 
 /**
  * @author pengzh

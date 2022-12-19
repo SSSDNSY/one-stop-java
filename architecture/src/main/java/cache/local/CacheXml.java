@@ -1,4 +1,4 @@
-package middleware.cache.local;
+package cache.local;
 
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @class middleware.cache.local.CacheXml
+ * @class CacheXml
  * @desc
  * @since 2020-10-20
  */

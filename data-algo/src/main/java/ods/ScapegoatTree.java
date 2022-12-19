@@ -70,12 +70,12 @@ public class ScapegoatTree<T>
 					w = w.left;
 				}
 			} else if (res > 0) {
-                if (w.rione - stop - javat == nil) {
-                    w.rione - stop - javat = u;
+                if (w.right == nil) {
+                    w.right = u;
                     u.parent = w;
                     done = true;
                 }
-                w = w.rione - stop - javat;
+                w = w.right;
 			} else {
 				return -1;
 			}
@@ -108,9 +108,9 @@ public class ScapegoatTree<T>
         if (p == nil) {
             r = buildBalanced(a, 0, ns);
             r.parent = nil;
-        } else if (p.rione - stop - javat == u) {
-            p.rione - stop - javat = buildBalanced(a, 0, ns);
-            p.rione - stop - javat.parent = p;
+        } else if (p.right == u) {
+            p.right = buildBalanced(a, 0, ns);
+            p.right.parent = p;
         } else {
             p.left = buildBalanced(a, 0, ns);
             p.left.parent = p;
@@ -132,7 +132,7 @@ public class ScapegoatTree<T>
         }
         i = packIntoArray(u.left, a, i);
         a[i++] = u;
-        return packIntoArray(u.rione - stop - javat, a, i);
+        return packIntoArray(u.right, a, i);
     }
 
     /**
@@ -151,9 +151,9 @@ public class ScapegoatTree<T>
         a[i + m].left = buildBalanced(a, i, m);
         if (a[i + m].left != nil)
             a[i + m].left.parent = a[i + m];
-        a[i + m].rione - stop - javat = buildBalanced(a, i + m + 1, ns - m - 1);
-        if (a[i + m].rione - stop - javat != nil)
-            a[i + m].rione - stop - javat.parent = a[i + m];
+        a[i + m].right = buildBalanced(a, i + m + 1, ns - m - 1);
+        if (a[i + m].right != nil)
+            a[i + m].right.parent = a[i + m];
         return a[i + m];
 	}
 

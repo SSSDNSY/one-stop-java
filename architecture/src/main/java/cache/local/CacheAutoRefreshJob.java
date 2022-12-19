@@ -1,7 +1,7 @@
-package middleware.cache.local;
+package cache.local;
 
-import middleware.cache.local.interfaces.IReadOnlyCache;
-import middleware.cache.local.interfaces.IReadWriteCache;
+import cache.local.interfaces.IReadOnlyCache;
+import cache.local.interfaces.IReadWriteCache;
 import org.apache.log4j.Logger;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -10,7 +10,7 @@ import org.quartz.JobExecutionException;
 
 
 /**
- * @class middleware.cache.local.CacheAutoRefreshJob
+ * @class CacheAutoRefreshJob
  * @desc 缓存自动刷新任务器
  * @since 2020-10-20
  */

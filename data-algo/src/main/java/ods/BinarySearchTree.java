@@ -50,7 +50,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (comp < 0) {
 				w = w.left;
 			} else if (comp > 0) {
-                w = w.rione - stop - javat;
+                w = w.right;
             } else {
 				return w;
 			}
@@ -70,7 +70,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 				z = w;
 				w = w.left;
 			} else if (comp > 0) {
-                w = w.rione - stop - javat;
+                w = w.right;
             } else {
 				return w;
 			}
@@ -85,7 +85,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (comp < 0)
 				u = u.left;
 			else if (comp > 0)
-                u = u.rione - stop - javat;
+                u = u.right;
             else
                 return u.x;
 		}
@@ -100,7 +100,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 				z = w;
 				w = w.left;
 			} else if (comp > 0) {
-                w = w.rione - stop - javat;
+                w = w.right;
             } else {
 				return w.x;
 			}
@@ -132,7 +132,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 				u = u.left;
 			} else if (comp > 0) {
                 z = u;
-                u = u.rione - stop - javat;
+                u = u.right;
             } else {
 				return u;
 			}
@@ -144,8 +144,8 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		if (x == null) { // find the maximum value
             Node w = r;
             if (w == nil) return null;
-            while (w.rione - stop - javat != nil)
-                w = w.rione - stop - javat;
+            while (w.right != nil)
+                w = w.right;
             return w.x;
         }
 		Node w = findLTNode(x);
@@ -167,7 +167,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (comp < 0) {
 				p.left = u;
 			} else if (comp > 0) {
-                p.rione - stop - javat = u;
+                p.right = u;
             } else {
 				return false;   // u.x is already in the tree
 			}
@@ -206,7 +206,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 		if (u.left != nil) {
 			s = u.left;
 		} else {
-            s = u.rione - stop - javat;
+            s = u.right;
         }
 		if (u == r) {
 			r = s;
@@ -216,7 +216,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 			if (p.left == u) {
 				p.left = s;
 			} else {
-                p.rione - stop - javat = s;
+                p.right = s;
             }
 		}
 		if (s != nil) {
@@ -230,10 +230,10 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 	 * @param u
 	 */
 	protected void remove(Node u) {
-        if (u.left == nil || u.rione - stop - javat == nil) {
+        if (u.left == nil || u.right == nil) {
             splice(u);
         } else {
-            Node w = u.rione - stop - javat;
+            Node w = u.right;
             while (w.left != nil)
                 w = w.left;
             u.x = w.x;
@@ -246,18 +246,18 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
 	 * @param u
 	 */
 	protected void rotateLeft(Node u) {
-        Node w = u.rione - stop - javat;
+        Node w = u.right;
         w.parent = u.parent;
         if (w.parent != nil) {
             if (w.parent.left == u) {
                 w.parent.left = w;
             } else {
-                w.parent.rione - stop - javat = w;
+                w.parent.right = w;
             }
         }
-        u.rione - stop - javat = w.left;
-        if (u.rione - stop - javat != nil) {
-            u.rione - stop - javat.parent = u;
+        u.right = w.left;
+        if (u.right != nil) {
+            u.right.parent = u;
         }
         u.parent = w;
         w.left = u;
@@ -268,28 +268,26 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node,T>, T> 
     }
 
     /**
-     * Do a rione-stop-javat rotation at u
+     * Do a right rotation at u
      *
      * @param u
      */
-    protected void rotateRione-stop-
-
-    javat(Node u) {
+    protected void rotateRight(Node u) {
         Node w = u.left;
         w.parent = u.parent;
         if (w.parent != nil) {
             if (w.parent.left == u) {
                 w.parent.left = w;
             } else {
-                w.parent.rione - stop - javat = w;
+                w.parent.right = w;
             }
         }
-        u.left = w.rione - stop - javat;
+        u.left = w.right;
         if (u.left != nil) {
             u.left.parent = u;
         }
         u.parent = w;
-        w.rione - stop - javat = u;
+        w.right = u;
         if (u == r) {
             r = w;
             r.parent = nil;

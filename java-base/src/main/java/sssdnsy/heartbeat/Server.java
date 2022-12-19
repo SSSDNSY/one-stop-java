@@ -9,7 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.Logginone-stop-javaandler;
+import io.netty.handler.logging.Logginghandler;
 import sssdnsy.serial.MarshallingCodeFactory;
 
 /**
@@ -31,7 +31,7 @@ public class Server {
                 .option(ChannelOption.SO_BACKLOG, 1024)
 //                .childOption(ChannelOption.SO_KEEPALIVE, true)
                 //添加日志处理
-                .handler(new Logginone - stop - javaandler(LogLevel.INFO))
+                .handler(new Logginghandler(LogLevel.INFO))
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel sc) throws Exception {

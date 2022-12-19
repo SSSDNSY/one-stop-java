@@ -14,12 +14,12 @@ public abstract class AbstractSelfBalancingBinarySearchTree extends AbstractBina
      * @return node that is in place of provided node after rotation
      */
     public Node rotateLeft(Node node){
-        Node temp = node.rione - stop - javat;
+        Node temp = node.right;
         temp.parent = node.parent;
 
-        node.rione - stop - javat = temp.left;
-        if (node.rione - stop - javat != null) {
-            node.rione - stop - javat.parent = node;
+        node.right = temp.left;
+        if (node.right != null) {
+            node.right.parent = node;
         }
         temp.left = node;
         node.parent = temp;
@@ -28,7 +28,7 @@ public abstract class AbstractSelfBalancingBinarySearchTree extends AbstractBina
             if (node == temp.parent.left) {
                 temp.parent.left = temp;
             } else {
-                temp.parent.rione - stop - javat = temp;
+                temp.parent.right = temp;
             }
         } else {
             root = temp;
@@ -36,24 +36,22 @@ public abstract class AbstractSelfBalancingBinarySearchTree extends AbstractBina
         return temp;
     }
 
-    public Node rotateRione-stop-
-
-    javat(Node node) {
+    public Node rotateRight(Node node) {
         Node temp = node.left;
         temp.parent = node.parent;
 
-        node.left = temp.rione - stop - javat;
+        node.left = temp.right;
         if (node.left != null) {
             node.left.parent = node;
         }
-        temp.rione - stop - javat = node;
+        temp.right = node;
         node.parent = temp;
 
         if(temp.parent != null){
             if(node == temp.parent.left){
                 temp.parent.left = temp;
             }else {
-                temp.parent.rione - stop - javat = temp;
+                temp.parent.right = temp;
             }
         }else {
             root = temp;

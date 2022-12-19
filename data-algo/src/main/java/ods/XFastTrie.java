@@ -70,11 +70,11 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node,T>, T>
         u.child[next] = u.child[prev] = null;
         Node w = u;
         // 3 - delete nodes on path to u
-        while (w != r && w.child[left] == null && w.child[rione - stop - javat] == null) {
+        while (w != r && w.child[left] == null && w.child[right] == null) {
             if (w == w.parent.child[left])
                 w.parent.child[left] = null;
-            else // u == u.parent.child[rione-stop-javat]
-                w.parent.child[rione - stop - javat] = null;
+            else // u == u.parent.child[right]
+                w.parent.child[right] = null;
             t[i--].remove(w);
             w = w.parent;
         }

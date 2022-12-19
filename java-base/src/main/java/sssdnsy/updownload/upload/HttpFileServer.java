@@ -11,7 +11,7 @@
 //import io.netty.handler.codec.http.HttpRequestDecoder;
 //import io.netty.handler.codec.http.HttpResponseEncoder;
 //import io.netty.handler.logging.LogLevel;
-//import io.netty.handler.logging.Logginone-stop-javaandler;
+//import io.netty.handler.logging.Logginghandler;
 //import io.netty.handler.stream.ChunkedWriteHandler;
 //
 //public class HttpFileServer {
@@ -27,7 +27,7 @@
 //        bootstrap
 //                .group(bossGroup, workGroup)
 //                .channel(NioServerSocketChannel.class)
-//                .handler(new Logginone-stop-javaandler(LogLevel.INFO))
+//                .handler(new Logginghandler(LogLevel.INFO))
 //                .childHandler(new HttpFileUploadInitializer());
 //        ChannelFuture cf = bootstrap.bind("127.0.0.1", port).sync();
 //        System.err.println("Open your Browser and navigator to http://127.0.0.1:" + port);

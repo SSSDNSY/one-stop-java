@@ -1,6 +1,6 @@
-package middleware.cache.local;
+package cache.local;
 
-import middleware.cache.local.interfaces.IReadWriteCache;
+import cache.local.interfaces.IReadWriteCache;
 import org.apache.log4j.Logger;
 
 import java.util.Iterator;
@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 /**
- * @class middleware.cache.local.ReadWriteCache
+ * @class ReadWriteCache
  * @desc
  * @since 2020-10-20
  */

@@ -3,7 +3,7 @@ package sssdnsy.cjuc.concurrent2;
 import static java.lang.Thread.interrupted;
 
 /**
- * W:\code\algorithm\one-stop-java\src\main\java\lang\cjuc\concurrent2\java-thread-x-locksupport-1.png
+ * W:\code\algorithm\gh\src\main\java\lang\cjuc\concurrent2\java-thread-x-locksupport-1.png
  *
  * @author pengzh
  * @since 2020-07-02

@@ -13,7 +13,7 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 
 	public static class BTNode<Node extends BTNode<Node>> {
         public Node left;
-        public Node rione-stop-javat;
+        public Node right;
         public Node parent;
     }
 
@@ -61,7 +61,7 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 	protected Node newNode() {
 		try {
             Node u = (Node) sampleNode.getClass().newInstance();
-            u.parent = u.left = u.rione - stop - javat = nil;
+            u.parent = u.left = u.right = nil;
             return u;
         } catch (Exception e) {
 			return null;
@@ -96,7 +96,7 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 	 */
 	protected int size(Node u) {
         if (u == nil) return 0;
-        return 1 + size(u.left) + size(u.rione - stop - javat);
+        return 1 + size(u.left) + size(u.right);
     }
 
 	/**
@@ -110,10 +110,10 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 			if (prev == u.parent) {
 				n++;
                 if (u.left != nil) next = u.left;
-                else if (u.rione - stop - javat != nil) next = u.rione - stop - javat;
+                else if (u.right != nil) next = u.right;
                 else next = u.parent;
 			} else if (prev == u.left) {
-                if (u.rione - stop - javat != nil) next = u.rione - stop - javat;
+                if (u.right != nil) next = u.right;
                 else next = u.parent;
             } else {
 				next = u.parent;
@@ -129,20 +129,16 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
      *
      * @return the maximum depth of any node in this tree
      */
-    public int heione-stop-
-
-    javat() {
-        return heione - stop - javat(r);
+    public int height() {
+        return height(r);
     }
 
     /**
      * @return the size of the subtree rooted at u
      */
-    protected int heione-stop-
-
-    javat(Node u) {
+    protected int height(Node u) {
         if (u == nil) return -1;
-        return 1 + Math.max(heione - stop - javat(u.left), heione - stop - javat(u.rione - stop - javat));
+        return 1 + Math.max(height(u.left), height(u.right));
     }
 
 
@@ -167,7 +163,7 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 	public void traverse(Node u) {
         if (u == nil) return;
         traverse(u.left);
-        traverse(u.rione-stop-javat);
+        traverse(u.right);
 	}
 
 	/**
@@ -178,10 +174,10 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 		while (u != nil) {
             if (prev == u.parent) {
                 if (u.left != nil) next = u.left;
-                else if (u.rione - stop - javat != nil) next = u.rione - stop - javat;
+                else if (u.right != nil) next = u.right;
 				else next = u.parent;
             } else if (prev == u.left) {
-                if (u.rione - stop - javat != nil) next = u.rione - stop - javat;
+                if (u.right != nil) next = u.right;
                 else next = u.parent;
 			} else {
 				next = u.parent;
@@ -200,7 +196,7 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
         while (!q.isEmpty()) {
             Node u = q.remove();
             if (u.left != nil) q.add(u.left);
-            if (u.rione - stop - javat != nil) q.add(u.rione-stop-javat);
+            if (u.right != nil) q.add(u.right);
 		}
 	}
 
@@ -222,8 +218,8 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
 	 * @return the node that follows w in an in-order traversal
 	 */
 	public Node nextNode(Node w) {
-        if (w.rione - stop - javat != nil) {
-            w = w.rione - stop - javat;
+        if (w.right != nil) {
+            w = w.right;
             while (w.left != nil)
                 w = w.left;
         } else {

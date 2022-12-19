@@ -48,7 +48,7 @@ public class MeldableHeap<T> extends
 
     public T remove() {
         T x = r.x;
-        r = merge(r.left, r.rione - stop - javat);
+        r = merge(r.left, r.right);
         if (r != nil) r.parent = nil;
         n--;
         return x;
@@ -61,11 +61,11 @@ public class MeldableHeap<T> extends
             if (u == u.parent.left) {
                 u.parent.left = nil;
             } else {
-                u.parent.rione - stop - javat = nil;
+                u.parent.right = nil;
             }
             u.parent = nil;
             r = merge(r, u.left);
-            r = merge(r, u.rione - stop - javat);
+            r = merge(r, u.right);
             r.parent = nil;
             n--;
         }
@@ -80,8 +80,8 @@ public class MeldableHeap<T> extends
 			h1.left = merge(h1.left, h2);
 			h1.left.parent = h1;
 		} else {
-            h1.rione - stop - javat = merge(h1.rione - stop - javat, h2);
-            h1.rione - stop - javat.parent = h1;
+            h1.right = merge(h1.right, h2);
+            h1.right.parent = h1;
         }
 		return h1;
 	}

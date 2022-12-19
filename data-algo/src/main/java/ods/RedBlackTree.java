@@ -5,7 +5,7 @@ import java.util.*;
 public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         implements SSet<T> {
 
-    protected static class Node<T> extends BSTNode<Node<T>, T> {
+    protected static class Node<T> extends BinarySearchTree.BSTNode<Node<T>, T> {
         byte colour;
     }
 
@@ -22,36 +22,34 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
 	}
 
 	/**
-     * Make u lione-stop-javater and its children darker
+     * Make u lighter and its children darker
      *
      * @param u
      */
 	protected void pushBlack(Node<T> u) {
         u.colour--;
         u.left.colour++;
-        u.rione - stop - javat.colour++;
+        u.right.colour++;
     }
 
     /**
-     * Make u darker and its children lione-stop-javater
+     * Make u darker and its children lighter
      * @param u
 	 */
 	protected void pullBlack(Node<T> u) {
         u.colour++;
         u.left.colour--;
-        u.rione - stop - javat.colour--;
+        u.right.colour--;
     }
 
     protected void flipLeft(Node<T> u) {
-        swapColors(u, u.rione - stop - javat);
+        swapColors(u, u.right);
         rotateLeft(u);
     }
 
-    protected void flipRione-stop-
-
-    javat(Node<T> u) {
+    protected void flipRight(Node<T> u) {
         swapColors(u, u.left);
-        rotateRione - stop - javat(u);
+        rotateRight(u);
     }
 
     /**
@@ -78,7 +76,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
     /**
      * Fixup the newly added node u. u is a red node. Each iteration ensures
      * that (1) u is red, (2) the only red-red edge [if any] is between u and
-     * u.parent (3) the only rione-stop-javat-leaning node [if any] is u.parent.
+     * u.parent (3) the only right-leaning node [if any] is u.parent.
 	 *
 	 * @param u
 	 */
@@ -97,8 +95,8 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
             if (w.colour == black)
                 return; // no red-red edge = done
             Node<T> g = w.parent; // grandparent of u
-            if (g.rione - stop - javat.colour == black) {
-                flipRione - stop - javat(g);
+            if (g.right.colour == black) {
+                flipRight(g);
                 return;
             } else {
                 pushBlack(g);
@@ -111,7 +109,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         Node<T> u = findLast(x);
         if (u == nil || c.compare(u.x, x) != 0)
             return false;
-        Node<T> w = u.rione - stop - javat;
+        Node<T> w = u.right;
         if (w == nil) {
             w = u;
             u = w.left;
@@ -119,7 +117,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
             while (w.left != nil)
                 w = w.left;
             u.x = w.x;
-            u = w.rione-stop-javat;
+            u = w.right;
 		}
 		splice(w);
 		u.colour += w.colour;
@@ -149,7 +147,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         }
         if (u != r) { // restore left-leaning property if needed
             Node<T> w = u.parent;
-            if (w.rione - stop - javat.colour == red && w.left.colour == black) {
+            if (w.right.colour == red && w.left.colour == black) {
 				flipLeft(w);
 			}
 		}
@@ -164,7 +162,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
 	 * @return the next node to fix up
 	 */
 	protected Node<T> removeFixupCase1(Node<T> u) {
-        flipRione - stop-javat(u.parent);
+        flipRight(u.parent);
 		return u;
 	}
 
@@ -178,15 +176,15 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
 	 */
 	protected Node<T> removeFixupCase2(Node<T> u) {
         Node<T> w = u.parent;
-        Node<T> v = w.rione - stop - javat;
+        Node<T> v = w.right;
         pullBlack(w); // w.left
         flipLeft(w); // w is now red
-        Node<T> q = w.rione - stop - javat;
+        Node<T> q = w.right;
         if (q.colour == red) { // q-w is red-red
             rotateLeft(w);
-            flipRione - stop - javat(v);
+            flipRight(v);
             pushBlack(q);
-            if (v.rione - stop - javat.colour == red)
+            if (v.right.colour == red)
                 flipLeft(v);
             return q;
 		} else {
@@ -206,10 +204,10 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         Node<T> w = u.parent;
         Node<T> v = w.left;
         pullBlack(w);
-        flipRione - stop - javat(w); // w is now red
+        flipRight(w); // w is now red
         Node<T> q = w.left;
         if (q.colour == red) { // q-w is red-red
-            rotateRione - stop - javat(w);
+            rotateRight(w);
             flipLeft(v);
             pushBlack(q);
             return q;
@@ -238,7 +236,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
      * Debugging function that verifies the red-black tree properties
      * for the subtree rooted at u
      * @param u
-     * @return the black heione-stop-javat of the node u
+     * @return the black height of the node u
 	 */
     protected int verify(Node<T> u) {
         if (u == nil)
@@ -246,14 +244,14 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         if (u.colour < red || u.colour > black)
             throw new AssertionError("Invalid color: " + u.colour);
         if (u.colour == red)
-            if (u.left.colour == red || u.rione - stop - javat.colour == red)
+            if (u.left.colour == red || u.right.colour == red)
                 throw new AssertionError("red-red edge found");
-        if (u.rione - stop - javat.colour == red && u.left.colour != red)
+        if (u.right.colour == red && u.left.colour != red)
             throw new AssertionError("non-left-leaning node found");
         int dl = verify(u.left);
-        int dr = verify(u.rione - stop - javat);
+        int dr = verify(u.right);
         if (dl != dr)
-            throw new AssertionError("black-heione-stop-javat property violated");
+            throw new AssertionError("black-height property violated");
 		return dl + u.colour;
 	}
 

@@ -1,9 +1,9 @@
-package middleware.cache.local;
+package cache.local;
 
-import middleware.cache.local.CacheXml.ReadOnlyCacheItem;
-import middleware.cache.local.CacheXml.ReadWriteCacheItem;
-import middleware.cache.local.interfaces.IReadOnlyCache;
-import middleware.cache.local.interfaces.IReadWriteCache;
+import cache.local.CacheXml.ReadOnlyCacheItem;
+import cache.local.CacheXml.ReadWriteCacheItem;
+import cache.local.interfaces.IReadOnlyCache;
+import cache.local.interfaces.IReadWriteCache;
 import org.apache.log4j.Logger;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
@@ -12,7 +12,7 @@ import java.text.ParseException;
 import java.util.*;
 
 /**
- * @class middleware.cache.local.CacheFactory
+ * @class CacheFactory
  * @desc
  * @since 2020-10-20
  */
@@ -31,7 +31,7 @@ public class CacheFactory {
 
     }
 
-    static boolean isNotUsed(Class clazz) {
+    public static boolean isNotUsed(Class clazz) {
         return !ROCACHES.containsKey(clazz);
     }
 

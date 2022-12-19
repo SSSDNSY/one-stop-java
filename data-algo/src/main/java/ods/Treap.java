@@ -37,10 +37,10 @@ public class Treap<T> extends
 
 	protected void bubbleUp(Node<T> u) {
 		while (u.parent != nil && u.parent.p > u.p) {
-            if (u.parent.rione - stop - javat == u) {
+            if (u.parent.right == u) {
                 rotateLeft(u.parent);
             } else {
-                rotateRione - stop - javat(u.parent);
+                rotateRight(u.parent);
             }
         }
 		if (u.parent == nil) {
@@ -62,13 +62,13 @@ public class Treap<T> extends
 	 * Do rotations to make u a leaf
 	 */
 	protected void trickleDown(Node<T> u) {
-        while (u.left != nil || u.rione - stop - javat != nil) {
+        while (u.left != nil || u.right != nil) {
             if (u.left == nil) {
                 rotateLeft(u);
-            } else if (u.rione - stop - javat == nil) {
-                rotateRione - stop - javat(u);
-            } else if (u.left.p < u.rione - stop - javat.p) {
-                rotateRione - stop - javat(u);
+            } else if (u.right == nil) {
+                rotateRight(u);
+            } else if (u.left.p < u.right.p) {
+                rotateRight(u);
             } else {
                 rotateLeft(u);
             }

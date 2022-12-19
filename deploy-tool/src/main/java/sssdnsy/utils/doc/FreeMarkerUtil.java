@@ -4,7 +4,6 @@ import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
-import org.apache.log4j.Logger;
 import sun.misc.BASE64Encoder;
 
 import java.io.*;
@@ -20,7 +19,6 @@ import java.util.Map;
  */
 public class FreeMarkerUtil {
 
-    private static Logger log = Logger.getLogger(FreeMarkerUtil.class);
     public static final String FILE_NAME = "123.ftl";
     private static final String ENCODING = "UTF-8";
     private static Configuration cfg = new Configuration();
@@ -58,9 +56,9 @@ public class FreeMarkerUtil {
             // 处理模版
             template.process(data, out);
             out.flush();
-            log.info("由模板文件" + templateFileName + "生成" + outFilePath + "成功.");
+            System.out.println("由模板文件" + templateFileName + "生成" + outFilePath + "成功.");
         } catch (Exception e) {
-            log.error("由模板文件" + templateFileName + "生成" + outFilePath + "出错");
+            System.out.println("由模板文件" + templateFileName + "生成" + outFilePath + "出错");
             e.printStackTrace();
         } finally {
             try {
@@ -68,7 +66,7 @@ public class FreeMarkerUtil {
                     out.close();
                 }
             } catch (IOException e) {
-                log.error("关闭Write对象出错", e);
+                System.out.println("关闭Write对象出错");
                 e.printStackTrace();
             }
         }
@@ -109,7 +107,7 @@ public class FreeMarkerUtil {
         data.put("sex", "男");
         data1.put("name", "pengzh");
         data.put("person", data1);
-        crateFile(data, FILE_NAME, "W:/code/algorithm/one-stop-java/src/main/java/sssdnsy.utils/doc/pengzh.doc");
+        crateFile(data, FILE_NAME, "W:/code/algorithm/gh/src/main/java/sssdnsy.utils/doc/pengzh.doc");
     }
 
 }

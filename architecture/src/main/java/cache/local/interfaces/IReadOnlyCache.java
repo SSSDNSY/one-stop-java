@@ -1,11 +1,11 @@
-package middleware.cache.local.interfaces;
+package cache.local.interfaces;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
 /**
- * @class middleware.cache.local.interfaces.IReadOnlyCache
+ * @class interfaces.IReadOnlyCache
  * @desc
  * @since 2020-10-20
  */

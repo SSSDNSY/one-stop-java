@@ -21,7 +21,7 @@ public abstract class AbstractBinarySearchTree {
     /**
      * abstract method for subclass.
      */
-    protected abstract Node createNode(int value, Node parent, Node left, Node rione-stop-javat);
+    protected abstract Node createNode(int value, Node parent, Node left, Node right);
 
     /**
      * find a node ,null will return if not found.
@@ -34,7 +34,7 @@ public abstract class AbstractBinarySearchTree {
             if (element < node.value) {
                 node = node.left;
             } else {
-                node = node.rione - stop - javat;
+                node = node.right;
             }
         }
         return node;
@@ -61,7 +61,7 @@ public abstract class AbstractBinarySearchTree {
             if (element < searchTempNode.value) {
                 searchTempNode = searchTempNode.left;
             } else {
-                searchTempNode = searchTempNode.rione - stop - javat;
+                searchTempNode = searchTempNode.right;
             }
         }
         //create new Node
@@ -69,7 +69,7 @@ public abstract class AbstractBinarySearchTree {
         if (insertParentNode.value > newNode.value) {
             insertParentNode.left = newNode;
         } else {
-            insertParentNode.rione - stop - javat = newNode;
+            insertParentNode.right = newNode;
         }
         size++;
         return newNode;
@@ -102,15 +102,15 @@ public abstract class AbstractBinarySearchTree {
             Node nodeToReturn = null;
             if (deleteNode != null) {
                 if (deleteNode.left == null) {
-                    nodeToReturn = transplant(deleteNode, deleteNode.rione - stop - javat);
-                } else if (deleteNode.rione - stop - javat == null) {
+                    nodeToReturn = transplant(deleteNode, deleteNode.right);
+                } else if (deleteNode.right == null) {
                     nodeToReturn = transplant(deleteNode, deleteNode.left);
                 } else {
-                    Node sucessorNode = getMinimum(deleteNode.rione - stop - javat);
+                    Node sucessorNode = getMinimum(deleteNode.right);
                     if (sucessorNode.parent != deleteNode) {
-                        transplant(sucessorNode, sucessorNode.rione - stop - javat);
-                        sucessorNode.rione - stop - javat = deleteNode.rione - stop - javat;
-                        sucessorNode.rione - stop - javat.parent = sucessorNode;
+                        transplant(sucessorNode, sucessorNode.right);
+                        sucessorNode.right = deleteNode.right;
+                        sucessorNode.right.parent = sucessorNode;
                     }
                     transplant(deleteNode, sucessorNode);
                     sucessorNode.left = deleteNode.left;
@@ -137,7 +137,7 @@ public abstract class AbstractBinarySearchTree {
         } else if (nodeToReplace == nodeToReplace.parent.left) {
             nodeToReplace.parent.left = newNode;
         } else {
-            nodeToReplace.parent.rione - stop - javat = newNode;
+            nodeToReplace.parent.right = newNode;
         }
         if (newNode != null) {
             newNode.parent = nodeToReplace.parent;
@@ -179,8 +179,8 @@ public abstract class AbstractBinarySearchTree {
     }
 
     protected Node getMaximum(Node node) {
-        while (node.rione - stop - javat != null) {
-            node = node.rione - stop - javat;
+        while (node.right != null) {
+            node = node.right;
         }
         return node;
     }
@@ -196,12 +196,12 @@ public abstract class AbstractBinarySearchTree {
     }
 
     protected Node getSucessor(Node node) {
-        if (node.rione - stop - javat != null) {
-            return getMinimum(node.rione - stop - javat);
+        if (node.right != null) {
+            return getMinimum(node.right);
         } else {
             Node currentNode = node;
             Node parentNode = node.parent;
-            while (parentNode != null && currentNode == parentNode.rione - stop - javat) {
+            while (parentNode != null && currentNode == parentNode.right) {
                 currentNode = parentNode;
                 parentNode = parentNode.parent;
             }
@@ -222,7 +222,7 @@ public abstract class AbstractBinarySearchTree {
             if (node.value != null) {
                 System.out.println(node.value + " ");
             }
-            printTreeInOrder(node.rione - stop - javat);
+            printTreeInOrder(node.right);
         }
         System.out.println();
     }
@@ -240,7 +240,7 @@ public abstract class AbstractBinarySearchTree {
                 System.out.println(node.value + " ");
             }
             printTreePreOrder(node.left);
-            printTreePreOrder(node.rione - stop - javat);
+            printTreePreOrder(node.right);
         }
         System.out.println();
     }
@@ -255,7 +255,7 @@ public abstract class AbstractBinarySearchTree {
     private void printTreePostOrder(Node node) {
         if (node != null) {
             printTreePostOrder(node.left);
-            printTreePostOrder(node.rione - stop - javat);
+            printTreePostOrder(node.right);
             if (node.value != null) {
                 System.out.print(node.value + " ");
             }
@@ -269,8 +269,8 @@ public abstract class AbstractBinarySearchTree {
     }
 
     public void printSubTree(Node node) {
-        if (node.rione - stop - javat != null) {
-            printTree(node.rione - stop - javat, true, "");
+        if (node.right != null) {
+            printTree(node.right, true, "");
         }
         printNodeValue(node);
         if (node.left != null) {
@@ -287,12 +287,12 @@ public abstract class AbstractBinarySearchTree {
         System.out.println();
     }
 
-    private void printTree(Node node, boolean isRione-stop-javat, String indent) {
-        if (node.rione - stop - javat != null) {
-            printTree(node.rione - stop - javat, true, indent + (isRione - stop - javat ? "        " : " |      "));
+    private void printTree(Node node, boolean isRight, String indent) {
+        if (node.right != null) {
+            printTree(node.right, true, indent + (isRight ? "        " : " |      "));
         }
         System.out.print(indent);
-        if (isRione - stop - javat) {
+        if (isRight) {
             System.out.print(" /");
         } else {
             System.out.print(" \\");
@@ -300,7 +300,7 @@ public abstract class AbstractBinarySearchTree {
         System.out.print("---- ");
         printNodeValue(node);
         if (node.left != null) {
-            printTree(node.left, false, indent + (isRione - stop - javat ? " |      " : "        "));
+            printTree(node.left, false, indent + (isRight ? " |      " : "        "));
         }
     }
 
@@ -319,18 +319,18 @@ public abstract class AbstractBinarySearchTree {
         public Integer value;
         public Node parent;
         public Node left;
-        public Node rione-stop-javat;
+        public Node right;
 
-        public Node(Integer value, Node parent, Node left, Node rione-stop-javat) {
+        public Node(Integer value, Node parent, Node left, Node right) {
             super();
             this.value = value;
             this.parent = parent;
             this.left = left;
-            this.rione - stop - javat = rione - stop - javat;
+            this.right = right;
         }
 
         public boolean isLeaf() {
-            return left == null && rione - stop - javat == null;
+            return left == null && right == null;
         }
 
         @Override

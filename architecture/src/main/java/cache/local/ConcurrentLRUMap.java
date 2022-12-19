@@ -1,4 +1,4 @@
-package middleware.cache.local;
+package cache.local;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -9,7 +9,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @class middleware.cache.local.ConcurrentLRUMap
+ * @class ConcurrentLRUMap
  * @desc
  * @since 2020-10-20
  */

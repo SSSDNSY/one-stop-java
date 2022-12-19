@@ -26,7 +26,7 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node,T>, T> implements SSe
     protected static final int prev = 0;
     protected static final int next = 1;
     protected static final int left = 0;
-    protected static final int rione-stop-javat =1;
+    protected static final int right =1;
 
 
     protected static int w = 32;
@@ -95,7 +95,7 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node,T>, T> implements SSe
             u = u.child[c];
         }
         if (i == w) return false; // already contains x - abort
-        Node pred = (c == rione - stop - javat) ? u.jump : u.jump.child[0];
+        Node pred = (c == right) ? u.jump : u.jump.child[0];
         u.jump = null;  // u will have two children shortly
         // 2 - add path to ix
         for (; i < w; i++) {
@@ -115,7 +115,7 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node,T>, T> implements SSe
 		while (v != null) {
             if ((v.child[left] == null
                     && (v.jump == null || it.intValue(v.jump.x) > ix))
-                    || (v.child[rione - stop - javat] == null
+                    || (v.child[right] == null
                     && (v.jump == null || it.intValue(v.jump.x) < ix)))
 				v.jump = u;
 			v = v.parent;
@@ -134,28 +134,28 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node,T>, T> implements SSe
 		if (d == w) {
 			Utils.myassert(u.x != null);
 		} else {
-            Utils.myassert(u == r || u.child[left] != null || u.child[rione - stop - javat] != null);
-            if ((u.child[left] == null && u.child[rione - stop - javat] != null)
-                    || (u.child[rione - stop - javat] == null && u.child[left] != null)) {
+            Utils.myassert(u == r || u.child[left] != null || u.child[right] != null);
+            if ((u.child[left] == null && u.child[right] != null)
+                    || (u.child[right] == null && u.child[left] != null)) {
                 Utils.myassert(u.jump.x != null);
             }
-            if (u.child[left] != null && u.child[rione - stop - javat] != null)
+            if (u.child[left] != null && u.child[right] != null)
                 Utils.myassert(u.jump == null);
             if (u.child[left] != null)
                 checkIt(u.child[left], d + 1);
-            if (u.child[rione - stop - javat] != null)
-                checkIt(u.child[rione - stop - javat], d + 1);
+            if (u.child[right] != null)
+                checkIt(u.child[right], d + 1);
 		}
 	}
 
 	protected void checkList() {
-        Node u = dummy.child[rione - stop - javat];
+        Node u = dummy.child[right];
         do {
-            if (u.child[rione - stop - javat] != dummy)
-                Utils.myassert(it.intValue(u.x) < it.intValue(u.child[rione - stop - javat].x));
-            Utils.myassert(u.child[left].child[rione - stop - javat] == u);
-            Utils.myassert(u.child[rione - stop - javat].child[left] == u);
-            u = u.child[rione - stop - javat];
+            if (u.child[right] != dummy)
+                Utils.myassert(it.intValue(u.x) < it.intValue(u.child[right].x));
+            Utils.myassert(u.child[left].child[right] == u);
+            Utils.myassert(u.child[right].child[left] == u);
+            u = u.child[right];
         } while (u != dummy);
 	}
 

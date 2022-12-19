@@ -1,6 +1,6 @@
-package middleware.cache.local;
+package cache.local;
 
-import middleware.cache.local.interfaces.IReadOnlyCache;
+import cache.local.interfaces.IReadOnlyCache;
 import org.apache.log4j.Logger;
 
 import java.util.Iterator;
@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @class middleware.cache.local.AbstractReadOnlyCache
+ * @class AbstractReadOnlyCache
  * @desc 制度缓存
  * @since 2020-10-20
  */

@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.memcache.driver.io;
+package cache.memcache.driver.io;
 
 import org.apache.log4j.Logger;
 

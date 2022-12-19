@@ -1,4 +1,4 @@
-package middleware.jackson.pojo;
+package jackson.pojo;
 
 import lombok.Data;
 

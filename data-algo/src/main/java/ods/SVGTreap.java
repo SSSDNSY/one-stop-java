@@ -5,9 +5,9 @@ import java.io.PrintStream;
 public class SVGTreap extends Treap<Integer> {
 
     protected static double pagewidth = 215.9; // 8.5 in
-    protected static double pageheione-stop-javat=279.4;  // 11 in
+    protected static double pageheight=279.4;  // 11 in
     protected static double width = 152.4; // 6 in
-    protected static double heione-stop-javat =76.2; // 3 in
+    protected static double height =76.2; // 3 in
     protected static int maxp = 2000000000;
 
     protected double radius, thickness, xscale, yscale;
@@ -24,7 +24,7 @@ public class SVGTreap extends Treap<Integer> {
         radius = width / (3 * n);
         thickness = radius / 3;
         xscale = width / n;
-        yscale = 3 * heione - stop - javat / maxp;
+        yscale = 3 * height / maxp;
     }
 
 	public boolean add(Integer x) {
@@ -91,7 +91,7 @@ public class SVGTreap extends Treap<Integer> {
 	}
 
 	protected double getY(Node<Integer> u) {
-        return u.p * yscale + (pageheione - stop - javat - heione - stop - javat) / 2;
+        return u.p * yscale + (pageheight - height) / 2;
     }
 
 	public static void main(String[] args) {

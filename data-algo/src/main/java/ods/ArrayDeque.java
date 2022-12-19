@@ -79,7 +79,7 @@ public class ArrayDeque<T> extends AbstractList<T> {
             j = (j == 0) ? a.length - 1 : j - 1; //(j-1)mod a.length
             for (int k = 0; k <= i - 1; k++)
                 a[(j + k) % a.length] = a[(j + k + 1) % a.length];
-        } else { // shift a[i],..,a[n-1] rione-stop-javat one position
+        } else { // shift a[i],..,a[n-1] right one position
             for (int k = n; k > i; k--)
                 a[(j + k) % a.length] = a[(j + k - 1) % a.length];
         }
@@ -90,7 +90,7 @@ public class ArrayDeque<T> extends AbstractList<T> {
 	public T remove(int i) {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
         T x = a[(j + i) % a.length];
-        if (i < n / 2) {  // shift a[0],..,[i-1] rione-stop-javat one position
+        if (i < n / 2) {  // shift a[0],..,[i-1] right one position
             for (int k = i; k > 0; k--)
                 a[(j + k) % a.length] = a[(j + k - 1) % a.length];
             j = (j + 1) % a.length;

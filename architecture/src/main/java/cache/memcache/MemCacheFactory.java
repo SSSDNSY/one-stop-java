@@ -6,12 +6,12 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.memcache;
+package cache.memcache;
 
-import middleware.cache.memcache.client.TextClient;
-import middleware.cache.memcache.interfaces.IMemCache;
-import middleware.cache.memcache.performance.IMemCachePerformance;
-import middleware.cache.memcache.performance.impl.LazyWorkPerformance;
+import cache.memcache.client.TextClient;
+import cache.memcache.interfaces.IMemCache;
+import cache.memcache.performance.IMemCachePerformance;
+import cache.memcache.performance.impl.LazyWorkPerformance;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;

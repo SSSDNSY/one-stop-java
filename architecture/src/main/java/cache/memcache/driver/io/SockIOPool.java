@@ -1,6 +1,6 @@
-package middleware.cache.memcache.driver.io;
+package cache.memcache.driver.io;
 
-import middleware.cache.memcache.MemCacheAddress;
+import cache.memcache.MemCacheAddress;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 

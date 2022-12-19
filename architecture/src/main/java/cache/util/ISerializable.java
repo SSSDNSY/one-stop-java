@@ -1,4 +1,4 @@
-package middleware.cache.util;
+package cache.util;
 
 /**
  * @class middleware.cache.util.ISerializable

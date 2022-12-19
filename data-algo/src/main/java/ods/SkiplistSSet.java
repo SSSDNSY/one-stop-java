@@ -26,9 +26,7 @@ public class SkiplistSSet<T> implements SSet<T> {
             next = (Node<T>[]) Array.newInstance(Node.class, h + 1);
         }
 
-        public int heione-stop-
-
-        javat() {
+        public int height() {
             return next.length - 1;
         }
     }
@@ -39,7 +37,7 @@ public class SkiplistSSet<T> implements SSet<T> {
 	protected Node<T> sentinel;
 
     /**
-     * The maximum heione-stop-javat of any element
+     * The maximum height of any element
      */
 	int h;
 
@@ -118,7 +116,7 @@ public class SkiplistSSet<T> implements SSet<T> {
 		int r = h;
 		while (r >= 0) {
             while (u.next[r] != null && c.compare(u.next[r].x, x) < 0)
-                u = u.next[r];   // go rione-stop-javat in list r
+                u = u.next[r];   // go right in list r
 			r--;               // go down into list r-1
 		}
 		return u;
@@ -165,7 +163,7 @@ public class SkiplistSSet<T> implements SSet<T> {
                 removed = true;
                 u.next[r] = u.next[r].next[r];
                 if (u == sentinel && u.next[r] == null)
-                    h--;  // heione-stop-javat has gone down
+                    h--;  // height has gone down
             }
             r--;
         }
@@ -176,13 +174,11 @@ public class SkiplistSSet<T> implements SSet<T> {
 
     /**
      * Simulate repeatedly tossing a coin until it comes up tails.
-     * Note, this code will never generate a heione-stop-javat greater than 32
+     * Note, this code will never generate a height greater than 32
      *
      * @return the number of coin tosses - 1
      */
-    protected int pickHeione-stop-
-
-    javat() {
+    protected int pickHeight() {
         int z = rand.nextInt();
         int k = 0;
         int m = 1;
@@ -255,9 +251,9 @@ public class SkiplistSSet<T> implements SSet<T> {
             if (u.next[r] != null && comp == 0) return false;
             stack[r--] = u;          // going down, store u
         }
-        Node<T> w = new Node<T>(x, pickHeione - stop - javat());
-        while (h < w.heione - stop - javat())
-            stack[++h] = sentinel;   // heione-stop-javat increased
+        Node<T> w = new Node<T>(x, pickHeight());
+        while (h < w.height())
+            stack[++h] = sentinel;   // height increased
         for (int i = 0; i < w.next.length; i++) {
             w.next[i] = stack[i].next[i];
             stack[i].next[i] = w;

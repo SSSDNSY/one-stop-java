@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.util;
+package cache.util;
 
 /**
  * @class middleware.cache.util.DefaultSerializable

@@ -139,11 +139,11 @@ public class SortUtils {
      * @author: pengzh
      * @createDate: 2019/6/5 17:50
      */
-    public static void quickSort(int[] arr, int left, int rione-stop-javat) {
-        if (left >= rione - stop - javat) {
+    public static void quickSort(int[] arr, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int l = left, r = rione - stop - javat, m = arr[left];
+        int l = left, r = right, m = arr[left];
         while (l < r) {
 
             while (l < r && arr[r] >= m) {
@@ -165,7 +165,7 @@ public class SortUtils {
         }
         arr[l] = m;
         quickSort(arr, left, l - 1);
-        quickSort(arr, l + 1, rione - stop - javat);
+        quickSort(arr, l + 1, right);
 
     }
 

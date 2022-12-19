@@ -1,15 +1,15 @@
-package middleware.cache.memcache.client;
+package cache.memcache.client;
 
-import middleware.cache.memcache.MemCacheAddress;
-import middleware.cache.memcache.MemCacheFactory;
-import middleware.cache.memcache.driver.io.ISockIO;
-import middleware.cache.memcache.driver.io.SockIOPool;
-import middleware.cache.memcache.driver.util.FastConvertor;
-import middleware.cache.memcache.interfaces.IMemCache;
-import middleware.cache.util.DefaultSerializable;
-import middleware.cache.util.IOUtil;
-import middleware.cache.util.ISerializable;
-import middleware.cache.util.MD5Util;
+import cache.memcache.MemCacheAddress;
+import cache.memcache.MemCacheFactory;
+import cache.memcache.driver.io.ISockIO;
+import cache.memcache.driver.io.SockIOPool;
+import cache.memcache.driver.util.FastConvertor;
+import cache.memcache.interfaces.IMemCache;
+import cache.util.DefaultSerializable;
+import cache.util.IOUtil;
+import cache.util.ISerializable;
+import cache.util.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 

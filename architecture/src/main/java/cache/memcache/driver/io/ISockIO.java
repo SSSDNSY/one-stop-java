@@ -1,4 +1,4 @@
-package middleware.cache.memcache.driver.io;
+package cache.memcache.driver.io;
 
 import java.io.IOException;
 

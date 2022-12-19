@@ -1,4 +1,4 @@
-package middleware.lucenes;
+package lucenes;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;

@@ -10,7 +10,7 @@ import algorithm.tree.base.AbstractBinarySearchTree;
  */
 public class BinarySearchTree2 extends AbstractBinarySearchTree {
     @Override
-    protected Node createNode(int value, Node parent, Node left, Node rione-stop-javat) {
-        return new Node(value, parent, left, rione - stop - javat);
+    protected Node createNode(int value, Node parent, Node left, Node right) {
+        return new Node(value, parent, left, right);
     }
 }

@@ -6,8 +6,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.SocketChannel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 
@@ -18,9 +17,8 @@ import java.util.Date;
  * @class MyChannelHandler
  * @since 2022-05-07
  */
+@Slf4j
 public class MyChannelHandler extends ChannelInboundHandlerAdapter {
-
-    private transient final Logger log = LoggerFactory.getLogger(MyChannelHandler.class);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -52,9 +50,7 @@ public class MyChannelHandler extends ChannelInboundHandlerAdapter {
 
 
     @Override
-    public void exceptionCauone-stop-
-
-    javat(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
         log.error("异常信息:", cause);
     }

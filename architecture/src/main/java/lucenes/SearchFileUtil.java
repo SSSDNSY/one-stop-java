@@ -1,4 +1,4 @@
-package middleware.lucenes;
+package lucenes;
 
 import cn.hutool.core.io.file.FileReader;
 import cn.hutool.json.JSONObject;

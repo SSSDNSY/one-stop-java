@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package middleware.cache.memcache;
+package cache.memcache;
 
 import java.util.TreeSet;
 

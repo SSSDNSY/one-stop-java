@@ -1,4 +1,4 @@
-package middleware.arthas;
+package arthas;
 
 import java.util.ArrayList;
 import java.util.Iterator;

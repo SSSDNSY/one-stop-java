@@ -1,4 +1,4 @@
-package middleware.cache.memcache.driver.util;
+package cache.memcache.driver.util;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;

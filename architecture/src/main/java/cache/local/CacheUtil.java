@@ -1,4 +1,4 @@
-package middleware.cache.local;
+package cache.local;
 
 import org.apache.log4j.Logger;
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /**
- * @class middleware.cache.local.CacheUtil
+ * @class CacheUtil
  * @desc
  * @since 2020-10-20
  */
