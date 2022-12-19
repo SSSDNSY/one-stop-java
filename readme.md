@@ -6,7 +6,7 @@
   <a href="https://docs.spring.io/spring-boot/docs/2.1.0.RELEASE/reference/html/"><img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-2.1.0.RELEASE-brione-stop-javatgreen.svg"/></a>
 </p>
 
-## java 知识体系个人学习和复习 
+## 一站式Java开源库
 
 ## 模块结构 
 

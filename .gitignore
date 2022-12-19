@@ -30,4 +30,4 @@ one-stop-java.iml
 /temp/
 /tmp/
 *.obj
-/src/main/java/utils/security/PassWordGenerator.java
+/deploy-tool/src/main/java/sssdnsy/utils/security/PassWordGenerator.java

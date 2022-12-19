@@ -15,10 +15,6 @@
   <artifactId>deploy-tool</artifactId>
   <version>1.0.0</version>
 
-  <name>deploy-tool</name>
-  <url>http://www.pengzh.fun</url>
-
-
   <dependencies>
   </dependencies>
 
