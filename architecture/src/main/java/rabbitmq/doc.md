@@ -12,3 +12,4 @@
     Set topic permission
 
 
+## https://github.com/MassTransit/MassTransit/issues/911#issuecomment-309498889

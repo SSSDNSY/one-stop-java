@@ -6,21 +6,22 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package sssdnsy;
+package kafka;
 
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Unit test for simple App.
+ * @author fun.pengzh
+ * @class rabbitmq.Application
+ * @desc
+ * @since 2022-12-19
  */
-public class AppTest {
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
+@SpringBootApplication
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
+
 }
