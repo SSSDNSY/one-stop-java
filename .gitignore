@@ -13,7 +13,7 @@
 *.iml
 *.ipr
 /target/
-one-stop-java.iml
+gh.iml
 *.class
 !.mvn/wrapper/maven-wrapper.jar
 

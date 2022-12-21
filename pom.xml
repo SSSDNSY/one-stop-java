@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sssdnsy</groupId>
-    <artifactId>one-stop-java</artifactId>
+    <artifactId>gh</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>one-stop-java</name>
+    <name>gh</name>
     <url>https://pengzh.fun/</url>
 
     <modules>

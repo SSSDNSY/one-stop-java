@@ -1,25 +1,25 @@
 // Protocol Buffers - Google's data interchange format
-// Copyrione-stop-javat 2008 Google Inc.  All rione-stop-javats reserved.
+// Copyright 2008 Google Inc.  All rights reserved.
 // https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//     * Redistributions of source code must retain the above copyrione-stop-javat
+//     * Redistributions of source code must retain the above copyright
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
-// copyrione-stop-javat notice, this list of conditions and the following disclaimer
+// copyright notice, this list of conditions and the following disclaimer
 // in the documentation and/or other materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
 // this software without specific prior written permission.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIone-stop-javaT HOLDERS AND CONTRIBUTORS
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIghT HOLDERS AND CONTRIBUTORS
 // "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 // LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIone-stop-javaT
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIghT
 // OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
 // SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
 // LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
@@ -42,7 +42,7 @@ option java_multiple_files = true;
 option objc_class_prefix = "GPB";
 option go_package = "google.golang.org/protobuf/types/known/apipb";
 
-// Api is a lione-stop-javat-weione-stop-javat descriptor for an API Interface.
+// Api is a light-weight descriptor for an API Interface.
 //
 // Interfaces are also described as "protocol buffer services" in some contexts,
 // such as by the "service" keyword in a .proto file, but they are different

@@ -1,4 +1,4 @@
-Classfile /W:/code/algorithm/one-stop-java/src/main/java/lang/abasic/ClassCodeTest1.class
+Classfile /W:/code/algorithm/gh/src/main/java/lang/abasic/ClassCodeTest1.class
   Last modified 2020-6-29; size 445 bytes
   MD5 checksum d1045074ace4c8442039a2f6e39ebd01
   Compiled from "ClassCodeTest1.java"
