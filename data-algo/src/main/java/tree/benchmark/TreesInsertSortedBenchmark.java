@@ -1,21 +1,21 @@
+/*
 package tree.benchmark;
 
-import algorithm.tree.AvlTree;
-import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
+
+import org.junit.runner.Runner;
+import tree.AvlTree;
 
 import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 
+*/
 /**
  * @author fun.pengzh
  * @class algorithm.tree.benchmark.TreesInsertSortedBenchmark
  * @desc
  * @since 2021-02-15
- */
+ *//*
+
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @BenchmarkMode(Mode.AverageTime)
 @Warmup(iterations = 1, time = 1)
@@ -39,6 +39,7 @@ public class TreesInsertSortedBenchmark {
         return tree.contains(Integer.MAX_VALUE);
     }
 
+*/
 /*    @Benchmark
     public Object timeRedBlackTree() {
         RedBlackTree tree = new RedBlackTree();
@@ -46,7 +47,8 @@ public class TreesInsertSortedBenchmark {
             tree.insert(i);
         }
         return tree.root;
-    }*/
+    }*//*
+
 
     @Benchmark
     public Object timeAVLTree() {
@@ -57,7 +59,8 @@ public class TreesInsertSortedBenchmark {
         return tree.root;
     }
 
- /*   @Benchmark
+ */
+/*   @Benchmark
     public Object timeSplayTree() {
         SplayTree tree = new SplayTree();
         for (int i = 0; i < 100000; i++) {
@@ -100,7 +103,9 @@ public class TreesInsertSortedBenchmark {
             tree.insert(i);
         }
         return tree.root;
-    }*/
+    }*//*
+
 
 
 }
+*/

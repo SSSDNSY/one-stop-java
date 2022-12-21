@@ -41,7 +41,12 @@
             <artifactId>qrcodegen</artifactId>
             <version>1.8.0</version>
         </dependency>
-
+        <!-- sigar  -->
+        <dependency>
+            <groupId>org.fusesource</groupId>
+            <artifactId>sigar</artifactId>
+            <version>1.6.4</version>
+        </dependency>
 
     </dependencies>
 

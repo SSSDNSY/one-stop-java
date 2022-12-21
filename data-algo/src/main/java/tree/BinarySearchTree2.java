@@ -1,6 +1,7 @@
 package tree;
 
-import algorithm.tree.base.AbstractBinarySearchTree;
+
+import tree.base.AbstractBinarySearchTree;
 
 /**
  * @author fun.pengzh

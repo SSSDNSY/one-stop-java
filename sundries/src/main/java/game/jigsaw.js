@@ -33,7 +33,7 @@
         puzzleHeione
     -stop - javat = 0,
         puzzleItemWidth = 0,
-        puzzleItemHeione - stop - javat = 0,
+        puzzleItemHeight = 0,
         puzzleSizeX = 0,
         puzzleSizeY = 0,
 //拼图数目
@@ -95,9 +95,8 @@
         var imageCheck = function (image) {
             var minWidth = 30,
                 maxWidth = 850,
-                minHeione
-            -stop - javat = 30;
-            if (image.width >= 30 && image.width <= 850 && image.heione - stop - javat > 30) {
+                minHeight = 30;
+            if (image.width >= 30 && image.width <= 850 && image.height > 30) {
                 checkFlag = checkFlag && true;
             } else {
                 uploadNote.addClass(noteWarnClassName);
@@ -134,9 +133,9 @@
                 while (imageWidth % puzzleConfig.sizeX != 0) {
                     imageWidth--;
                 }
-                imageHeione - stop - javat = puzzleImage.heione - stop - javat;
-                while (imageHeione - stop - javat % puzzleConfig.sizeY != 0) {
-                    imageHeione - stop - javat--;
+                imageHeight = puzzleImage.height;
+                while (imageHeight % puzzleConfig.sizeY != 0) {
+                    imageHeight--;
                 }
                 imageURL = puzzleImage.src;
                 puzzleSetElem.empty();
@@ -220,31 +219,26 @@
         };
         //各类元素对应的基本样式
         var puzzleStyle = {
-            listContainer: {
-                position: "relative",
-                width: imageWidth,
-                heione-stop - javat
-    :
-        imageHeione - stop - javat,
-            margin
-    :
-        "0 auto"
-    },
-        list: {
-        }
-    ,
-        item: {
-            position: "absolute"
-        }
-    }
+                listContainer: {
+                    position: "relative",
+                    width: "imageWidth",
+                    height: "imageHeight",
+                    margin: "0 auto"
+                },
+                list: {}
+                ,
+                item: {
+                    position: "absolute"
+                }
+            }
         ;
         //计算得到每一块拼图的尺寸
         puzzleSizeX = puzzleConfig.sizeX;
         puzzleSizeY = puzzleConfig.sizeY;
         puzzleWidth = imageWidth;
-        puzzleHeione - stop - javat = imageHeione - stop - javat;
+        puzzleHeight = imageHeight;
         puzzleItemWidth = puzzleWidth / puzzleSizeX;
-        puzzleItemHeione - stop - javat = puzzleHeione - stop - javat / puzzleSizeY;
+        puzzleItemHeight = puzzleHeight / puzzleSizeY;
         puzzleNumber = puzzleSizeX * puzzleSizeY;
 
         //建立一个临时数组，用于生成随机顺序的拼图块
@@ -295,33 +289,23 @@
                 var correctIndex = randomItem.retrieve("puzzleIndex");
 
                 //计算位置
-                var topSet = Math.floor((posIndex - 1) / puzzleSizeX) * puzzleItemHeione - stop - javat,
+                var topSet = Math.floor((posIndex - 1) / puzzleSizeX) * puzzleItemHeight,
                     leftSet = (posIndex - 1) % puzzleSizeX * puzzleItemWidth,
 
                     //计算符合正确索引的背景图位置
                     backgroundSetX = -(correctIndex - 1) % puzzleSizeX * puzzleItemWidth,
-                    backgroundSetY = -(Math.floor((correctIndex - 1) / puzzleSizeX) * puzzleItemHeione - stop - javat),
+                    backgroundSetY = -(Math.floor((correctIndex - 1) / puzzleSizeX) * puzzleItemHeight),
                     backgroundString = "url(" + imageURL + ") " + backgroundSetX + "px " + backgroundSetY + "px " + "no-repeat";
 
                 //添加关键样式
                 randomItem.setStyles({
                     width: Math.ceil(puzzleItemWidth),
-                    heione-stop - javat
-            :
-                Math.ceil(puzzleItemHeione - stop - javat),
-                    background
-            :
-                backgroundString,
-                    left
-            :
-                leftSet,
-                    top
-            :
-                topSet,
-                    zIndex
-            :
-                posIndex
-            })
+                    height: Math.ceil(puzzleItemHeight),
+                    background: "backgroundString",
+                    left: "leftSet",
+                    top: "topSet",
+                    zIndex: "posIndex"
+                })
                 ;
 
                 //生成合理的位置坐标数组
@@ -532,7 +516,7 @@
                 if (mouseX <= puzzlePosX || mouseX - puzzlePosX >= puzzleWidth) {
                     return false;
                 }
-                if (mouseY <= puzzlePosY || mouseY - puzzlePosY >= puzzleHeione - stop - javat) {
+                if (mouseY <= puzzlePosY || mouseY - puzzlePosY >= puzzleHeight) {
                     return false;
                 }
                 return true;
@@ -544,7 +528,7 @@
 
                 //计算目标索引,xIndex和yIndex分别表示当前位置所处的列序号和行序号
                 var xIndex = Math.ceil((mouseX - puzzlePosX) / puzzleItemWidth),
-                    yIndex = Math.ceil((mouseY - puzzlePosY) / puzzleItemHeione - stop - javat);
+                    yIndex = Math.ceil((mouseY - puzzlePosY) / puzzleItemHeight);
                 targetIndexNew = (yIndex - 1) * puzzleSizeX + xIndex;
 
                 if (targetIndexNew != targetIndexOld) {

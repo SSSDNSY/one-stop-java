@@ -18,7 +18,7 @@ public class MeldableHeap<T> extends
 
     Comparator<T> c;
 
-    protected static class Node<T> extends BTNode<Node<T>> {
+    protected static class Node<T> extends BinaryTree.BTNode<Node<T>> {
         T x;
     }
 

@@ -272,7 +272,7 @@ class Tetrisblok extends JPanel implements KeyListener {
             case KeyEvent.VK_UP:
                 turn();
                 break;
-            case KeyEvent.VK_RIghT:
+            case KeyEvent.VK_RIGHT:
                 right();
                 break;
             case KeyEvent.VK_LEFT:

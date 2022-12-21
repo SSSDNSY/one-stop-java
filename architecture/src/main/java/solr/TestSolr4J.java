@@ -12,7 +12,7 @@ package solr;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.junit.Test;
-import sssdnsy.solr.entity.Product;
+import solr.entity.Product;
 
 import java.io.IOException;
 import java.util.List;

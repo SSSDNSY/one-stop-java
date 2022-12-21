@@ -11,7 +11,7 @@ public class Treap<T> extends
      */
     Random rand;
 
-    protected static class Node<T> extends BSTNode<Node<T>, T> {
+    protected static class Node<T> extends BinarySearchTree.BSTNode<Node<T>, T> {
         int p;
     }
 

@@ -1,7 +1,7 @@
 package tree;
 
-import algorithm.tree.base.AbstractBinarySearchTree;
-import algorithm.tree.base.AbstractSelfBalancingBinarySearchTree;
+import tree.base.AbstractBinarySearchTree;
+import tree.base.AbstractSelfBalancingBinarySearchTree;
 
 /**
  * @author fun.pengzh
@@ -60,8 +60,7 @@ public class AvlTree extends AbstractSelfBalancingBinarySearchTree {
             Node parent = node.parent;
 
             int leftHeight = (node.left == null) ? -1 : ((AvlNode) node.left).height;
-            int rione
-            -stop - javatHeight = (node.right == null) ? -1 : ((AvlNode) node.right).height;
+            int rightHeight = (node.right == null) ? -1 : ((AvlNode) node.right).height;
             int nodeBalance = rightHeight - leftHeight;
             //rebalance(-2 means left subtree ougrow,2 means right subtree)
             if (nodeBalance == 2) {
@@ -137,8 +136,7 @@ public class AvlTree extends AbstractSelfBalancingBinarySearchTree {
 
     private static final void updateHeight(AvlNode node) {
         int leftHeight = (node.left == null) ? -1 : ((AvlNode) node.left).height;
-        int rione
-        -stop - javatHeight = (node.right == null) ? -1 : ((AvlNode) node.right).height;
+        int rightHeight = (node.right == null) ? -1 : ((AvlNode) node.right).height;
         node.height = 1 + getMax(leftHeight, rightHeight);
     }
 
