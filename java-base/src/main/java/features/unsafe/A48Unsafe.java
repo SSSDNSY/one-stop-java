@@ -21,6 +21,7 @@ public class A48Unsafe {
         System.out.println("获取到unsafe对象" + unsafe);
 
         Guard guard = new Guard();
+        System.out.println("unsafe之前" + guard.giveAccess());
         guard.giveAccess();   // false, no access
         Field f1 = guard.getClass().getDeclaredField("ACCESS_ALLOWED");
         unsafe.putInt(guard, unsafe.objectFieldOffset(f1), 42); // memory corruption
