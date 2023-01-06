@@ -21,6 +21,7 @@
         <gson.version>2.9.0</gson.version>
         <protostuff.version>1.2.2</protostuff.version>
         <objenesis.version>3.2</objenesis.version>
+        <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
     </properties>
 
     <dependencies>
@@ -183,6 +184,18 @@
             <groupId>com.googlecode.protobuf-java-format</groupId>
             <artifactId>protobuf-java-format</artifactId>
             <version>1.4</version>
+        </dependency>
+
+        <!-- nacos -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>0.2.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+            <version>${nacos-discovery-spring-boot.version}</version>
         </dependency>
 
     </dependencies>
