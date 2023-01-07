@@ -62,7 +62,7 @@ public class SkiplistList<T> extends AbstractList<T> {
     /**
      * Find the node that precedes list index i in the skiplist.
      *
-     * @param x - the value to search for
+     * @param i - the value to search for
      * @return the predecessor of the node at index i or the final
      * node if i exceeds size() - 1.
 	 */
@@ -216,7 +216,7 @@ public class SkiplistList<T> extends AbstractList<T> {
 	}
 
 	public static void main(String[] args) {
-		int n = 20;
+		int n = 10;
 		List<Integer> sk = new SkiplistList<Integer>();
 		for (int i = 0; i < n; i++) {
 			sk.add(i);
@@ -232,6 +232,7 @@ public class SkiplistList<T> extends AbstractList<T> {
 		System.out.println(sk);
 
 		Integer integer = sk.get(20);
+		System.out.println(integer);
 		System.out.println(sk);
 	}
 

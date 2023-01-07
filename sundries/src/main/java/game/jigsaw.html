@@ -36,15 +36,13 @@
 //图片上传标识，为true时表示相关设置合理，选择图片后将进入游戏
             checkFlag = false,
             imageWidth = 0,
-            imageHeione
-        -stop - javat = 0;
+            imageHeght = 0;
 
 //拼图相关变量
         var puzzleWidth = 0,
-            puzzleHeione
-        -stop - javat = 0,
+            puzzleHeght = 0,
             puzzleItemWidth = 0,
-            puzzleItemHeight = 0,
+            puzzleItemHeght = 0,
             puzzleSizeX = 0,
             puzzleSizeY = 0,
 //拼图数目
@@ -106,9 +104,8 @@
             var imageCheck = function (image) {
                 var minWidth = 30,
                     maxWidth = 850,
-                    minHeione
-                -stop - javat = 30;
-                if (image.width >= 30 && image.width <= 850 && image.height > 30) {
+                    minHeght = 30;
+                if (image.width >= 30 && image.width <= 850 && image.heght > 30) {
                     checkFlag = checkFlag && true;
                 } else {
                     uploadNote.addClass(noteWarnClassName);
@@ -145,9 +142,9 @@
                     while (imageWidth % puzzleConfig.sizeX != 0) {
                         imageWidth--;
                     }
-                    imageHeight = puzzleImage.height;
-                    while (imageHeight % puzzleConfig.sizeY != 0) {
-                        imageHeight--;
+                    imageHeght = puzzleImage.heght;
+                    while (imageHeght % puzzleConfig.sizeY != 0) {
+                        imageHeght--;
                     }
                     imageURL = puzzleImage.src;
                     puzzleSetElem.empty();
@@ -236,7 +233,7 @@
                     width: imageWidth,
                     height
         :
-            imageHeight,
+            imageHeght,
                 margin
         :
             "0 auto"
@@ -253,9 +250,9 @@
             puzzleSizeX = puzzleConfig.sizeX;
             puzzleSizeY = puzzleConfig.sizeY;
             puzzleWidth = imageWidth;
-            puzzleHeight = imageHeight;
+            puzzleHeght = imageHeght;
             puzzleItemWidth = puzzleWidth / puzzleSizeX;
-            puzzleItemHeight = puzzleHeight / puzzleSizeY;
+            puzzleItemHeght = puzzleHeght / puzzleSizeY;
             puzzleNumber = puzzleSizeX * puzzleSizeY;
 
             //建立一个临时数组，用于生成随机顺序的拼图块
@@ -306,12 +303,12 @@
                     var correctIndex = randomItem.retrieve("puzzleIndex");
 
                     //计算位置
-                    var topSet = Math.floor((posIndex - 1) / puzzleSizeX) * puzzleItemHeight,
+                    var topSet = Math.floor((posIndex - 1) / puzzleSizeX) * puzzleItemHeght,
                         leftSet = (posIndex - 1) % puzzleSizeX * puzzleItemWidth,
 
                         //计算符合正确索引的背景图位置
                         backgroundSetX = -(correctIndex - 1) % puzzleSizeX * puzzleItemWidth,
-                        backgroundSetY = -(Math.floor((correctIndex - 1) / puzzleSizeX) * puzzleItemHeight),
+                        backgroundSetY = -(Math.floor((correctIndex - 1) / puzzleSizeX) * puzzleItemHeght),
                         backgroundString = "url(" + imageURL + ") " + backgroundSetX + "px " + backgroundSetY + "px " + "no-repeat";
 
                     //添加关键样式
@@ -319,7 +316,7 @@
                         width: Math.ceil(puzzleItemWidth),
                         height
                 :
-                    Math.ceil(puzzleItemHeight),
+                    Math.ceil(puzzleItemHeght),
                         background
                 :
                     backgroundString,
@@ -543,7 +540,7 @@
                     if (mouseX <= puzzlePosX || mouseX - puzzlePosX >= puzzleWidth) {
                         return false;
                     }
-                    if (mouseY <= puzzlePosY || mouseY - puzzlePosY >= puzzleHeight) {
+                    if (mouseY <= puzzlePosY || mouseY - puzzlePosY >= puzzleHeght) {
                         return false;
                     }
                     return true;
@@ -555,7 +552,7 @@
 
                     //计算目标索引,xIndex和yIndex分别表示当前位置所处的列序号和行序号
                     var xIndex = Math.ceil((mouseX - puzzlePosX) / puzzleItemWidth),
-                        yIndex = Math.ceil((mouseY - puzzlePosY) / puzzleItemHeight);
+                        yIndex = Math.ceil((mouseY - puzzlePosY) / puzzleItemHeght);
                     targetIndexNew = (yIndex - 1) * puzzleSizeX + xIndex;
 
                     if (targetIndexNew != targetIndexOld) {

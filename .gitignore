@@ -12,7 +12,7 @@
 *.iws
 *.iml
 *.ipr
-/target/
+*/target/*
 gh.iml
 *.class
 !.mvn/wrapper/maven-wrapper.jar
