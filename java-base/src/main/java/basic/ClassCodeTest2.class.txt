@@ -1,0 +1,92 @@
+Classfile /W:/code/algorithm/gh/src/main/java/lang/basic/ClassCodeTest2.class
+  Last modified 2021-2-9; size 544 bytes
+  MD5 checksum dacdd80ed6995f337dc907f517744bca
+  Compiled from "ClassCodeTest2.java"
+public class sssdnsy.basic.ClassCodeTest2
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #5.#18         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #19.#20        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = Methodref          #21.#22        // java/io/PrintStream.println:(I)V
+   #4 = Class              #23            // lang/basic/ClassCodeTest2
+   #5 = Class              #24            // java/lang/Object
+   #6 = Utf8               <init>
+   #7 = Utf8               ()V
+   #8 = Utf8               Code
+   #9 = Utf8               LineNumberTable
+  #10 = Utf8               main
+  #11 = Utf8               ([Ljava/lang/String;)V
+  #12 = Utf8               StackMapTable
+  #13 = Class              #25            // "[Ljava/lang/String;"
+  #14 = Class              #24            // java/lang/Object
+  #15 = Class              #26            // java/lang/Throwable
+  #16 = Utf8               SourceFile
+  #17 = Utf8               ClassCodeTest2.java
+  #18 = NameAndType        #6:#7          // "<init>":()V
+  #19 = Class              #27            // java/lang/System
+  #20 = NameAndType        #28:#29        // out:Ljava/io/PrintStream;
+  #21 = Class              #30            // java/io/PrintStream
+  #22 = NameAndType        #31:#32        // println:(I)V
+  #23 = Utf8               lang/basic/ClassCodeTest2
+  #24 = Utf8               java/lang/Object
+  #25 = Utf8               [Ljava/lang/String;
+  #26 = Utf8               java/lang/Throwable
+  #27 = Utf8               java/lang/System
+  #28 = Utf8               out
+  #29 = Utf8               Ljava/io/PrintStream;
+  #30 = Utf8               java/io/PrintStream
+  #31 = Utf8               println
+  #32 = Utf8               (I)V
+{
+  public sssdnsy.basic.ClassCodeTest2();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 9: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=3, args_size=1
+         0: aload_0
+         1: dup
+         2: astore_1
+         3: monitorenter
+         4: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         7: iconst_1
+         8: invokevirtual #3                  // Method java/io/PrintStream.println:(I)V
+        11: aload_1
+        12: monitorexit
+        13: goto          21
+        16: astore_2
+        17: aload_1
+        18: monitorexit
+        19: aload_2
+        20: athrow
+        21: return
+      Exception table:
+         from    to  target type
+             4    13    16   any
+            16    19    16   any
+      LineNumberTable:
+        line 11: 0
+        line 12: 4
+        line 13: 11
+        line 14: 21
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 16
+          locals = [ class "[Ljava/lang/String;", class java/lang/Object ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 250 /* chop */
+          offset_delta = 4
+}
+SourceFile: "ClassCodeTest2.java"
