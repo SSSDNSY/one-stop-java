@@ -1,4 +1,5 @@
-# gh
+# one-stop-java
+
 
 <p align="center">
   <a href="https://travis-ci.com/xkcoding/spring-boot-demo"><img alt="Travis-CI" src="https://travis-ci.com/xkcoding/spring-boot-demo.svg?branch=master"/></a>
@@ -7,6 +8,7 @@
 </p>
 
 ## 一站式Java开源库
+(old name:gh)
 
 ## 模块结构 
 
