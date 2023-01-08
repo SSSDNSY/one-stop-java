@@ -1,22 +1,46 @@
 ##Netty学习包简介
+ [netty学习来自： 虫洞教程（点我跳转） ](https://bugstack.cn/md/netty)
 
-- demo1: IO初体验 BIO NIO AIO 
-- demo2: 接收消息
-- demo3: 字符串解码器
-- demo4: 收发消息
-- demo5: 字符串编码器
-- demo6: 群发消息
-- demo7: 粘包、半包处理
-- demo8: ChannelOut/In boundHandlerAdapter 使用
-- demo9: UDP的netty实例
-- demo10: 基于Netty提供的HTTP服务
-- demo10: 基于Netty提供的HTTP服务
-- demo11: 集成SpringBoot
-- demo12: 集成protobuf
+### 基础
+- demo0: IO初体验 BIO NIO AIO 
+- demo1: Server!
+- demo2: Server接收数据
+- demo3: Server字符串解码器
+- demo4: Server收发数据
+- demo5: Server字符串编码器
+- demo6: Server群发消息
+- demo7: Client
+- demo8: 半包粘包处理、解码编码处理、收发收据方式
+- demo9: 自定义编解码器，处理半包、粘包数据
+- demo10: ChannelOutboundHandlerAdapter的实用
+- demo11: UDP通信案例demo
+- demo12: Http服务
 
-[netty教程链接](https://bugstack.cn/md/netty)
+### 中级
+- demo1: SpringBoot整合
+- demo2: Protobuf传输数据
+- demo3: Java对象的传输
+- demo4: 传输文件、分片发送、断点续传
+- demo5: 基于WebSocket的仿微信聊天界面
+- demo6: SpringBoot+Netty+ElasticSearch收集日志信息数据存储
+- demo7: 请求响应同步通信
+- demo8: 心跳服务于断线重连
+- demo9: 集群部署与服务端通信
+- demo10: 多协议消息类型的消息处理方案
+- demo11: 基于ChunkedStream数据流切块传输
+- demo12: 流量整形数据流速率控制
+- demo13: 基于SSL的传输过程中的双向加密验证
+
+### 高级
+- demo1 自定义配置XML
+- demo2 通信实现
+- demo3 RPC中间件
+- WebSocket与下位机通信
+- IM系统实践
 
 
+## 知识总结归纳
+----
 
 ```markdown
 1、ChannelOption.SO_BACKLOG ChannelOption.SO_BACKLOG对应的是tcp/ip协议listen函数中的backlog参数，函数listen(int socketfd,int backlog)用来初始化服务端可连接队列，服务端处理客户端连接请求是顺序处理的，所以同一时间只能处理一个客户端连接，多个客户端来的时候，服务端将不能处理的客户端连接请求放在队列中等待处理，backlog参数指定了队列的大小
@@ -30,7 +54,7 @@
 ```
 
 
-#ByteBuf的数据结构在使用方式中的剖析
+##ByteBuf的数据结构在使用方式中的剖析
 
 ## 数据结构
 ```yaml
@@ -105,7 +129,6 @@
  |  Netty Internal I/O Threads (Transport Implementation)            |
  +-------------------------------------------------------------------+
 ```
- 
  
  
  
