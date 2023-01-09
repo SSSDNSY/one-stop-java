@@ -6,14 +6,18 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author fun.pengzh
- * @class netty.basic.demo2.NettyServer
+ * @class netty.basic.demo1.NettyServer
  * @desc
  * @since 2022-05-06
  */
 public class NettyServer {
+
+    Logger logger = LoggerFactory.getLogger(NettyServer.class);
 
     public static void main(String[] args) {
         new NettyServer().bind(8992);
@@ -30,7 +34,7 @@ public class NettyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childHandler(new MyChannelInitializer());
             ChannelFuture future = bootstrap.bind(port).sync();
-            System.out.println("server start");
+            logger.error("Netty Server listening on:{}", port);
             future.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();

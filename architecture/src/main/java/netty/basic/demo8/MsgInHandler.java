@@ -3,6 +3,7 @@ package netty.basic.demo8;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.SocketChannel;
+import netty.basic.demo3.MyChannelHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +17,7 @@ import java.net.InetSocketAddress;
  */
 public class MsgInHandler extends ChannelInboundHandlerAdapter {
 
-    private transient final Logger log = LoggerFactory.getLogger(netty.basic.demo4.MyChannelHandler.class);
+    private transient final Logger log = LoggerFactory.getLogger(MyChannelHandler.class);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

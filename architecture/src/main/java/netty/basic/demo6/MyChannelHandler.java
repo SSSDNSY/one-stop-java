@@ -17,7 +17,7 @@ import java.net.InetSocketAddress;
 public class MyChannelHandler extends ChannelInboundHandlerAdapter {
 
 
-    private transient final Logger log = LoggerFactory.getLogger(netty.basic.demo4.MyChannelHandler.class);
+    private transient final Logger log = LoggerFactory.getLogger(netty.basic.demo3.MyChannelHandler.class);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

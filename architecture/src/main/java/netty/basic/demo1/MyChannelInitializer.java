@@ -1,16 +1,15 @@
-package netty.basic.demo2;
+package netty.basic.demo1;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 
 /**
  * @author fun.pengzh
- * @class netty.basic.demo2.MyChannelIntializer
+ * @class netty.basic.demo1.MyChannelIntializer
  * @desc
  * @since 2022-05-06
  */
-public class MyChannelIntializer extends ChannelInitializer<SocketChannel> {
-
+public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
