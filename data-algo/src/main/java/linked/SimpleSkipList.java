@@ -81,21 +81,29 @@ public class SimpleSkipList {
     }
 
     public void printf() {
-        Node temp = head;
+        Node temp = head, bottomHead = head;
+        while (null != bottomHead.down) {
+            bottomHead = bottomHead.down;
+        }
         for (int i = height + 1; i > 0; i--) {
             System.out.printf(" height (current/height=%d/%d) ", i, height + 1);
             Node node = temp.right;
+            Node tempBottomHead = bottomHead.right;
+            int m = 0;
             while (node.type == DATA) {
-                Node tempNode = node;
-                while (null != tempNode.down) {
-                    tempNode = tempNode.down;
+                int n = 0;
+                Node tempN = tempBottomHead;
+                while (node.value.intValue() != tempN.value.intValue()) {
+                    n++;
+                    tempN = tempN.right;
                 }
-                if (node.value == tempNode.value) {
-                    System.out.printf("%-7d ",tempNode.value );
-                } else {
+                for (int j = 0; j < n-m; j++) {
                     System.out.printf("%-7s ", "");
                 }
+                m=n;
+                System.out.printf("%-7d ", node.value);
                 node = node.right;
+                tempBottomHead = tempBottomHead.right;
             }
             temp = temp.down;
             System.out.println();
@@ -148,7 +156,6 @@ public class SimpleSkipList {
         for (int i = 0; i < num; i++) {
             skipList.add(random.nextInt(num * 10));
         }
-        skipList.printf();
         skipList.printf();
 
     }
