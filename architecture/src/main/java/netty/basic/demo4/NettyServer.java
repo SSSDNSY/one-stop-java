@@ -1,4 +1,4 @@
-package netty.basic.demo6;
+package netty.basic.demo4;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -9,25 +9,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author fun.pengzh
- * @class netty.basic.demo6.NettyServer
- * @desc 群发消息
- * @since 2022-05-08
+ * @author pengzh
+ * @desc
+ * @class NettyServer
+ * @since 2022-05-07
  */
 public class NettyServer {
 
     private final transient Logger log = LoggerFactory.getLogger(NettyServer.class);
 
     public static void main(String[] args) {
-        new NettyServer().bind(8996);
+        new NettyServer().bind(8994);
     }
 
     private void bind(int port) {
         NioEventLoopGroup parentGroup = new NioEventLoopGroup();
         NioEventLoopGroup childGroup = new NioEventLoopGroup();
         try {
-            ServerBootstrap bootstrap = new ServerBootstrap()
-                    .group(parentGroup, childGroup)
+            ServerBootstrap bootstrap = new ServerBootstrap().group(parentGroup, childGroup)
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new MyChannelInitializer());
@@ -42,4 +41,5 @@ public class NettyServer {
             childGroup.shutdownGracefully();
         }
     }
+
 }

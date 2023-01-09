@@ -20,7 +20,7 @@ public class NettyClient {
     private final transient Logger log = LoggerFactory.getLogger(NettyClient.class);
 
     public static void main(String[] args) {
-        new NettyClient().connect("127.0.0.1", 7397);
+        new NettyClient().connect("127.0.0.1", 8998);
     }
 
     private void connect(String inetHost, int inetPort) {

@@ -10,8 +10,6 @@ import io.netty.channel.socket.SocketChannel;
  * @since 2022-05-09
  */
 public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
-
-
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         //自定义解码器
