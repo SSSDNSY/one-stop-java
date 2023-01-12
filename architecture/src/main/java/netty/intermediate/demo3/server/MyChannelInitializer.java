@@ -2,26 +2,31 @@ package netty.intermediate.demo3.server;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.stream.ChunkedWriteHandler;
+import netty.intermediate.demo3.codec.ObjDecoder;
+import netty.intermediate.demo3.codec.ObjEncoder;
+import netty.intermediate.demo3.domain.TransportProtocol;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author fun.pengzh
- * @class netty.intermediate.demo15.server.MyChannelInitializer
  * @desc
- * @since 2022-05-15
+ * @since 2023-01-12
  */
+@Service("myChannelInitializer")
 public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
+
+    @Resource
+     private MyServerHandler myServerHandler;
 
     @Override
     protected void initChannel(SocketChannel channel) {
-        channel.pipeline().addLast("http-codec", new HttpServerCodec());
-        channel.pipeline().addLast("aggregator", new HttpObjectAggregator(65536));
-        channel.pipeline().addLast("http-chunked", new ChunkedWriteHandler());
+        //对象传输处理
+        channel.pipeline().addLast(new ObjDecoder(TransportProtocol.class));
+        channel.pipeline().addLast(new ObjEncoder(TransportProtocol.class));
         // 在管道中添加我们自己的接收数据实现方法
-        channel.pipeline().addLast(new MyServerHandler());
+        channel.pipeline().addLast(myServerHandler);
     }
-
 
 }

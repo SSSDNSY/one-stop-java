@@ -4,19 +4,20 @@ import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.Schema;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
-import org.springframework.objenesis.Objenesis;
-import org.springframework.objenesis.ObjenesisStd;
+import org.objenesis.Objenesis;
+import org.objenesis.ObjenesisStd;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author fun.pengzh
- * @class netty.intermediate.demo13.util.SerializationUtil
+ * @class netty.intermediate.demo14.util.SerializationUtil
  * @desc
  * @since 2022-05-15
  */
 public class SerializationUtil {
+
     private static Map<Class<?>, Schema<?>> cachedSchema = new ConcurrentHashMap<>();
 
     private static Objenesis objenesis = new ObjenesisStd();

@@ -1,9 +1,10 @@
 package netty.basic.demo0.bio;
 
 
+import io.netty.util.CharsetUtil;
+
 import java.io.IOException;
 import java.net.Socket;
-import java.nio.charset.Charset;
 
 /**
  * @author fun.pengzh
@@ -17,7 +18,7 @@ public class BioClient {
         try {
             Socket socket = new Socket("127.0.0.1", 8991);
             System.out.println("client 启动");
-            BioClientHandler bioClientHandler = new BioClientHandler(socket, Charset.forName("utf-8"));
+            BioClientHandler bioClientHandler = new BioClientHandler(socket, CharsetUtil.UTF_8);
             bioClientHandler.start();
         } catch (IOException e) {
             e.printStackTrace();

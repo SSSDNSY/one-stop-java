@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
 import java.net.InetSocketAddress;
 
@@ -17,11 +18,12 @@ import java.net.InetSocketAddress;
  */
 
 @SpringBootApplication
+@PropertySource(value = "./application.yml")
 public class NettyApplication implements CommandLineRunner {
 
-    @Value("${netty.host}")
+    @Value("${netty.host:127.0.01}")
     private String host;
-    @Value("${netty.port}")
+    @Value("${netty.port:9090}")
     private int port;
     @Autowired
     private NettyServer nettyServer;

@@ -1,11 +1,12 @@
 package netty.basic.demo0.bio;
 
 
+import io.netty.util.CharsetUtil;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.Charset;
 
 /**
  * @author fun.pengzh
@@ -29,7 +30,7 @@ public class BioServer extends Thread {
             serverSocket.bind(new InetSocketAddress(8991));
             while (true) {
                 Socket socket = serverSocket.accept();
-                BioServerHandler handler = new BioServerHandler(socket, Charset.forName("utf-8"));
+                BioServerHandler handler = new BioServerHandler(socket, CharsetUtil.UTF_8);
                 handler.start();
             }
         } catch (IOException e) {

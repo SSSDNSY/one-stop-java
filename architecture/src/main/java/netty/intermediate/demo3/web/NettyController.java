@@ -1,28 +1,25 @@
 package netty.intermediate.demo3.web;
 
-import netty.intermediate.demo2.server.NettyServer;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import netty.intermediate.demo3.server.NettyServer;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
 /**
  * @author fun.pengzh
- * @class netty.intermediate.demo15.web.NettyController
  * @desc
- * @since 2022-05-15
+ * @since 2023-01-12
  */
-@Controller
+@RestController
 public class NettyController {
 
     @Resource
     private NettyServer nettyServer;
 
-    @RequestMapping("/index")
-    public String index(Model model) {
-        model.addAttribute("name", "xiaohao");
-        return "index";
+    @RequestMapping("/localAddress")
+    public String localAddress() {
+        return "nettyServer localAddress " + nettyServer.getChannel().localAddress();
     }
 
 }

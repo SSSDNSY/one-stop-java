@@ -7,26 +7,29 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import java.net.InetSocketAddress;
 
 /**
+ * 消息传输协议
  * @author fun.pengzh
- * @class netty.intermediate.demo14.server.NettyServer
  * @desc
- * @since 2022-05-15
+ * @since 2023-01-12
  */
+@Component("nettyServer")
 public class NettyServer {
 
-    public static void main(String[] args) {
-        //启动服务
-        new NettyServer().bing(9014);
-    }
+    private Logger logger = LoggerFactory.getLogger(NettyServer.class);
 
     //配置服务端NIO线程组
-    private EventLoopGroup parentGroup = new NioEventLoopGroup(); //NioEventLoopGroup extends MultithreadEventLoopGroup Math.max(1, SystemPropertyUtil.getInt("io.netty.eventLoopThreads", NettyRuntime.availableProcessors() * 2));
-    private EventLoopGroup childGroup = new NioEventLoopGroup();
+    private final EventLoopGroup parentGroup = new NioEventLoopGroup(); //NioEventLoopGroup extends MultithreadEventLoopGroup Math.max(1, SystemPropertyUtil.getInt("io.netty.eventLoopThreads", NettyRuntime.availableProcessors() * 2));
+    private final EventLoopGroup childGroup = new NioEventLoopGroup();
     private Channel channel;
 
-    public ChannelFuture bing(int port) {
+    public ChannelFuture bing(InetSocketAddress address) {
         ChannelFuture channelFuture = null;
         try {
             ServerBootstrap b = new ServerBootstrap();
@@ -34,15 +37,16 @@ public class NettyServer {
                     .channel(NioServerSocketChannel.class)    //非阻塞模式
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childHandler(new MyChannelInitializer());
-            channelFuture = b.bind(port).syncUninterruptibly();
-            this.channel = channelFuture.channel();
+
+            channelFuture = b.bind(address).syncUninterruptibly();
+            channel = channelFuture.channel();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } finally {
             if (null != channelFuture && channelFuture.isSuccess()) {
-                System.out.println("itstack-demo-netty server start done.");
+                logger.info("netty  server start done.");
             } else {
-                System.out.println("itstack-demo-netty server start error.");
+                logger.error("netty  server start error.");
             }
         }
         return channelFuture;

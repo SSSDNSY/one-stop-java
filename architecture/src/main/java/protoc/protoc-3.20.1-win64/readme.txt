@@ -26,5 +26,5 @@ Please refer to our official github site for more installation instructions:
 ## 编译；
 protoc -I=源地址 --java_out=目标地址  源地址/xxx.proto
 
-protoc.exe -I=E:\itstack\GIT\itstack.org\itstack-demo-netty\itstack-demo-netty-2-02\src\main\java\org\itstack\demo\netty\proto --java_out=E:\itstack\GIT\itstack.org\itstack-demo-netty\itstack-demo-netty-2-02\src\main
+protoc.exe -I=E:\itstack\GIT\itstack.org\netty \netty -2-02\src\main\java\org\itstack\demo\netty\proto --java_out=E:\itstack\GIT\itstack.org\netty \netty -2-02\src\main
 \java MsgInfo.proto

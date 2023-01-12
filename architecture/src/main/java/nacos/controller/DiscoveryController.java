@@ -16,8 +16,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
  * @Desc 测试nacos自动注册
- * @Author pengzh
- * @Since 2022-12-22
+ * @author fun.pengzh
+ * @desc
+ * @since 2023-01-12
  */
 @Controller
 @RequestMapping("discovery")

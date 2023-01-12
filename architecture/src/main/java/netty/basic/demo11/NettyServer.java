@@ -46,9 +46,9 @@ public class NettyServer {
             logger.error(e.getMessage());
         } finally {
             if (null != channelFuture && channelFuture.isSuccess()) {
-                logger.info("itstack-demo-netty server start done.");
+                logger.info("server start done.");
             } else {
-                logger.error("itstack-demo-netty server start error.");
+                logger.error("server start error.");
             }
         }
         return channelFuture;

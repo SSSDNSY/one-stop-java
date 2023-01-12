@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author fun.pengzh
- * @class netty.intermediate.demo13.codec.ObjDecoder
+ * @class netty.intermediate.demo14.codec.ObjDecoder
  * @desc
  * @since 2022-05-15
  */
@@ -22,7 +22,7 @@ public class ObjDecoder extends ByteToMessageDecoder {
     }
 
     @Override
-    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> out) throws Exception {
+    protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) {
         if (in.readableBytes() < 4) {
             return;
         }
@@ -36,4 +36,6 @@ public class ObjDecoder extends ByteToMessageDecoder {
         in.readBytes(data);
         out.add(SerializationUtil.deserialize(data, genericClass));
     }
+
+
 }

@@ -1,12 +1,13 @@
 package netty.basic.demo0.nio;
 
 
+import io.netty.util.CharsetUtil;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
-import java.nio.charset.Charset;
 
 /**
  * @author fun.pengzh
@@ -27,7 +28,7 @@ public class NioClient {
         } else {
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
         }
-        System.out.println("itstack-demo-netty nio client start done.");
-        new NioClientHandler(selector, Charset.forName("utf-8")).start();
+        System.out.println("nio client start done.");
+        new NioClientHandler(selector, CharsetUtil.UTF_8).start();
     }
 }

@@ -11,25 +11,22 @@
 - demo6: Server群发消息
 - demo7: Client
 - demo8: 半包粘包处理、解码编码处理、收发收据方式
-- demo9: 自定义编解码器，处理半包、粘包数据
+- demo9: UDP通信案例demo
 - demo10: ChannelOutboundHandlerAdapter的实用
-- demo11: UDP通信案例demo
-- demo12: Http服务
+- demo11: SpringBoot整合
+- demo12: Protobuf传输数据、Java对象的传输
 
 ### 中级
-- demo1: SpringBoot整合
-- demo2: Protobuf传输数据
-- demo3: Java对象的传输
-- demo4: 传输文件、分片发送、断点续传
-- demo5: 基于WebSocket的仿微信聊天界面
-- demo6: SpringBoot+Netty+ElasticSearch收集日志信息数据存储
-- demo7: 请求响应同步通信
-- demo8: 心跳服务于断线重连
-- demo9: 集群部署与服务端通信
-- demo10: 多协议消息类型的消息处理方案
-- demo11: 基于ChunkedStream数据流切块传输
-- demo12: 流量整形数据流速率控制
-- demo13: 基于SSL的传输过程中的双向加密验证
+- demo1: 传输文件、分片发送、断点续传
+- demo2: 基于WebSocket的仿微信聊天界面
+- demo3: SpringBoot+Netty+ElasticSearch收集日志信息数据存储
+- demo4: 请求响应同步通信
+- demo5: 心跳服务与断线重连
+- demo6: 集群部署与服务端通信
+- demo7: 多协议消息类型的消息处理方案
+- demo8: 基于ChunkedStream数据流切块传输
+- demo8: 流量整形数据流速率控制
+- demo10: 基于SSL的传输过程中的双向加密验证
 
 ### 高级
 - demo1 自定义配置XML

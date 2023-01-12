@@ -7,7 +7,7 @@ import netty.intermediate.demo1.util.SerializationUtil;
 
 /**
  * @author fun.pengzh
- * @class netty.intermediate.demo13.codec.ObjEncoder
+ * @class netty.intermediate.demo14.codec.ObjEncoder
  * @desc
  * @since 2022-05-15
  */
@@ -27,4 +27,6 @@ public class ObjEncoder extends MessageToByteEncoder {
             out.writeBytes(data);
         }
     }
+
+
 }

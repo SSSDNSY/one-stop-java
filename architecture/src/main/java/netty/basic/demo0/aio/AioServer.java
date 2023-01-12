@@ -22,7 +22,7 @@ public class AioServer extends Thread {
         try {
             serverSocketChannel = AsynchronousServerSocketChannel.open(AsynchronousChannelGroup.withCachedThreadPool(Executors.newCachedThreadPool(), 10));
             serverSocketChannel.bind(new InetSocketAddress(8993));
-            System.out.println("itstack-demo-netty aio server start done.");
+            System.out.println("aio server start done.");
             // 等待
             CountDownLatch latch = new CountDownLatch(1);
             serverSocketChannel.accept(this, new AioServerChannelInitializer());

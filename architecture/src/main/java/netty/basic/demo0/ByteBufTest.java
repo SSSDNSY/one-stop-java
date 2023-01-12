@@ -3,9 +3,9 @@ package netty.basic.demo0;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.CharsetUtil;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
@@ -119,7 +119,7 @@ public class ByteBufTest {
 
         //长度域占4字节，读取int
         ByteBuf byteBuf = in.readBytes(1);
-        String msgLengthStr = byteBuf.toString(Charset.forName("GBK"));
+        String msgLengthStr = byteBuf.toString(CharsetUtil.UTF_8);
         int msgLength = Integer.parseInt(msgLengthStr);
 
         //剩余长度不足可读取数量[没有结尾标识]
@@ -138,7 +138,7 @@ public class ByteBufTest {
             return;
         }
 
-        out.add(msgContent.toString(Charset.forName("GBK")));
+        out.add(msgContent.toString(CharsetUtil.UTF_8));
     }
 
 }

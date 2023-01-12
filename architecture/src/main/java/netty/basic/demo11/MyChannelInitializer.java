@@ -4,13 +4,11 @@ package netty.basic.demo11;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.SocketChannel;
-import netty.basic.demo8.MyServerHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 
 
 /**
@@ -21,7 +19,7 @@ import java.util.Date;
  */
 public class MyChannelInitializer extends ChannelInboundHandlerAdapter {
 
-    private Logger logger = LoggerFactory.getLogger(MyServerHandler.class);
+    private Logger logger = LoggerFactory.getLogger(MyChannelInitializer.class);
 
     /**
      * 当客户端主动链接服务端的链接后，这个通道就是活跃的了。也就是客户端与服务端建立了通信通道并且可以传输数据

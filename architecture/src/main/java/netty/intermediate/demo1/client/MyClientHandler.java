@@ -1,9 +1,13 @@
 package netty.intermediate.demo1.client;
 
-import com.alibaba.fastjson.JSON;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.SocketChannel;
+import netty.intermediate.demo1.domain.Constants;
+import netty.intermediate.demo1.domain.FileBurstData;
+import netty.intermediate.demo1.domain.FileBurstInstruct;
+import netty.intermediate.demo1.domain.FileTransferProtocol;
+import netty.intermediate.demo1.util.FileUtil;
 import netty.intermediate.demo1.util.MsgUtil;
 
 import java.text.SimpleDateFormat;
@@ -11,7 +15,7 @@ import java.util.Date;
 
 /**
  * @author fun.pengzh
- * @class netty.intermediate.demo13.client.MyClientHandler
+ * @class netty.intermediate.demo14.client.MyClientHandler
  * @desc
  * @since 2022-05-15
  */
@@ -28,9 +32,6 @@ public class MyClientHandler extends ChannelInboundHandlerAdapter {
         System.out.println("链接报告IP:" + channel.localAddress().getHostString());
         System.out.println("链接报告Port:" + channel.localAddress().getPort());
         System.out.println("链接报告完毕");
-        //通知客户端链接建立成功
-        String str = "通知服务端链接建立成功" + " " + new Date() + " " + channel.localAddress().getHostString();
-        ctx.writeAndFlush(MsgUtil.buildMsg(channel.id().toString(), str));
     }
 
     /**
@@ -39,13 +40,40 @@ public class MyClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("断开链接" + ctx.channel().localAddress().toString());
+        super.channelInactive(ctx);
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //接收msg消息{与上一章节相比，此处已经不需要自己进行解码}
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " 接收到消息类型：" + msg.getClass());
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " 接收到消息内容：" + JSON.toJSONString(msg));
+        //数据格式验证
+        if (!(msg instanceof FileTransferProtocol)) return;
+
+        FileTransferProtocol fileTransferProtocol = (FileTransferProtocol) msg;
+        //0传输文件'请求'、1文件传输'指令'、2文件传输'数据'
+        switch (fileTransferProtocol.getTransferType()) {
+            case 1:
+                FileBurstInstruct fileBurstInstruct = (FileBurstInstruct) fileTransferProtocol.getTransferObj();
+                //Constants.FileStatus ｛0开始、1中间、2结尾、3完成｝
+                if (Constants.FileStatus.COMPLETE == fileBurstInstruct.getStatus()) {
+                    ctx.flush();
+                    ctx.close();
+                    System.exit(-1);
+                    return;
+                }
+                FileBurstData fileBurstData = FileUtil.readFile(fileBurstInstruct.getClientFileUrl(), fileBurstInstruct.getReadPosition());
+                ctx.writeAndFlush(MsgUtil.buildTransferData(fileBurstData));
+                System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " 客户端传输文件信息。 FILE：" + fileBurstData.getFileName() + " SIZE(byte)：" + (fileBurstData.getEndPos() - fileBurstData.getBeginPos()));
+                break;
+            default:
+                break;
+        }
+
+        /**模拟传输过程中断，场景测试可以注释掉
+         *
+         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " 客户端传输文件信息[主动断开链接，模拟断点续传]");
+         ctx.flush();
+         ctx.close();
+         System.exit(-1);*/
     }
 
     /**
