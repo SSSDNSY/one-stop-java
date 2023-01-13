@@ -22,11 +22,8 @@
 - demo3: SpringBoot+Netty+ElasticSearch收集日志信息数据存储
 - demo4: 请求响应同步通信
 - demo5: 心跳服务与断线重连
-- demo6: 集群部署与服务端通信
-- demo7: 多协议消息类型的消息处理方案
-- demo8: 基于ChunkedStream数据流切块传输
-- demo8: 流量整形数据流速率控制
-- demo10: 基于SSL的传输过程中的双向加密验证
+- demo6: 基于ChunkedStream数据流切块传输
+- demo7: 流量整形数据流速率控制
 
 ### 高级
 - demo1 自定义配置XML
