@@ -20,25 +20,29 @@
 
 
 
-################### 仿微信
+################### ES日志记录
 ## Server
-server:
-  port: 8080
+#server:
+#  port: 8080
+#
+### Netty
+#netty:
+#  host: 127.0.0.1
+#  port: 7397
+#
+### Elasticsearch
+#spring:
+#  data:
+#    elasticsearch:
+#      cluster-name: SSSDNSY
+#      cluster-nodes: 127.0.0.1:9300
+#      repositories: true
 
-## Netty
-netty:
-  host: 127.0.0.1
-  port: 7397
 
-## Elasticsearch
+
+################### 其他
+## Server
 spring:
-  data:
-    elasticsearch:
-      cluster-name: SSSDNSY
-      cluster-nodes: 127.0.0.1:9300
-      repositories: true
-
-
-
-
+  application:
+    name: architectureTest
 
