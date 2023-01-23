@@ -16,12 +16,11 @@ public interface Handler<T extends Object> {
     /**
      * 责任链执行
      */
-    Object execute(Object obj);
+    <T> T execute(T t);
 
     /**
      * 设置责任链的下一个节点
      */
     void setNext(Handler handler);
-
 
 }
