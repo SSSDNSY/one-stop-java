@@ -13,5 +13,28 @@
 ## 模块结构 
 
 ```text
+
+. 
+|-- architecture 架构
+|   |-- src
+|   `-- target
+|-- data-algo    数据结构与算法
+|   |-- src
+|   `-- target
+|-- database     数据库
+|   |-- src
+|   `-- target
+|-- deploy-tool  运维工具
+|   |-- src
+|   `-- target
+|-- java-base    Java基础 
+|   |-- src
+|   `-- target
+|-- spring-base  Spring
+|   |-- src
+|   `-- target
+|-- sundries     其他
+|   |-- src
+|   `-- target
     
 ```
