@@ -1,5 +1,7 @@
 package collections;
 
+import org.assertj.core.util.Arrays;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.PriorityQueue;
@@ -50,12 +52,18 @@ public class CollectionDemo {
 //
 
     public static void main(String[] args) {
-        fastFailDemo();
-//        priorityQueueUse();
+        //  fastFailDemo();
+        // priorityQueueUse();
+        arraysTest();
     }
 
 
-    private static void priorityQueueUse(){
+    /**
+     * [1, 3, 2, 9, 7]
+     * [2, 3, 7, 9]
+     * [3, 9, 7]
+     */
+    private static void priorityQueueUse() {
         final PriorityQueue<Integer> q = new PriorityQueue<>();
         q.offer(3);
         q.offer(2);
@@ -81,7 +89,7 @@ public class CollectionDemo {
                 int i = 0;
                 final Iterator<String> iterator = list.iterator();
                 while (iterator.hasNext()) {
-                    if (i % 157==0) {
+                    if (i % 157 == 0) {
                         list.remove(i);//ConcurrentModificationException
 //                        iterator.remove();
                     }
@@ -99,6 +107,12 @@ public class CollectionDemo {
             }
         }, "T2").start();
 
+    }
+
+    public static void arraysTest() {
+        System.out.println(Arrays.asList("123".split(",")));
+        System.out.println(Arrays.asList("1,2,3".split(",")));
+        System.out.println(Arrays.asList("12,3,".split(",")));
     }
 
 }
