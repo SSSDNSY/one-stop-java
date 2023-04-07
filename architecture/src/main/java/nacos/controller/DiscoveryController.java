@@ -1,3 +1,4 @@
+/*
 package nacos.controller;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
@@ -14,12 +15,14 @@ import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+*/
 /**
  * @Desc 测试nacos自动注册
  * @author fun.pengzh
  * @desc
  * @since 2023-01-12
- */
+ *//*
+
 @Controller
 @RequestMapping("discovery")
 public class DiscoveryController {
@@ -38,3 +41,4 @@ public class DiscoveryController {
     }
 
 }
+*/

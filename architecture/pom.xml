@@ -186,7 +186,7 @@
             <version>1.4</version>
         </dependency>
 
-        <!-- nacos -->
+        <!-- nacos
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -196,7 +196,7 @@
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-discovery-spring-boot-starter</artifactId>
             <version>${nacos-discovery-spring-boot.version}</version>
-        </dependency>
+        </dependency> -->
 
         <!-- 添加servlet依赖模块 -->
         <dependency>

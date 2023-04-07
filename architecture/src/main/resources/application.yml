@@ -42,7 +42,43 @@
 
 ################### 其他
 ## Server
+server:
+  port: 8899
+  context-path: /
+
+## Spring
 spring:
-  application:
-    name: architectureTest
+  mvc:
+    static-path-pattern: /static/**
+  freemarker:
+    settings:
+      number_format: 0.##########
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+    charset: UTF-8
+
+  #### rabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    # 手动提交消息
+    listener:
+      direct:
+        retry:
+          enabled: true
+          max-attempts: 3
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+#      direct:
+#        acknowledge-mode: manual
+
+
 

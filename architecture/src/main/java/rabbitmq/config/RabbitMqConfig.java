@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.retry.MessageRecoverer;
+import org.springframework.amqp.rabbit.retry.RejectAndDontRequeueRecoverer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rabbitmq.constants.RabbitConsts;
@@ -22,7 +24,6 @@ import java.util.Map;
 @Slf4j
 @Configuration
 public class RabbitMqConfig {
-
 
 
     @Bean
@@ -162,6 +163,11 @@ public class RabbitMqConfig {
     @Bean
     public Binding delayBinding(Queue delayQueue, CustomExchange delayExchange) {
         return BindingBuilder.bind(delayQueue).to(delayExchange).with(RabbitConsts.DELAY_QUEUE).noargs();
+    }
+
+    @Bean
+    public MessageRecoverer recoverer(RabbitTemplate rabbitTemplate) {
+        return new RejectAndDontRequeueRecoverer();
     }
 
 }

@@ -1,4 +1,4 @@
-package rabbitmq.handler;
+package rabbitmq.consumer;
 
 import cn.hutool.json.JSONUtil;
 import com.rabbitmq.client.Channel;
