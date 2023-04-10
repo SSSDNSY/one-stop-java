@@ -18,6 +18,8 @@ public class Java85Stream {
     public void testStream() {
         List<Integer> numList = Arrays.asList(1, 2, 3, 4, 5);
         log.debug("numList{}", numList);
+        boolean b = numList.stream().anyMatch(n -> n == -1);
+        log.debug("{}", b);
         numList = numList.stream().map(n -> n * n).collect(Collectors.toList());
         log.debug("numList{}", numList);
 
