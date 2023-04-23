@@ -7,8 +7,8 @@
   <a href="https://docs.spring.io/spring-boot/docs/2.1.0.RELEASE/reference/html/"><img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-2.1.0.RELEASE-brightgreen.svg"/></a>
 </p>
 
-## 个人一站式Java知识库  
-(old name:gh)
+## 一站式Java知识库  
+old project(github) name:gh
 
 ## 模块结构 
 
@@ -38,3 +38,5 @@
 |   `-- target
     
 ```
+## 范例链接
+-  [jmx_examples](\java-base\src\main\java\features\jmx)
