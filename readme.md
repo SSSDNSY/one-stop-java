@@ -2,7 +2,6 @@
 
 
 <p align="center">
-  <a href="https://travis-ci.com/xkcoding/spring-boot-demo"><img alt="Travis-CI" src="https://travis-ci.com/xkcoding/spring-boot-demo.svg?branch=master"/></a>
   <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8.0_162-orange.svg"/></a>
   <a href="https://docs.spring.io/spring-boot/docs/2.1.0.RELEASE/reference/html/"><img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-2.1.0.RELEASE-brightgreen.svg"/></a>
 </p>
@@ -39,4 +38,5 @@ old project(github) name:gh
     
 ```
 ## 范例链接
--  [jmx_examples](\java-base\src\main\java\features\jmx)
+-  [Spring Bean Lifecycle](/tree/main/spring-base/src/main/java/bean)
+-  [JMX example](/tree/main/java-base/src/main/java/features/jmx)
