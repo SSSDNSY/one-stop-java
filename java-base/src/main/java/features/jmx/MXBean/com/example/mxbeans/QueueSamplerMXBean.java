@@ -35,7 +35,7 @@
  * there is a read-only attribute "QueueSample" and an operation "clearQueue".
  */
 
-package features.jmx.MXBean.com.example.mxbeans;
+package features.jmx.mxbean.com.example.mxbeans;
 
 public interface QueueSamplerMXBean {
     public QueueSample getQueueSample();

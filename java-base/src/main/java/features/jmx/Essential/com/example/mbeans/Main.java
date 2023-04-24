@@ -33,7 +33,7 @@
    HelloWorld MBean, register it, then wait forever (or until the
    program is interrupted).  */
 
-package features.jmx.Essential.com.example.mbeans;
+package features.jmx.essential.com.example.mbeans;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;

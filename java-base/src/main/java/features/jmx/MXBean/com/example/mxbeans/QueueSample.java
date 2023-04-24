@@ -35,7 +35,7 @@
  * size and the queue head.
  */
 
-package features.jmx.MXBean.com.example.mxbeans;
+package features.jmx.mxbean.com.example.mxbeans;
 
 import java.beans.ConstructorProperties;
 import java.util.Date;

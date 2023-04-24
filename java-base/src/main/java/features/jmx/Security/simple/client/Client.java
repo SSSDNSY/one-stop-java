@@ -1,4 +1,4 @@
-package features.jmx.Security.simple.client;/*
+package features.jmx.security.simple.client;/*
  * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,6 +28,8 @@ package features.jmx.Security.simple.client;/*
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+import features.jmx.basic.SimpleStandardMBean;
 
 import javax.management.Attribute;
 import javax.management.JMX;

@@ -34,7 +34,7 @@
    there are two operations, "sayHello" and "add", and two attributes,
    "Name" and "CacheSize". */
 
-package features.jmx.Notification.com.example.mbeans;
+package features.jmx.notification.com.example.mbeans;
 
 public interface HelloMBean {
     // operations

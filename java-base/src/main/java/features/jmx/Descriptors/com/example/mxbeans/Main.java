@@ -8,7 +8,7 @@
  * MXBean, register it, then wait forever (or until the program is interrupted).
  */
 
-package features.jmx.Descriptors.com.example.mxbeans;
+package features.jmx.descriptors.com.example.mxbeans;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;

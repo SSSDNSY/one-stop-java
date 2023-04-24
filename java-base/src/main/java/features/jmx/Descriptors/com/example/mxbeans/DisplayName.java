@@ -8,7 +8,7 @@
  * a display name for a method in the MBean interface.
  */
 
-package features.jmx.Descriptors.com.example.mxbeans;
+package features.jmx.descriptors.com.example.mxbeans;
 
 import javax.management.DescriptorKey;
 import java.lang.annotation.*;

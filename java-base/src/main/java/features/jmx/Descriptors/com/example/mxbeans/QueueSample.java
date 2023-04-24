@@ -9,7 +9,7 @@
  * size and the queue head.
  */
 
-package features.jmx.Descriptors.com.example.mxbeans;
+package features.jmx.descriptors.com.example.mxbeans;
 
 import java.beans.ConstructorProperties;
 import java.util.Date;

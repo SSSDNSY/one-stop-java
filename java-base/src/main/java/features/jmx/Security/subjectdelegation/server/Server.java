@@ -1,4 +1,4 @@
-package features.jmx.Security.subject_delegation.server;/*
+package features.jmx.security.subjectdelegation.server;/*
  * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without

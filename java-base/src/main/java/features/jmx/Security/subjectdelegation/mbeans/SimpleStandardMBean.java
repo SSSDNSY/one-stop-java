@@ -1,4 +1,4 @@
-package features.jmx.Security.subject_delegation.client;/*
+package features.jmx.security.subjectdelegation.mbeans;/*
  * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,11 +29,48 @@ package features.jmx.Security.subject_delegation.client;/*
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import javax.management.Notification;
-import javax.management.NotificationListener;
+/**
+ * This is the management interface explicitly defined for the
+ * "SimpleStandard" standard MBean.
+ * <p>
+ * The "SimpleStandard" standard MBean implements this interface
+ * in order to be manageable through a JMX agent.
+ * <p>
+ * The "SimpleStandardMBean" interface shows how to expose for management:
+ * - a read/write attribute (named "State") through its getter and setter
+ * methods,
+ * - a read-only attribute (named "NbChanges") through its getter method,
+ * - an operation (named "reset").
+ */
+public interface SimpleStandardMBean {
 
-public class ClientListener implements NotificationListener {
-    public void handleNotification(Notification notification, Object handback) {
-        System.out.println("\nReceived notification: " + notification);
-    }
+    /**
+     * Getter: set the "State" attribute of the "SimpleStandard" standard
+     * MBean.
+     *
+     * @return the current value of the "State" attribute.
+     */
+    public String getState();
+
+    /**
+     * Setter: set the "State" attribute of the "SimpleStandard" standard
+     * MBean.
+     *
+     * @param <VAR>s</VAR> the new value of the "State" attribute.
+     */
+    public void setState(String s);
+
+    /**
+     * Getter: get the "NbChanges" attribute of the "SimpleStandard" standard
+     * MBean.
+     *
+     * @return the current value of the "NbChanges" attribute.
+     */
+    public int getNbChanges();
+
+    /**
+     * Operation: reset to their initial values the "State" and "NbChanges"
+     * attributes of the "SimpleStandard" standard MBean.
+     */
+    public void reset();
 }

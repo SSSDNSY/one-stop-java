@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package features.jmx.Lookup.jini;
+package features.jmx.lookup.jini;
 
 import net.jini.admin.Administrable;
 import net.jini.core.discovery.LookupLocator;

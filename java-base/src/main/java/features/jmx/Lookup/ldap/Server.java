@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package features.jmx.Lookup.ldap;
+package features.jmx.lookup.ldap;
 
 import javax.management.JMException;
 import javax.management.MBeanServer;

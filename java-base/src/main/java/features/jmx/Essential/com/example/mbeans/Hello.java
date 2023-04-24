@@ -33,7 +33,7 @@
    This class must implement all the Java methods declared in the
    HelloMBean interface, with the appropriate behavior for each one.  */
 
-package features.jmx.Essential.com.example.mbeans;
+package features.jmx.essential.com.example.mbeans;
 
 public class Hello implements HelloMBean {
     private static final int DEFAULT_CACHE_SIZE = 200;

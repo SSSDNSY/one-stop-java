@@ -35,7 +35,7 @@
  * QueueSamplerMXBean interface, with the appropriate behavior for each one.
  */
 
-package features.jmx.MXBean.com.example.mxbeans;
+package features.jmx.mxbean.com.example.mxbeans;
 
 import java.util.Date;
 import java.util.Queue;

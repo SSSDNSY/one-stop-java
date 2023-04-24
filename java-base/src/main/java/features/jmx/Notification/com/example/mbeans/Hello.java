@@ -33,7 +33,7 @@
    This class must implement all the Java methods declared in the
    HelloMBean interface, with the appropriate behavior for each one.  */
 
-package features.jmx.Notification.com.example.mbeans;
+package features.jmx.notification.com.example.mbeans;
 
 import javax.management.AttributeChangeNotification;
 import javax.management.MBeanNotificationInfo;

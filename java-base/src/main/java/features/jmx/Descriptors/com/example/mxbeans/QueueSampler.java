@@ -9,7 +9,7 @@
  * QueueSamplerMXBean interface, with the appropriate behavior for each one.
  */
 
-package features.jmx.Descriptors.com.example.mxbeans;
+package features.jmx.descriptors.com.example.mxbeans;
 
 import java.util.Date;
 import java.util.Queue;

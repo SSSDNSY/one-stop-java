@@ -9,7 +9,7 @@
  * there is a read-only attribute "QueueSample" and an operation "clearQueue".
  */
 
-package features.jmx.Descriptors.com.example.mxbeans;
+package features.jmx.descriptors.com.example.mxbeans;
 
 @Author("Mr Bean")
 @Version("1.0")

@@ -1,4 +1,4 @@
-package features.jmx.Security.fine_grained.server;/*
+package features.jmx.security.fine_grained.server;/*
  * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without

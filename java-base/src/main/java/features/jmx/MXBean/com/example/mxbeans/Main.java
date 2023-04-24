@@ -34,7 +34,7 @@
  * MXBean, register it, then wait forever (or until the program is interrupted).
  */
 
-package features.jmx.MXBean.com.example.mxbeans;
+package features.jmx.mxbean.com.example.mxbeans;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;

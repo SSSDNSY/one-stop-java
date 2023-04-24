@@ -1,4 +1,4 @@
-package features.jmx.Basic;
+package features.jmx.basic;
 /*
  * Copyright (c) 2004, Oracle and/or its affiliates. All rights reserved.
  *
