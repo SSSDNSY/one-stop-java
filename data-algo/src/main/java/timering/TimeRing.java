@@ -8,6 +8,7 @@
 
 package timering;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -29,7 +30,7 @@ public class TimeRing {
                     try {
                         long curMills = System.currentTimeMillis();
                         Long time = 1000 - curMills % 1000;
-                        System.out.println("currentTimeMillis=" + curMills + "  1000 - currentTimeMillis % 1000 =" + time);
+                        System.out.println("currentTimeMillis=" + curMills+"time="+ LocalDateTime.now() + "  1000 - currentTimeMillis % 1000 =" + time);
                         TimeUnit.MILLISECONDS.sleep(time);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
