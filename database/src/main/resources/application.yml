@@ -1,17 +1,31 @@
 server:
   port: 8080
 
-
 spring:
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-    virtual-host: /
-    # 手动提交消息
-    listener:
-      simple:
-        acknowledge-mode: manual
-      direct:
-        acknowledge-mode: manual
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+    username: root
+    password: imi123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: database
+  excel:
+    datasource:
+      hikari:
+        pool-name: excel
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&&useCursorFetch=true&&rewriteBatchedStatements=true
+      username: root
+      password: imi123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    dialect: org.hibernate.dialect.MySQL55Dialect
+    database-platform: org.hibernate.dialect.MySQL55Dialect
+  main:
+    show-banner: false
+
+mybatis-plus:
+  global-config:
+    banner: false

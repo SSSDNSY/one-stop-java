@@ -1,8 +1,10 @@
 package sort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * @description:排序工具集 排序算法有很多，包括插入排序，冒泡排序，堆排序，归并排序，选择排序，计数排序，基数排序，桶排序，快速排序等。
@@ -174,8 +176,8 @@ public class SortUtils {
      *
      * @param a
      */
-    public static void sort(int[] a) {
-        sort(a, 0, a.length - 1, null, 0, 0);
+    public static void quickSort(int[] a) {
+        quickSort(a, 0, a.length - 1, null, 0, 0);
     }
 
     /**
@@ -193,7 +195,7 @@ public class SortUtils {
      * <p>
      * workLen：辅助数组中存储数据的长度。
      */
-    public static void sort(int[] a, int left, int right, int[] work, int workBase, int workLen) {
+    public static void quickSort(int[] a, int left, int right, int[] work, int workBase, int workLen) {
         int length = right - left;
 
         // 使用插入排序优化小规模数组
@@ -287,8 +289,8 @@ public class SortUtils {
             swap(a, right - 2, great - 1);
         }
 
-        sort(a, left, less - 2, work, workBase, workLen);
-        sort(a, great + 2, right, work, workBase, workLen);
+        quickSort(a, left, less - 2, work, workBase, workLen);
+        quickSort(a, great + 2, right, work, workBase, workLen);
 
         // 对等于主元的元素进行插入排序
         if (less < e1 && e5 < great) {
@@ -319,7 +321,7 @@ public class SortUtils {
         }
 
         // 对等于主元的元素进行排序
-        sort(a, less, great, work, workBase, workLen);
+        quickSort(a, less, great, work, workBase, workLen);
     }
 
 
@@ -466,10 +468,8 @@ public class SortUtils {
      * @createDate: 2019/6/5 17:50
      */
     public static void showArray(int[] arr) {
-        for (int i = 0; arr != null && i < arr.length && i < 100; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println("\n");
+        Arrays.stream(arr).boxed().collect(Collectors.toList()).forEach(i -> System.out.print(i+" "));
+        System.out.println();
     }
 
     /**
@@ -526,9 +526,9 @@ public class SortUtils {
         int[] arr = generateArray(20);
 //        int[] arr = genrateIncArray(100,1);
         long t0 = System.currentTimeMillis();
-        quickSort(arr, 0, arr.length - 1);
+        quickSort(arr);
+        showArray(arr);
         System.out.println("快速排序完成耗时" + (System.currentTimeMillis() - t0) + "ms");
-//        showArray(arr);
 //        bubbleSort(arr);
 //        insertSort(arr);
 //        selectSort(arr);
