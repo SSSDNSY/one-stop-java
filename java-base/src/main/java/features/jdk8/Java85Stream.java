@@ -1,10 +1,14 @@
 package features.jdk8;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author pengzh
@@ -98,6 +102,36 @@ public class Java85Stream {
         // 并行处理
         count = strings.parallelStream().filter(string -> string.isEmpty()).count();
         System.out.println("空字符串的数量为: " + count);
+
+        // 将多个Stream连接成一个Stream
+        List<Integer> result = Stream.of(Arrays.asList(1, 3), Arrays.asList(5, 6)).flatMap(a -> a.stream()).collect(Collectors.toList());
+
+        /**
+         * 窥视
+         */
+        peek();
+
+    }
+
+    /**
+     * 可以使用peek方法，peek方法可只包含一个空的方法体，只要能设置断点即可，但有些IDE不允许空，可以如下文示例，简单写一个打印逻辑。
+     * 注意，调试完后要删掉。
+     */
+    private static void peek() {
+        List<Person> lists = new ArrayList<Person>();
+        lists.add(new Person(1L, "p1"));
+        lists.add(new Person(2L, "p2"));
+        lists.add(new Person(3L, "p3"));
+        lists.add(new Person(4L, "p4"));
+        System.out.println(lists);
+
+        List<Person> list2 = lists.stream()
+                .filter(f -> f.getName().startsWith("p"))
+                .peek(t -> {
+                    System.out.println(t.getName());
+                })
+                .collect(Collectors.toList());
+        System.out.println(list2);
     }
 
     private static int getCountEmptyStringUsingJava7(List<String> strings) {
@@ -205,6 +239,15 @@ public class Java85Stream {
 
     private static void useFilter() {
         List list = new ArrayList();
+
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private static class Person {
+        private Long   id;
+        private String name;
 
     }
 }
