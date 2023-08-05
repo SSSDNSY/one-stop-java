@@ -1,0 +1,48 @@
+import drools.Account;
+import drools.Customer;
+import drools.AccountingPeriod;
+import drools.PrivateAccount;
+import drools.CashFlow;
+import drools.util.OutputDisplay;
+
+//declare any global variables here
+
+
+global OutputDisplay showResult;
+
+rule "Your First Rule"
+
+	when
+		Account(  )
+	then
+		System.out.println("The bank account exists");
+
+end
+
+
+
+rule "Your First Rule revisited with Global"
+
+	when
+		Customer()
+	then
+		showResult.showText("A customer exists");
+
+end
+
+rule "Your First Rule revisited AccountingPeriod"
+
+	when
+		CashFlow(  )
+	then
+		showResult.showText("The CashFlow exists, inserting an accounting Period");
+		AccountingPeriod newPeriod = new AccountingPeriod();
+		insert (newPeriod);
+end
+
+rule "Rule on AccountingPeriod that are inserting"
+	when
+		AccountingPeriod ()
+	then
+		showResult.showText("Accounting period exists");
+end

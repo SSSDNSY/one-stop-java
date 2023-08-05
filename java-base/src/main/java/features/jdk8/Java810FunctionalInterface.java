@@ -1,9 +1,8 @@
 package features.jdk8;
 
-import com.google.common.collect.Lists;
 import lombok.Data;
+import org.assertj.core.util.Lists;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
