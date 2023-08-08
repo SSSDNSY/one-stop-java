@@ -22,7 +22,7 @@ public class PrintInTurns {
 
     enum turn {th1, th2}
 
-      turn t = turn.th1;
+    turn t = turn.th1;
 
     static AtomicBoolean run = new AtomicBoolean(true);
 
@@ -61,7 +61,7 @@ public class PrintInTurns {
         System.out.println();
         t1.start();
         t2.start();
-        sleep(1801);
+        sleep(3000);
     }
 
     @Test
@@ -128,15 +128,17 @@ public class PrintInTurns {
 
     @Test
     public void waitNotify() {
+
+       Object lock = new Object();
         t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (PrintInTurns.class) {
+                synchronized (lock) {
                     for (char c : chars) {
-                        System.out.print(c);
                         try {
-                            PrintInTurns.class.notify();
-                            PrintInTurns.class.wait();
+                            System.out.print(c);
+                            lock.notifyAll();
+                            lock.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -148,12 +150,12 @@ public class PrintInTurns {
         t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (PrintInTurns.class) {
-                    for (int i : ints) {
-                        System.out.print(i);
+                for (int i : ints) {
+                    synchronized (lock) {
                         try {
-                            PrintInTurns.class.notify();
-                            PrintInTurns.class.wait();
+                            lock.notifyAll();
+                            lock.wait();
+                            System.out.print(i);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -166,6 +168,7 @@ public class PrintInTurns {
         System.out.println();
         t1.start();
         t2.start();
+        sleep(10000);
     }
 
     public static void sleep(long ms) {
