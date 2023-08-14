@@ -99,7 +99,7 @@ public class MyLinkedList {
         while (temp.next != null) {
             sb.append(temp.next.val);
             temp = temp.next;
-            sb.append(temp.next != null ? "->" : "");
+            sb.append(temp != null ? "->" : "");
         }
         return sb.toString();
     }
