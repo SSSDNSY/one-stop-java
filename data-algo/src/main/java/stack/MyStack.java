@@ -49,7 +49,6 @@ public class MyStack {
 
     /**
      * LinkedList可以当栈和队列使用
-     *
      */
     private static void userLinkedList() {
         LinkedList<Integer> stack = new LinkedList<>();
