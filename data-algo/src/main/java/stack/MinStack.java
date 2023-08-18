@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * @Auther: imi
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  */
 public class MinStack {
 
-    ArrayList  ms = new ArrayList();
+    ArrayList ms = new ArrayList();
     ArrayList d;
 
     /**
@@ -21,7 +22,7 @@ public class MinStack {
 
     public void push(int x) {
         d.add(x);
-        if (ms.isEmpty() || x <(Integer) ms.get(ms.size()-1))
+        if (ms.isEmpty() || x < (Integer) ms.get(ms.size() - 1))
             ms.add(x);
     }
 
@@ -30,9 +31,9 @@ public class MinStack {
     }
 
     public void pop() {
-        if (!isEmpty()){
-            if(ms.size()!=1 && ((Integer)ms.get(ms.size()-1) == (Integer) d.get(d.size()-1))){
-                ms.remove(ms.size()-1);
+        if (!isEmpty()) {
+            if (ms.size() != 1 && ((Integer) ms.get(ms.size() - 1) == (Integer) d.get(d.size() - 1))) {
+                ms.remove(ms.size() - 1);
             }
             d.remove(d.size() - 1);
         }
@@ -43,18 +44,51 @@ public class MinStack {
     }
 
     public int getMin() {
-        return (Integer) ms.get(ms.size()-1);
+        return (Integer) ms.get(ms.size() - 1);
     }
 
     public static void main(String[] args) {
         MinStack minStack = new MinStack();
-        minStack.push(0);
+        minStack.push(-2);
         minStack.push(1);
-        minStack.push(0);
+        minStack.push(-3);
         System.out.println(minStack.getMin());   //--> 返回 0.
         minStack.pop();
         System.out.println(minStack.top());      //--> 返回 0.
         minStack.getMin();   //--> 返回 -2.
         System.out.println(minStack.getMin());
+    }
+
+
+}
+
+/**
+ * 解法2
+ */
+class MinStack2 {
+    Stack<Integer> A, B;
+
+    public MinStack2() {
+        A = new Stack<>();
+        B = new Stack<>();
+    }
+
+    public void push(int x) {
+        A.add(x);
+        if (B.empty() || B.peek() >= x)
+            B.add(x);
+    }
+
+    public void pop() {
+        if (A.pop().equals(B.peek()))
+            B.pop();
+    }
+
+    public int top() {
+        return A.peek();
+    }
+
+    public int min() {
+        return B.peek();
     }
 }
