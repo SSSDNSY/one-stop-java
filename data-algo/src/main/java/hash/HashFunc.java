@@ -4,7 +4,7 @@ package hash;
  * @Description
  * @Since 2020-10-13
  */
-public class Hash {
+public class HashFunc {
     private static final int hash(int h) {
         h += h << 15 ^ -12931;
         h ^= h >>> 10;
