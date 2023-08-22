@@ -1,4 +1,4 @@
-package leetcode.dynamic.plan;
+package dp;
 
 /**
  * @author pengzh
