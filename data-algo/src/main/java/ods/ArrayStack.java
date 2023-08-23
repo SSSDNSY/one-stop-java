@@ -13,68 +13,69 @@ import java.util.Collection;
  * @author morin
  */
 public class ArrayStack<T> extends AbstractList<T> {
-	/**
-	 * keeps track of the class of objects we store
-	 */
-	Factory<T> f;
+    /**
+     * keeps track of the class of objects we store
+     */
+    Factory<T> f;
 
-	/**
-	 * The array used to store elements
-	 */
-	T[] a;
+    /**
+     * The array used to store elements
+     */
+    T[] a;
 
-	/**
-	 * The number of elements stored
-	 */
-	int n;
+    /**
+     * The number of elements stored
+     */
+    int n;
 
-	/**
-	 * Resize the internal array
-	 */
-	protected void resize() {
-		T[] b = f.newArray(Math.max(n*2,1));
-		for (int i = 0; i < n; i++) {
-			b[i] = a[i];
-		}
-		a = b;
-	}
+    /**
+     * Resize the internal array
+     */
+    protected void resize() {
+        T[] b = f.newArray(Math.max(n * 2, 1));
+        for (int i = 0; i < n; i++) {
+            b[i] = a[i];
+        }
+        a = b;
+    }
 
-	/**
-	 * Resize the internal array
-	 */
-	protected void resize(int nn) {
-		T[] b = f.newArray(nn);
-		for (int i = 0; i < n; i++) {
-			b[i] = a[i];
-		}
-		a = b;
-	}
+    /**
+     * Resize the internal array
+     */
+    protected void resize(int nn) {
+        T[] b = f.newArray(nn);
+        for (int i = 0; i < n; i++) {
+            b[i] = a[i];
+        }
+        a = b;
+    }
 
-	/**
-	 * Constructor
-	 * @param t0 the type of objects that are stored in this list
-	 */
-	public ArrayStack(Class<T> t) {
-		f = new Factory<T>(t);
-		a = f.newArray(1);
-		n = 0;
-	}
+    /**
+     * Constructor
+     *
+     * @param t0 the type of objects that are stored in this list
+     */
+    public ArrayStack(Class<T> t) {
+        f = new Factory<T>(t);
+        a = f.newArray(1);
+        n = 0;
+    }
 
-	public T get(int i) {
-		if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
-		return a[i];
-	}
+    public T get(int i) {
+        if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
+        return a[i];
+    }
 
-	public int size() {
-		return n;
-	}
+    public int size() {
+        return n;
+    }
 
     public T set(int i, T x) {
-		if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
-		T y = a[i];
-		a[i] = x;
-		return y;
-	}
+        if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
+        T y = a[i];
+        a[i] = x;
+        return y;
+    }
 
     public void add(int i, T x) {
         if (i < 0 || i > n) throw new IndexOutOfBoundsException();
@@ -95,18 +96,18 @@ public class ArrayStack<T> extends AbstractList<T> {
         return x;
     }
 
-	// The following methods are not strictly necessary. The parent
-	// class, AbstractList, has default implementations of them, but
-	// our implementations are more efficient - especially addAll
+    // The following methods are not strictly necessary. The parent
+    // class, AbstractList, has default implementations of them, but
+    // our implementations are more efficient - especially addAll
 
     /**
-	 * A small optimization for a frequently used method
-	 */
-	public boolean add(T x) {
-		if (n + 1 > a.length) resize();
-		a[n++] = x;
-		return true;
-	}
+     * A small optimization for a frequently used method
+     */
+    public boolean add(T x) {
+        if (n + 1 > a.length) resize();
+        a[n++] = x;
+        return true;
+    }
 
     /**
      * We override addAll because AbstractList implements it by
@@ -114,7 +115,7 @@ public class ArrayStack<T> extends AbstractList<T> {
      * O(size()*c.size()).  This happens, for example, when i = 0.
      * This version takes time O(size() + c.size()).
      */
-	public boolean addAll(int i, Collection<? extends T> c) {
+    public boolean addAll(int i, Collection<? extends T> c) {
         if (i < 0 || i > n) throw new IndexOutOfBoundsException();
         int k = c.size();
         if (n + k > a.length) resize(2 * (n + k));
@@ -124,15 +125,15 @@ public class ArrayStack<T> extends AbstractList<T> {
             a[i++] = x;
         n += k;
         return true;
-	}
+    }
 
-	/**
-	 * We override this method because AbstractList implements by
-	 * repeated calls to remove(size()), which takes O(size()) time.
-	 * This implementation runs in O(1) time.
-	 */
-	public void clear() {
-		n = 0;
-		resize();
-	}
+    /**
+     * We override this method because AbstractList implements by
+     * repeated calls to remove(size()), which takes O(size()) time.
+     * This implementation runs in O(1) time.
+     */
+    public void clear() {
+        n = 0;
+        resize();
+    }
 }

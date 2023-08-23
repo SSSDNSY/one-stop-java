@@ -48,21 +48,22 @@ public class MetropolisAlgorithm {
         menteCarlo(1000000000);
         menteCarlo(Integer.MAX_VALUE);
     }
-    public static  void menteCarlo(int n){
+
+    public static void menteCarlo(int n) {
         /**
          * X=[0,2]
          * Y=[0,2]
          */
         int Ps = 0, Po = 0;
         for (int i = 0; i < n; i++) {
-            double x = RandomUtils.nextDouble(0, 2);
-            double y = RandomUtils.nextDouble(0, 2);
+            double x  = RandomUtils.nextDouble(0, 2);
+            double y  = RandomUtils.nextDouble(0, 2);
             double Sx = (x - 1) * (x - 1) + (y - 1) * (y - 1);
             if (Sx <= 1) {
                 Po++;
             }
             Ps++;
         }
-        System.out.println("n="+n+",Pi= " + (4 * 1.0 * Po / Ps));
+        System.out.println("n=" + n + ",Pi= " + (4 * 1.0 * Po / Ps));
     }
 }

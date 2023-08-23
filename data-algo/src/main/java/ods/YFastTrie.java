@@ -26,6 +26,13 @@ public class YFastTrie<T> implements SSet<T> {
  * @return Override this to throw an exception, since the value of n is not
  * maintained on these treaps
  * @param args
+ * <p>
+ * Absorb the elements of treap t, which should all be smaller than
+ * all the elements in this
+ * @param t
+ * @return Override this to throw an exception, since the value of n is not
+ * maintained on these treaps
+ * @param args
  *//*
 
 		public STreap<T> split(T x) {
@@ -51,11 +58,11 @@ public class YFastTrie<T> implements SSet<T> {
 		}
 		*/
 /**
-		 * Absorb the elements of treap t, which should all be smaller than
-		 * all the elements in this
-		 * @param t
-		 * @return
-		 *//*
+ * Absorb the elements of treap t, which should all be smaller than
+ * all the elements in this
+ * @param t
+ * @return
+ *//*
 
 		public void absorb(STreap<T> t) {
 			YFastTrie.Node<T> s = newNode();
@@ -70,9 +77,9 @@ public class YFastTrie<T> implements SSet<T> {
 		}
 		*/
 /**
-		 * Override this to throw an exception, since the value of n is not
-		 * maintained on these treaps
-		 *//*
+ * Override this to throw an exception, since the value of n is not
+ * maintained on these treaps
+ *//*
 
 		public int size() {
 			throw new UnsupportedOperationException();

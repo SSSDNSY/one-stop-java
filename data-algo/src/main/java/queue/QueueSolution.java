@@ -23,14 +23,14 @@ public class QueueSolution {
         if ("0000".equals(target)) {
             return 0;
         }
-        int step = 0;
-        List<String> deadList = Arrays.asList(deadends);
-        Queue<String> queue = new LinkedList();
-        Set<String> used = new HashSet();
+        int           step     = 0;
+        List<String>  deadList = Arrays.asList(deadends);
+        Queue<String> queue    = new LinkedList();
+        Set<String>   used     = new HashSet();
 
         queue.offer("0000");
         used.add("0000");
-        //BFS算法开始
+        // BFS算法开始
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
@@ -53,14 +53,14 @@ public class QueueSolution {
     }
 
 
-    static String[] neighbor(String cur) {//一个4位0-9的密码锁 只转动一次共8种可能
+    static String[] neighbor(String cur) {// 一个4位0-9的密码锁 只转动一次共8种可能
         String[] s = new String[8];
-        //cur= "abcd"
+        // cur= "abcd"
         int curInt = Integer.parseInt(cur);
-        int a = curInt / 1000;
-        int b = curInt / 100 - a * 10;
-        int c = curInt / 10 - a * 100 - b * 10;
-        int d = curInt % 10;
+        int a      = curInt / 1000;
+        int b      = curInt / 100 - a * 10;
+        int c      = curInt / 10 - a * 100 - b * 10;
+        int d      = curInt % 10;
         s[0] = "" + (a + 1) % 10 + b + c + d;
         s[1] = "" + (a + 9) % 10 + b + c + d;
         s[2] = "" + a + (b + 1) % 10 + c + d;
@@ -79,9 +79,9 @@ public class QueueSolution {
      * @createDate: 2019/6/4 14:53
      */
     public static int numSquares(int n) {
-        int num = 0;
-        Queue<Integer> queue = new LinkedList<Integer>();
-        Set<Integer> visited = new HashSet<Integer>();
+        int            num     = 0;
+        Queue<Integer> queue   = new LinkedList<Integer>();
+        Set<Integer>   visited = new HashSet<Integer>();
         queue.offer(n);
         while (!queue.isEmpty()) {
             for (int i = 0; i < queue.size(); i++) {
@@ -158,7 +158,6 @@ public class QueueSolution {
     }
 
 
-
     public static void main(String[] args) {
 
 //        String[] deadends = new String[]{"8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"};
@@ -184,34 +183,43 @@ public class QueueSolution {
 //        System.out.println(qs.pull());
 
 
-
-
     }
 }
 
 class MyStack {
-    LinkedList<Integer> q =null;
-    /** Initialize your data structure here. */
+    LinkedList<Integer> q = null;
+
+    /**
+     * Initialize your data structure here.
+     */
     public MyStack() {
-        q= new LinkedList<>();
+        q = new LinkedList<>();
     }
 
-    /** Push element x onto stack. */
+    /**
+     * Push element x onto stack.
+     */
     public void push(int x) {
         q.addLast(x);
     }
 
-    /** Removes the element on top of the stack and returns that element. */
+    /**
+     * Removes the element on top of the stack and returns that element.
+     */
     public int pop() {
-        return  q.removeFirst();
+        return q.removeFirst();
     }
 
-    /** Get the top element. */
+    /**
+     * Get the top element.
+     */
     public int top() {
-        return  q.getFirst();
+        return q.getFirst();
     }
 
-    /** Returns whether the stack is empty. */
+    /**
+     * Returns whether the stack is empty.
+     */
     public boolean empty() {
         return q.isEmpty();
     }
@@ -228,21 +236,21 @@ class Qstack {
     private Queue<Object> q2 = new LinkedList();
 
     public boolean push(Object item) {
-        if(!q1.isEmpty()){
+        if (!q1.isEmpty()) {
             return q1.offer(item);
-        }else {
-            return  q2.offer(item);
+        } else {
+            return q2.offer(item);
         }
     }
 
     public Object pull() {
-        if(!q2.isEmpty()){
-            for(int i= q2.size();i>1;i--){
+        if (!q2.isEmpty()) {
+            for (int i = q2.size(); i > 1; i--) {
                 q1.offer(q2.poll());
             }
             return q2.poll();
-        }else {
-            for(int i= q1.size();i>1;i--){
+        } else {
+            for (int i = q1.size(); i > 1; i--) {
                 q2.offer(q1.poll());
             }
             return q1.poll();
@@ -253,6 +261,7 @@ class Qstack {
     public void peek(Object item) {
 
     }
+
     public void removeAll(Object item) {
         q1.clear();
         q2.clear();

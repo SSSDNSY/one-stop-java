@@ -3,15 +3,16 @@ package ods;
 import java.util.Random;
 
 public class SkiplistRope {
-	class Node {
-		SString s;
-		Node[] next;
-		int[] length;
-		public Node(SString s, int h) {
-			this.s = s;
-			next = (Node[])new Node[h+1];
-			length = new int[h+1];
-		}
+    class Node {
+        SString s;
+        Node[]  next;
+        int[]   length;
+
+        public Node(SString s, int h) {
+            this.s = s;
+            next = (Node[]) new Node[h + 1];
+            length = new int[h + 1];
+        }
     }
 
     /**
@@ -38,13 +39,13 @@ public class SkiplistRope {
         n = 0;
         sentinel = new Node(null, 33);
         height = 0;
-		r = new Random(0);
-	}
+        r = new Random(0);
+    }
 
-	public char charAt(int i) {
+    public char charAt(int i) {
         Node u = sentinel;
-        int r = height - 1;
-        int j = -1;   // the index of the first character of u's string
+        int  r = height - 1;
+        int  j = -1;   // the index of the first character of u's string
         while (r >= 0) {
             while (u.next[r] != null && j + u.length[r] < i) {
                 j += u.length[r];
@@ -52,6 +53,6 @@ public class SkiplistRope {
             }
             r--;
         }
-        return u.s.charAt(i-j);
-	}
+        return u.s.charAt(i - j);
+    }
 }

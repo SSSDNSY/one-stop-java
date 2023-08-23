@@ -6,14 +6,15 @@ package tree.base;
  * @desc abstract class for self balancing binary search trees
  * @since 2021-02-14
  */
-public abstract class AbstractSelfBalancingBinarySearchTree extends AbstractBinarySearchTree{
+public abstract class AbstractSelfBalancingBinarySearchTree extends AbstractBinarySearchTree {
 
     /**
      * rotate to left
+     *
      * @param node
      * @return node that is in place of provided node after rotation
      */
-    public Node rotateLeft(Node node){
+    public Node rotateLeft(Node node) {
         Node temp = node.right;
         temp.parent = node.parent;
 
@@ -47,13 +48,13 @@ public abstract class AbstractSelfBalancingBinarySearchTree extends AbstractBina
         temp.right = node;
         node.parent = temp;
 
-        if(temp.parent != null){
-            if(node == temp.parent.left){
+        if (temp.parent != null) {
+            if (node == temp.parent.left) {
                 temp.parent.left = temp;
-            }else {
+            } else {
                 temp.parent.right = temp;
             }
-        }else {
+        } else {
             root = temp;
         }
         return temp;

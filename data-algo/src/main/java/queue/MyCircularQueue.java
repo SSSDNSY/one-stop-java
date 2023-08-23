@@ -9,68 +9,83 @@ package queue;
 public class MyCircularQueue {
 
     int len;
-    int h;//头 head
-    int t;//尾 tail
+    int h;// 头 head
+    int t;// 尾 tail
     int d[];
-    /** Initialize your data structure here. Set the size of the algorithm.queue to be k. */
+
+    /**
+     * Initialize your data structure here. Set the size of the algorithm.queue to be k.
+     */
     public MyCircularQueue(int k) {
         d = new int[k];
-        t = h =-1;
+        t = h = -1;
         len = k;
     }
 
-    /** Insert an element into the circular algorithm.queue. Return true if the operation is successful. */
+    /**
+     * Insert an element into the circular algorithm.queue. Return true if the operation is successful.
+     */
     public boolean enQueue(int value) {
-        if(isFull()) {
+        if (isFull()) {
             return false;
         }
-        if(isEmpty()){
-            h=0;
+        if (isEmpty()) {
+            h = 0;
         }
-        t = (t+1)%len;
+        t = (t + 1) % len;
         d[t] = value;
         return true;
     }
 
-    /** Delete an element from the circular algorithm.queue. Return true if the operation is successful. */
+    /**
+     * Delete an element from the circular algorithm.queue. Return true if the operation is successful.
+     */
     public boolean deQueue() {
-        if(isEmpty()){
+        if (isEmpty()) {
             return false;
         }
-        if(t==h) {
-            h=t=-1;
+        if (t == h) {
+            h = t = -1;
             return true;
         }
-            h = (h+1)%len ;
-            return true;
+        h = (h + 1) % len;
+        return true;
     }
 
-    /** Get the front item from the algorithm.queue. */
+    /**
+     * Get the front item from the algorithm.queue.
+     */
     public int Front() {
-        if(isEmpty()) {
-            return  -1;
-        }else {
+        if (isEmpty()) {
+            return -1;
+        } else {
             return d[h];
         }
     }
 
-    /** Get the last item from the algorithm.queue. */
+    /**
+     * Get the last item from the algorithm.queue.
+     */
     public int Rear() {
-        if(isEmpty()) {
-            return  -1;
-        }else {
+        if (isEmpty()) {
+            return -1;
+        } else {
             return d[t];
         }
     }
 
-    /** Checks whether the circular algorithm.queue is empty or not. */
+    /**
+     * Checks whether the circular algorithm.queue is empty or not.
+     */
     public boolean isEmpty() {
-        return  t==h;
+        return t == h;
     }
 
-    /** Checks whether the circular algorithm.queue is full or not. */
+    /**
+     * Checks whether the circular algorithm.queue is full or not.
+     */
     public boolean isFull() {
-        return (t+1)%len == h;
+        return (t + 1) % len == h;
     }
 
     public static void main(String[] args) {

@@ -11,16 +11,16 @@ import java.util.Queue;
  */
 public class BinarySearchTree<T> implements BinaryTreeInfo {
 
-    private int size;
-    private int height;
-    private Node<T> root;
-    private Comparator comparator;
-    private static final int MAX_VAL = 20;
-    private static final boolean USER_ARRAY = true;
-    private static final int[] ARRAY = {6, 2, 8, 1, 0, 9, 10, 3, 4, 5, 7};
+    private              int        size;
+    private              int        height;
+    private              Node<T>    root;
+    private              Comparator comparator;
+    private static final int        MAX_VAL    = 20;
+    private static final boolean    USER_ARRAY = true;
+    private static final int[]      ARRAY      = {6, 2, 8, 1, 0, 9, 10, 3, 4, 5, 7};
 
     static final class Node<T> {
-        T element;
+        T       element;
         Node<T> left;
         Node<T> right;
         Node<T> parent;
@@ -44,7 +44,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         }
 
         BinaryTrees.println(bst);
-        levelOrder(bst.root); //层析遍历
+        levelOrder(bst.root); // 层析遍历
 //        System.out.println(bst); //树状打印2
 //        bst.update(3, 33);//更新
 //        bst.remove(8);
@@ -85,10 +85,10 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
             return;
         }
         Node<T> parentNode = root;
-        Node<T> curNode = root;
-        int cmp = 0;
+        Node<T> curNode    = root;
+        int     cmp        = 0;
 
-        //1 find  position to insert
+        // 1 find  position to insert
         while (curNode != null) {
             cmp = compareTo(element, curNode.element);
             parentNode = curNode;
@@ -96,11 +96,11 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
                 curNode = curNode.right;
             } else if (cmp < 0) {
                 curNode = curNode.left;
-            }else {
+            } else {
                 return;
             }
         }
-        //2 find  left or right to insert
+        // 2 find  left or right to insert
         Node<T> newNode = new Node<>(element, parentNode);
         if (cmp < 0) {
             parentNode.left = newNode;
@@ -142,7 +142,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
 
     public void remove(T node) {
         Node<T> target = root;
-        int cmp = 0;
+        int     cmp    = 0;
         while (target != null) {
             cmp = compareTo(target.element, node);
             if (cmp > 0) {
@@ -214,7 +214,7 @@ public class BinarySearchTree<T> implements BinaryTreeInfo {
         System.out.println("\nLevel Order Begin :");
         Queue<Node> queue = new LinkedList();
         queue.offer(node);
-        int size = 1;
+        int size      = 1;
         int heightInt = 0;
         while (!queue.isEmpty()) {
             Node e = queue.poll();

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class MyArray {
 
-    //find middle index
+    // find middle index
     public static int pivotIndex(int[] nums) {
         int lsum = 0, rsum = 0, sum = 0;
         for (int i : nums) {
@@ -28,11 +28,11 @@ public class MyArray {
         return -1;
     }
 
-    //find twice number
+    // find twice number
     public static int dominantIndex(int nums[]) {
         if (nums.length == 1) return 0;
-        int max = -1, index = -1, sum = 0;
-        boolean f = true;
+        int     max = -1, index = -1, sum = 0;
+        boolean f   = true;
         for (int j = 0; j < nums.length; j++) {
             if (max < nums[j]) {
                 max = nums[j];
@@ -49,9 +49,9 @@ public class MyArray {
         return f ? index : -1;
     }
 
-    //plus one
+    // plus one
     public static int[] plusOne(int digits[]) {
-        int len = digits.length;
+        int    len    = digits.length;
         String numStr = "";
         for (int i = 0; i < len; i++) {
             numStr += digits[i] + "";
@@ -65,7 +65,7 @@ public class MyArray {
         return arr;
     }
 
-    //find Diagonal Order
+    // find Diagonal Order
 // if (matrix.empty() || matrix[0].empty()) return {};
 //    int m = matrix.size(), n = matrix[0].size(), r = 0, c = 0;
 //    vector<int> res(m * n);
@@ -87,7 +87,7 @@ public class MyArray {
         if (col == 0) return new int[0];
         int row = matrix[0].length;
         if (row == 0) return new int[0];
-        int r = 0, c = 0;
+        int   r   = 0, c = 0;
         int[] arr = new int[col * row];
         for (int i = 0; i < col * row; ++i) {
             arr[i] = matrix[r][c];
@@ -116,7 +116,7 @@ public class MyArray {
 
     public static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> list = new ArrayList<Integer>();
-        int col = matrix.length;
+        int           col  = matrix.length;
         if (col == 0) return list;
         int row = matrix[0].length;
         if (row == 0) return list;
@@ -138,7 +138,7 @@ public class MyArray {
 
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> lists = new ArrayList<List<Integer>>();
-        List<Integer> list = null;
+        List<Integer>       list  = null;
         if (numRows > 0) {
             for (int i = 0; i < numRows; i++) {
                 list = new ArrayList();
@@ -177,10 +177,10 @@ public class MyArray {
         return min;
     }
 
-    //两数之和 II - 输入有序数组
+    // 两数之和 II - 输入有序数组
     public static int[] twoSum(int[] numbers, int target) {
         int[] a = new int[2];
-        int l = 0, r = numbers.length - 1;
+        int   l = 0, r = numbers.length - 1;
         while (l < r) {
             if (numbers[l] + numbers[r] == target) {
                 a[0] = l + 1;
@@ -195,9 +195,9 @@ public class MyArray {
         return a;
     }
 
-    //移除数组元素
+    // 移除数组元素
     public static int removeElement(int[] nums, int val) {
-        int j = 0;
+        int j   = 0;
         int len = 0;
         for (int ii = 0; ii < nums.length; ii++) {
             if (nums[ii] != val) {
@@ -209,7 +209,7 @@ public class MyArray {
         return len;
     }
 
-    //最大连续1的个数
+    // 最大连续1的个数
     public int findMaxConsecutiveOnes(int[] nums) {
         int j = 0, max = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -225,7 +225,7 @@ public class MyArray {
         return max;
     }
 
-    //给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组。
+    // 给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组。
     // 如果不存在符合条件的连续子数组，返回 0。
     public static int minSubArrayLen(int s, int[] nums) {
         int min = nums.length, i = 0, j = 0, sum = 0;
@@ -239,7 +239,7 @@ public class MyArray {
         return min == nums.length ? 0 : min;
     }
 
-    //右移数组
+    // 右移数组
     public static void rotate(int[] nums, int k) {
         int[] _nums = new int[nums.length];
         System.arraycopy(nums, 0, _nums, 0, nums.length);
@@ -250,7 +250,7 @@ public class MyArray {
         return;
     }
 
-    //返回杨辉三角第k行 k<=33
+    // 返回杨辉三角第k行 k<=33
     public static List<Integer> getRow(int rowIndex) {
         List<Integer> list = new ArrayList<>();
 

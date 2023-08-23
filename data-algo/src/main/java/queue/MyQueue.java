@@ -3,27 +3,35 @@ package queue;
 import java.util.*;
 
 /**
-* @Description:
- * 队列应支持两种操作：入队和出队。入队会向队列追加一个新元素，而出队会删除第一个元素。 所以我们需要一个索引来指出起点
-* @Author:         pengzh
-* @CreateDate:     2019/5/30 19:31
-*/
+ * @Description: 队列应支持两种操作：入队和出队。入队会向队列追加一个新元素，而出队会删除第一个元素。 所以我们需要一个索引来指出起点
+ * @Author: pengzh
+ * @CreateDate: 2019/5/30 19:31
+ */
 public class MyQueue<T> implements Queue {
-//    new Queue
+    //    new Queue
     // store elements
     private List<Integer> data;
     // a pointer to indicate the start position
-    private int p_start;
+    private int           p_start;
+
     public MyQueue() {
         data = new ArrayList<Integer>();
         p_start = 0;
     }
-    /** Insert an element into the algorithm.queue. Return true if the operation is successful. */
+
+    /**
+     * Insert an element into the algorithm.queue. Return true if the operation is successful.
+     */
     public boolean enQueue(int x) {
         data.add(x);
         return true;
-    };
-    /** Delete an element from the algorithm.queue. Return true if the operation is successful. */
+    }
+
+    ;
+
+    /**
+     * Delete an element from the algorithm.queue. Return true if the operation is successful.
+     */
     public boolean deQueue() {
         if (isEmpty() == true) {
             return false;
@@ -31,7 +39,10 @@ public class MyQueue<T> implements Queue {
         p_start++;
         return true;
     }
-    /** Get the front item from the algorithm.queue. */
+
+    /**
+     * Get the front item from the algorithm.queue.
+     */
     public int Front() {
         return data.get(p_start);
     }
@@ -41,7 +52,9 @@ public class MyQueue<T> implements Queue {
         return 0;
     }
 
-    /** Checks whether the algorithm.queue is empty or not. */
+    /**
+     * Checks whether the algorithm.queue is empty or not.
+     */
     public boolean isEmpty() {
         return p_start >= data.size();
     }

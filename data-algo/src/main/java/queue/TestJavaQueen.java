@@ -12,11 +12,11 @@ public class TestJavaQueen {
     public static void main(String[] args) {
         Queue<String> q = new LinkedList<String>();
 
-        q.offer("a");//offer == enqueen
+        q.offer("a");// offer == enqueen
         q.offer("b");
         q.offer("c");
         q.size();
-        q.poll();//dequeen
+        q.poll();// dequeen
         q.element();
         q.offer("a");
         q.peek();

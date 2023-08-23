@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 /**
  * Implement square roots without relying on Math.sqrt(x)
- * @author morin
  *
+ * @author morin
  */
 public class FastSqrt {
-	protected static final int[] sqrtab;
-	protected static final int[] logtab;
-	protected static final int halfint = 1 << 16;
+    protected static final int[] sqrtab;
+    protected static final int[] logtab;
+    protected static final int   halfint = 1 << 16;
 
-	static {
+    static {
         sqrtab = new int[halfint];
         logtab = new int[halfint];
         for (int d = 0; d < 16; d++)
@@ -45,36 +45,37 @@ public class FastSqrt {
      * @param x
      * @return the floor of the base-2 logarithm of x
      */
-	public static final int log(int x) {
-		if (x >= halfint)
-			return 16 + logtab[x>>>16];
-		return logtab[x];
-	}
+    public static final int log(int x) {
+        if (x >= halfint)
+            return 16 + logtab[x >>> 16];
+        return logtab[x];
+    }
 
-	protected static final int r = 29;
+    protected static final int r = 29;
 
-	/**
-	 * Compute the floor of the square root of x
-	 * @param x
-	 * @return the floor of the square root of x
-	 */
-	public static final int sqrt(int x) {
-		int rp = log(x);
-		int upgrade = ((r-rp)/2) * 2;
-		int xp = x << upgrade;  // xp has r or r-1 bits
-		int s = sqrtab[xp>>(r/2)] >> (upgrade/2);
-		while ((s+1)*(s+1) <= x) s++;  // executes at most twice
-		return s;
-	}
+    /**
+     * Compute the floor of the square root of x
+     *
+     * @param x
+     * @return the floor of the square root of x
+     */
+    public static final int sqrt(int x) {
+        int rp      = log(x);
+        int upgrade = ((r - rp) / 2) * 2;
+        int xp      = x << upgrade;  // xp has r or r-1 bits
+        int s       = sqrtab[xp >> (r / 2)] >> (upgrade / 2);
+        while ((s + 1) * (s + 1) <= x) s++;  // executes at most twice
+        return s;
+    }
 
-	public static final int sqrt(int x, int r) {
-		int s = sqrtab[x>>r/2];
-		while ((s+1)*(s+1) <= x) s++; // executes at most twice
-		return s;
-	}
+    public static final int sqrt(int x, int r) {
+        int s = sqrtab[x >> r / 2];
+        while ((s + 1) * (s + 1) <= x) s++; // executes at most twice
+        return s;
+    }
 
-	public static void main(String[] args) {
-		int n = 1 << 30;
+    public static void main(String[] args) {
+        int n = 1 << 30;
 //		System.out.print("Testing correctness of " + n + " inputs...");
 //		for (int t = 1; t < n; t++) {
 //			if (t % 10000000 == 0) System.out.print(".");
@@ -93,28 +94,28 @@ public class FastSqrt {
 //		System.out.println("passed!");
 
 
-		n = 1 << 27;
-		long start, stop;
-		double elapsed;
+        n = 1 << 27;
+        long   start, stop;
+        double elapsed;
 
 
-		System.out.print("Performing " + n + " Math.sqrts...");
-		start = System.nanoTime();
-		for (int i = 0; i < n; i++) {
-			Math.sqrt(i);
-		}
-		stop = System.nanoTime();
-		elapsed = (stop-start)*1e-9;
-		System.out.println("done (" + elapsed + "s)");
+        System.out.print("Performing " + n + " Math.sqrts...");
+        start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            Math.sqrt(i);
+        }
+        stop = System.nanoTime();
+        elapsed = (stop - start) * 1e-9;
+        System.out.println("done (" + elapsed + "s)");
 
-		System.out.print("Performing " + n + " FastSqrt.sqrts roots...");
-		start = System.nanoTime();
-		for (int i = 0; i < n; i++) {
-			FastSqrt.sqrt(i);
-		}
-		stop = System.nanoTime();
-		elapsed = (stop-start)*1e-9;
-		System.out.println("done (" + elapsed + "s)");
+        System.out.print("Performing " + n + " FastSqrt.sqrts roots...");
+        start = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            FastSqrt.sqrt(i);
+        }
+        stop = System.nanoTime();
+        elapsed = (stop - start) * 1e-9;
+        System.out.println("done (" + elapsed + "s)");
 
-	}
+    }
 }

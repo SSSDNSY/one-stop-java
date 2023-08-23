@@ -11,11 +11,11 @@ import java.util.List;
  * @author morin
  */
 public class DualRootishArrayDeque<T> extends DualArrayDeque<T> {
-	public DualRootishArrayDeque(Class<T> t) {
-		super(t);
-	}
+    public DualRootishArrayDeque(Class<T> t) {
+        super(t);
+    }
 
     protected List<T> newStack() {
-		return new RootishArrayStack<T>(f.type());
-	}
+        return new RootishArrayStack<T>(f.type());
+    }
 }

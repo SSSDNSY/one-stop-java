@@ -468,7 +468,7 @@ public class SortUtils {
      * @createDate: 2019/6/5 17:50
      */
     public static void showArray(int[] arr) {
-        Arrays.stream(arr).boxed().collect(Collectors.toList()).forEach(i -> System.out.print(i+" "));
+        Arrays.stream(arr).boxed().collect(Collectors.toList()).forEach(i -> System.out.print(i + " "));
         System.out.println();
     }
 

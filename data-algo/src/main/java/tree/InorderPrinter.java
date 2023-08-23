@@ -7,23 +7,23 @@ package tree;
  */
 
 /**
- ┌──800
- ┌──760
- │   └──600
- ┌──540
- │   └──476
- │       └──445
- ┌──410
- │   └──394
- 381
- │     ┌──190
- │     │   └──146
- │  ┌──40
- │  │  └──35
- └──12
- └──9
- * @author MJ Lee
+ * ┌──800
+ * ┌──760
+ * │   └──600
+ * ┌──540
+ * │   └──476
+ * │       └──445
+ * ┌──410
+ * │   └──394
+ * 381
+ * │     ┌──190
+ * │     │   └──146
+ * │  ┌──40
+ * │  │  └──35
+ * └──12
+ * └──9
  *
+ * @author MJ Lee
  */
 public class InorderPrinter extends Printer {
     private static String rightAppend;
@@ -54,8 +54,8 @@ public class InorderPrinter extends Printer {
     /**
      * 生成node节点的字符串
      *
-     * @param nodePrefix             node那一行的前缀字符串
-     * @param leftPrefix             node整棵左子树的前缀字符串
+     * @param nodePrefix  node那一行的前缀字符串
+     * @param leftPrefix  node整棵左子树的前缀字符串
      * @param rightPrefix node整棵右子树的前缀字符串
      * @return
      */
@@ -64,8 +64,8 @@ public class InorderPrinter extends Printer {
             String nodePrefix,
             String leftPrefix,
             String rightPrefix) {
-        Object left = tree.left(node);
-        Object right = tree.right(node);
+        Object left   = tree.left(node);
+        Object right  = tree.right(node);
         String string = tree.string(node).toString();
 
         int length = string.length();

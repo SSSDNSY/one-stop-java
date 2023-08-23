@@ -42,9 +42,9 @@ public class LeetCodeTest {
      * @createDate: 2019/6/4 17:46
      */
     public int evalRPN(String[] tokens) {
-        Stack st = new Stack();
+        Stack   st   = new Stack();
         boolean flag = true;
-        int val = 0;
+        int     val  = 0;
         for (int i = 0; i < tokens.length; i++) {
             if ("+".equals(tokens[i])) {
                 int a = Integer.valueOf(st.pop().toString());
@@ -76,13 +76,13 @@ public class LeetCodeTest {
      */
     public static int[] dailyTemperatures(int[] T) {
         int[] ds = new int[T.length];
-        Arrays.fill(ds,0);
+        Arrays.fill(ds, 0);
         Stack<Integer> stack = new Stack<Integer>();
-        for(int i =0;i<T.length;i++) {
-            while(!stack.isEmpty()&&T[stack.peek()]<T[i]){
+        for (int i = 0; i < T.length; i++) {
+            while (!stack.isEmpty() && T[stack.peek()] < T[i]) {
                 int t = stack.peek();
                 stack.pop();
-                ds[t] = i-t;
+                ds[t] = i - t;
             }
             stack.push(i);
         }
@@ -111,28 +111,39 @@ public class LeetCodeTest {
 
 class MyQueue {
     Stack<Integer> s1 = new Stack<>();
-    /** Initialize your data structure here. */
+
+    /**
+     * Initialize your data structure here.
+     */
     public MyQueue() {
         s1 = new Stack<>();
     }
 
-    /** Push element x to the back of queue. */
+    /**
+     * Push element x to the back of queue.
+     */
     public void push(int x) {
         s1.push(x);
     }
 
-    /** Removes the element from in front of queue and returns that element. */
+    /**
+     * Removes the element from in front of queue and returns that element.
+     */
     public int pop() {
 
-          return s1.remove(0);
+        return s1.remove(0);
     }
 
-    /** Get the front element. */
+    /**
+     * Get the front element.
+     */
     public int peek() {
-        return  s1.firstElement();
+        return s1.firstElement();
     }
 
-    /** Returns whether the queue is empty. */
+    /**
+     * Returns whether the queue is empty.
+     */
     public boolean empty() {
         return s1.isEmpty();
     }

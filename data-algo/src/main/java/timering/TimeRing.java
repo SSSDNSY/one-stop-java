@@ -26,17 +26,17 @@ public class TimeRing {
             public void run() {
                 System.out.println("timeRingThread 启动 " + (1000 - System.currentTimeMillis() % 1000));
                 while (true) {
-                    //align second
+                    // align second
                     try {
                         long curMills = System.currentTimeMillis();
-                        Long time = 1000 - curMills % 1000;
-                        System.out.println("currentTimeMillis=" + curMills+"time="+ LocalDateTime.now() + "  1000 - currentTimeMillis % 1000 =" + time);
+                        Long time     = 1000 - curMills % 1000;
+                        System.out.println("currentTimeMillis=" + curMills + "time=" + LocalDateTime.now() + "  1000 - currentTimeMillis % 1000 =" + time);
                         TimeUnit.MILLISECONDS.sleep(time);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
 
-                    //second data
+                    // second data
                     /**
                      *    避免处理耗时太长，跨过刻度，向前校验一个刻度(1s)；
                      *   nowSecond =9

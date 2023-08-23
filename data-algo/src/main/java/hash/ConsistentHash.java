@@ -22,7 +22,7 @@ public class ConsistentHash {
     /**
      * 待添加入Hash环的服务器列表
      */
-    private static String[] servers = {"192.168.0.0:111", "192.168.0.1:111", "192.168.0.2:111",
+    private static String[]                   servers   = {"192.168.0.0:111", "192.168.0.1:111", "192.168.0.2:111",
             "192.168.0.3:111", "192.168.0.4:111"};
     /**
      * key表示服务器的hash值，value表示服务器的名称
@@ -46,8 +46,8 @@ public class ConsistentHash {
      * 使用FNV1_32_HASH算法计算服务器的Hash值,这里不使用重写hashCode的方法，最终效果没区别
      */
     private static int getHash(String str) {
-        final int p = 16777619;
-        int hash = (int) 2166136261L;
+        final int p    = 16777619;
+        int       hash = (int) 2166136261L;
         for (int i = 0; i < str.length(); i++)
             hash = (hash ^ str.charAt(i)) * p;
         hash += hash << 13;

@@ -22,46 +22,46 @@ public class Treap<T> extends
 
     public Treap() {
         this(new DefaultComparator<T>());
-	}
+    }
 
-	public boolean add(T x) {
-		Node<T> u = newNode();
-		u.x = x;
-		u.p = rand.nextInt();
-		if (super.add(u)) {
-			bubbleUp(u);
-			return true;
-		}
-		return false;
-	}
+    public boolean add(T x) {
+        Node<T> u = newNode();
+        u.x = x;
+        u.p = rand.nextInt();
+        if (super.add(u)) {
+            bubbleUp(u);
+            return true;
+        }
+        return false;
+    }
 
-	protected void bubbleUp(Node<T> u) {
-		while (u.parent != nil && u.parent.p > u.p) {
+    protected void bubbleUp(Node<T> u) {
+        while (u.parent != nil && u.parent.p > u.p) {
             if (u.parent.right == u) {
                 rotateLeft(u.parent);
             } else {
                 rotateRight(u.parent);
             }
         }
-		if (u.parent == nil) {
-			r = u;
-		}
-	}
+        if (u.parent == nil) {
+            r = u;
+        }
+    }
 
-	public boolean remove(T x) {
-		Node<T> u = findLast(x);
-		if (u != nil && c.compare(u.x, x) == 0) {
-			trickleDown(u);
-			splice(u);
-			return true;
-		}
-		return false;
-	}
+    public boolean remove(T x) {
+        Node<T> u = findLast(x);
+        if (u != nil && c.compare(u.x, x) == 0) {
+            trickleDown(u);
+            splice(u);
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * Do rotations to make u a leaf
-	 */
-	protected void trickleDown(Node<T> u) {
+    /**
+     * Do rotations to make u a leaf
+     */
+    protected void trickleDown(Node<T> u) {
         while (u.left != nil || u.right != nil) {
             if (u.left == nil) {
                 rotateLeft(u);
@@ -75,6 +75,6 @@ public class Treap<T> extends
             if (r == u) {
                 r = u.parent;
             }
-		}
-	}
+        }
+    }
 }

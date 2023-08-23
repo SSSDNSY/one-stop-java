@@ -5,6 +5,7 @@ package tree;
  * @desc
  * @since 2020-11-03
  */
+
 /**
  * Java 语言: AVL树
  *
@@ -17,8 +18,8 @@ public class AVLTree1<T extends Comparable<T>> {
 
     // AVL树的节点(内部类)
     class AVLTreeNode<T extends Comparable<T>> {
-        T key;                // 关键字(键值)
-        int height;         // 高度
+        T              key;                // 关键字(键值)
+        int            height;         // 高度
         AVLTreeNode<T> left;    // 左孩子
         AVLTreeNode<T> right;    // 右孩子
 
@@ -61,8 +62,8 @@ public class AVLTree1<T extends Comparable<T>> {
      * 前序遍历"AVL树"
      */
     private void preOrder(AVLTreeNode<T> tree) {
-        if(tree != null) {
-            System.out.print(tree.key+" ");
+        if (tree != null) {
+            System.out.print(tree.key + " ");
             preOrder(tree.left);
             preOrder(tree.right);
         }
@@ -76,8 +77,7 @@ public class AVLTree1<T extends Comparable<T>> {
      * 中序遍历"AVL树"
      */
     private void inOrder(AVLTreeNode<T> tree) {
-        if(tree != null)
-        {
+        if (tree != null) {
             inOrder(tree.left);
             System.out.print(tree.key + " ");
             inOrder(tree.right);
@@ -92,7 +92,7 @@ public class AVLTree1<T extends Comparable<T>> {
      * 后序遍历"AVL树"
      */
     private void postOrder(AVLTreeNode<T> tree) {
-        if(tree != null) {
+        if (tree != null) {
             postOrder(tree.left);
             postOrder(tree.right);
             System.out.print(tree.key + " ");
@@ -107,7 +107,7 @@ public class AVLTree1<T extends Comparable<T>> {
      * (递归实现)查找"AVL树x"中键值为key的节点
      */
     private AVLTreeNode<T> search(AVLTreeNode<T> x, T key) {
-        if (x==null)
+        if (x == null)
             return x;
 
         int cmp = key.compareTo(x.key);
@@ -127,7 +127,7 @@ public class AVLTree1<T extends Comparable<T>> {
      * (非递归实现)查找"AVL树x"中键值为key的节点
      */
     private AVLTreeNode<T> iterativeSearch(AVLTreeNode<T> x, T key) {
-        while (x!=null) {
+        while (x != null) {
             int cmp = key.compareTo(x.key);
 
             if (cmp < 0)
@@ -152,7 +152,7 @@ public class AVLTree1<T extends Comparable<T>> {
         if (tree == null)
             return null;
 
-        while(tree.left != null)
+        while (tree.left != null)
             tree = tree.left;
         return tree;
     }
@@ -257,7 +257,7 @@ public class AVLTree1<T extends Comparable<T>> {
         if (tree == null) {
             // 新建节点
             tree = new AVLTreeNode<T>(key, null, null);
-            if (tree==null) {
+            if (tree == null) {
                 System.out.println("ERROR: create avltree node failed!");
                 return null;
             }
@@ -307,7 +307,7 @@ public class AVLTree1<T extends Comparable<T>> {
      */
     private AVLTreeNode<T> remove(AVLTreeNode<T> tree, AVLTreeNode<T> z) {
         // 根为空 或者 没有要删除的节点，直接返回null。
-        if (tree==null || z==null)
+        if (tree == null || z == null)
             return null;
 
         int cmp = z.key.compareTo(tree.key);
@@ -402,8 +402,8 @@ public class AVLTree1<T extends Comparable<T>> {
      *                1，表示该节点是它的父结点的右孩子。
      */
     private void print(AVLTreeNode<T> tree, T key, int direction) {
-        if(tree != null) {
-            if(direction==0)    // tree是根节点
+        if (tree != null) {
+            if (direction == 0)    // tree是根节点
                 System.out.printf("%2d is root\n", tree.key, key);
             else                // tree是分支节点
                 System.out.printf("%2d is %2d's %6s child\n", tree.key, key, direction == 1 ? "right" : "left");

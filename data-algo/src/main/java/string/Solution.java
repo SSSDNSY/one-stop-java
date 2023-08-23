@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @Date: 2019/5/9 17:05
  * @Description:
  */
-public class StringSolution {
+public class Solution {
 
     public static void main(String[] args) {
 
@@ -19,17 +19,17 @@ public class StringSolution {
 //                "a");
 //        String[] strs = new String[]{"dog","racecar","car"};
 //        System.out.println(longestCommonPrefix(strs));
-        reverseString(new char[]{'h','e','l','l','o'});
+        reverseString(new char[]{'h', 'e', 'l', 'l', 'o'});
     }
 
-    //二进制求和
+    // 二进制求和
     public static String addBinary(String a, String b) {
         String result = "";
-        char[] aa = a.toCharArray();
-        char[] bb = b.toCharArray();
+        char[] aa     = a.toCharArray();
+        char[] bb     = b.toCharArray();
 
-        int ma = a.length() - 1;
-        int mb = b.length() - 1;
+        int ma    = a.length() - 1;
+        int mb    = b.length() - 1;
         int carry = 0, as, bs;
         while (ma >= 0 || mb >= 0) {
             as = ma >= 0 ? Character.getNumericValue(aa[ma--]) : 0;
@@ -52,7 +52,7 @@ public class StringSolution {
         int index = -1;
         if (needle.trim().length() == 0) return 0;
         char[] str = haystack.trim().toCharArray();
-        char[] s = needle.trim().toCharArray();
+        char[] s   = needle.trim().toCharArray();
         if (s.length > str.length || haystack.trim().length() == 0) return -1;
         boolean first = true;
         for (int i = 0; i < str.length; i++) {
@@ -88,27 +88,27 @@ public class StringSolution {
      */
     public static String longestCommonPrefix(String[] strs) {
 
-        String s="";
-        int judge=1;
-        if(strs.length==0){//数组为空直接返回""
+        String s     = "";
+        int    judge = 1;
+        if (strs.length == 0) {// 数组为空直接返回""
             return s;
         }
 
-        for(int i=0;i<strs[0].length();i++){
+        for (int i = 0; i < strs[0].length(); i++) {
             char s0 = strs[0].charAt(i);
-            for(int j =0;j<strs.length;j++){
-                if(i>=strs[j].length()){
-                    judge =0;
+            for (int j = 0; j < strs.length; j++) {
+                if (i >= strs[j].length()) {
+                    judge = 0;
                     break;
                 }
-                if(s0!=strs[j].charAt(i)){
+                if (s0 != strs[j].charAt(i)) {
                     break;
-                }else {
-                    if(j==strs.length-1)
-                    s+=s0;
+                } else {
+                    if (j == strs.length - 1)
+                        s += s0;
                 }
             }
-            if(judge==0){
+            if (judge == 0) {
                 break;
             }
 
@@ -118,35 +118,49 @@ public class StringSolution {
 
     /**
      * 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
-     不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
-     你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
-     示例 1：
-     输入：["h","e","l","l","o"]
-     输出：["o","l","l","e","h"]
-     示例 2：
-     输入：["H","a","n","n","a","h"]
-     输出：["h","a","n","n","a","H"]
+     * 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+     * 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
+     * 示例 1：
+     * 输入：["h","e","l","l","o"]
+     * 输出：["o","l","l","e","h"]
+     * 示例 2：
+     * 输入：["H","a","n","n","a","h"]
+     * 输出：["h","a","n","n","a","H"]
+     *
      * @return
      */
     public static void reverseString(char[] s) {
-        int i=0;
-        int j=s.length-1;
+        int  i = 0;
+        int  j = s.length - 1;
         char temp;
-        while(i<j){
+        while (i < j) {
             temp = s[i];
             s[i] = s[j];
             s[j] = temp;
-            i++;j--;
+            i++;
+            j--;
+        }
+    }
+
+    public static void reverseString2(char[] s) {
+        int l = 0;
+        int r = s.length - 1;
+        while (l < r) {
+            s[l] ^= s[r]; // l=l^r;
+            s[r] ^= s[l]; // r=l^r ^r = l
+            s[l] ^= s[r]; // l=l^r ^l = r
+            l++;
+            r--;
         }
     }
 
     public static int[] countStar() {
-        int[] rslt = new int[]{};
+        int[]   rslt  = new int[]{};
         int[][] stars = new int[][]{};
-        int[][] q = new int[][]{};
+        int[][] q     = new int[][]{};
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        int     n  = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < 2; j++) {
@@ -174,19 +188,30 @@ public class StringSolution {
         return rslt;
     }
 
-    //最短路径
+    /**
+     * 最短路径
+     */
     public static int findMinLength() {
-        int minLen = -1;
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[][] q = new int[n][n];
+        int     minLen = -1;
+        Scanner sc     = new Scanner(System.in);
+        int     n      = sc.nextInt();
+        int[][] q      = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 q[i][j] = sc.nextInt();
             }
         }
-
-
         return minLen;
     }
+
+    /**
+     * 替换空格
+     *
+     * 请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
+     *
+     * 示例 1： 输入：s = "We are happy."
+     * 输出："We%20are%20happy."
+     */
+
+
 }
