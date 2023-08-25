@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * @Auther: imi
  * @Date: 2019/5/9 17:05
- * @Description:
+ * @Description: 字符串
  */
 public class Solution {
 
@@ -206,12 +206,119 @@ public class Solution {
 
     /**
      * 替换空格
-     *
+     * <p>
      * 请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
-     *
+     * <p>
      * 示例 1： 输入：s = "We are happy."
      * 输出："We%20are%20happy."
      */
+    public String replaceSpace(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        // 扩充空间，空格数量2倍
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                str.append("  ");
+            }
+        }
+        // 若是没有空格直接返回
+        if (str.length() == 0) {
+            return s;
+        }
+        // 有空格情况 定义两个指针
+        int left = s.length() - 1;// 左指针：指向原始字符串最后一个位置
+        s += str.toString();
+        int    right = s.length() - 1;// 右指针：指向扩展字符串的最后一个位置
+        char[] chars = s.toCharArray();
+        while (left >= 0) {
+            if (chars[left] == ' ') {
+                chars[right--] = '0';
+                chars[right--] = '2';
+                chars[right] = '%';
+            } else {
+                chars[right] = chars[left];
+            }
+            left--;
+            right--;
+        }
+        return new String(chars);
+    }
+
+    /**
+     * 移除元素
+     */
+    public void removeElement(int[] nums, int val) {
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[fast] != val) {
+                nums[slow++] = nums[fast];
+            }
+        }
+    }
+
+    /**
+     * 翻转字符串里的单词
+     */
+
+// 解法二：创建新字符数组填充。时间复杂度O(n)
+    public String reverseWords(String s) {
+        // System.out.println("ReverseWords.reverseWords2() called with: s = [" + s + "]");
+        // 1.去除首尾以及中间多余空格
+        StringBuilder sb = removeSpace(s);
+        // 2.反转整个字符串
+        reverseString(sb, 0, sb.length() - 1);
+        // 3.反转各个单词
+        reverseEachWord(sb);
+        return sb.toString();
+    }
+
+    private StringBuilder removeSpace(String s) {
+        // System.out.println("ReverseWords.removeSpace() called with: s = [" + s + "]");
+        int start = 0;
+        int end   = s.length() - 1;
+        while (s.charAt(start) == ' ') start++;
+        while (s.charAt(end) == ' ') end--;
+        StringBuilder sb = new StringBuilder();
+        while (start <= end) {
+            char c = s.charAt(start);
+            if (c != ' ' || sb.charAt(sb.length() - 1) != ' ') {
+                sb.append(c);
+            }
+            start++;
+        }
+        // System.out.println("ReverseWords.removeSpace returned: sb = [" + sb + "]");
+        return sb;
+    }
+
+    /**
+     * 反转字符串指定区间[start, end]的字符
+     */
+    public void reverseString(StringBuilder sb, int start, int end) {
+        // System.out.println("ReverseWords.reverseString() called with: sb = [" + sb + "], start = [" + start + "], end = [" + end + "]");
+        while (start < end) {
+            char temp = sb.charAt(start);
+            sb.setCharAt(start, sb.charAt(end));
+            sb.setCharAt(end, temp);
+            start++;
+            end--;
+        }
+        // System.out.println("ReverseWords.reverseString returned: sb = [" + sb + "]");
+    }
+    private void reverseEachWord(StringBuilder sb) {
+        int start = 0;
+        int end   = 1;
+        int n     = sb.length();
+        while (start < n) {
+            while (end < n && sb.charAt(end) != ' ') {
+                end++;
+            }
+            reverseString(sb, start, end - 1);
+            start = end + 1;
+            end = start + 1;
+        }
+    }
 
 
 }
