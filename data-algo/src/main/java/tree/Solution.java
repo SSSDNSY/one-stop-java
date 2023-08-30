@@ -17,17 +17,31 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 class TreeNode<T> {
-    private TreeNode left;
-    private TreeNode right;
-    private T        value;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode next;
+    public T        value;
+
+    public TreeNode(TreeNode left, TreeNode right, T value) {
+        this.left = left;
+        this.right = right;
+        this.value = value;
+    }
 }
 
 /**
  * 多叉树
  */
 class Node {
+
+    public TreeNode left;
+
+    public TreeNode right;
+
     public int        val;
     public List<Node> children;
+
+    public Node next;
 
     public Node() {
     }
@@ -428,6 +442,72 @@ public class Solution {
         return result;
     }
 
+    /**
+     * 填充每个节点的下一个右侧节点指针
+     */
+    public void fillNodeRightPointer(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int      levelSize = queue.size();
+            TreeNode pre       = null;
+            TreeNode cur       = null;
+            for (int i = 0; i < levelSize; i++) {
+                cur = queue.poll();
+                if (i != 0) {
+                    pre.next = cur;
+                }
+                pre = cur;
+                if (cur.left != null) {
+                    queue.offer(cur.left);
+                }
+                if (cur.right != null) {
+                    queue.offer(cur.right);
+                }
+            }
+            // 本层最后节点指向null
+            pre.next = null;
+        }
+    }
 
 
+    @Test
+    public void testFillNodeRightPointer() {
+
+        TreeNode l6 = new TreeNode<>(null, null, 6);
+
+        TreeNode l5 = new TreeNode<>(null, null, 5);
+        TreeNode l4 = new TreeNode<>(null, null, 4);
+
+        TreeNode l2 = new TreeNode<>(l4, l5, 2);
+        TreeNode l3 = new TreeNode<>(l6, null, 3);
+
+        TreeNode root = new TreeNode<>(l2, l3, 1);
+
+        /**
+         *       1
+         *     2   3
+         *    4 5 6
+         */
+        fillNodeRightPointer(root);
+        System.out.println(root);
+    }
+
+    /**
+     * 二叉树的最大深度
+     */
+
+    public int getMaxDepth(TreeNode<Integer> root) {
+
+        if (root == null) {
+            return -1;
+        }
+        int             depth = -1;
+        Queue<TreeNode> queue = new LinkedList<>();
+
+        return depth;
+    }
 }
