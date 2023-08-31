@@ -584,7 +584,7 @@ public class Solution {
             return true;
         }
         // 递归解法
-        return recursionSysmetric(root.left, root.right);
+        return recursionSymmetric(root.left, root.right);
         // 队列解法
         // return queueSysmetric(root.left, root.right);
         // 栈的解法
@@ -592,7 +592,7 @@ public class Solution {
 
     }
 
-    private boolean recursionSysmetric(TreeNode left, TreeNode right) {
+    private boolean recursionSymmetric(TreeNode left, TreeNode right) {
         if (left == null && right == null) {
             return true;
         } else if (left == null && right != null) {
@@ -603,11 +603,11 @@ public class Solution {
             return false;
         } else {
             // 比较外侧、内侧
-            return recursionSysmetric(left.left, right.right) && recursionSysmetric(left.right, right.left);
+            return recursionSymmetric(left.left, right.right) && recursionSymmetric(left.right, right.left);
         }
     }
 
-    private boolean queueSysmetric(TreeNode leftNode, TreeNode rightNode) {
+    private boolean queueSymmetric(TreeNode leftNode, TreeNode rightNode) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(leftNode);
         queue.offer(rightNode);
@@ -639,7 +639,7 @@ public class Solution {
         return true;
     }
 
-    private boolean stackSysmetric(TreeNode left, TreeNode right) {
+    private boolean stackSymmetric(TreeNode left, TreeNode right) {
         return false;
     }
 
