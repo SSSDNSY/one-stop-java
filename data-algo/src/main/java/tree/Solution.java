@@ -559,7 +559,7 @@ public class Solution {
         TreeNode node = root, prev = null; // 仅存放两个临时变量，O(1)空间复杂度
         while (node != null) { // 当前节点为空时，说明访问完成
             if (node.left == null) { // 左子树不存在时，访问+进入右节点
-                //visit(node);
+                // visit(node);
                 node = node.right;
             } else { // 左子树存在，寻找前驱节点。注意寻找前驱节点时，会不断深入右子树。不加判断时，若前驱节点的右子树已指向自己，会引起死循环
                 prev = node.left;
@@ -568,12 +568,79 @@ public class Solution {
                     prev.right = node;
                     node = node.left;
                 } else { // 前驱节点已访问过，恢复树结构
-                   // visit(node); // 确定访问过左子树后，访问当前节点
+                    // visit(node); // 确定访问过左子树后，访问当前节点
                     prev.right = null;
                     node = node.right;
                 }
             }
         }
+    }
+
+    /**
+     * 对称二叉树
+     */
+    public boolean isSymmetric(TreeNode<Integer> root) {
+        if (root == null) {
+            return true;
+        }
+        // 递归解法
+        return recursionSysmetric(root.left, root.right);
+        // 队列解法
+        // return queueSysmetric(root.left, root.right);
+        // 栈的解法
+        // return stackSysmetric(root.left, root.right);
+
+    }
+
+    private boolean recursionSysmetric(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        } else if (left == null && right != null) {
+            return true;
+        } else if (left != null && right == null) {
+            return true;
+        } else if (left.value != right.value) {
+            return false;
+        } else {
+            // 比较外侧、内侧
+            return recursionSysmetric(left.left, right.right) && recursionSysmetric(left.right, right.left);
+        }
+    }
+
+    private boolean queueSysmetric(TreeNode leftNode, TreeNode rightNode) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(leftNode);
+        queue.offer(rightNode);
+        while (!queue.isEmpty()) {
+            Object value1 = queue.poll().value;
+            Object value2 = queue.poll().value;
+            if (leftNode == null && rightNode == null) {
+                continue;
+            }
+//            if (leftNode == null && rightNode != null) {
+//                return false;
+//            }
+//            if (leftNode != null && rightNode == null) {
+//                return false;
+//            }
+//            if (leftNode.val != rightNode.val) {
+//                return false;
+//            }
+            // 以上三个判断条件合并
+            if (leftNode == null || rightNode == null || leftNode.value != rightNode.value) {
+                return false;
+            }
+            // 这里顺序与使用Deque不同
+            queue.offer(leftNode.left);
+            queue.offer(rightNode.right);
+            queue.offer(leftNode.right);
+            queue.offer(rightNode.left);
+        }
+        return true;
+    }
+
+    private boolean stackSysmetric(TreeNode left, TreeNode right) {
+        return false;
     }
 
 
