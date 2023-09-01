@@ -16,12 +16,12 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 class TreeNode<T> {
-    public TreeNode left;
-    public TreeNode right;
-    public TreeNode next;
-    public T        value;
+    public TreeNode<T> left;
+    public TreeNode<T> right;
+    public TreeNode<T> next;
+    public T           value;
 
-    public TreeNode(TreeNode left, TreeNode right, T value) {
+    public TreeNode(TreeNode<T> left, TreeNode<T> right, T value) {
         this.left = left;
         this.right = right;
         this.value = value;
@@ -670,12 +670,12 @@ public class Solution {
     }
 
     private boolean stackSymmetric(TreeNode leftNode, TreeNode rightNode) {
-        Deque<TreeNode> queue = new LinkedList<>();
-        queue.push(leftNode);
-        queue.push(rightNode);
-        while (!queue.isEmpty()) {
-            Object value1 = queue.pop().value;
-            Object value2 = queue.pop().value;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(leftNode);
+        stack.push(rightNode);
+        while (!stack.isEmpty()) {
+            Object value1 = stack.pop().value;
+            Object value2 = stack.pop().value;
             if (leftNode == null && rightNode == null) {
                 continue;
             }
@@ -693,13 +693,199 @@ public class Solution {
                 return false;
             }
             // 这里顺序与使用Deque不同
-            queue.push(leftNode.left);
-            queue.push(rightNode.right);
-            queue.push(leftNode.right);
-            queue.push(rightNode.left);
+            stack.push(leftNode.left);
+            stack.push(rightNode.right);
+            stack.push(leftNode.right);
+            stack.push(rightNode.left);
         }
         return true;
     }
 
+    /**
+     * 完全二叉树节点个数 区分完全二叉树的定义
+     */
+    public int completeTreeNodeRecursion(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return completeTreeNodeRecursion(root.left) + completeTreeNodeRecursion(root.right) + 1;
+    }
 
+    public int completeTreeNodeLoop(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int             count = 0;
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            while (levelSize-- > 0) {
+                TreeNode temp = queue.poll();
+                count++;
+                if (temp.left != null) {
+                    queue.offer(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.offer(temp.right);
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 是否平衡二叉树
+     */
+    public boolean isBalanced(TreeNode root) {
+        return getHeight(root) != -1;
+    }
+
+    public int getHeight(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = getHeight(root.left);
+        if (left == -1) {
+            return -1;
+        }
+        int right = getHeight(root.right);
+        if (right == -1) {
+            return -1;
+        }
+        if (Math.abs(left - right) > 1) {
+            return -1;
+        }
+        return Math.max(left, right) + 1;
+    }
+
+    /**
+     * 二叉树的所有路径
+     */
+    public List<String> getPathsStack(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Deque stack = new LinkedList();
+        stack.push(root);
+        stack.push(root.value + "");
+        while (!stack.isEmpty()) {
+            String   path = stack.pop().toString();
+            TreeNode node = (TreeNode) stack.pop();
+            if (node.left == null && node.right == null) {
+                result.add(path);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+                stack.push(path + "->" + node.left.value);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+                stack.push(path + "->" + node.right.value);
+            }
+
+        }
+        return result;
+    }
+
+    // 回溯
+    public List<String> getPathsRecurBack(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        recursionBackTrack(root, "", result);
+        return result;
+    }
+
+    private void recursionBackTrack(TreeNode node, String s, List<String> result) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            result.add(new StringBuilder(s).append(node.value).toString());
+            return;
+        }
+        String temp = new StringBuilder(s).append(node.value.toString()).append("->").toString();
+        recursionBackTrack(node.left, temp, result);
+        recursionBackTrack(node.right, temp, result);
+    }
+
+    /**
+     * 左叶子之和 递归，迭代
+     */
+    public int sumOfLeftLeaves(TreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        int left  = sumOfLeftLeaves(root.left);
+        int right = sumOfLeftLeaves(root.right);
+
+        int middle = 0;
+        if (root.left != null && root.left.left == null && root.left.right == null) {
+            middle = root.left.value;
+        }
+        return middle + left + right;
+    }
+
+    public int sumOfLeftLeavesRecursion(TreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(root);
+        int sum = 0;
+        while (!queue.isEmpty()) {
+            TreeNode<Integer> node = queue.poll();
+            if (node.left != null) {
+                queue.offer(node.left);
+                if (node.left.left == null && node.left.right == null) {
+                    sum += node.left.value;
+                }
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * 求树左下角的值
+     */
+    public int findBottomLeftValue(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int value = -1;
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode<Integer> node = queue.poll();
+                if (i == 0) {
+                    value = node.value;
+                }
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+        }
+        return value;
+    }
+
+    /**
+     * 路径总和
+     */
+    public boolean hasPathSum(TreeNode<Integer> root, Integer sum) {
+        // 空直接返回false
+        if (root == null) {
+            return false;
+        }
+        // 叶子节点判定
+        if (root.left == null && root.right == null) {
+            return root.value == sum;
+        }
+        // 递归左、右分支
+        return hasPathSum(root.left, sum - root.value) || hasPathSum(root.right, sum - root.value);
+    }
 }

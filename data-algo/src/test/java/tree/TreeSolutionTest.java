@@ -73,5 +73,33 @@ public class TreeSolutionTest {
         Assert.assertTrue(minDepth == 3);
     }
 
+    @Test
+    public void testGetPath() {
+        List list  = solution.getPathsStack(root);
+        List list2 = solution.getPathsRecurBack(root);
+        System.out.println(list);
+        System.out.println(list2);
+    }
+
+    @Test
+    public void testSumOfLeftLeaves() {
+        int sum = solution.sumOfLeftLeaves(root);
+        System.out.println(sum);
+        int sum1 = solution.sumOfLeftLeavesRecursion(root);
+        System.out.println(sum1);
+    }
+
+    @Test
+    public void testFindBottomLeftValue() {
+        int val = solution.findBottomLeftValue(root);
+        System.out.println(val);
+    }
+
+    @Test
+    public void testHasPathSum() {
+        boolean bool = solution.hasPathSum(root,1);
+        boolean bool2 = solution.hasPathSum(root,15);
+        System.out.println(bool);
+    }
 
 }
