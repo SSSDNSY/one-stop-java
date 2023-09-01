@@ -489,6 +489,36 @@ public class Solution {
     }
 
     /**
+     * 最大深度 递归
+     */
+    public int getMaxDepthRecursion(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left  = getMaxDepth(root.left);
+        int right = getMaxDepth(root.right);
+        return Math.max(left, right) + 1;
+    }
+
+    /**
+     * 最小深度 递归
+     */
+    public int getMinDepthRecursion(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left  = getMinDepthRecursion(root.left);
+        int right = getMinDepthRecursion(root.right);
+        if (root.left == null) {
+            return right + 1;
+        }
+        if (root.right == null) {
+            return left + 1;
+        }
+        return Math.min(left, right) + 1;
+    }
+
+    /**
      * 翻转二叉树
      * 前、后序，层序，统一遍历都行，中序不行（遍历多次子节点）
      */
@@ -639,8 +669,36 @@ public class Solution {
         return true;
     }
 
-    private boolean stackSymmetric(TreeNode left, TreeNode right) {
-        return false;
+    private boolean stackSymmetric(TreeNode leftNode, TreeNode rightNode) {
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.push(leftNode);
+        queue.push(rightNode);
+        while (!queue.isEmpty()) {
+            Object value1 = queue.pop().value;
+            Object value2 = queue.pop().value;
+            if (leftNode == null && rightNode == null) {
+                continue;
+            }
+//            if (leftNode == null && rightNode != null) {
+//                return false;
+//            }
+//            if (leftNode != null && rightNode == null) {
+//                return false;
+//            }
+//            if (leftNode.val != rightNode.val) {
+//                return false;
+//            }
+            // 以上三个判断条件合并
+            if (leftNode == null || rightNode == null || leftNode.value != rightNode.value) {
+                return false;
+            }
+            // 这里顺序与使用Deque不同
+            queue.push(leftNode.left);
+            queue.push(rightNode.right);
+            queue.push(leftNode.right);
+            queue.push(rightNode.left);
+        }
+        return true;
     }
 
 
