@@ -75,7 +75,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testGetPath() {
-        List list  = solution.getPathsStack(root);
+        List list = solution.getPathsStack(root);
         List list2 = solution.getPathsRecurBack(root);
         System.out.println(list);
         System.out.println(list2);
@@ -97,9 +97,16 @@ public class TreeSolutionTest {
 
     @Test
     public void testHasPathSum() {
-        boolean bool = solution.hasPathSum(root,1);
-        boolean bool2 = solution.hasPathSum(root,15);
+        boolean bool = solution.hasPathSum(root, 1);
+        boolean bool2 = solution.hasPathSum(root, 15);
         System.out.println(bool);
+    }
+
+    @Test
+    public void testBuildMaxTree() {
+        int[] nums = new int[]{3, 2, 1, 6, 0, 5};
+        TreeNode<Integer> tree = solution.constructMaximumBinaryTree(nums);
+        System.out.printf(tree.getValue().toString());
     }
 
 }
