@@ -19,7 +19,7 @@ class TreeNode<T> {
     public TreeNode<T> left;
     public TreeNode<T> right;
     public TreeNode<T> next;
-    public T value;
+    public T           value;
 
     public TreeNode(TreeNode<T> left, TreeNode<T> right, T value) {
         this.left = left;
@@ -41,7 +41,7 @@ class Node {
 
     public TreeNode right;
 
-    public int val;
+    public int        val;
     public List<Node> children;
 
     public Node next;
@@ -78,12 +78,16 @@ public class Solution {
         return list;
     }
 
+    // 前序遍历
     public void preOrder(TreeNode<Integer> root, List list) {
         if (root == null) {
             return;
         }
+        // 中
         list.add(root.getValue());
+        // 左
         preOrder(root.getLeft(), list);
+        // 右
         preOrder(root.getRight(), list);
     }
 
@@ -92,9 +96,12 @@ public class Solution {
         if (root == null) {
             return;
         }
-        preOrder(root.getLeft(), list);
+        // 左
+        inOrder(root.getLeft(), list);
+        // 中
         list.add(root.getValue());
-        preOrder(root.getRight(), list);
+        // 右
+        inOrder(root.getRight(), list);
     }
 
     // 后序遍历
@@ -102,8 +109,11 @@ public class Solution {
         if (root == null) {
             return;
         }
-        preOrder(root.getLeft(), list);
-        preOrder(root.getRight(), list);
+        // 左
+        postOrder(root.getLeft(), list);
+        // 右
+        postOrder(root.getRight(), list);
+        // 中
         list.add(root.getValue());
     }
 
@@ -115,7 +125,7 @@ public class Solution {
         if (root == null) {
             return null;
         }
-        List list = new ArrayList();
+        List            list  = new ArrayList();
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.empty()) {
@@ -137,7 +147,7 @@ public class Solution {
             return result;
         }
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode cur = root;
+        TreeNode        cur   = root;
         while (cur != null || !stack.isEmpty()) {
             if (cur != null) {
                 stack.push(cur);
@@ -152,8 +162,8 @@ public class Solution {
     }
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        List result = new LinkedList<>();
-        Stack<TreeNode> st = new Stack<>();
+        List            result = new LinkedList<>();
+        Stack<TreeNode> st     = new Stack<>();
         if (root != null) st.push(root);
         while (!st.empty()) {
             TreeNode node = st.peek();
@@ -174,8 +184,8 @@ public class Solution {
     }
 
     public List<Integer> inorderTraversal2(TreeNode root) {
-        List result = new LinkedList<>();
-        Stack<TreeNode> st = new Stack<>();
+        List            result = new LinkedList<>();
+        Stack<TreeNode> st     = new Stack<>();
         if (root != null) st.push(root);
         while (!st.empty()) {
             TreeNode node = st.peek();
@@ -197,8 +207,8 @@ public class Solution {
     // 迭代法后序遍历代码如下:
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        List result = new LinkedList<>();
-        Stack<TreeNode> st = new Stack<>();
+        List            result = new LinkedList<>();
+        Stack<TreeNode> st     = new Stack<>();
         if (root != null) st.push(root);
         while (!st.empty()) {
             TreeNode node = st.peek();
@@ -259,7 +269,7 @@ public class Solution {
         Queue<TreeNode<Integer>> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
-            int size = queue.size();
+            int                size      = queue.size();
             ArrayList<Integer> levelList = Lists.newArrayList();
             while (size > 0) {
                 TreeNode<Integer> temp = queue.poll();
@@ -316,8 +326,8 @@ public class Solution {
         Queue<TreeNode<Integer>> queue = new LinkedList();
         queue.offer(root);
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            List<Integer> level = new ArrayList<>();
+            int           levelSize = queue.size();
+            List<Integer> level     = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
                 TreeNode<Integer> temp = queue.poll();
                 level.add(temp.getValue());
@@ -342,7 +352,7 @@ public class Solution {
 
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> list = new ArrayList<>();
-        Deque<Node> que = new LinkedList<>();
+        Deque<Node>         que  = new LinkedList<>();
 
         if (root == null) {
             return list;
@@ -350,7 +360,7 @@ public class Solution {
 
         que.offerLast(root);
         while (!que.isEmpty()) {
-            int levelSize = que.size();
+            int           levelSize = que.size();
             List<Integer> levelList = new ArrayList<>();
 
             for (int i = 0; i < levelSize; i++) {
@@ -381,12 +391,12 @@ public class Solution {
         if (root == null) {
             return null;
         }
-        List<Integer> result = new ArrayList<>();
-        Queue<TreeNode<Integer>> queue = new LinkedList();
+        List<Integer>            result = new ArrayList<>();
+        Queue<TreeNode<Integer>> queue  = new LinkedList();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            int max = Integer.MIN_VALUE;
+            int max       = Integer.MIN_VALUE;
             for (int i = 0; i < levelSize; i++) {
                 TreeNode<Integer> temp = queue.poll();
                 max = Math.max(max, temp.getValue());
@@ -411,9 +421,9 @@ public class Solution {
         Queue<TreeNode> queue = new LinkedList();
         queue.offer(root);
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            TreeNode pre = null;
-            TreeNode cur = null;
+            int      levelSize = queue.size();
+            TreeNode pre       = null;
+            TreeNode cur       = null;
             for (int i = 0; i < levelSize; i++) {
                 cur = queue.poll();
                 if (i != 0) {
@@ -442,7 +452,7 @@ public class Solution {
         if (root == null) {
             return -1;
         }
-        int depth = 0;
+        int             depth = 0;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -469,7 +479,7 @@ public class Solution {
         if (root == null) {
             return -1;
         }
-        int depth = 0;
+        int             depth = 0;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -499,7 +509,7 @@ public class Solution {
         if (root == null) {
             return 0;
         }
-        int left = getMaxDepth(root.left);
+        int left  = getMaxDepth(root.left);
         int right = getMaxDepth(root.right);
         return Math.max(left, right) + 1;
     }
@@ -511,7 +521,7 @@ public class Solution {
         if (root == null) {
             return 0;
         }
-        int left = getMinDepthRecursion(root.left);
+        int left  = getMinDepthRecursion(root.left);
         int right = getMinDepthRecursion(root.right);
         if (root.left == null) {
             return right + 1;
@@ -719,7 +729,7 @@ public class Solution {
         if (root == null) {
             return 0;
         }
-        int count = 0;
+        int             count = 0;
         Queue<TreeNode> queue = new LinkedList();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -775,7 +785,7 @@ public class Solution {
         stack.push(root);
         stack.push(root.value + "");
         while (!stack.isEmpty()) {
-            String path = stack.pop().toString();
+            String   path = stack.pop().toString();
             TreeNode node = (TreeNode) stack.pop();
             if (node.left == null && node.right == null) {
                 result.add(path);
@@ -820,7 +830,7 @@ public class Solution {
         if (root == null) {
             return 0;
         }
-        int left = sumOfLeftLeaves(root.left);
+        int left  = sumOfLeftLeaves(root.left);
         int right = sumOfLeftLeaves(root.right);
 
         int middle = 0;
@@ -904,23 +914,23 @@ public class Solution {
 
     private TreeNode buildHelper(int[] inorder, int inorderStart, int inorderEnd, int[] postorder, int postorderStart, int postorderEnd) {
         if (postorderStart == postorderEnd) return null;
-        int rootVal = postorder[postorderEnd - 1];
-        TreeNode root = new TreeNode(rootVal);
-        int middleIndex;
+        int      rootVal = postorder[postorderEnd - 1];
+        TreeNode root    = new TreeNode(rootVal);
+        int      middleIndex;
         for (middleIndex = inorderStart; middleIndex < inorderEnd; middleIndex++) {
             if (inorder[middleIndex] == rootVal) break;
         }
 
-        int leftInorderStart = inorderStart;
-        int leftInorderEnd = middleIndex;
+        int leftInorderStart  = inorderStart;
+        int leftInorderEnd    = middleIndex;
         int rightInorderStart = middleIndex + 1;
-        int rightInorderEnd = inorderEnd;
+        int rightInorderEnd   = inorderEnd;
 
 
-        int leftPostorderStart = postorderStart;
-        int leftPostorderEnd = postorderStart + (middleIndex - inorderStart);
+        int leftPostorderStart  = postorderStart;
+        int leftPostorderEnd    = postorderStart + (middleIndex - inorderStart);
         int rightPostorderStart = leftPostorderEnd;
-        int rightPostorderEnd = postorderEnd - 1;
+        int rightPostorderEnd   = postorderEnd - 1;
         root.left = buildHelper(inorder, leftInorderStart, leftInorderEnd, postorder, leftPostorderStart, leftPostorderEnd);
         root.right = buildHelper(inorder, rightInorderStart, rightInorderEnd, postorder, rightPostorderStart, rightPostorderEnd);
 
@@ -935,17 +945,17 @@ public class Solution {
     }
 
     public TreeNode<Integer> buildMaxTree(int[] nums, int leftIndex, int rightIndex) {
-        //空数组
+        // 空数组
         if (rightIndex - leftIndex < 1) {
             return null;
         }
-        //只有一个元素
+        // 只有一个元素
         if (rightIndex - leftIndex == 1) {
             return new TreeNode<>(nums[leftIndex]);
         }
-        //最大值
+        // 最大值
         int maxIndex = leftIndex;
-        //最大值索引
+        // 最大值索引
         int maxValue = nums[maxIndex];
         for (int i = leftIndex + 1; i < rightIndex; i++) {
             if (nums[i] > maxValue) {
@@ -958,5 +968,263 @@ public class Solution {
         root.right = buildMaxTree(nums, maxIndex + 1, rightIndex);
         return root;
     }
+
+    /**
+     * 合并二叉树
+     */
+    public TreeNode mergeTrees(TreeNode<Integer> t1, TreeNode<Integer> t2) {
+        if (t1 == null) {
+            return t2;
+        }
+        if (t2 == null) {
+            return t1;
+        }
+        t1.value += t2.value;
+        t1.left = mergeTrees(t1.left, t2.left);
+        t2.right = mergeTrees(t1.right, t2.right);
+        return t1;
+    }
+
+    public TreeNode mergeTreesQueue(TreeNode<Integer> t1, TreeNode<Integer> t2) {
+        if (t1 == null) {
+            return t2;
+        }
+        if (t2 == null) {
+            return t1;
+        }
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        queue.offer(t1);
+        queue.offer(t2);
+        while (!queue.isEmpty()) {
+            TreeNode<Integer> n1 = queue.poll();
+            TreeNode<Integer> n2 = queue.poll();
+            n1.value += n2.value;
+            if (n1.left != null && n2.left != null) {
+                queue.offer(n1.left);
+                queue.offer(n2.left);
+            }
+            if (n1.right != null && n2.right != null) {
+                queue.offer(n1.right);
+                queue.offer(n2.right);
+            }
+            if (n1.left == null && n2.left != null) {
+                n1.left = n2.left;
+            }
+            if (n1.right == null && n2.right != null) {
+                n1.right = n2.right;
+            }
+        }
+        return t1;
+    }
+
+    /**
+     * 二叉搜索树中的搜索
+     */
+    public TreeNode searchBSTRecursion(TreeNode<Integer> root, int value) {
+        if (root == null || root.value == value) {
+            return root;
+        }
+        TreeNode<Integer> temp = null;
+        if (root.value > value) {
+            temp = searchBSTRecursion(root.left, value);
+        }
+        if (root.value < value) {
+            temp = searchBSTRecursion(root.right, value);
+        }
+        return temp;
+    }
+
+    public TreeNode searchBSTLoop(TreeNode<Integer> root, int value) {
+        while (root != null) {
+            if (root.value < value) {
+                root = root.right;
+            } else if (root.value > value) {
+                root = root.left;
+            } else {
+                return root;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 验证二叉搜索树
+     */
+    public boolean isValidBSTRecursion(TreeNode root) {
+        return validBST(Long.MIN_VALUE, Long.MAX_VALUE, root);
+    }
+
+    private boolean validBST(long minValue, long maxValue, TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (Long.valueOf(root.value.toString()) <= minValue || Long.valueOf(root.value.toString()) >= maxValue) {
+            return false;
+        }
+        return validBST(minValue, Long.valueOf(root.value.toString()), root.left) && validBST(Long.valueOf(root.value.toString()), maxValue, root.right);
+    }
+
+    // 利用BST中序数组递增性质
+    public boolean isValidBSTArr(TreeNode root) {
+        // List<Integer> list = inorderTraversal(root);
+        List<Integer> list = new LinkedList<>();
+        inOrder(root, list);
+        for (int i = 1; i < list.size(); i++) {
+            if (list.get(i - 1) >= list.get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private long pre = Long.MIN_VALUE;
+
+    // 利用中序遍历
+    public boolean isValidBSTinOrder(TreeNode root) {
+        if (null == root) {
+            return true;
+        }
+        // 左
+        if (!isValidBSTArr(root.left)) {
+            return false;
+        }
+        // 中
+        Long value = new Long(root.value.toString());
+        if (value <= pre) {
+            return false;
+        }
+        pre = value;
+
+        // 右
+        return isValidBSTinOrder(root.right);
+    }
+
+    /**
+     * 二叉搜索树最小绝对差
+     */
+    TreeNode<Integer> preNode;
+    int               minRes = Integer.MAX_VALUE;
+
+    public int minimumAbsRecursion(TreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        minAbsRecur(root);
+        return minRes;
+    }
+
+    private void minAbsRecur(TreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        // 左
+        minAbsRecur(root.left);
+        // 中
+        if (preNode != null) {
+            minRes = Math.min(minRes, root.value - preNode.value);
+        }
+        preNode = root;
+        // 右
+        minAbsRecur(root.right);
+    }
+
+
+    public int getMinimumAbsInorder(TreeNode<Integer> root) {
+        if (root == null) return 0;
+        Stack<TreeNode> stack = new Stack<>();
+
+        preNode = null;
+        TreeNode<Integer> cur = root;
+
+        int result = Integer.MAX_VALUE;
+        while (cur != null || !stack.isEmpty()) {
+            if (cur != null) {
+                // 将访问的节点放进栈
+                stack.push(cur);
+                // 左
+                cur = cur.left;
+            } else {
+                cur = stack.pop();
+                // 中
+                if (preNode != null) {
+                    result = Math.min(result, cur.value - preNode.value);
+                }
+                preNode = cur;
+                // 右
+                cur = cur.right;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 二叉树的众数
+     * 肯能有多个，非搜索树用map暴力，搜索树可以利用起中序性质
+     */
+    public int[] findModeMap(TreeNode<Integer> root) {
+        if (root == null) {
+            return new int[]{};
+        }
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer>         res = new ArrayList<>();
+
+        List<Integer> list = inorderTraversal(root);
+        list.forEach(i -> map.put(i, map.getOrDefault(i, 0) + 1));
+        // 逆序
+        List<Map.Entry<Integer, Integer>> mapList  = map.entrySet().stream().sorted((t1, t2) -> t2.getValue() - t1.getValue()).collect(Collectors.toList());
+        Map.Entry<Integer, Integer>       mapEntry = mapList.get(0);
+        // 最大众数
+        int maxMode = mapEntry.getValue();
+        res.add(mapEntry.getKey());
+        for (int i = 1; i < mapList.size(); i++) {
+            Map.Entry<Integer, Integer> entry = mapList.get(i);
+            if (entry.getValue() == maxMode) {
+                res.add(entry.getKey());
+            }
+        }
+        return res.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    ArrayList<Integer> resList;
+    int                maxCount;
+    int                count;
+
+    public int[] findMode(TreeNode root) {
+        resList = new ArrayList<>();
+        maxCount = 0;
+        count = 0;
+        preNode = null;
+        findModeInorder(root);
+        return resList.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+
+    public void findModeInorder(TreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        // 左
+        findModeInorder(root.left);
+
+        // 中
+        if (preNode == null || root.value != preNode.value) {
+            count = 1;
+        } else {
+            count++;
+        }
+        if (count > maxCount) {
+            resList.clear();
+            resList.add(root.value);
+            maxCount = count;
+        } else if (maxCount == count) {
+            resList.add(root.value);
+        }
+        // 不需要额外空间的精髓所在
+        preNode = root;
+
+        // 右
+        findModeInorder(root.right);
+    }
+
 
 }
