@@ -1226,5 +1226,33 @@ public class Solution {
         findModeInorder(root.right);
     }
 
+    /**
+     * 二叉树的最近公共祖先
+     */
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // 递归结束条件
+        if (root == null || p == null || q == null) {
+            return root;
+        }
+
+        // 后序遍历
+        TreeNode left  = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+
+        if (left == null && right == null) {
+            // 若未找到节点 p 或 q
+            return null;
+        } else if (left == null && right != null) {
+            return right;
+        } else if (left != null && right == null) {
+            return left;
+        } else {
+            // 若未找两个节点
+            return root;
+        }
+
+    }
 
 }
