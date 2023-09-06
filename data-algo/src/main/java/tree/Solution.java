@@ -1240,7 +1240,6 @@ public class Solution {
         TreeNode left  = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-
         if (left == null && right == null) {
             // 若未找到节点 p 或 q
             return null;
@@ -1252,7 +1251,8 @@ public class Solution {
             // 若未找两个节点
             return root;
         }
-
     }
+
+
 
 }
