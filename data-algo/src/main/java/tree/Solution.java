@@ -1295,4 +1295,106 @@ public class Solution {
         return root;
     }
 
+    /**
+     * 删除二叉搜索树的节点
+     * 第一种情况：没找到删除的节点，遍历到空节点直接返回了
+     * 找到删除的节点
+     * 第二种情况：左右孩子都为空（叶子节点），直接删除节点， 返回NULL为根节点
+     * 第三种情况：删除节点的左孩子为空，右孩子不为空，删除节点，右孩子补位，返回右孩子为根节点
+     * 第四种情况：删除节点的右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点
+     * 第五种情况：左右孩子节点都不为空，则将删除节点的左子树头结点（左孩子）
+     * 放到删除节点的右子树的最左面节点的左孩子上，返回删除节点右孩子为新的根节点。
+     * https://code-thinking.cdn.bcebos.com/gifs/450.%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9.gif
+     */
+    public TreeNode deleteBSTTree(TreeNode<Integer> root, int key) {
+        if (root == null) {
+            return root;
+        }
+        if (root.value == key) {
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            } else {
+                TreeNode cur = root.right;
+                if (cur.left != null) {
+                    cur = cur.left;
+                }
+                cur.left = root.left;
+                root = root.right;
+                return root;
+            }
+        }
+        if (root.left.value > key) {
+            root.left = deleteBSTTree(root.left, key);
+        }
+        if (root.right.value < key) {
+            root.right = deleteBSTTree(root.right, key);
+        }
+        return root;
+    }
+
+    /**
+     * 修剪二叉搜索树
+     */
+    public TreeNode trimTree(TreeNode<Integer> root, int low, int high) {
+        if (root == null) {
+            return root;
+        }
+        // ! [low,high]
+        if (root.value > low) {
+            return trimTree(root.right, low, high);
+        }
+        if (root.value < high) {
+            return trimTree(root.left, low, high);
+        }
+        //  [low,high]
+        root.left = trimTree(root.left, low, high);
+        root.right = trimTree(root.right, low, high);
+        return root;
+    }
+
+    /**
+     * 将有序数组转换为二叉搜索树
+     */
+    public TreeNode sortedArrayToTree(int[] arr) {
+        return sortedArrayToTree(arr, 0, arr.length);
+    }
+
+    public TreeNode sortedArrayToTree(int[] arr, int l, int r) {
+        if (l >= r) {
+            return null;
+        }
+        if (r - l == 1) {
+            return new TreeNode(arr[l]);
+        }
+        int      mid  = l + (l + r) / 2;
+        TreeNode root = new TreeNode(arr[mid]);
+        root.left = sortedArrayToTree(arr, l, mid);
+        root.right = sortedArrayToTree(arr, mid + 1, r);
+        return root;
+    }
+
+    /**
+     * 把二叉搜索树转换为累加树
+     */
+    int sum;
+
+    public TreeNode convertBST(TreeNode<Integer> root) {
+        sum = 0;
+        convertSumBST(root);
+        return root;
+    }
+
+    public void convertSumBST(TreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        convertSumBST(root.right);
+        sum += root.value;
+        root.value = sum;
+        convertSumBST(root.left);
+    }
+
+
 }
