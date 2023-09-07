@@ -1229,13 +1229,11 @@ public class Solution {
     /**
      * 二叉树的最近公共祖先
      */
-
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         // 递归结束条件
         if (root == null || p == null || q == null) {
             return root;
         }
-
         // 后序遍历
         TreeNode left  = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
@@ -1253,6 +1251,48 @@ public class Solution {
         }
     }
 
+    /**
+     * 二叉搜索树的最近公共祖先
+     */
+    public TreeNode lowestCommonAncestorBSTRecursion(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) {
+        if (root.value > p.value && root.value > q.value) {
+            return lowestCommonAncestorBSTRecursion(root, p, q);
+        }
+        if (root.value < p.value && root.value < q.value) {
+            return lowestCommonAncestorBSTRecursion(root, p, q);
+        }
+        return root;
+    }
 
+    public TreeNode lowestCommonAncestorBSTLoop(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) {
+        while (true) {
+            if (root.value > p.value && root.value > q.value) {
+                root = root.left;
+            } else if (root.value < p.value && root.value < q.value) {
+                root = root.right;
+            } else {
+                break;
+            }
+        }
+        return root;
+    }
+
+    /**
+     * 二叉搜索树中的插入操作
+     */
+    public TreeNode insertIntoBST(TreeNode<Integer> root, int val) {
+        if (root == null) {
+            TreeNode node = new TreeNode<>(val);
+            return node;
+        }
+        if (root.value < val) {
+            root.right = insertIntoBST(root.right, val);
+        }
+
+        if (root.value > val) {
+            root.left = insertIntoBST(root.left, val);
+        }
+        return root;
+    }
 
 }
