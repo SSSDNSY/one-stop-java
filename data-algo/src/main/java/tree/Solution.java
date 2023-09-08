@@ -1396,5 +1396,4 @@ public class Solution {
         convertSumBST(root.left);
     }
 
-
 }
