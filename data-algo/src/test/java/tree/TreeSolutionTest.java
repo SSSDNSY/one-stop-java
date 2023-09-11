@@ -186,4 +186,5 @@ public class TreeSolutionTest {
         assert modeArr.length == 2 && modeArr1.length == 2;
     }
 
+
 }
