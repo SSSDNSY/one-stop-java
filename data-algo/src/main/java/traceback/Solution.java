@@ -69,8 +69,9 @@ public class Solution {
             return;
         }
 
-        if (path.size() == k && sum==targetSum) {
+        if (path.size() == k && sum == targetSum) {
             result.add(new ArrayList<>(path));
+            return;
         }
 
         for (int i = startIndex; i < 9 - (k - path.size()) + 1; i++) {
@@ -82,7 +83,35 @@ public class Solution {
             path.removeLast();
             sum -= i;
         }
+    }
 
+    /**
+     * 电话号码的字母组合
+     */
+    List<String> strs;
+
+    public List<String> combineAlphabet(String inputStr) {
+        strs = new ArrayList<>();
+        String[] btnAlpha = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "uvw", "xyz"};
+        tracebackAlpha(inputStr, btnAlpha, 0);
+        return strs;
+    }
+
+    StringBuilder temp = new StringBuilder();
+
+    private void tracebackAlpha(String inputStr, String[] btnAlpha, int num) {
+        // 终止
+        if (num == inputStr.length()) {
+            strs.add(temp.toString());
+            return;
+        }
+        String str = btnAlpha[inputStr.charAt(num) - '0'];
+        for (int i = 0; i < str.length(); i++) {
+            temp.append(str.charAt(i));
+            tracebackAlpha(inputStr, btnAlpha, num + 1);
+            // 回溯
+            temp.deleteCharAt(temp.length() - 1);
+        }
     }
 
 }
