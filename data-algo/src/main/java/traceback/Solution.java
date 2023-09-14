@@ -194,6 +194,9 @@ public class Solution {
         }
     }
 
+    /**
+     * 分割回文串
+     */
     public List<List<String>> stringPartition(String str) {
         List<List<String>> result = new ArrayList<>();
         LinkedList<String> part   = new LinkedList<>();
@@ -209,7 +212,7 @@ public class Solution {
 
         for (int i = idx; i < str.length(); i++) {
             if (isPalinDrom(str, idx, i)) {
-                part.add(str.substring(idx, i+1));
+                part.add(str.substring(idx, i + 1));
             } else {
                 continue;
             }
@@ -226,5 +229,84 @@ public class Solution {
         }
         return true;
     }
+
+    /**
+     * 复原IP地址
+     */
+    public List<String> ipRecover(String ipStr) {
+        LinkedList<String> result = new LinkedList<>();
+        tracebackIp(result, ipStr, 0, 0);
+        return result;
+    }
+
+    private void tracebackIp(List<String> result, String ipStr, int idx, int commaNum) {
+        if (commaNum == 3) {
+            if (validIpField(ipStr, idx, ipStr.length() - 1)) {
+                result.add(ipStr);
+            }
+            return;
+        }
+        for (int i = idx; i < ipStr.length(); i++) {
+            if (validIpField(ipStr, idx, i)) {
+
+                ipStr = ipStr.substring(0, i + 1) + "." + ipStr.substring(i + 1);
+                commaNum++;
+                tracebackIp(result, ipStr, i + 2, commaNum);
+                commaNum--;
+                ipStr = ipStr.substring(0, i + 1) + ipStr.substring(i + 2);
+
+            } else {
+                break;
+            }
+        }
+    }
+
+    private boolean validIpField(String str, int start, int end) {
+        if (start > end) {
+            return false;
+        }
+        if (str.charAt(start) == '0' && start != end) {
+            return false;
+        }
+        int num = 0;
+        for (int i = start; i < end; i++) {
+            if (str.charAt(i) > '9' || str.charAt(i) < '0') {
+                return false;
+            }
+            num = num * 10 + (str.charAt(i) - '0');
+            if (num > 255) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 子集问题
+     * 示例: 输入: nums = [1,2,3] 输出: [ [3],   [1],   [2],   [1,2,3],   [1,3],   [2,3],   [1,2],   [] ]
+     */
+
+    public List<List<Integer>> subset(int[] arr) {
+        List<List<Integer>> result = new ArrayList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
+        tracebackSubset(result, path, arr, 0);
+        return result;
+    }
+
+    private void tracebackSubset(List<List<Integer>> result, LinkedList<Integer> path, int[] arr, int start) {
+        // 记录所有节点
+        result.add(new ArrayList<>(path));
+
+        // 条件可以不写 因为不满足也不会进入for循环，此处为了体现回溯的框架
+        if (start >= arr.length) {
+            return;
+        }
+        for (int i = start; i < arr.length; i++) {
+            path.addLast(arr[i]);
+            tracebackSubset(result, path, arr, i + 1);
+            path.removeLast();
+        }
+    }
+
 
 }

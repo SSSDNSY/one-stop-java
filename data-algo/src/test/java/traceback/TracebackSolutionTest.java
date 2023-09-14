@@ -52,10 +52,30 @@ public class TracebackSolutionTest {
 
     @Test
     public void TestCombineSum3() {
-        int[]               arr   = new int[]{10,1,2,7,6,1,5};
+        int[]               arr   = new int[]{10, 1, 2, 7, 6, 1, 5};
         List<List<Integer>> lists = solution.combineSum3(arr, 8);
         System.out.println(lists);
         assert lists.size() == 4;
+    }
+
+    @Test
+    public void TestStringPartition() {
+        List<List<String>> lists = solution.stringPartition("aab");
+        System.out.println(lists);
+        assert lists.size() == 2;
+    }
+
+    @Test
+    public void TestIpRecover() {
+        List<String> strings = solution.ipRecover("101023");
+        assert strings.size() == 5;
+    }
+
+    @Test
+    public void TestSubset() {
+        List<List<Integer>> lists = solution.subset(new int[]{1, 2, 3});
+        System.out.println(lists);
+        assert lists.size() == 5;
     }
 
 }
