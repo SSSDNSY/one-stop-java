@@ -129,11 +129,11 @@ public class Solution {
     public List<List<Integer>> combineSum(int[] arr, int target) {
         List<List<Integer>> result = new ArrayList<>();
         LinkedList<Integer> path   = new LinkedList<>();
-        traceBackSum(result, path, arr, target, 0, 0);
+        tracebackSum(result, path, arr, target, 0, 0);
         return result;
     }
 
-    private void traceBackSum(List<List<Integer>> result, LinkedList<Integer> path, int[] arr, int target, int sum, int idx) {
+    private void tracebackSum(List<List<Integer>> result, LinkedList<Integer> path, int[] arr, int target, int sum, int idx) {
         // 找到了添加结果并返回
         if (target == sum) {
             result.add(new ArrayList<>(path));
@@ -142,7 +142,7 @@ public class Solution {
 
         for (int i = idx; i < arr.length && target >= sum + arr[i]; i++) {
             path.add(arr[i]);
-            traceBackSum(result, path, arr, target, sum + arr[i], i);
+            tracebackSum(result, path, arr, target, sum + arr[i], i);
             // 回溯
             path.removeLast();
         }
@@ -192,7 +192,39 @@ public class Solution {
             sum -= path.getLast();
             path.removeLast();
         }
+    }
 
+    public List<List<String>> stringPartition(String str) {
+        List<List<String>> result = new ArrayList<>();
+        LinkedList<String> part   = new LinkedList<>();
+        tracebackStr(result, part, str, 0);
+        return result;
+    }
+
+    private void tracebackStr(List<List<String>> result, LinkedList<String> part, String str, int idx) {
+        if (idx >= str.length()) {
+            result.add(new ArrayList(part));
+            return;
+        }
+
+        for (int i = idx; i < str.length(); i++) {
+            if (isPalinDrom(str, idx, i)) {
+                part.add(str.substring(idx, i+1));
+            } else {
+                continue;
+            }
+            tracebackStr(result, part, str, i + 1);
+            part.removeLast();
+        }
+    }
+
+    private boolean isPalinDrom(String str, int start, int end) {
+        for (int i = start, j = end; i < j; i++, j--) {
+            if (str.charAt(i) != str.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
