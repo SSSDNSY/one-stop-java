@@ -75,7 +75,31 @@ public class TracebackSolutionTest {
     public void TestSubset() {
         List<List<Integer>> lists = solution.subset(new int[]{1, 2, 3});
         System.out.println(lists);
-        assert lists.size() == 5;
+        assert lists.size() == 8;
     }
+
+    @Test
+    public void TestSubsetDup() {
+        List<List<Integer>> lists = solution.subsetDup(new int[]{1, 2, 2});
+        System.out.println(lists);
+        assert lists.size() == 6;
+    }
+
+    @Test
+    public void TestSubsetAsc() {
+        List<List<Integer>> lists = solution.subsetAsc(new int[]{4, 6, 7, 7});
+        System.out.println(lists);
+        assert lists.size() == 8;
+    }
+
+    @Test
+    public void TestArrange() {
+        int[]               arr     = new int[]{1, 2, 3};
+        List<List<Integer>> arrange = solution.arrange(arr);
+        System.out.println(arrange);
+        assert arrange.size() == 6;
+    }
+
+
 
 }

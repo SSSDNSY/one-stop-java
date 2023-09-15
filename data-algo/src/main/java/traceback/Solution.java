@@ -297,7 +297,7 @@ public class Solution {
         // 记录所有节点
         result.add(new ArrayList<>(path));
 
-        // 条件可以不写 因为不满足也不会进入for循环，此处为了体现回溯的框架
+        // 条件可以不写 因为不满足不会进入for循环，此处为了体现回溯的框架
         if (start >= arr.length) {
             return;
         }
@@ -308,5 +308,107 @@ public class Solution {
         }
     }
 
+    /**
+     * 子集II
+     * <p>
+     * 给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+     * 输入: [1,2,2]
+     * 输出: [ [2], [1], [1,2,2], [2,2], [1,2], [] ]
+     */
+    public List<List<Integer>> subsetDup(int[] arr) {
+        List<List<Integer>> result = new ArrayList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
+        Arrays.sort(arr);
+        boolean[] used = new boolean[arr.length];
+        tracebackSubsetDup(result, path, arr, used, 0);
+        return result;
+    }
+
+    private void tracebackSubsetDup(List<List<Integer>> result, LinkedList<Integer> path, int[] arr, boolean[] used, int start) {
+        result.add(new ArrayList(path));
+        if (start >= arr.length) {
+            return;
+        }
+        for (int i = start; i < arr.length; i++) {
+            // 跳过当前树层使用过的、相同的元素
+            if (i > 0 && arr[i - 1] == arr[i] && !used[i - 1]) {
+                continue;
+            }
+            used[i] = true;
+            path.addLast(arr[i]);
+            // 递归
+            tracebackSubsetDup(result, path, arr, used, i + 1);
+            // 回溯
+            used[i] = false;
+            path.removeLast();
+        }
+    }
+
+    /**
+     * 491.递增子序列
+     * <p>
+     * 给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。
+     * <p>
+     * 示例:
+     * 输入: [4, 6, 7, 7]
+     * 输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]
+     */
+    public List<List<Integer>> subsetAsc(int[] nums) {
+        List<List<Integer>> result = new ArrayList();
+        LinkedList<Integer> path   = new LinkedList();
+        backtraceAsc(result, path, nums, 0);
+        return result;
+    }
+
+    private void backtraceAsc(List<List<Integer>> result, LinkedList<Integer> path, int[] nums, int start) {
+        if (path.size() > 1) {
+            result.add(new ArrayList<>(path));
+            // 注意这里不要加return，要取树上的节点
+        }
+
+        int[] used = new int[201];
+
+        for (int i = start; i < nums.length; i++) {
+            if (!path.isEmpty() && nums[i] < path.getLast() || used[nums[i] + 100] == 1) {
+                continue;
+            }
+            used[nums[i] + 100] = 1;
+            path.addLast(nums[i]);
+            backtraceAsc(result, path, nums, i + 1);
+            path.removeLast();
+        }
+    }
+
+    /**
+     * 全排列
+     * <p>
+     * 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+     * 示例:
+     * 输入: [1,2,3]
+     * 输出: [ [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1] ]
+     */
+
+    public List<List<Integer>> arrange(int[] arr) {
+        List<List<Integer>> result = new ArrayList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
+        tracebackArrange(result, path, arr);
+        return result;
+    }
+
+    private void tracebackArrange(List<List<Integer>> result, LinkedList<Integer> path, int[] arr) {
+        if (path.size() == arr.length) {
+            result.add(new ArrayList(path));
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (path.contains(arr[i])) {
+                continue;
+            }
+            path.addLast(arr[i]);
+            tracebackArrange(result, path, arr);
+            path.removeLast();
+        }
+
+    }
 
 }
