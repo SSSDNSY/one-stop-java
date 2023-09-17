@@ -100,6 +100,13 @@ public class TracebackSolutionTest {
         assert arrange.size() == 6;
     }
 
+    @Test
+    public void TestTracebackArrangeUnique(){
+        int[] arr = new int[]{1,2,3};
+        List<List<Integer>> lists = solution.arrangeUnique(arr);
+        System.out.println(lists);
+        assert lists.size() == 6;
+    }
 
 
 }
