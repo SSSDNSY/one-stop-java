@@ -18,7 +18,7 @@ public class Solution {
      * 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
      */
     List<List<Integer>> result = new ArrayList<>();
-    LinkedList<Integer> path = new LinkedList();
+    LinkedList<Integer> path   = new LinkedList();
 
     public List<List<Integer>> combine(int n, int k) {
         path = new LinkedList();
@@ -128,7 +128,7 @@ public class Solution {
      */
     public List<List<Integer>> combineSum(int[] arr, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
         tracebackSum(result, path, arr, target, 0, 0);
         return result;
     }
@@ -164,7 +164,7 @@ public class Solution {
      */
     public List<List<Integer>> combineSum3(int[] arr, int target) {
         List<List<Integer>> resulst = new ArrayList<>();
-        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path    = new LinkedList<>();
         // 为了将重复的数字都放到一起，所以先进行排序
         Arrays.sort(arr);
         tracebackSum3(resulst, path, arr, target, 0, 0);
@@ -199,7 +199,7 @@ public class Solution {
      */
     public List<List<String>> stringPartition(String str) {
         List<List<String>> result = new ArrayList<>();
-        LinkedList<String> part = new LinkedList<>();
+        LinkedList<String> part   = new LinkedList<>();
         tracebackStr(result, part, str, 0);
         return result;
     }
@@ -288,7 +288,7 @@ public class Solution {
 
     public List<List<Integer>> subset(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
         tracebackSubset(result, path, arr, 0);
         return result;
     }
@@ -317,7 +317,7 @@ public class Solution {
      */
     public List<List<Integer>> subsetDup(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
         Arrays.sort(arr);
         boolean[] used = new boolean[arr.length];
         tracebackSubsetDup(result, path, arr, used, 0);
@@ -355,7 +355,7 @@ public class Solution {
      */
     public List<List<Integer>> subsetAsc(int[] nums) {
         List<List<Integer>> result = new ArrayList();
-        LinkedList<Integer> path = new LinkedList();
+        LinkedList<Integer> path   = new LinkedList();
         backtraceAsc(result, path, nums, 0);
         return result;
     }
@@ -390,7 +390,7 @@ public class Solution {
 
     public List<List<Integer>> arrange(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
         tracebackArrange(result, path, arr);
         return result;
     }
@@ -418,7 +418,7 @@ public class Solution {
      */
     public List<List<Integer>> arrangeUnique(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Integer> path   = new LinkedList<>();
         Arrays.sort(arr);
         boolean[] used = new boolean[arr.length];
         tracebackArrangeUnique(result, path, arr, used);
