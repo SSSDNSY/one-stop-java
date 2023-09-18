@@ -408,7 +408,6 @@ public class Solution {
             tracebackArrange(result, path, arr);
             path.removeLast();
         }
-
     }
 
     /**
@@ -446,5 +445,181 @@ public class Solution {
             }
         }
     }
+
+    /**
+     * 重新安排行程
+     * I:[["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+     * O:["JFK","ATL","JFK","SFO","ATL","SFO"]
+     */
+    public List<String> findIteinerary(List<List<String>> tickets) {
+        tickets.sort((a, b) -> a.get(1).compareTo(b.get(1)));
+        LinkedList<String> result = new LinkedList<>();
+        LinkedList<String> path   = new LinkedList<>();
+        boolean[]          used   = new boolean[tickets.size()];
+        path.add("JFK");
+        tracebackFindIteinerary(result, path, tickets, used);
+        return result;
+    }
+
+    private boolean tracebackFindIteinerary(LinkedList<String> result, LinkedList<String> path, List<List<String>> tickets, boolean[] used) {
+        if (path.size() == tickets.size() + 1) {
+            result = new LinkedList(path);
+            return true;
+        }
+        for (int i = 0; i < tickets.size(); i++) {
+            if (!used[i] && tickets.get(i).get(0).equals(path.getLast())) {
+                path.add(tickets.get(i).get(1));
+                used[i] = true;
+
+                if (tracebackFindIteinerary(result, path, tickets, used)) {
+                    return true;
+                }
+
+                used[i] = false;
+                path.removeLast();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * N皇后问题
+     */
+    public List<List<String>> solveQueues(int n) {
+        List<List<String>> result    = new ArrayList<>();
+        int                row       = 0;
+        char[][]           dashboard = new char[n][n];
+        for (char[] cell : dashboard) {
+            Arrays.fill(cell, '.');
+        }
+        tracebackSolveQueue(result, n, row, dashboard);
+        return result;
+    }
+
+    private void tracebackSolveQueue(List<List<String>> result, int n, int row, char[][] dashboard) {
+        if (n == row) {
+            result.add(Chars2List(dashboard));
+            return;
+        }
+        for (int i = 0; i < n; i++) {
+            // 行验证
+            if (isValidQueuePos(row, i, dashboard)) {
+                dashboard[row][i] = 'Q';
+                tracebackSolveQueue(result, n, row + 1, dashboard);
+                dashboard[row][i] = '.';
+            }
+        }
+    }
+
+    private boolean isValidQueuePos(int row, int col, char[][] dashboard) {
+
+        // 列验证
+        for (int i = 0; i < row; i++) {
+            if (dashboard[i][col] == 'Q') {
+                return false;
+            }
+        }
+        // 45°验证
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+            if (dashboard[i][j] == 'Q') {
+                return false;
+            }
+        }
+
+        // 135°验证
+        for (int i = row - 1, j = col + 1; i >= 0 && j <= dashboard.length - 1; i--, j++) {
+            if (dashboard[i][j] == 'Q') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private List<String> Chars2List(char[][] dashboard) {
+        List<String> list = new ArrayList<>();
+        for (char[] cell : dashboard) {
+            list.add(new String(cell));
+        }
+        return list;
+    }
+
+    /**
+     * 解数独
+     */
+    public void solveSudoku(char[][] board) {
+        backtraceSudoku(board);
+    }
+
+    private boolean backtraceSudoku(char[][] board) {
+        // 行列回溯
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                // 跳过原有的数字
+                if (board[row][col] != '.') {
+                    continue;
+                }
+                // 1~9一个个回溯
+                for (char num = '1'; num <= '9'; num++) {
+                    //满足才去回溯
+                    if (isValidSudokuNum(row, col, num, board)) {
+                        board[row][col] = num;
+                        //回溯
+                        if (backtraceSudoku(board)) {
+                            // 找到一组就返回true
+                            return true;
+                        }
+                        board[row][col] = '.';
+                    }
+                }
+                // 9个数都试完了返回false
+                return false;
+            }
+        }
+        // 遍历完没有返回false，说明找到了合适棋盘位置了
+        return true;
+    }
+
+    /**
+     * 数独验证
+     * 行没有重复数字
+     * 列没有重复数字
+     * 九宫格内没有重复数字
+     */
+    private boolean isValidSudokuNum(int row, int col, char val, char[][] board) {
+        // 行
+        for (int i = 0; i < board.length; i++) {
+            if (board[row][i] == val) {
+                return false;
+            }
+        }
+        // 列
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][col] == val) {
+                return false;
+            }
+        }
+        // 九宫格
+        int startRow = row / 3 * 3;
+        int startCol = col / 3 * 3;
+        for (int i = startRow; i < startRow + 3; i++) {
+            for (int j = startCol; j < startCol + 3; j++) {
+                if (board[i][j] == val) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    void print(char[][] sudoku, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.printf(" %c ", sudoku[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 
 }

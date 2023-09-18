@@ -3,6 +3,7 @@ package traceback;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -106,6 +107,47 @@ public class TracebackSolutionTest {
         List<List<Integer>> lists = solution.arrangeUnique(arr);
         System.out.println(lists);
         assert lists.size() == 6;
+    }
+
+    /**
+     * [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+     */
+    @Test
+    public void TestFindIteinerary() {
+        List<List<String>> tickets = Arrays.asList(Arrays.asList("JFK", "SFO"), Arrays.asList("JFK", "ATL")
+                , Arrays.asList("SFO", "ATL"), Arrays.asList("ATL", "JFK"), Arrays.asList("ATL", "SFO"));
+        List<String> iteinerary = solution.findIteinerary(tickets);
+        System.out.println(iteinerary);
+        assert iteinerary.size() == 6;
+    }
+
+    @Test
+    public void TestSolveQueue() {
+        List<List<String>> queue = solution.solveQueues(4);
+        System.out.println(queue);
+        assert queue.size() == 2;
+    }
+
+    @Test
+    public void TestSolveSudoku() {
+        // 构造一个数独题的二维数组
+        char[][] sudoku = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'},
+        };
+        solution.print(sudoku, 9);
+        solution.solveSudoku(sudoku);
+        solution.print(sudoku, 9);
+        assert sudoku[8][0] == '3' && sudoku[7][1] == '8';
     }
 
 
