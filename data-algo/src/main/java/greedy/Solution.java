@@ -17,10 +17,26 @@ public class Solution {
         Arrays.sort(s);
         int count = 0;
         int start = 0;
+        // 优先考虑饼干
         for (int i = 0; i < s.length && start < g.length; i++) {
             if (g[i] <= s[start]) {
                 count++;
                 start++;
+            }
+        }
+        return count;
+    }
+
+    public int cookieAndChildren2(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int count = 0;
+        int start = s.length - 1;
+        // 优先考虑胃口
+        for (int i = g.length - 1; i >= 0; i--) {
+            if (g[i] <= s[start] && start >= 0) {
+                count++;
+                start--;
             }
         }
         return count;
