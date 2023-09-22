@@ -29,4 +29,15 @@ public class DynamicProgrammingSolutionTest {
         assert i1 == 2 && i2 == 21 && i3 == 55;
     }
 
+
+    @Test
+    public void testMinCost(){
+        int[] arr = new int[] {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+        int   i   = solution.minCostClaimStairs(arr);
+        System.out.println(i);
+        assert i==6;
+    }
+
+
+
 }
