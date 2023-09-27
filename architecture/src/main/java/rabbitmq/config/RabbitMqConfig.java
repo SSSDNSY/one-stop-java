@@ -165,7 +165,7 @@ public class RabbitMqConfig {
         return BindingBuilder.bind(delayQueue).to(delayExchange).with(RabbitConsts.DELAY_QUEUE).noargs();
     }
 
-    @Bean
+    // @Bean
     public MessageRecoverer recoverer(RabbitTemplate rabbitTemplate) {
         return new RejectAndDontRequeueRecoverer();
     }

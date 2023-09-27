@@ -28,12 +28,13 @@ public class DirectQueueOneHandler {
     /**
      * 如果 spring.rabbitmq.listener.direct.acknowledge-mode: auto，则可以用这个方式，会自动ack
      */
-    // @RabbitHandler
-    public void directHandlerAutoAck(MessageStruct message) {
+    @RabbitHandler
+    public void directHandlerAutoAck(MessageStruct message) throws Exception{
         log.info("直接队列处理器，接收消息：{}", JSONUtil.toJsonStr(message));
+        // int i=1/0;
     }
 
-    @RabbitHandler
+    // @RabbitHandler
     public void directHandlerManualAck(MessageStruct messageStruct, Message message, Channel channel) {
         //  如果手动ACK,消息会被监听消费,但是消息在队列中依旧存在,如果 未配置 acknowledge-mode 默认是会在消费完毕后自动ACK掉
         final long deliveryTag = message.getMessageProperties().getDeliveryTag();

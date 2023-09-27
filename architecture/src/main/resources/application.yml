@@ -68,17 +68,14 @@ spring:
     listener:
       direct:
         retry:
-          enabled: true
+          enabled: false
           max-attempts: 3
+        acknowledge-mode: auto
       simple:
         retry:
-          enabled: true
+          enabled: false
           max-attempts: 3
-#    listener:
-#      simple:
-#        acknowledge-mode: manual
-#      direct:
-#        acknowledge-mode: manual
+        acknowledge-mode: auto
 
 
 
