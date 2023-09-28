@@ -31,13 +31,19 @@ public class DynamicProgrammingSolutionTest {
 
 
     @Test
-    public void testMinCost(){
-        int[] arr = new int[] {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+    public void testMinCost() {
+        int[] arr = new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         int   i   = solution.minCostClaimStairs(arr);
         System.out.println(i);
-        assert i==6;
+        assert i == 6;
     }
 
+    @Test
+    public void testUniquePaths() {
+        int result = solution.uniquePaths(3, 7);
+        System.out.println(result);
+        assert result == 28;
+    }
 
 
 }
