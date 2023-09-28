@@ -149,12 +149,77 @@ public class Solution {
         }
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                dp[i][j] = dp[i - i][j] + dp[i][j - 1];
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
             }
         }
         return dp[m - 1][n - 1];
     }
 
+    /**
+     * 不同路径II
+     * 输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+     * 输出：2 解释：
+     */
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int r      = obstacleGrid.length;
+        int c      = obstacleGrid[0].length;
+        int dp[][] = new int[r][c];
 
+        // 起点终点有障碍直接返回0
+        if (obstacleGrid[0][0] == 1 || obstacleGrid[r - 1][c - 1] == 1) {
+            return 0;
+        }
+        // 顶边和左边初始化
+        for (int i = 0; i < r && obstacleGrid[i][0] == 0; i++) {
+            dp[i][0] = 1;
+        }
+        for (int i = 0; i < c && obstacleGrid[0][i] == 0; i++) {
+            dp[0][i] = 1;
+        }
+
+        // 从左到右从上到下遍历
+        for (int i = 1; i < r; i++) {
+            for (int j = 1; j < c; j++) {
+                dp[i][j] = obstacleGrid[i][j] == 0 ? dp[i - 1][j] + dp[i][j - 1] : 0;
+            }
+        }
+
+        return dp[r - 1][c - 1];
+    }
+
+    /**
+     * 整数拆分
+     * 2<=n<58
+     * i:10
+     * o:36
+     */
+    public int integerBreak(int n) {
+        int[] dp = new int[n + 1];
+        dp[2] = 1;
+        for (int i = 3; i <= n; i++) {
+            for (int j = 1; j <= i - j; j++) {
+                //(i-j)*j =两个数的乘积，dp[i-j]*j = 多个数的乘积
+                dp[i] = Math.max(dp[i], Math.max((i - j) * j, dp[i - j] * j));
+            }
+        }
+        return dp[n];
+    }
+
+    /**
+     * 不同的二叉搜索树
+     * i:5
+     * o:42
+     */
+    public int numTrees(int n) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                dp[i] += dp[j - 1] * dp[i - j];
+            }
+        }
+        return dp[n];
+    }
 
 }

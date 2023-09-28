@@ -45,5 +45,25 @@ public class DynamicProgrammingSolutionTest {
         assert result == 28;
     }
 
+    @Test
+    public void testUniquePathsWithObstacles() {
+        int result = solution.uniquePathsWithObstacles(new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}});
+        System.out.println(result);
+        assert result == 2;
+    }
+
+    @Test
+    public void testIntegerBreak() {
+        int result = solution.integerBreak(10);
+        System.out.println(result);
+        assert result == 36;
+    }
+
+    @Test
+    public void testNumTrees(){
+        int result = solution.numTrees(5);
+        System.out.println(result);
+        assert result == 42;
+    }
 
 }
