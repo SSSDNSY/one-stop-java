@@ -233,26 +233,26 @@ public class Solution {
      */
     public int[][] bagProblem(int[] weight, int[] value, int bagSize) {
 
-        //定义dp数组,方便计算冗余了0号物品重量为0
-        int[][] dp = new int[weight.length ][bagSize + 1];
-        //初始化dp数组，默认0即可
+        // 定义dp数组,方便计算冗余了0号物品重量为0
+        int[][] dp = new int[weight.length][bagSize + 1];
+        // 初始化dp数组，默认0即可
         for (int j = weight[0]; j <= bagSize; j++) {
             dp[0][j] = value[0];
         }
-        //遍历物品
+        // 遍历物品
         for (int i = 1; i < weight.length; i++) {
             for (int j = 1; j <= bagSize; j++) {
                 //
                 if (j < weight[i]) {
-                    //装不下，价值不变
+                    // 装不下，价值不变
                     dp[i][j] = dp[i - 1][j];
                 } else {
-                    //能装下，取拿和不拿的最大
+                    // 能装下，取拿和不拿的最大
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
                 }
             }
         }
-        //打印dp数组
+        // 打印dp数组
         for (int[] arr : dp) {
             System.out.println(Arrays.toString(arr));
         }
@@ -266,4 +266,5 @@ public class Solution {
      * @param value   价值
      * @param bagSize 背包容量
      */
+
 }
