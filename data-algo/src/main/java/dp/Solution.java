@@ -271,7 +271,7 @@ public class Solution {
 
     public int[] bagProblem2(int[] weight, int[] value, int bagWeight) {
         int dp[] = new int[bagWeight + 1];
-        // 先便利物品再便利背包容量
+        // 先便利物品再遍历背包容量
         for (int i = 0; i < weight.length; i++) {
             for (int j = bagWeight; j >= weight[i]; j--) {
                 dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
