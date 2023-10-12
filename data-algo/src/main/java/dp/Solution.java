@@ -226,6 +226,7 @@ public class Solution {
 
     /**
      * 背包理论基础一
+     * 二维数组解法
      *
      * @param weight  物品重量
      * @param value   价值
@@ -261,10 +262,23 @@ public class Solution {
 
     /**
      * 背包理论基础二
+     * 一维数组解法
      *
      * @param weight  物品重量
      * @param value   价值
      * @param bagSize 背包容量
      */
+
+    public int[] bagProblem2(int[] weight, int[] value, int bagWeight) {
+        int dp[] = new int[bagWeight + 1];
+        // 先便利物品再便利背包容量
+        for (int i = 0; i < weight.length; i++) {
+            for (int j = bagWeight; j >= weight[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
+            }
+        }
+        Arrays.stream(dp).forEach(System.out::println);
+        return dp;
+    }
 
 }

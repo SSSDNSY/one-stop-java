@@ -74,4 +74,12 @@ public class DynamicProgrammingSolutionTest {
         solution.bagProblem(weight,value,bagSize);
     }
 
+    @Test
+    public void testBagProblem2(){
+        int[] weight = {1,3,4};
+        int[] value = {15,20,30};
+        int bagSize = 4;
+        solution.bagProblem2(weight,value,bagSize);
+    }
+
 }
