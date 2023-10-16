@@ -60,27 +60,55 @@ public class DynamicProgrammingSolutionTest {
     }
 
     @Test
-    public void testNumTrees(){
+    public void testNumTrees() {
         int result = solution.numTrees(5);
         System.out.println(result);
         assert result == 42;
     }
 
     @Test
-    public void testBagProblem(){
-        int[] weight = {1,3,4};
-        int[] value = {15,20,30};
-        int bagSize = 4;
-        solution.bagProblem(weight,value,bagSize);
+    public void testBagProblem() {
+        int[] weight  = {1, 3, 4};
+        int[] value   = {15, 20, 30};
+        int   bagSize = 4;
+        solution.bagProblem(weight, value, bagSize);
     }
 
     @Test
-    public void testBagProblem2(){
-        int[] weight = {1,3,4};
-        int[] value = {15,20,30};
-        int bagSize = 4;
-        solution.bagProblem2(weight,value,bagSize);
+    public void testBagProblem2() {
+        int[] weight  = {1, 3, 4};
+        int[] value   = {15, 20, 30};
+        int   bagSize = 4;
+        solution.bagProblem2(weight, value, bagSize);
     }
 
 
+    /**
+     * 输入: [1, 5, 11, 5]
+     * 输出: true
+     * 解释: 数组可以分割成 [1, 5, 5] 和 [11].
+     * 示例 2:
+     * <p>
+     * 输入: [1, 2, 3, 5]
+     * 输出: false
+     * 解释: 数组不能分割成两个元素和相等的子集.
+     */
+    @Test
+    public void testCanPartition() {
+        int[] arr  = new int[]{1, 5, 11, 5};
+        int[] arr1 = new int[]{1, 2, 3, 5};
+        assert solution.canPartition(arr);
+        assert !solution.canPartition(arr1);
+    }
+
+    /**
+     * 输入：nums: [1, 1, 1, 1, 1], S: 3
+     * 输出：5
+     */
+    @Test
+    public void testFindTargetSumWay() {
+        int targetSumWay = solution.findTargetSumWay(new int[]{1, 1, 1, 1, 1}, 3);
+        System.out.println(targetSumWay);
+        assert targetSumWay == 5;
+    }
 }

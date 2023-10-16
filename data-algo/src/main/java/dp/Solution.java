@@ -281,4 +281,64 @@ public class Solution {
         return dp;
     }
 
+    /**
+     * 分隔等和子集
+     */
+    public boolean canPartition(int[] nums) {
+        int sum = Arrays.stream(nums).sum();
+        // 总和为奇数，不能平分
+        if (sum % 2 != 0) {
+            return false;
+        }
+        int   len    = nums.length;
+        int   target = sum / 2;
+        int[] dp     = new int[target + 1];
+        for (int i = 0; i < len; i++) {
+            for (int j = target; j >= nums[i]; j--) {
+                // 物品 i 的重量是 nums[i]，其价值也是 nums[i]
+                dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+        }
+        return target == dp[target];
+    }
+
+    /**
+     * 最后一块石头的重量II
+     */
+    public int lastStoneWeightII(int[] stones) {
+        int sum    = Arrays.stream(stones).sum();
+        int target = sum >> 1;
+        int dp[]   = new int[target + 1];
+        for (int i = 0; i < stones.length; i++) {
+            for (int j = target; j >= stones[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - stones[i]] + stones[i]);
+            }
+        }
+        return sum - 2 * dp[target];
+    }
+
+    /**
+     * 目标和
+     */
+    public int findTargetSumWay(int[] nums, int target) {
+
+        int sum = Arrays.stream(nums).sum();
+        if (Math.abs(target) > sum) {
+            return 0;
+        }
+        if ((sum + target) % 2 == 1) {
+            return 0;
+        }
+        int   size = (sum + target) / 2;
+        int[] dp   = new int[size + 1];
+        dp[0] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = size; j >= nums[i]; j--) {
+                dp[j] += dp[j - nums[i]];
+            }
+        }
+        return dp[size];
+    }
+
+
 }
