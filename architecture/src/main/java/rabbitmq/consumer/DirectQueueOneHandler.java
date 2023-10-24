@@ -30,8 +30,9 @@ public class DirectQueueOneHandler {
      */
     @RabbitHandler
     public void directHandlerAutoAck(MessageStruct message) throws Exception{
+
+        int i=1/0;
         log.info("直接队列处理器，接收消息：{}", JSONUtil.toJsonStr(message));
-        // int i=1/0;
     }
 
     // @RabbitHandler

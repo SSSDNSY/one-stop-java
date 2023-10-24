@@ -1,8 +1,10 @@
 package rabbitmq.config;
 
+import cn.hutool.json.JSONUtil;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.retry.MessageRecoverer;
@@ -10,6 +12,7 @@ import org.springframework.amqp.rabbit.retry.RejectAndDontRequeueRecoverer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rabbitmq.constants.RabbitConsts;
+import rabbitmq.message.MessageStruct;
 
 import java.util.Map;
 
@@ -43,6 +46,14 @@ public class RabbitMqConfig {
     @Bean
     public Queue directOneQueue() {
         return new Queue(RabbitConsts.DIRECT_MODE_QUEUE_ONE);
+    }
+
+    /**
+     * 直接队列消费者
+     */
+    @RabbitListener(queues = RabbitConsts.DIRECT_MODE_QUEUE_ONE)
+    public void directQueueConsumer2(MessageStruct message) throws Exception {
+        log.info("直接处理的Consumer2，接收消息：{}", JSONUtil.toJsonStr(message));
     }
 
     /**

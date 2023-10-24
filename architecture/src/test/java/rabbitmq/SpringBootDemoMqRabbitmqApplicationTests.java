@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import rabbitmq.constants.RabbitConsts;
 import rabbitmq.message.MessageStruct;
 
+import java.util.concurrent.TimeUnit;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootDemoMqRabbitmqApplicationTests {
@@ -20,8 +22,9 @@ public class SpringBootDemoMqRabbitmqApplicationTests {
      * 测试直接模式发送
      */
     @Test
-    public void sendDirect() {
+    public void sendDirect() throws InterruptedException {
         for (int i = 0; i < 10; i++) {
+            TimeUnit.SECONDS.sleep(1);
             rabbitTemplate.convertAndSend(RabbitConsts.DIRECT_MODE_QUEUE_ONE, new MessageStruct("direct message"));
         }
     }
