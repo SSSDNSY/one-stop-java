@@ -112,4 +112,11 @@ public class DynamicProgrammingSolutionTest {
         assert targetSumWay == 5;
     }
 
+    @Test
+    public void testFindMaxForm() {
+        int maxForm = solution.findMaxForm(new String[]{"10", "0", "1"}, 1, 1);
+        System.out.println(maxForm);
+        assert maxForm == 2;
+    }
+
 }
