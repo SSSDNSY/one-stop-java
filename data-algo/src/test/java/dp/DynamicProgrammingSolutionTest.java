@@ -3,6 +3,8 @@ package dp;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * @Desc 动态规划单元测试
  * @Author pengzh
@@ -117,6 +119,25 @@ public class DynamicProgrammingSolutionTest {
         int maxForm = solution.findMaxForm(new String[]{"10", "0", "1"}, 1, 1);
         System.out.println(maxForm);
         assert maxForm == 2;
+    }
+
+    @Test
+    public void testCompletePack() {
+        int[] weight    = {1, 3, 4};
+        int[] value     = {15, 20, 30};
+        int   bagWeight = 4;
+        int[] dp        = solution.completePackage(weight, value, bagWeight);
+        Arrays.stream(dp).forEach(System.out::println);
+        assert dp[4] == 60;
+    }
+
+    @Test
+    public void testChange() {
+        int[] coins  = new int[]{1, 2, 5};
+        int   amount = 5;
+        int[] dp     = solution.change(amount, coins);
+        Arrays.stream(dp).forEach(System.out::println);
+        assert dp[5] == 4;
     }
 
 }

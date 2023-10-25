@@ -370,7 +370,53 @@ public class Solution {
         return dp[m][n];
     }
 
+    /**
+     * 完全背包理论1
+     */
+    public int[] completePackage(int[] weight, int[] value, int bagWeight) {
+        int[] dp = new int[bagWeight + 1];
+        for (int i = 0; i < weight.length; i++) {
+            for (int j = weight[i]; j <= bagWeight; j++) {
+                dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
+            }
+        }
+        return dp;
+    }
 
+    // 先遍历背包，再遍历物品
+    private static void testCompletePackAnotherWay() {
+        int[] weight    = {1, 3, 4};
+        int[] value     = {15, 20, 30};
+        int   bagWeight = 4;
+        int[] dp        = new int[bagWeight + 1];
+        for (int i = 1; i <= bagWeight; i++) { // 遍历背包容量
+            for (int j = 0; j < weight.length; j++) { // 遍历物品
+                if (i - weight[j] >= 0) {
+                    dp[i] = Math.max(dp[i], dp[i - weight[j]] + value[j]);
+                }
+            }
+        }
+        for (int maxValue : dp) {
+            System.out.println(maxValue + "   ");
+        }
+    }
+
+    /**
+     * 零钱兑换II
+     * <p>
+     * 如果求组合数就是外层for循环遍历物品，内层for遍历背包。
+     * 如果求排列数就是外层for遍历背包，内层for循环遍历物品。
+     */
+    public int[] change(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int i = 0; i < coins.length; i++) {
+            for (int j = coins[i]; j <= amount; j++) {
+                dp[j] += dp[j - coins[i]];
+            }
+        }
+        return dp;
+    }
 
 
 }
