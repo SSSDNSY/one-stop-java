@@ -140,4 +140,11 @@ public class DynamicProgrammingSolutionTest {
         assert dp[5] == 4;
     }
 
+    @Test
+    public void testNumSquares() {
+        int num = solution.numSquares(13);
+        System.out.println(num);
+        assert num ==2;
+    }
+
 }
