@@ -1,6 +1,9 @@
 package dp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * @Desc DP 动态规划
@@ -419,30 +422,68 @@ public class Solution {
     }
 
     /**
-     *
      * 完全平方数
-     *
+     * <p>
      * 示例 1：
-     *
+     * <p>
      * 输入：n = 12
      * 输出：3
      * 解释：12 = 4 + 4 + 4
      * 示例 2：
-     *
+     * <p>
      * 输入：n = 13
      * 输出：2
      * 解释：13 = 4 + 9
      */
-    public int numSquares(int n){
-        int[] dp =new int[n+1];
-        Arrays.fill(dp,Integer.MAX_VALUE);
-        dp[0]=0;
-        for(int i =1;i*i<=n;i++){
-            for (int j = i*i; j <=n; j++) {
-                dp[j] = Math.min(dp[j],dp[j-i*i]+1);
+    public int numSquares(int n) {
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        for (int i = 1; i * i <= n; i++) {
+            for (int j = i * i; j <= n; j++) {
+                dp[j] = Math.min(dp[j], dp[j - i * i] + 1);
             }
         }
         return dp[n];
+    }
+
+    /**
+     * 多重背包
+     */
+    public void mutilPackage() {
+        int           bagWeight = 10, n = 10;
+        List<Integer> weight    = new ArrayList();
+        List<Integer> value     = new ArrayList();
+        List<Integer> nums      = new ArrayList();
+        Scanner       scanner   = new Scanner(System.in);
+        for (int i = 0; i < n; i++) {
+            weight.add(scanner.nextInt());
+        }
+        for (int i = 0; i < n; i++) {
+            value.add(scanner.nextInt());
+        }
+        for (int i = 0; i < n; i++) {
+            nums.add(scanner.nextInt());
+        }
+
+        bagWeight = weight.size();
+
+        for (int i = 0; i < n; i++) {
+            while (nums.get(i) > 1) { // 物品数量不是一的，都展开
+                weight.add(weight.get(i));
+                value.add(value.get(i));
+//                nums.get(i)--;
+            }
+        }
+
+        int[] dp = new int[bagWeight + 1];
+        for (int i = 0; i < weight.size(); i++) { // 遍历物品，注意此时的物品数量不是n
+            for (int j = bagWeight; j >= weight.get(i); j--) { // 遍历背包容量
+                dp[j] = Math.max(dp[j], dp[j - weight.get(i)] + value.get(i));
+            }
+        }
+        System.out.println(dp[bagWeight]);
+
     }
 
 
