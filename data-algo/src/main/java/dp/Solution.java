@@ -467,7 +467,6 @@ public class Solution {
         }
 
         bagWeight = weight.size();
-
         for (int i = 0; i < n; i++) {
             while (nums.get(i) > 1) { // 物品数量不是一的，都展开
                 weight.add(weight.get(i));
@@ -475,7 +474,6 @@ public class Solution {
 //                nums.get(i)--;
             }
         }
-
         int[] dp = new int[bagWeight + 1];
         for (int i = 0; i < weight.size(); i++) { // 遍历物品，注意此时的物品数量不是n
             for (int j = bagWeight; j >= weight.get(i); j--) { // 遍历背包容量
