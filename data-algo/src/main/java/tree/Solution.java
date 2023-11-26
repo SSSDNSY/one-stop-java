@@ -404,14 +404,14 @@ public class Solution {
             List<Integer> curList = qList.pollFirst();
             if (node.children == null) {
                 curList.add(node.val);
-                // 添加子路径1
+                // 添加末尾路径
                 result.add(curList);
             } else {
                 for (Node child : node.children) {
                     queue.add(child);
                     List<Integer> temp = new ArrayList<>(curList);
                     temp.add(node.val);
-                    // 添加子路径2
+                    // 添加中间路径
                     qList.add(temp);
                 }
             }
