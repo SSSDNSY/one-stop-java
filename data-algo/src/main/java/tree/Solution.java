@@ -385,6 +385,42 @@ public class Solution {
     }
 
     /**
+     * N叉树的路径遍历
+     */
+    public List<List<Integer>> nTreePath(Node root){
+        List<List<Integer>> result = new ArrayList<>();
+        Deque<List<Integer>> qList = new LinkedList<>();
+        Deque<Node> queue = new LinkedList<>();
+        if(root ==null){
+            return result;
+        }
+
+        qList.add(new ArrayList<>());
+        queue.offerLast(root);
+
+        while(!queue.isEmpty()){
+            Node node = queue.pollFirst();
+            //当前父路径
+            List<Integer> curList = qList.pollFirst();
+            if(node.children==null){
+                curList.add(node.val);
+                // 添加子路径1
+                result.add(curList);
+            }else {
+
+                for (Node child: node.children) {
+                    queue.add(child);
+                    List<Integer> temp = new ArrayList<>(curList);
+                    temp.add(node.val);
+                    // 添加子路径2
+                    qList.add(temp);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
      * 在每个树行中找最大值
      */
     public List<Integer> findMaxValue(TreeNode<Integer> root) {

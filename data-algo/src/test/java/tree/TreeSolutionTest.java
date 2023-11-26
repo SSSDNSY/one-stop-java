@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -17,6 +18,8 @@ public class TreeSolutionTest {
     TreeNode<Integer> root;
 
     TreeNode<Integer> bstRoot;
+
+    Node rootN;
 
     Solution solution;
 
@@ -54,6 +57,25 @@ public class TreeSolutionTest {
 
         TreeNode t4 = new TreeNode<>(t2, t7, 4);
         bstRoot = t4;
+
+
+        Node c9 = new Node(9);
+
+        Node c8 = new Node(8);
+
+        Node c7 = new Node(7);
+
+        Node c5 = new Node(5);
+
+        Node c6 = new Node(6);
+
+        Node c2 = new Node(2,Arrays.asList(c5,c6));
+
+        Node c3= new Node(3,Arrays.asList(c7,c8));
+
+        Node c4 = new Node(4,Arrays.asList(c9));
+
+        rootN = new Node(1, Arrays.asList(c2,c3,c4));
     }
 
 
@@ -92,7 +114,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testGetPath() {
-        List list  = solution.getPathsStack(root);
+        List list = solution.getPathsStack(root);
         List list2 = solution.getPathsRecurBack(root);
         System.out.println(list);
         System.out.println(list2);
@@ -114,14 +136,14 @@ public class TreeSolutionTest {
 
     @Test
     public void testHasPathSum() {
-        boolean bool  = solution.hasPathSum(root, 1);
+        boolean bool = solution.hasPathSum(root, 1);
         boolean bool2 = solution.hasPathSum(root, 15);
         System.out.println(bool);
     }
 
     @Test
     public void testBuildMaxTree() {
-        int[]             nums = new int[]{3, 2, 1, 6, 0, 5};
+        int[] nums = new int[]{3, 2, 1, 6, 0, 5};
         TreeNode<Integer> tree = solution.constructMaximumBinaryTree(nums);
         System.out.printf(tree.getValue().toString());
     }
@@ -136,7 +158,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testSearchBSTRecursion() {
-        TreeNode treeNode  = solution.searchBSTRecursion(bstRoot, 2);
+        TreeNode treeNode = solution.searchBSTRecursion(bstRoot, 2);
         TreeNode treeNode2 = solution.searchBSTRecursion(bstRoot, 5);
         System.out.println(treeNode);
         System.out.println(treeNode2);
@@ -146,7 +168,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testSearchBSTLoop() {
-        TreeNode treeNode  = solution.searchBSTLoop(bstRoot, 2);
+        TreeNode treeNode = solution.searchBSTLoop(bstRoot, 2);
         TreeNode treeNode2 = solution.searchBSTLoop(bstRoot, 5);
         System.out.println(treeNode);
         System.out.println(treeNode2);
@@ -156,7 +178,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testValidBSTRecursion() {
-        boolean bool  = solution.isValidBSTRecursion(bstRoot);
+        boolean bool = solution.isValidBSTRecursion(bstRoot);
         boolean bool1 = solution.isValidBSTArr(bstRoot);
         boolean bool2 = solution.isValidBSTinOrder(bstRoot);
         System.out.println(bool);
@@ -168,7 +190,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testMinimumAbsRecursion() {
-        int minVal  = solution.minimumAbsRecursion(bstRoot);
+        int minVal = solution.minimumAbsRecursion(bstRoot);
         int minVal1 = solution.getMinimumAbsInorder(bstRoot);
         System.out.println(minVal);
         System.out.println(minVal1);
@@ -178,7 +200,7 @@ public class TreeSolutionTest {
 
     @Test
     public void testFindMode() {
-        int[] modeArr  = solution.findModeMap(bstRoot);
+        int[] modeArr = solution.findModeMap(bstRoot);
         int[] modeArr1 = solution.findMode(bstRoot);
         IntStream.of(modeArr).forEach(System.out::println);
         System.out.println();
@@ -186,5 +208,32 @@ public class TreeSolutionTest {
         assert modeArr.length == 2 && modeArr1.length == 2;
     }
 
+    /**
+     * 测试多叉树的层序遍历
+     *     1
+     *  2  3  4
+     * 56  78  9
+     */
+    @Test
+    public void testNTreeLevelOrder() {
+        List<List<Integer>> lists = solution.levelOrder(rootN);
+        lists.forEach(System.out::println);
+        assert lists.size() == 3 && lists.get(1).get(2)==4;
+    }
+
+    /**
+     * 测试多叉树的路径遍历
+     * 125
+     * 126
+     * 137
+     * 138
+     * 149
+     */
+    @Test
+    public void testNTreePath() {
+        List<List<Integer>> lists = solution.nTreePath(rootN);
+        lists.forEach(System.out::println);
+        assert lists.size() == 5 && lists.get(1).get(2)==6;
+    }
 
 }
