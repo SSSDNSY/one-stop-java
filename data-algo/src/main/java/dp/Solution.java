@@ -1,6 +1,9 @@
 package dp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * @Desc DP 动态规划
@@ -89,24 +92,6 @@ public class Solution {
         return dp[cost.length];
     }
 
-
-    /**
-     * 打家劫舍
-     */
-    public int rob1(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
-
-        int[] dp = new int[nums.length];
-        dp[0] = nums[0];
-        dp[1] = Math.max(dp[0], nums[1]);
-        for (int i = 2; i < nums.length; i++) {
-            // TODO
-            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
-        }
-
-        return dp[nums.length - 1];
-    }
 
     /**
      * 不同路径
@@ -419,30 +404,103 @@ public class Solution {
     }
 
     /**
-     *
      * 完全平方数
-     *
+     * <p>
      * 示例 1：
-     *
+     * <p>
      * 输入：n = 12
      * 输出：3
      * 解释：12 = 4 + 4 + 4
      * 示例 2：
-     *
+     * <p>
      * 输入：n = 13
      * 输出：2
      * 解释：13 = 4 + 9
      */
-    public int numSquares(int n){
-        int[] dp =new int[n+1];
-        Arrays.fill(dp,Integer.MAX_VALUE);
-        dp[0]=0;
-        for(int i =1;i*i<=n;i++){
-            for (int j = i*i; j <=n; j++) {
-                dp[j] = Math.min(dp[j],dp[j-i*i]+1);
+    public int numSquares(int n) {
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        for (int i = 1; i * i <= n; i++) {
+            for (int j = i * i; j <= n; j++) {
+                dp[j] = Math.min(dp[j], dp[j - i * i] + 1);
             }
         }
         return dp[n];
+    }
+
+    /**
+     * 多重背包
+     */
+    public void mutilPackage() {
+        int           bagWeight = 10, n = 10;
+        List<Integer> weight    = new ArrayList();
+        List<Integer> value     = new ArrayList();
+        List<Integer> nums      = new ArrayList();
+        Scanner       scanner   = new Scanner(System.in);
+        for (int i = 0; i < n; i++) {
+            weight.add(scanner.nextInt());
+        }
+        for (int i = 0; i < n; i++) {
+            value.add(scanner.nextInt());
+        }
+        for (int i = 0; i < n; i++) {
+            nums.add(scanner.nextInt());
+        }
+
+        bagWeight = weight.size();
+        for (int i = 0; i < n; i++) {
+            while (nums.get(i) > 1) { // 物品数量不是一的，都展开
+                weight.add(weight.get(i));
+                value.add(value.get(i));
+//                nums.get(i)--;
+            }
+        }
+        int[] dp = new int[bagWeight + 1];
+        for (int i = 0; i < weight.size(); i++) { // 遍历物品，注意此时的物品数量不是n
+            for (int j = bagWeight; j >= weight.get(i); j--) { // 遍历背包容量
+                dp[j] = Math.max(dp[j], dp[j - weight.get(i)] + value.get(i));
+            }
+        }
+        System.out.println(dp[bagWeight]);
+    }
+
+    /**
+     * 打家劫舍
+     */
+    public int rob1(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(dp[0], nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            // TODO
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+
+        return dp[nums.length - 1];
+    }
+
+
+    /**
+     * 打家劫舍II
+     */
+    public int rob2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        return Math.max(rob2(nums, 0, nums.length - 2), rob2(nums, 1, nums.length - 1));
+    }
+
+    public int rob2(int[] nums, int start, int end) {
+        int[] dp = new int[nums.length];
+        dp[start] = nums[start];
+        dp[start+1] = Math.max(dp[start], nums[start+1]);
+        for (int i = start+2; i < end; i++) {
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+        }
+        return dp[end];
     }
 
 
