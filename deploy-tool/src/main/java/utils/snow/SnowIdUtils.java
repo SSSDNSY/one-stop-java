@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,43 +32,44 @@ public class SnowIdUtils {
         /**
          * 内部类对象（单例模式）
          */
-        private static final SnowIdUtils.SnowFlake SNOW_FLAKE      = new SnowIdUtils.SnowFlake();
+        private static final SnowIdUtils.SnowFlake SNOW_FLAKE = new SnowIdUtils.SnowFlake();
+
         /**
          * 起始的时间戳
          */
-        private final        long                  START_TIMESTAMP = 1557489395327L;
+        private final long START_TIMESTAMP = 1557489395327L;
         /**
          * 序列号占用位数
          */
-        private final        long                  SEQUENCE_BIT    = 12;
+        private final long SEQUENCE_BIT    = 12;
         /**
          * 机器标识占用位数
          */
-        private final        long                  MACHINE_BIT     = 10;
+        private final long MACHINE_BIT     = 10;
         /**
          * 时间戳位移位数
          */
-        private final        long                  TIMESTAMP_LEFT  = SEQUENCE_BIT + MACHINE_BIT;
+        private final long TIMESTAMP_LEFT  = SEQUENCE_BIT + MACHINE_BIT;
         /**
          * 最大序列号  （4095）
          */
-        private final        long                  MAX_SEQUENCE    = ~(-1L << SEQUENCE_BIT);
+        private final long MAX_SEQUENCE    = ~(-1L << SEQUENCE_BIT);
         /**
          * 最大机器编号 （1023）
          */
-        private final        long                  MAX_MACHINE_ID  = ~(-1L << MACHINE_BIT);
+        private final long MAX_MACHINE_ID  = ~(-1L << MACHINE_BIT);
         /**
          * 生成id机器标识部分
          */
-        private              long                  machineIdPart;
+        private       long machineIdPart;
         /**
          * 序列号
          */
-        private              long                  sequence        = 0L;
+        private       long sequence        = 0L;
         /**
          * 上一次时间戳
          */
-        private              long                  lastStamp       = -1L;
+        private       long lastStamp       = -1L;
 
         /**
          * 构造函数初始化机器编码
