@@ -496,12 +496,73 @@ public class Solution {
     public int rob2(int[] nums, int start, int end) {
         int[] dp = new int[nums.length];
         dp[start] = nums[start];
-        dp[start+1] = Math.max(dp[start], nums[start+1]);
-        for (int i = start+2; i < end; i++) {
+        dp[start + 1] = Math.max(dp[start], nums[start + 1]);
+        for (int i = start + 2; i < end; i++) {
             dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
         }
         return dp[end];
     }
 
 
+    /**
+     * 打家劫舍III
+     */
+    public int[] rob3(TreeNode<Integer> root) {
+        int[] res = new int[2];
+        if (res == null) {
+            return res;
+        }
+        int left[]  = rob3(root.left);
+        int right[] = rob3(root.right);
+
+        res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        res[1] = root.value + left[0] + right[0];
+        return res;
+    }
+
+    /**
+     * 买卖股票的最佳时机 （贪心法、动态规划）
+     * @param arr
+     * @return
+     */
+    public int maxProfitGreedy(int[] arr) {
+        int low = Integer.MAX_VALUE;
+        int res = 0;
+        for (int i : arr) {
+            low = Math.min(low, i);
+            res = Math.max(i - low, res);
+        }
+        return res;
+    }
+
+    public int maxProfitDP(int[] prices){
+        int[] dp = new int[2];
+        // 记录一次交易，一次交易有买入卖出两种状态
+        // 0代表持有，1代表卖出
+        dp[0] = -prices[0];
+        dp[1] = 0;
+        // 可以参考斐波那契问题的优化方式
+        // 我们从 i=1 开始遍历数组，一共有 prices.length 天，
+        // 所以是 i<=prices.length
+        for (int i = 1; i <= prices.length; i++) {
+            // 前一天持有；或当天买入
+            dp[0] = Math.max(dp[0], -prices[i - 1]);
+            // 如果 dp[0] 被更新，那么 dp[1] 肯定会被更新为正数的 dp[1]
+            // 而不是 dp[0]+prices[i-1]==0 的0，
+            // 所以这里使用会改变的dp[0]也是可以的
+            // 当然 dp[1] 初始值为 0 ，被更新成 0 也没影响
+            // 前一天卖出；或当天卖出, 当天要卖出，得前一天持有才行
+            dp[1] = Math.max(dp[1], dp[0] + prices[i - 1]);
+        }
+        return dp[1];
+    }
+
+
+}
+
+
+class TreeNode<T> {
+    TreeNode left;
+    TreeNode right;
+    T        value;
 }
