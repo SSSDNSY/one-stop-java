@@ -14,8 +14,20 @@
     <artifactId>sundries</artifactId>
     <version>1.0.0</version>
 
+    <repositories>
+        <repository>
+            <id>akka-repository</id>
+            <name>Akka library repository</name>
+            <url>https://repo.akka.io/maven</url>
+        </repository>
+    </repositories>
 
     <properties>
+        <akka.version>2.6.20</akka.version>
+        <kryo.version>5.3.0</kryo.version>
+        <scala.binary.version>2.13</scala.binary.version>
+        <jackson.version>2.14.0-rc1</jackson.version>
+
     </properties>
 
     <dependencies>
@@ -60,12 +72,43 @@
             <artifactId>jsoup</artifactId>
             <version>1.16.1</version>
         </dependency>
-
         <!--   https://x-stream.github.io/CVE-2021-21343.html     -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.10</version>
+        </dependency>
+
+
+        <!-- akka remote -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-remote_2.13</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-slf4j_2.13</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+
+        <!-- kryo 超超超高性能序列化框架 -->
+        <dependency>
+            <groupId>com.esotericsoftware.kryo</groupId>
+            <artifactId>kryo5</artifactId>
+            <version>${kryo.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
     </dependencies>
