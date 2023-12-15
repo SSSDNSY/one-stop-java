@@ -9,6 +9,7 @@ public class Thread_8_ThreadLocalDemo {
         ThreadLocal<String> threadLocal = new ThreadLocal<>();
         Thread t1  = new Thread(()->{
             threadLocal.set("asdf");
+            threadLocal.set("asdf11");
             try {
                 Thread.sleep(1234);
             } catch (InterruptedException e) {
