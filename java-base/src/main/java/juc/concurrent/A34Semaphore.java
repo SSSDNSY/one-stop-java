@@ -12,6 +12,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class A34Semaphore {
     public static void main(String[] args) {
+
+        releaseProblem(args);
+
         Semaphore semaphore = new Semaphore(3, false);
         for (int i = 1; i <= 6; i++) {
             new Thread(() -> {
@@ -30,4 +33,16 @@ public class A34Semaphore {
             }, i + "号车子 ").start();
         }
     }
+
+        public static void releaseProblem(String[] args) {
+            int permitsNum = 2;
+            final Semaphore semaphore = new Semaphore(permitsNum);
+            try {
+                System.out.println("availablePermits:"+semaphore.availablePermits()+",semaphore.tryAcquire(3,1, TimeUnit.SECONDS):"+semaphore.tryAcquire(3,1, TimeUnit.SECONDS));
+                semaphore.release();
+                System.out.println("availablePermits:"+semaphore.availablePermits()+",semaphore.tryAcquire(3,1, TimeUnit.SECONDS):"+semaphore.tryAcquire(3,1, TimeUnit.SECONDS));
+            }catch (Exception e) {
+
+            }
+        }
 }
