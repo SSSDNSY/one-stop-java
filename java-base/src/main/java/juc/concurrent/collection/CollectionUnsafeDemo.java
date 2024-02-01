@@ -18,7 +18,6 @@ public class CollectionUnsafeDemo {
         List<String> list = Arrays.asList("A", "B", "C");
         list.stream().forEach(System.out::println);
 
-        List list2 = new Vector();
         List list3 = Collections.synchronizedList(new ArrayList<>());
         Collections.synchronizedMap(new HashMap<>());
         List list4 = new CopyOnWriteArrayList();
