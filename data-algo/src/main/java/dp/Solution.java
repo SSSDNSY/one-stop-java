@@ -509,7 +509,7 @@ public class Solution {
      */
     public int[] rob3(TreeNode<Integer> root) {
         int[] res = new int[2];
-        if (res == null) {
+        if (root == null) {
             return res;
         }
         int left[]  = rob3(root.left);
@@ -522,6 +522,8 @@ public class Solution {
 
     /**
      * 买卖股票的最佳时机 （贪心法、动态规划）
+     * 1次买卖
+     *
      * @param arr
      * @return
      */
@@ -535,7 +537,7 @@ public class Solution {
         return res;
     }
 
-    public int maxProfitDP(int[] prices){
+    public int maxProfitDP(int[] prices) {
         int[] dp = new int[2];
         // 记录一次交易，一次交易有买入卖出两种状态
         // 0代表持有，1代表卖出
@@ -556,6 +558,59 @@ public class Solution {
         }
         return dp[1];
     }
+
+    /**
+     * 买卖股票的最佳时机II
+     * <p>
+     * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+     * 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
+     * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     */
+    public int maxProfitDpII(int[] prices) {
+        int     len = prices.length;
+        int[][] dp  = new int[len][2];
+        // 可以将每天持有与否的情况分别用 dp[i][0] 和 dp[i][1] 来进行存储
+        // 时间复杂度：O(n)，空间复杂度：O(n)
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < len; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);    // 没有持有，比较买与不买的收益
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);    // 超有股票，比较买与不买的收益
+        }
+        return dp[len - 1][0];
+    }
+
+
+    /**
+     *
+     * 买卖股票的最佳时机III
+     *
+     * 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+     * 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+     * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     * prices = [3,3,5,0,0,3,1,4]
+     * 6
+     *
+     */
+    public int maxProfitDpIII(int[] prices) {
+        if (prices.length <= 1) {
+            return 0;
+        }
+
+        int[] dp = new int[3];
+        dp[0] = 0;
+        dp[1] = -prices[0];
+        dp[2] = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            dp[0] = Math.max(dp[0], dp[1] + prices[i]);
+            dp[1] = Math.max(dp[1], dp[2] - prices[i]);
+            dp[2] = Math.max(dp[2], dp[0] - prices[i]);
+        }
+
+        return Math.max(dp[0], dp[2]);
+    }
+
 
 
 }

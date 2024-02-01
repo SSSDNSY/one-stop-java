@@ -144,7 +144,67 @@ public class DynamicProgrammingSolutionTest {
     public void testNumSquares() {
         int num = solution.numSquares(13);
         System.out.println(num);
-        assert num ==2;
+        assert num == 2;
     }
+
+    @Test
+    public void rob3() {
+        TreeNode<Integer> root = new TreeNode<>();
+        root.value = 3;
+
+        TreeNode<Integer> l1 = new TreeNode<>();
+        l1.value = 4;
+
+        TreeNode<Integer> l2 = new TreeNode<>();
+        l2.value = 5;
+
+        TreeNode<Integer> l3 = new TreeNode<>();
+        l3.value = 1;
+
+        TreeNode<Integer> l4 = new TreeNode<>();
+        l4.value = 3;
+
+        TreeNode<Integer> l5 = new TreeNode<>();
+        l5.value = 1;
+
+        root.left = l1;
+        root.right = l2;
+
+        l1.left = l3;
+        l1.right = l4;
+        l2.right = l5;
+
+        int[] arr = solution.rob3(root);
+        Arrays.stream(arr).forEach(System.out::println);
+
+    }
+
+    @Test
+    public void testMaxProfitDp(){
+        int[] arr = new int[]{7,1,5,3,6,4};
+        System.out.println(solution.maxProfitDP(arr));
+    }
+
+    @Test
+    public void testMaxProfitGreedy(){
+        int[] arr = new int[]{7,1,5,3,6,4};
+        System.out.println(solution.maxProfitGreedy(arr));
+    }
+    @Test
+    public void testMaxProfitDpII(){
+        int[] arr = new int[]{7,1,5,3,6,4};
+        System.out.println(solution.maxProfitDpII(arr));
+    }
+
+    @Test
+    public void testMaxProfitDpIII(){
+        int[] arr = new int[]{3,3,5,0,0,3,1,4};
+        System.out.println(solution.maxProfitDpIII(arr));
+    }
+
+
+
+
+
 
 }
