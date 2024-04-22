@@ -31,6 +31,7 @@
     </properties>
 
     <dependencies>
+
         <!--xls(03)-->
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -109,6 +110,13 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- 自动测试架构 -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.19.1</version>
         </dependency>
 
     </dependencies>
