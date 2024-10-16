@@ -27,14 +27,14 @@ public class TreadTest {
 //        for(int i = 0; i< TreadTest.MAX_RUN_TIMES; i++) {
 //            System.out.println( "主线程运行第" + i + "次");
 //        }
-        //yield用法
-//        T3 t33 = new T3("IIIIIIII");
-//        T3 t34 = new T3("OOOOOOOO");
-//        for(int i = 0; i< TreadTest.MAX_RUN_TIMES; i++) {
-//            System.out.println( "主线程运行第" + i + "次");
-//        }
-//        t33.start();
-//        t34.start();
+//        yield用法
+        T3 t33 = new T3("IIIIIIII");
+        T3 t34 = new T3("OOOOOOOO");
+        for(int i = 0; i< TreadTest.MAX_RUN_TIMES; i++) {
+            System.out.println( "主线程运行第" + i + "次");
+        }
+        t33.start();
+        t34.start();
         //线程优先级
 //        Thread t21 = new T4("低优先级线程");
 //        Thread t22 = new T4("高优先级线程");
@@ -139,7 +139,7 @@ class T3 extends Thread {
         for (int i = 0; i < 2 * TreadTest.MAX_RUN_TIMES; i++) {
             System.out.println(this.getName() + "  " + i);
             if (i % 4 == 0) {
-                yield();//他妈的随机的
+                Thread.yield();//他妈的随机的
             }
         }
     }

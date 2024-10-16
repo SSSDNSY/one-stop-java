@@ -71,7 +71,7 @@ public class G2OOM {
     }
 
     public static void directBuffMemErr() {
-        System.out.println("Java可以分配的堆外内存  allocateDirect memory size=" + (sun.misc.VM.maxDirectMemory()/((double)1024*1025))+"MB");
+//        System.out.println("Java可以分配的堆外内存  allocateDirect memory size=" + (sun.misc.Unsafe.getUnsafe().maxDirectMemory()/((double)1024*1025))+"MB");
         try {
             ByteBuffer bb = ByteBuffer.allocateDirect(1024 * 1024 * 6);
         } catch (Exception e) {
