@@ -80,20 +80,25 @@ public class G2OOM {
 
         }
     }
-    public static void unableCreateNativeThread(){
+
+    public static void unableCreateNativeThread() {
         for (int i = 1; ; i++) {
-            System.out.println("*********** i="+i);
-            new Thread(()->{
+            System.out.println("*********** i=" + i);
+            new Thread(() -> {
                 //线程休眠一会
-                try{TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);}catch(Exception e){e.printStackTrace();}
-            },""+i).start();
+                try {
+                    TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }, "" + i).start();
         }
     }
 
-    public static void metaSpaceErr(){
+    public static void metaSpaceErr() {
         //java 8之后使用本地内存中的元空间来替代之前的永久代
         //metaspce包括：java类信息，常量池，即时编译代码
-        int i =1;
+        int i = 1;
         try {
             while (true) {
                 i++;
@@ -103,20 +108,21 @@ public class G2OOM {
                 enhancer.setCallback(new MethodInterceptor() {
                     @Override
                     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-                        return methodProxy.invokeSuper(o,objects);
+                        return methodProxy.invokeSuper(o, objects);
                     }
                 });
                 enhancer.create();
             }
-        }catch (Exception e){
-            System.out.println(i+"次之后反生了异常");
+        } catch (Exception e) {
+            System.out.println(i + "次之后反生了异常");
             e.printStackTrace();
-        }finally {
-            System.out.println(i+"次之后反生了异常");
+        } finally {
+            System.out.println(i + "次之后反生了异常");
 
         }
     }
 
-    static class OOMTest{}
+    static class OOMTest {
+    }
 }
 

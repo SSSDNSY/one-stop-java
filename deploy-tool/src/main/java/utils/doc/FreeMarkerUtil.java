@@ -4,9 +4,9 @@ import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
-import sun.misc.BASE64Encoder;
 
 import java.io.*;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -92,8 +92,7 @@ public class FreeMarkerUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        BASE64Encoder encoder = new BASE64Encoder();
-        return encoder.encode(data);
+        return Base64.getEncoder().encodeToString(data);
     }
 
     //获取模板对象

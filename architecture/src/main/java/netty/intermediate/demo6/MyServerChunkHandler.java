@@ -1,6 +1,5 @@
 package netty.intermediate.demo6;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.handler.stream.ChunkedStream;
@@ -24,16 +23,17 @@ public class MyServerChunkHandler extends ChannelOutboundHandlerAdapter {
         ByteBuf buf = (ByteBuf) msg;
         byte[] data = this.getData(buf);
         //写入流中
-        ByteInputStream in = new ByteInputStream();
-        in.setBuf(data);
+//        ByteInputStream in = new ByteInputStream();
+//        in.setBuf(data);
         //消息分块；10个字节，测试过程中可以调整
-        ChunkedStream stream = new ChunkedStream(in, 10);
+        ChunkedStream stream = null;// new ChunkedStream(in, 10);
         //管道消息传输承诺
         ChannelProgressivePromise progressivePromise = ctx.channel().newProgressivePromise();
         progressivePromise.addListener(new ChannelProgressiveFutureListener() {
             @Override
             public void operationProgressed(ChannelProgressiveFuture future, long progress, long total) throws Exception {
             }
+
             @Override
             public void operationComplete(ChannelProgressiveFuture future) throws Exception {
                 if (future.isSuccess()) {
