@@ -148,8 +148,8 @@ public class Solution {
      * 输出：2 解释：
      */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int r      = obstacleGrid.length;
-        int c      = obstacleGrid[0].length;
+        int r = obstacleGrid.length;
+        int c = obstacleGrid[0].length;
         int dp[][] = new int[r][c];
 
         // 起点终点有障碍直接返回0
@@ -275,9 +275,9 @@ public class Solution {
         if (sum % 2 != 0) {
             return false;
         }
-        int   len    = nums.length;
-        int   target = sum / 2;
-        int[] dp     = new int[target + 1];
+        int len = nums.length;
+        int target = sum / 2;
+        int[] dp = new int[target + 1];
         for (int i = 0; i < len; i++) {
             for (int j = target; j >= nums[i]; j--) {
                 // 物品 i 的重量是 nums[i]，其价值也是 nums[i]
@@ -291,9 +291,9 @@ public class Solution {
      * 最后一块石头的重量II
      */
     public int lastStoneWeightII(int[] stones) {
-        int sum    = Arrays.stream(stones).sum();
+        int sum = Arrays.stream(stones).sum();
         int target = sum >> 1;
-        int dp[]   = new int[target + 1];
+        int dp[] = new int[target + 1];
         for (int i = 0; i < stones.length; i++) {
             for (int j = target; j >= stones[i]; j--) {
                 dp[j] = Math.max(dp[j], dp[j - stones[i]] + stones[i]);
@@ -314,8 +314,8 @@ public class Solution {
         if ((sum + target) % 2 == 1) {
             return 0;
         }
-        int   size = (sum + target) / 2;
-        int[] dp   = new int[size + 1];
+        int size = (sum + target) / 2;
+        int[] dp = new int[size + 1];
         dp[0] = 1;
         for (int i = 0; i < nums.length; i++) {
             for (int j = size; j >= nums[i]; j--) {
@@ -335,7 +335,7 @@ public class Solution {
      */
     public int findMaxForm(String[] strs, int m, int n) {
         int[][] dp = new int[m + 1][n + 1];
-        int     zeroNum, oneNum;
+        int zeroNum, oneNum;
         for (String str : strs) {
             zeroNum = 0;
             oneNum = 0;
@@ -370,10 +370,10 @@ public class Solution {
 
     // 先遍历背包，再遍历物品
     private static void testCompletePackAnotherWay() {
-        int[] weight    = {1, 3, 4};
-        int[] value     = {15, 20, 30};
-        int   bagWeight = 4;
-        int[] dp        = new int[bagWeight + 1];
+        int[] weight = {1, 3, 4};
+        int[] value = {15, 20, 30};
+        int bagWeight = 4;
+        int[] dp = new int[bagWeight + 1];
         for (int i = 1; i <= bagWeight; i++) { // 遍历背包容量
             for (int j = 0; j < weight.length; j++) { // 遍历物品
                 if (i - weight[j] >= 0) {
@@ -433,11 +433,11 @@ public class Solution {
      * 多重背包
      */
     public void mutilPackage() {
-        int           bagWeight = 10, n = 10;
-        List<Integer> weight    = new ArrayList();
-        List<Integer> value     = new ArrayList();
-        List<Integer> nums      = new ArrayList();
-        Scanner       scanner   = new Scanner(System.in);
+        int bagWeight = 10, n = 10;
+        List<Integer> weight = new ArrayList();
+        List<Integer> value = new ArrayList();
+        List<Integer> nums = new ArrayList();
+        Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < n; i++) {
             weight.add(scanner.nextInt());
         }
@@ -512,7 +512,7 @@ public class Solution {
         if (root == null) {
             return res;
         }
-        int left[]  = rob3(root.left);
+        int left[] = rob3(root.left);
         int right[] = rob3(root.right);
 
         res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
@@ -567,8 +567,8 @@ public class Solution {
      * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
      */
     public int maxProfitDpII(int[] prices) {
-        int     len = prices.length;
-        int[][] dp  = new int[len][2];
+        int len = prices.length;
+        int[][] dp = new int[len][2];
         // 可以将每天持有与否的情况分别用 dp[i][0] 和 dp[i][1] 来进行存储
         // 时间复杂度：O(n)，空间复杂度：O(n)
         dp[0][0] = 0;
@@ -582,15 +582,13 @@ public class Solution {
 
 
     /**
-     *
      * 买卖股票的最佳时机III
-     *
+     * <p>
      * 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
      * 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
      * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
      * prices = [3,3,5,0,0,3,1,4]
      * 6
-     *
      */
     public int maxProfitDpIII(int[] prices) {
         if (prices.length <= 1) {
@@ -612,6 +610,34 @@ public class Solution {
     }
 
 
+    /**
+     * 188.买卖股票的最佳时机IV
+     * https://programmercarl.com/0188.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAIV.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE
+     * 力扣题目链接 （https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/）
+     */
+
+    public int maxProfitDpIV(int k, int[] prices) {
+        if (prices.length == 0) return 0;
+
+        // [天数][股票状态]
+        // 股票状态: 奇数表示第 k 次交易持有/买入, 偶数表示第 k 次交易不持有/卖出, 0 表示没有操作
+        int len = prices.length;
+        int[][] dp = new int[len][k * 2 + 1];
+
+        // dp数组的初始化, 与版本一同理
+        for (int i = 1; i < k * 2; i += 2) {
+            dp[0][i] = -prices[0];
+        }
+
+        for (int i = 1; i < len; i++) {
+            for (int j = 0; j < k * 2 - 1; j += 2) {
+                dp[i][j + 1] = Math.max(dp[i - 1][j + 1], dp[i - 1][j] - prices[i]);
+                dp[i][j + 2] = Math.max(dp[i - 1][j + 2], dp[i - 1][j + 1] + prices[i]);
+            }
+        }
+        return dp[len - 1][k * 2];
+    }
+
 
 }
 
@@ -619,5 +645,5 @@ public class Solution {
 class TreeNode<T> {
     TreeNode left;
     TreeNode right;
-    T        value;
+    T value;
 }

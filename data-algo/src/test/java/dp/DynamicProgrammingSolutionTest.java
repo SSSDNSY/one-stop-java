@@ -203,6 +203,16 @@ public class DynamicProgrammingSolutionTest {
     }
 
 
+    @Test
+    public void testMaxProfitDpIV(){
+        int[] arr = new int[]{3,2,6,5,0,3};
+        int maxProfit = solution.maxProfitDpIV(2, arr);
+        System.out.println(maxProfit);
+        assert maxProfit==7;
+    }
+
+
+
 
 
 
