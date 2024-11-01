@@ -67,7 +67,7 @@ public class ExecutorRouteConsistentHash extends ExecutorRouter {
             }
         }
 
-        long                    jobHash  = hash(String.valueOf(jobId));
+        long jobHash = hash(String.valueOf(jobId));
         SortedMap<Long, String> lastRing = addressRing.tailMap(jobHash);
         if (!lastRing.isEmpty()) {
             return lastRing.get(lastRing.firstKey());

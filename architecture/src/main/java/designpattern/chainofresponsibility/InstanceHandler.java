@@ -15,7 +15,8 @@ public class InstanceHandler extends AbstractHandler {
 
 
     @Override
-    public Object handle(Object o) {        System.out.println("实例处理");
+    public Object handle(Object o) {
+        System.out.println("实例处理");
 
         return null;
     }

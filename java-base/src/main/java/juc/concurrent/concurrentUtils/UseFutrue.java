@@ -1,11 +1,12 @@
 package juc.concurrent.concurrentUtils;
 
 import java.util.concurrent.*;
+
 /**
-*@Description: 类似ajax 异步请求处理
-*@Author: pengzh
-*@date: 2019/9/14
-*/
+ * @Description: 类似ajax 异步请求处理
+ * @Author: pengzh
+ * @date: 2019/9/14
+ */
 public class UseFutrue implements Callable<String> {
     private String param;
 

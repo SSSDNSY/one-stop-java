@@ -25,11 +25,11 @@ public class Solution {
     // 二进制求和
     public static String addBinary(String a, String b) {
         String result = "";
-        char[] aa     = a.toCharArray();
-        char[] bb     = b.toCharArray();
+        char[] aa = a.toCharArray();
+        char[] bb = b.toCharArray();
 
-        int ma    = a.length() - 1;
-        int mb    = b.length() - 1;
+        int ma = a.length() - 1;
+        int mb = b.length() - 1;
         int carry = 0, as, bs;
         while (ma >= 0 || mb >= 0) {
             as = ma >= 0 ? Character.getNumericValue(aa[ma--]) : 0;
@@ -52,7 +52,7 @@ public class Solution {
         int index = -1;
         if (needle.trim().length() == 0) return 0;
         char[] str = haystack.trim().toCharArray();
-        char[] s   = needle.trim().toCharArray();
+        char[] s = needle.trim().toCharArray();
         if (s.length > str.length || haystack.trim().length() == 0) return -1;
         boolean first = true;
         for (int i = 0; i < str.length; i++) {
@@ -88,8 +88,8 @@ public class Solution {
      */
     public static String longestCommonPrefix(String[] strs) {
 
-        String s     = "";
-        int    judge = 1;
+        String s = "";
+        int judge = 1;
         if (strs.length == 0) {// 数组为空直接返回""
             return s;
         }
@@ -130,8 +130,8 @@ public class Solution {
      * @return
      */
     public static void reverseString(char[] s) {
-        int  i = 0;
-        int  j = s.length - 1;
+        int i = 0;
+        int j = s.length - 1;
         char temp;
         while (i < j) {
             temp = s[i];
@@ -155,12 +155,12 @@ public class Solution {
     }
 
     public static int[] countStar() {
-        int[]   rslt  = new int[]{};
+        int[] rslt = new int[]{};
         int[][] stars = new int[][]{};
-        int[][] q     = new int[][]{};
+        int[][] q = new int[][]{};
 
         Scanner sc = new Scanner(System.in);
-        int     n  = sc.nextInt();
+        int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < 2; j++) {
@@ -192,10 +192,10 @@ public class Solution {
      * 最短路径
      */
     public static int findMinLength() {
-        int     minLen = -1;
-        Scanner sc     = new Scanner(System.in);
-        int     n      = sc.nextInt();
-        int[][] q      = new int[n][n];
+        int minLen = -1;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] q = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 q[i][j] = sc.nextInt();
@@ -230,7 +230,7 @@ public class Solution {
         // 有空格情况 定义两个指针
         int left = s.length() - 1;// 左指针：指向原始字符串最后一个位置
         s += str.toString();
-        int    right = s.length() - 1;// 右指针：指向扩展字符串的最后一个位置
+        int right = s.length() - 1;// 右指针：指向扩展字符串的最后一个位置
         char[] chars = s.toCharArray();
         while (left >= 0) {
             if (chars[left] == ' ') {
@@ -277,7 +277,7 @@ public class Solution {
     private StringBuilder removeSpace(String s) {
         // System.out.println("ReverseWords.removeSpace() called with: s = [" + s + "]");
         int start = 0;
-        int end   = s.length() - 1;
+        int end = s.length() - 1;
         while (s.charAt(start) == ' ') start++;
         while (s.charAt(end) == ' ') end--;
         StringBuilder sb = new StringBuilder();
@@ -306,10 +306,11 @@ public class Solution {
         }
         // System.out.println("ReverseWords.reverseString returned: sb = [" + sb + "]");
     }
+
     private void reverseEachWord(StringBuilder sb) {
         int start = 0;
-        int end   = 1;
-        int n     = sb.length();
+        int end = 1;
+        int n = sb.length();
         while (start < n) {
             while (end < n && sb.charAt(end) != ' ') {
                 end++;

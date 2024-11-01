@@ -23,7 +23,7 @@ public class Provider implements Runnable {
                 int id = atomicInteger.addAndGet(1);
                 Data d = new Data(id, "name" + id);
                 Thread.sleep(r.nextInt(1000));
-                System.out.println("----------"+Thread.currentThread().getName()+" 生产了数据:"+d);
+                System.out.println("----------" + Thread.currentThread().getName() + " 生产了数据:" + d);
                 if (!q.offer(d, 2, TimeUnit.SECONDS)) {
                     System.out.println("生产数据失败");
                 }

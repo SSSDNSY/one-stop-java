@@ -13,17 +13,16 @@ import java.util.concurrent.*;
  * CallerRunsPolicy 回退给调用者
  * DiscardOldestPolicy 抛弃队列中等待最久的任务
  * DiscardPolicy 直接抛弃任务
- *
+ * <p>
  * 设置线程数和队列容量
  * 根据业务是CPU密集型还是IO密集型
  * 如果是CPU密集型 建议是 CPU核心数+1个线程的线程数
  * IO型的建议是 CPU核心数*2 ，参考公式 ： CPU核心数/ 1-r  （阻塞系数 r=08~0.9） 8-/(1-0.9)=80
- *
  * @modified By：
  */
 public class A47ThreadPoolExecutor {
     public static void main(String[] args) {
-        System.out.println("CPU核心数="+Runtime.getRuntime().availableProcessors());
+        System.out.println("CPU核心数=" + Runtime.getRuntime().availableProcessors());
         //爆CPU
 
         ExecutorService es = new ThreadPoolExecutor(2, //核心线程数

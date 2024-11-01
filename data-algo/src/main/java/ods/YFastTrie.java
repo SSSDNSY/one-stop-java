@@ -33,6 +33,13 @@ public class YFastTrie<T> implements SSet<T> {
  * @return Override this to throw an exception, since the value of n is not
  * maintained on these treaps
  * @param args
+ * <p>
+ * Absorb the elements of treap t, which should all be smaller than
+ * all the elements in this
+ * @param t
+ * @return Override this to throw an exception, since the value of n is not
+ * maintained on these treaps
+ * @param args
  *//*
 
 		public STreap<T> split(T x) {

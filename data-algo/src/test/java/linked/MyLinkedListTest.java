@@ -38,10 +38,10 @@ public class MyLinkedListTest {
         // 2 1 5 8
         System.out.println(myLinkedList);
         MyLinkedList.LinkedNode pre = null;
-        MyLinkedList.LinkedNode temp =null;
+        MyLinkedList.LinkedNode temp = null;
         MyLinkedList.LinkedNode cur = myLinkedList.head;
         while (cur != null) {
-            temp =  cur.next;
+            temp = cur.next;
             cur.next = pre;
             pre = cur;
             cur = temp;

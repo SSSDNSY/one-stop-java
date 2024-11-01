@@ -33,7 +33,7 @@ public class Testum {
 
 
     public static void graphTests(Graph g1, Graph g2) {
-        int    n    = g1.nVertices();
+        int n = g1.nVertices();
         Random rand = new Random();
         for (int k = 0; k < 50 * n * n; k++) {
             int i = rand.nextInt(n);
@@ -332,8 +332,8 @@ public class Testum {
     public static void listSpeedTests(Collection<List<Integer>> cl, int n) {
         long start, stop;
 
-        int     sn = (int) Math.sqrt(n);
-        Integer x  = new Integer(0);
+        int sn = (int) Math.sqrt(n);
+        Integer x = new Integer(0);
         for (List<Integer> l : cl) {
             System.out.print("insert at back (" + s(l) + ")...");
             start = System.nanoTime();

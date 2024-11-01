@@ -12,7 +12,7 @@ import java.io.File;
  */
 public class CaptureScreen {
 
-    public  static  void captureScreen(String fileName) throws Exception {
+    public static void captureScreen(String fileName) throws Exception {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

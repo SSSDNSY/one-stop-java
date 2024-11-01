@@ -13,9 +13,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public Object exception(Exception e) {
-        log.error("Handler-->"+e.getMessage(), e);
-        Map<String,String> result = new HashMap<>();
-        result.put("message",e.getMessage());
+        log.error("Handler-->" + e.getMessage(), e);
+        Map<String, String> result = new HashMap<>();
+        result.put("message", e.getMessage());
         return result;
     }
 

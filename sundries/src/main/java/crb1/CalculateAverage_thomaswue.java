@@ -17,7 +17,10 @@ package crb1;
 
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -29,12 +32,12 @@ import java.util.concurrent.atomic.AtomicLong;
  * the end.
  * Runs in 0.31 on an Intel i9-13900K while the reference implementation takes 120.37s.
  * Credit:
- *  Quan Anh Mai for branchless number parsing code
- *  Alfonso² Peterssen for suggesting memory mapping with unsafe and the subprocess idea
- *  Artsiom Korzun for showing the benefits of work stealing at 2MB segments instead of equal split between workers
- *  Jaromir Hamala for showing that avoiding the branch misprediction between <8 and 8-16 cases is a big win even if
- *  more work is performed
- *  Van Phu DO for demonstrating the lookup tables based on masks instead of bit shifting
+ * Quan Anh Mai for branchless number parsing code
+ * Alfonso² Peterssen for suggesting memory mapping with unsafe and the subprocess idea
+ * Artsiom Korzun for showing the benefits of work stealing at 2MB segments instead of equal split between workers
+ * Jaromir Hamala for showing that avoiding the branch misprediction between <8 and 8-16 cases is a big win even if
+ * more work is performed
+ * Van Phu DO for demonstrating the lookup tables based on masks instead of bit shifting
  */
 public class CalculateAverage_thomaswue {
     private static final String FILE = "./measurements.txt";
@@ -116,8 +119,7 @@ public class CalculateAverage_thomaswue {
             long segmentStart;
             if (current == fileStart) {
                 segmentStart = current;
-            }
-            else {
+            } else {
                 segmentStart = nextNewLine(current) + 1;
             }
 
@@ -185,9 +187,9 @@ public class CalculateAverage_thomaswue {
         }
     }
 
-    private static final long[] MASK1 = new long[]{ 0xFFL, 0xFFFFL, 0xFFFFFFL, 0xFFFFFFFFL, 0xFFFFFFFFFFL, 0xFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFFFL,
-            0xFFFFFFFFFFFFFFFFL };
-    private static final long[] MASK2 = new long[]{ 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0xFFFFFFFFFFFFFFFFL };
+    private static final long[] MASK1 = new long[]{0xFFL, 0xFFFFL, 0xFFFFFFL, 0xFFFFFFFFL, 0xFFFFFFFFFFL, 0xFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFL, 0xFFFFFFFFFFFFFFFFL,
+            0xFFFFFFFFFFFFFFFFL};
+    private static final long[] MASK2 = new long[]{0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0x00L, 0xFFFFFFFFFFFFFFFFL};
 
     private static Result findResult(long initialWord, long initialDelimiterMask, long wordB, long delimiterMaskB, Scanner scanner, Result[] results,
                                      List<Result> collectedResults) {
@@ -210,8 +212,7 @@ public class CalculateAverage_thomaswue {
             if (existingResult != null && existingResult.firstNameWord == word && existingResult.secondNameWord == word2) {
                 return existingResult;
             }
-        }
-        else {
+        } else {
             // Slow-path for when the ';' could not be found in the first 16 bytes.
             hash = word ^ word2;
             scanner.add(16);
@@ -224,8 +225,7 @@ public class CalculateAverage_thomaswue {
                     scanner.add(trailingZeros >>> 3);
                     hash ^= word;
                     break;
-                }
-                else {
+                } else {
                     scanner.add(8);
                     hash ^= word;
                 }
@@ -237,7 +237,8 @@ public class CalculateAverage_thomaswue {
 
         // Final calculation for index into hash table.
         int tableIndex = hashToIndex(hash, results);
-        outer: while (true) {
+        outer:
+        while (true) {
             existingResult = results[tableIndex];
             if (existingResult == null) {
                 existingResult = newEntry(results, nameAddress, tableIndex, nameLength, scanner, collectedResults);
@@ -255,8 +256,7 @@ public class CalculateAverage_thomaswue {
             int remainingShift = (64 - ((nameLength + 1 - i) << 3));
             if (((scanner.getLongAt(existingResult.nameAddress + i) ^ (scanner.getLongAt(nameAddress + i))) << remainingShift) == 0) {
                 break;
-            }
-            else {
+            } else {
                 // Collision error, try next.
                 tableIndex = (tableIndex + 31) & (results.length - 1);
             }
@@ -272,8 +272,7 @@ public class CalculateAverage_thomaswue {
             if (pos != 0) {
                 prev += Long.numberOfTrailingZeros(pos) >>> 3;
                 break;
-            }
-            else {
+            } else {
                 prev += 8;
             }
         }
@@ -333,8 +332,7 @@ public class CalculateAverage_thomaswue {
         if (totalLength <= 8) {
             r.firstNameWord = r.firstNameWord & MASK1[totalLength - 1];
             r.secondNameWord = 0;
-        }
-        else if (totalLength < 16) {
+        } else if (totalLength < 16) {
             r.secondNameWord = r.secondNameWord & MASK1[totalLength - 9];
         }
         r.nameAddress = nameAddress;
@@ -397,8 +395,7 @@ public class CalculateAverage_thomaswue {
                 java.lang.reflect.Field theUnsafe = sun.misc.Unsafe.class.getDeclaredField("theUnsafe");
                 theUnsafe.setAccessible(true);
                 return (sun.misc.Unsafe) theUnsafe.get(sun.misc.Unsafe.class);
-            }
-            catch (NoSuchFieldException | IllegalAccessException e) {
+            } catch (NoSuchFieldException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         }

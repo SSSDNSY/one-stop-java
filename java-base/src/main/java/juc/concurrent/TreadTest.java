@@ -30,8 +30,8 @@ public class TreadTest {
 //        yield用法
         T3 t33 = new T3("IIIIIIII");
         T3 t34 = new T3("OOOOOOOO");
-        for(int i = 0; i< TreadTest.MAX_RUN_TIMES; i++) {
-            System.out.println( "主线程运行第" + i + "次");
+        for (int i = 0; i < TreadTest.MAX_RUN_TIMES; i++) {
+            System.out.println("主线程运行第" + i + "次");
         }
         t33.start();
         t34.start();

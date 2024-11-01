@@ -35,7 +35,7 @@ public class DynamicProgrammingSolutionTest {
     @Test
     public void testMinCost() {
         int[] arr = new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
-        int   i   = solution.minCostClaimStairs(arr);
+        int i = solution.minCostClaimStairs(arr);
         System.out.println(i);
         assert i == 6;
     }
@@ -70,17 +70,17 @@ public class DynamicProgrammingSolutionTest {
 
     @Test
     public void testBagProblem() {
-        int[] weight  = {1, 3, 4};
-        int[] value   = {15, 20, 30};
-        int   bagSize = 4;
+        int[] weight = {1, 3, 4};
+        int[] value = {15, 20, 30};
+        int bagSize = 4;
         solution.bagProblem(weight, value, bagSize);
     }
 
     @Test
     public void testBagProblem2() {
-        int[] weight  = {1, 3, 4};
-        int[] value   = {15, 20, 30};
-        int   bagSize = 4;
+        int[] weight = {1, 3, 4};
+        int[] value = {15, 20, 30};
+        int bagSize = 4;
         solution.bagProblem2(weight, value, bagSize);
     }
 
@@ -97,7 +97,7 @@ public class DynamicProgrammingSolutionTest {
      */
     @Test
     public void testCanPartition() {
-        int[] arr  = new int[]{1, 5, 11, 5};
+        int[] arr = new int[]{1, 5, 11, 5};
         int[] arr1 = new int[]{1, 2, 3, 5};
         assert solution.canPartition(arr);
         assert !solution.canPartition(arr1);
@@ -123,19 +123,19 @@ public class DynamicProgrammingSolutionTest {
 
     @Test
     public void testCompletePack() {
-        int[] weight    = {1, 3, 4};
-        int[] value     = {15, 20, 30};
-        int   bagWeight = 4;
-        int[] dp        = solution.completePackage(weight, value, bagWeight);
+        int[] weight = {1, 3, 4};
+        int[] value = {15, 20, 30};
+        int bagWeight = 4;
+        int[] dp = solution.completePackage(weight, value, bagWeight);
         Arrays.stream(dp).forEach(System.out::println);
         assert dp[4] == 60;
     }
 
     @Test
     public void testChange() {
-        int[] coins  = new int[]{1, 2, 5};
-        int   amount = 5;
-        int[] dp     = solution.change(amount, coins);
+        int[] coins = new int[]{1, 2, 5};
+        int amount = 5;
+        int[] dp = solution.change(amount, coins);
         Arrays.stream(dp).forEach(System.out::println);
         assert dp[5] == 4;
     }
@@ -180,41 +180,37 @@ public class DynamicProgrammingSolutionTest {
     }
 
     @Test
-    public void testMaxProfitDp(){
-        int[] arr = new int[]{7,1,5,3,6,4};
+    public void testMaxProfitDp() {
+        int[] arr = new int[]{7, 1, 5, 3, 6, 4};
         System.out.println(solution.maxProfitDP(arr));
     }
 
     @Test
-    public void testMaxProfitGreedy(){
-        int[] arr = new int[]{7,1,5,3,6,4};
+    public void testMaxProfitGreedy() {
+        int[] arr = new int[]{7, 1, 5, 3, 6, 4};
         System.out.println(solution.maxProfitGreedy(arr));
     }
+
     @Test
-    public void testMaxProfitDpII(){
-        int[] arr = new int[]{7,1,5,3,6,4};
+    public void testMaxProfitDpII() {
+        int[] arr = new int[]{7, 1, 5, 3, 6, 4};
         System.out.println(solution.maxProfitDpII(arr));
     }
 
     @Test
-    public void testMaxProfitDpIII(){
-        int[] arr = new int[]{3,3,5,0,0,3,1,4};
+    public void testMaxProfitDpIII() {
+        int[] arr = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
         System.out.println(solution.maxProfitDpIII(arr));
     }
 
 
     @Test
-    public void testMaxProfitDpIV(){
-        int[] arr = new int[]{3,2,6,5,0,3};
+    public void testMaxProfitDpIV() {
+        int[] arr = new int[]{3, 2, 6, 5, 0, 3};
         int maxProfit = solution.maxProfitDpIV(2, arr);
         System.out.println(maxProfit);
-        assert maxProfit==7;
+        assert maxProfit == 7;
     }
-
-
-
-
-
 
 
 }

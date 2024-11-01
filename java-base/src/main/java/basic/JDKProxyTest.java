@@ -6,6 +6,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * JDK 动态代理
+ *
  * @author pengzh
  * @since 2020-08-06
  */
@@ -25,22 +26,24 @@ interface Hello {
     void sayHello(String msg);
 }
 
-class HelloImpl implements Hello{
+class HelloImpl implements Hello {
     @Override
     public void sayHello(String msg) {
-        System.out.println("Hello JDK Proxy: "+msg+this.getClass().getName());
+        System.out.println("Hello JDK Proxy: " + msg + this.getClass().getName());
     }
 }
 
-class HelloImplProxy implements InvocationHandler{
+class HelloImplProxy implements InvocationHandler {
     Hello hello;
-    public HelloImplProxy(Hello hello){
+
+    public HelloImplProxy(Hello hello) {
         this.hello = hello;
     }
+
     @Override
     public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
         System.out.println("do something you want !");
-        return method.invoke(hello,objects);
+        return method.invoke(hello, objects);
     }
 
 }

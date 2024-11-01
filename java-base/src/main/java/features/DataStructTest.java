@@ -11,7 +11,7 @@ import org.junit.Test;
 @Slf4j
 public class DataStructTest {
     @Test
-    public void getHexShow(){
-        log.debug("Integer.toHexString={}",Integer.toHexString(991));
+    public void getHexShow() {
+        log.debug("Integer.toHexString={}", Integer.toHexString(991));
     }
 }

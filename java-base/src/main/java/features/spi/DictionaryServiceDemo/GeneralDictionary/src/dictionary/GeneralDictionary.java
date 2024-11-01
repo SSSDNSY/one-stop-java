@@ -37,23 +37,24 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- *
  * @author John O'Conner
  */
 public class GeneralDictionary implements Dictionary {
 
     private SortedMap<String, String> map;
 
-    /** Creates a new instance of GeneralDictionary */
+    /**
+     * Creates a new instance of GeneralDictionary
+     */
     public GeneralDictionary() {
         map = new TreeMap<String, String>();
         map.put(
-            "book",
-            "a set of written or printed pages, usually bound with " +
-                "a protective cover");
+                "book",
+                "a set of written or printed pages, usually bound with " +
+                        "a protective cover");
         map.put(
-            "editor",
-            "a person who edits");
+                "editor",
+                "a person who edits");
     }
 
     @Override

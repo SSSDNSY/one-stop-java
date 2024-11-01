@@ -62,8 +62,9 @@ class SynchMethod {
 //同步整个类 同一个类的不同对象上
 class SynchClass {
     private int m;
+
     void synch() {
-        synchronized(SynchClass.class){
+        synchronized (SynchClass.class) {
             System.out.print(" " + m++);
         }
     }

@@ -62,7 +62,7 @@ public class Java810FunctionalInterface {
 
         // 2. 供给型接口: Supplier < T> T get() 无参有返回值的抽象方法；
         Supplier<Person> personSupplier = Person::new;
-        Person           person         = personSupplier.get();
+        Person person = personSupplier.get();
         System.out.println(person);
         // collect()方法实现 CollectorImpl Collectors.toSet
 
@@ -77,16 +77,16 @@ public class Java810FunctionalInterface {
 
 
         Predicate<Boolean> nonNull = Objects::nonNull;
-        Predicate<Boolean> isNull  = Objects::isNull;
+        Predicate<Boolean> isNull = Objects::isNull;
 
-        Predicate<String> isEmpty    = String::isEmpty;
+        Predicate<String> isEmpty = String::isEmpty;
         Predicate<String> isNotEmpty = isEmpty.negate();
 
         // 4. 函数型接口: Function<T,R> R apply(T t)有参有返回值的抽象方法；
         // 比如: steam().map() 中参数就是Function<? super T, ? extends R>；
         // reduce()中参数BinaryOperator<T> (ps: BinaryOperator<T> extends BiFunction<T,T,T>)
-        Function<String, Integer> toInteger    = Integer::valueOf;
-        Function<String, String>  backToString = toInteger.andThen(String::valueOf);
+        Function<String, Integer> toInteger = Integer::valueOf;
+        Function<String, String> backToString = toInteger.andThen(String::valueOf);
 
         System.out.println(backToString.apply("123"));
 
@@ -194,10 +194,10 @@ public class Java810FunctionalInterface {
 
 @Data
 class Person {
-    private String  name;
+    private String name;
     private Integer age;
     private Integer id;
-    private String  gid;
+    private String gid;
 
     public Person() {
     }

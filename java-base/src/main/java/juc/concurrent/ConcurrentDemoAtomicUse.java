@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ *
  */
 public class ConcurrentDemoAtomicUse {
 
     private static AtomicInteger ac = new AtomicInteger(0);
+
     //当多个addAndGet在一个方法里面是非原子性的 ，必须加synchronized
-      int mutilAdd(){
+    int mutilAdd() {
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
@@ -25,7 +27,7 @@ public class ConcurrentDemoAtomicUse {
     public static void main(String[] args) {
         ConcurrentDemoAtomicUse cda = new ConcurrentDemoAtomicUse();
         ArrayList<Thread> ats = new ArrayList<Thread>();
-        for(int i =0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             ats.add(new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -34,7 +36,7 @@ public class ConcurrentDemoAtomicUse {
             }));
         }
 
-        for (Thread t1: ats) {
+        for (Thread t1 : ats) {
             t1.start();
         }
     }

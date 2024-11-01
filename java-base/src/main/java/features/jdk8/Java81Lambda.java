@@ -14,7 +14,8 @@ package features.jdk8;
  * 可选的返回关键字：如果主体只有一个表达式返回值则编译器会自动返回值，大括号需要指定明表达式返回了一个数值。
  */
 public class Java81Lambda {
-    final static String CLASS_STR ="CLASS_STR";
+    final static String CLASS_STR = "CLASS_STR";
+
     public static void main(String[] args) {
         Java81Lambda java81Lambda = new Java81Lambda();
         //类型声明 ,没有大括号和返回语句
@@ -22,24 +23,26 @@ public class Java81Lambda {
         //不适用类型声明
         MethodOperation opr2 = (a, b) -> a - b;
         //大括号中的返回语句
-        MethodOperation opr3 = (a, b) -> { return a * b; };
+        MethodOperation opr3 = (a, b) -> {
+            return a * b;
+        };
 
-        System.out.println("10+5="+java81Lambda.operate(10,5,opr1));
-        System.out.println("10-5="+java81Lambda.operate(10,5,opr2));
-        System.out.println("10*5="+java81Lambda.operate(10,5,opr3));
+        System.out.println("10+5=" + java81Lambda.operate(10, 5, opr1));
+        System.out.println("10-5=" + java81Lambda.operate(10, 5, opr2));
+        System.out.println("10*5=" + java81Lambda.operate(10, 5, opr3));
 
         //不适用括号
-        GreationService gs1 = s -> System.out.println(""+s);
+        GreationService gs1 = s -> System.out.println("" + s);
         //使用括号
-        GreationService gs2 = (s) -> System.out.println(""+s);
+        GreationService gs2 = (s) -> System.out.println("" + s);
 
         gs1.saySomething("asdfasdf");
         gs2.saySomething("asdfasdf123123");
 
 //        lambda 表达式只能引用标记了 final 的外层局部变量，这就是说不能在 lambda 内部修改定义在域外的局部变量，否则会编译错误。
-        final  String MAIN_STR ="MAIN_STR";
-        GreationService gs3 = (s) -> System.out.println(MAIN_STR+s);
-        GreationService gs4 = (s) -> System.out.println(CLASS_STR+s);
+        final String MAIN_STR = "MAIN_STR";
+        GreationService gs3 = (s) -> System.out.println(MAIN_STR + s);
+        GreationService gs4 = (s) -> System.out.println(CLASS_STR + s);
         gs3.saySomething("123abc");
         gs4.saySomething("123abc");
     }

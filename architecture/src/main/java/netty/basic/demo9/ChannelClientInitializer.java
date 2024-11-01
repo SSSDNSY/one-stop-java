@@ -14,6 +14,6 @@ public class ChannelClientInitializer extends ChannelInitializer<NioDatagramChan
 
     @Override
     protected void initChannel(NioDatagramChannel nioDatagramChannel) throws Exception {
-            nioDatagramChannel.pipeline().addLast(new ClientHandler());
+        nioDatagramChannel.pipeline().addLast(new ClientHandler());
     }
 }

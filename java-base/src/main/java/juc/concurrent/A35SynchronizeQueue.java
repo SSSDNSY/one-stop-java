@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class A35SynchronizeQueue {
     public static void main(String[] args) {
         SynchronousQueue sq = new SynchronousQueue();
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 System.out.println("1");
                 sq.put(1);
@@ -27,14 +27,14 @@ public class A35SynchronizeQueue {
             }
         }).start();
 
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 TimeUnit.SECONDS.sleep(2);
-                System.out.println("take "+sq.take());
+                System.out.println("take " + sq.take());
                 TimeUnit.SECONDS.sleep(2);
-                System.out.println("take "+sq.take());
+                System.out.println("take " + sq.take());
                 TimeUnit.SECONDS.sleep(2);
-                System.out.println("take "+sq.take());
+                System.out.println("take " + sq.take());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

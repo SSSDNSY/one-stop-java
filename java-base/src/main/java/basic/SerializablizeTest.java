@@ -3,7 +3,6 @@ package basic;
 import java.io.*;
 
 /**
- *
  * 序列化、反序列化
  *
  * @author pengzh
@@ -15,11 +14,11 @@ public class SerializablizeTest {
         UnSerialize();
     }
 
-    static void Serialize(){
-        Person person = new Person(11,192,"Mr. White");
+    static void Serialize() {
+        Person person = new Person(11, 192, "Mr. White");
         File personObjFile = new File("person.obj");
 
-        try ( ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(personObjFile))){
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(personObjFile))) {
             oos.writeObject(person);
             System.out.println("序列化完成！");
         } catch (IOException e) {
@@ -27,25 +26,27 @@ public class SerializablizeTest {
         }
     }
 
-    static void UnSerialize(){
-        try (  ObjectInputStream iis = new ObjectInputStream(new FileInputStream("person.obj"))){
-            final Person object = (Person)iis.readObject();
-            System.out.println("反序列化完成！"+object);
-        } catch (IOException|ClassNotFoundException e) {
+    static void UnSerialize() {
+        try (ObjectInputStream iis = new ObjectInputStream(new FileInputStream("person.obj"))) {
+            final Person object = (Person) iis.readObject();
+            System.out.println("反序列化完成！" + object);
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 }
 
 
-class Person implements Serializable{
+class Person implements Serializable {
 
     private int age;
     private transient int tall;
     private String name;
-    public Person(){
+
+    public Person() {
 
     }
+
     public Person(int age, int tall, String name) {
         this.age = age;
         this.tall = tall;

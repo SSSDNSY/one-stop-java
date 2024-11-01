@@ -41,10 +41,10 @@ public class EmployeeExportHandler implements ExportHandler<Employee> {
 
     @Override
     public ExportPage<Employee> exportData(int startPage, int limit, DataExportParam dataExportParam) {
-        IPage<Employee>      iPage   = new Page<>(startPage, limit);
-        IPage                page    = employeeService.page(iPage);
-        List<Employee>       records = (List<Employee>) page.getRecords();
-        ExportPage<Employee> result  = new ExportPage<>();
+        IPage<Employee> iPage = new Page<>(startPage, limit);
+        IPage page = employeeService.page(iPage);
+        List<Employee> records = (List<Employee>) page.getRecords();
+        ExportPage<Employee> result = new ExportPage<>();
         result.setTotal(page.getTotal());
         result.setCurrent(page.getCurrent());
         result.setSize(page.getSize());

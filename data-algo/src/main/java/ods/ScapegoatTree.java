@@ -60,7 +60,7 @@ public class ScapegoatTree<T>
             return 0;
         }
         boolean done = false;
-        int     d    = 0;
+        int d = 0;
         do {
             int res = c.compare(u.x, w.x);
             if (res < 0) {
@@ -91,7 +91,7 @@ public class ScapegoatTree<T>
     public boolean add(T x) {
         // first do basic insertion keeping track of depth
         Node<T> u = newNode(x);
-        int     d = addWithDepth(u);
+        int d = addWithDepth(u);
         if (d > log32(q)) {
             // depth exceeded, find scapegoat
             Node<T> w = u.parent;
@@ -104,9 +104,9 @@ public class ScapegoatTree<T>
 
     @SuppressWarnings("unchecked")
     protected void rebuild(Node<T> u) {
-        int       ns = size(u);
-        Node<T>   p  = u.parent;
-        Node<T>[] a  = (Node<T>[]) Array.newInstance(Node.class, ns);
+        int ns = size(u);
+        Node<T> p = u.parent;
+        Node<T>[] a = (Node<T>[]) Array.newInstance(Node.class, ns);
         packIntoArray(u, a, 0);
         if (p == nil) {
             r = buildBalanced(a, 0, ns);

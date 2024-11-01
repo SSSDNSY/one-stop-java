@@ -27,7 +27,7 @@ public class ZkExectors implements Watcher, Runnable, DataMonitor.DataMonitorLis
     Process child;
 
     public ZkExectors(String hostPort, String znode, String filename,
-                    String exec[]) throws KeeperException, IOException {
+                      String exec[]) throws KeeperException, IOException {
         this.filename = filename;
         this.exec = exec;
         zk = new ZooKeeper(hostPort, 3000, this);
@@ -131,7 +131,7 @@ public class ZkExectors implements Watcher, Runnable, DataMonitor.DataMonitorLis
 
     @Override
     public void closing(int rc) {
-        synchronized (this){
+        synchronized (this) {
             notifyAll();
         }
     }

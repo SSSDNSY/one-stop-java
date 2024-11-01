@@ -12,7 +12,7 @@ public class ClassCodeTest1 {
         try {
 
             x = 1;
-            x/=0;
+            x /= 0;
             return x;
         } catch (Exception e) {
             x = 2;

@@ -29,7 +29,7 @@ public class TimeRing {
                     // align second
                     try {
                         long curMills = System.currentTimeMillis();
-                        Long time     = 1000 - curMills % 1000;
+                        Long time = 1000 - curMills % 1000;
                         System.out.println("currentTimeMillis=" + curMills + "time=" + LocalDateTime.now() + "  1000 - currentTimeMillis % 1000 =" + time);
                         TimeUnit.MILLISECONDS.sleep(time);
                     } catch (InterruptedException e) {

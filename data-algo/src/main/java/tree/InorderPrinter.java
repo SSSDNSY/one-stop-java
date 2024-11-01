@@ -64,8 +64,8 @@ public class InorderPrinter extends Printer {
             String nodePrefix,
             String leftPrefix,
             String rightPrefix) {
-        Object left   = tree.left(node);
-        Object right  = tree.right(node);
+        Object left = tree.left(node);
+        Object right = tree.right(node);
         String string = tree.string(node).toString();
 
         int length = string.length();

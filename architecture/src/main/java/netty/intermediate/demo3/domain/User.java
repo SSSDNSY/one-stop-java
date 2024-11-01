@@ -1,7 +1,6 @@
 package netty.intermediate.demo3.domain;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.Date;
 
@@ -10,7 +9,7 @@ import java.util.Date;
  * @desc
  * @since 2023-01-12
  */
-@Document(indexName = "stack", type = "group_user")
+//@Document(indexName = "stack", type = "group_user")
 public class User {
 
     @Id

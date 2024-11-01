@@ -16,10 +16,11 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @author: pengzh
  * @createDate: 2019/6/10$ 10:22$
  */
-public class FileSearch extends Thread{
+public class FileSearch extends Thread {
     private File file;
     private String[] tarStr;
-    public FileSearch(File file,String[] tarStr){
+
+    public FileSearch(File file, String[] tarStr) {
         this.file = file;
         this.tarStr = tarStr;
     }
@@ -27,53 +28,54 @@ public class FileSearch extends Thread{
     @Override
     public void run() {
         String fileContent = readFileContent(file);
-        for (int i =0;i<tarStr.length;i++){
-            if( StringUtils.contains(fileContent.toLowerCase(),tarStr[i].toLowerCase()) ){
-                System.out.println("已在 "+file.getName()+"找到 "+tarStr);
+        for (int i = 0; i < tarStr.length; i++) {
+            if (StringUtils.contains(fileContent.toLowerCase(), tarStr[i].toLowerCase())) {
+                System.out.println("已在 " + file.getName() + "找到 " + tarStr);
             }
         }
 
     }
 
-    static String readFileContent(File file){
+    static String readFileContent(File file) {
         FileReader fileReader = new FileReader(file);
         return fileReader.readString();
     }
 
-    static String replacePackageTag(String fullClassName){
-        if(StringUtils.isBlank(fullClassName)){
+    static String replacePackageTag(String fullClassName) {
+        if (StringUtils.isBlank(fullClassName)) {
             return "";
-        }else {
-            return StringUtils.replace(fullClassName,".","\\")+".java";
+        } else {
+            return StringUtils.replace(fullClassName, ".", "\\") + ".java";
         }
     }
 
-    static String replace2PackageTag(String fullClassName){
-        if(StringUtils.isBlank(fullClassName)){
+    static String replace2PackageTag(String fullClassName) {
+        if (StringUtils.isBlank(fullClassName)) {
             return "";
-        }else {
-            return StringUtils.replace(StringUtils.replace(fullClassName,"\\",".")
-                    ,".java","");
+        } else {
+            return StringUtils.replace(StringUtils.replace(fullClassName, "\\", ".")
+                    , ".java", "");
         }
     }
 
-    static List fileList(String preFix,String  txtfileName){
+    static List fileList(String preFix, String txtfileName) {
         List newList = new LinkedList();
-        List rawList =  cn.hutool.core.io.file.FileReader.create(new File(txtfileName)).readLines();
-        for (int i = 0; i <rawList.size() ; i++) {
-            newList.add(preFix+"\\"+replacePackageTag(rawList.get(i).toString()));
+        List rawList = cn.hutool.core.io.file.FileReader.create(new File(txtfileName)).readLines();
+        for (int i = 0; i < rawList.size(); i++) {
+            newList.add(preFix + "\\" + replacePackageTag(rawList.get(i).toString()));
         }
         return newList;
     }
-    static void findTargetFile(List list,String[] tarStrArr){
-        Set tarGetList  = new HashSet<>();
+
+    static void findTargetFile(List list, String[] tarStrArr) {
+        Set tarGetList = new HashSet<>();
         for (int i = 0; i < list.size(); i++) {
             final File file = new File(list.get(i).toString());
             String fileContent = readFileContent(file);
-            for (int j =0;j<tarStrArr.length;j++){
-                if(fileContent.contains(tarStrArr[j])){
+            for (int j = 0; j < tarStrArr.length; j++) {
+                if (fileContent.contains(tarStrArr[j])) {
                     tarGetList.add(replace2PackageTag(file.getAbsolutePath()));
-                    System.out.println("已在 "+file.getName()+"找到 "+tarStrArr[j]);
+                    System.out.println("已在 " + file.getName() + "找到 " + tarStrArr[j]);
                 }
             }
         }
@@ -92,8 +94,8 @@ public class FileSearch extends Thread{
 //        pools.shutdown();
 //        System.out.println("线程池耗时="+(System.currentTimeMillis()-t2));
 
-       String soaFolders = "W:\\workspaces\\tjin\\dev\\order\\src\\soa";
-       String yourActionFiles = "E:\\desktop\\家庭融和\\action.txt";
+        String soaFolders = "W:\\workspaces\\tjin\\dev\\order\\src\\soa";
+        String yourActionFiles = "E:\\desktop\\家庭融和\\action.txt";
 
         List list = fileList(soaFolders, yourActionFiles);
 //        String [] tarStrArr = new String[]{"RelationTradeData","ShareRelaTradeData"};
@@ -101,27 +103,27 @@ public class FileSearch extends Thread{
 //        String [] tarStrArr = new String[]{"ShareRelaTradeData"};
 //        String [] tarStrArr = new String[]{"share"};
 //        String [] tarStrArr = new String[]{"ShareInfoQry"};
-        String [] tarStrArr = new String[]{"RelaUU"};
-        findTargetFile(list,tarStrArr);
+        String[] tarStrArr = new String[]{"RelaUU"};
+        findTargetFile(list, tarStrArr);
         System.out.println(list);
     }
 
-    static void searchTargetFile(File f,String[] tar){
-        if(f.isFile()){
-            new FileSearch(f,tar).start();
-        }else{
-            for(File _f :f.listFiles()){
-                searchTargetFile(_f,tar);
+    static void searchTargetFile(File f, String[] tar) {
+        if (f.isFile()) {
+            new FileSearch(f, tar).start();
+        } else {
+            for (File _f : f.listFiles()) {
+                searchTargetFile(_f, tar);
             }
         }
     }
 
-    static void searchTargetFileByJUC(File f,String tar,ThreadPoolExecutor pools){
-        if(f.isFile()){
-            pools.execute(new FileSearch(f,new String[]{tar}));
-        }else{
-            for(File _f :f.listFiles()){
-                searchTargetFile(_f,new String[]{tar});
+    static void searchTargetFileByJUC(File f, String tar, ThreadPoolExecutor pools) {
+        if (f.isFile()) {
+            pools.execute(new FileSearch(f, new String[]{tar}));
+        } else {
+            for (File _f : f.listFiles()) {
+                searchTargetFile(_f, new String[]{tar});
             }
         }
     }

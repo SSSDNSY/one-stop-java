@@ -29,12 +29,11 @@ public class ComAction {
     ComAuditMachine comAuditMachine;
 
     /**
-     *
      * 提交审核处理
      */
 //    @Transactional(rollbackFor = Exception.class)
-    public Action<ComStates, ComEvents, ComContext> submitAction(){
-        return (from, to, event, ctx)-> {
+    public Action<ComStates, ComEvents, ComContext> submitAction() {
+        return (from, to, event, ctx) -> {
             log.info("submit action ----->");
             //注意这里需要编程式事务处理，切面有问题哟
 //            TransactionStatus begin = dataSourceManager.getTransaction(new DefaultTransactionAttribute());
@@ -42,13 +41,13 @@ public class ComAction {
             try {
                 //业务代码 1/2/3/4
 
-                ComContext context=new ComContext();
-                BeanUtils.copyProperties(ctx,context);
+                ComContext context = new ComContext();
+                BeanUtils.copyProperties(ctx, context);
                 context.setCurrentState(ComStates.PENDING_AUDIT.getValue());
-                dbExample.update(context.getDataId(),context);
+                dbExample.update(context.getDataId(), context);
 
 //                dataSourceManager.commit(begin);
-            }catch (Exception e){
+            } catch (Exception e) {
 //                dataSourceManager.rollback(begin);
             }
         };
@@ -56,10 +55,11 @@ public class ComAction {
 
     /**
      * 取消操作
+     *
      * @return
      */
-    public Action<ComStates, ComEvents, ComContext> cancelAction(){
-        return (from, to, event, ctx)-> {
+    public Action<ComStates, ComEvents, ComContext> cancelAction() {
+        return (from, to, event, ctx) -> {
             log.info("cancel action ----->");
             //注意这里需要编程式事务处理，切面有问题哟
 //            TransactionStatus begin = dataSourceManager.getTransaction(new DefaultTransactionAttribute());
@@ -67,13 +67,13 @@ public class ComAction {
             try {
                 //业务代码 1/2/3/4
 
-                ComContext context=new ComContext();
-                BeanUtils.copyProperties(ctx,context);
+                ComContext context = new ComContext();
+                BeanUtils.copyProperties(ctx, context);
                 context.setCurrentState(ComStates.CANCEL.getValue());
-                dbExample.update(context.getDataId(),context);
+                dbExample.update(context.getDataId(), context);
 
 //                dataSourceManager.commit(begin);
-            }catch (Exception e){
+            } catch (Exception e) {
 //                dataSourceManager.rollback(begin);
             }
         };
@@ -81,22 +81,23 @@ public class ComAction {
 
     /**
      * 多人审核
+     *
      * @return
      */
-    public Action<ComStates, ComEvents, ComContext> auditAction(){
-        return (from, to, event, ctx)-> {
+    public Action<ComStates, ComEvents, ComContext> auditAction() {
+        return (from, to, event, ctx) -> {
             log.info("audit action ----->");
             //注意这里需要编程式事务处理，切面有问题哟
 //            TransactionStatus begin = dataSourceManager.getTransaction(new DefaultTransactionAttribute());
             //执行审核
             try {
                 //业务代码 1/2/3/4
-                if (Objects.equals(ctx.getCurrentNodeAuditState(),ComStates.PENDING_AUDIT.getValue())){
+                if (Objects.equals(ctx.getCurrentNodeAuditState(), ComStates.PENDING_AUDIT.getValue())) {
                     ctx.setCurrentState(ComStates.MULTI_AUDIT.getValue());
                 }
 
-                ComContext context=new ComContext();
-                BeanUtils.copyProperties(ctx,context);
+                ComContext context = new ComContext();
+                BeanUtils.copyProperties(ctx, context);
 
                 ComContext.AuditNode auditNode = ctx.getAuditNodes().stream().filter(o -> Objects.equals(o.getUserId(), ctx.getCurrentNodeUserId())).findFirst().orElse(null);
                 auditNode.setState(ctx.getCurrentNodeAuditState());
@@ -104,20 +105,20 @@ public class ComAction {
                 auditNode.setOpTime(new Date());
 
 
-                if (Objects.equals(ctx.getCurrentNodeAuditState(),2)){
+                if (Objects.equals(ctx.getCurrentNodeAuditState(), 2)) {
                     //驳回，触发驳回事件
-                    comAuditMachine.fire(ComStates.getByValue(ctx.getCurrentState()),ComEvents.REJECT_AUDIT,ctx);
-                }else{
+                    comAuditMachine.fire(ComStates.getByValue(ctx.getCurrentState()), ComEvents.REJECT_AUDIT, ctx);
+                } else {
                     long count = ctx.getAuditNodes().stream().filter(o -> Objects.equals(o.getState(), 0)).count();
-                    dbExample.update(context.getDataId(),context);
-                    if (count==0){
+                    dbExample.update(context.getDataId(), context);
+                    if (count == 0) {
                         //审核通过事件
-                        comAuditMachine.fire(ComStates.MULTI_AUDIT,ComEvents.PASS_AUDIT,ctx);
+                        comAuditMachine.fire(ComStates.MULTI_AUDIT, ComEvents.PASS_AUDIT, ctx);
                     }
                 }
 
 //                dataSourceManager.commit(begin);
-            }catch (Exception e){
+            } catch (Exception e) {
 //                dataSourceManager.rollback(begin);
             }
         };
@@ -125,10 +126,11 @@ public class ComAction {
 
     /**
      * 所有人审核通过
+     *
      * @return
      */
-    public Action<ComStates, ComEvents, ComContext> passAction(){
-        return (from, to, event, ctx)-> {
+    public Action<ComStates, ComEvents, ComContext> passAction() {
+        return (from, to, event, ctx) -> {
             log.info("pass action ----->");
             //注意这里需要编程式事务处理，切面有问题哟
 //            TransactionStatus begin = dataSourceManager.getTransaction(new DefaultTransactionAttribute());
@@ -136,32 +138,32 @@ public class ComAction {
             try {
                 //业务代码 1/2/3/4
 
-                ComContext context=new ComContext();
-                BeanUtils.copyProperties(ctx,context);
+                ComContext context = new ComContext();
+                BeanUtils.copyProperties(ctx, context);
                 context.setCurrentState(ComStates.SUCCESS.getValue());
-                dbExample.update(context.getDataId(),context);
+                dbExample.update(context.getDataId(), context);
 //                dataSourceManager.commit(begin);
-            }catch (Exception e){
+            } catch (Exception e) {
 //                dataSourceManager.rollback(begin);
             }
         };
     }
 
 
-    public Action<ComStates, ComEvents, ComContext> rejectAction(){
-        return (from, to, event, ctx)-> {
+    public Action<ComStates, ComEvents, ComContext> rejectAction() {
+        return (from, to, event, ctx) -> {
             log.info("reject action ----->");
             //注意这里需要编程式事务处理，切面有问题哟
 //            TransactionStatus begin = dataSourceManager.getTransaction(new DefaultTransactionAttribute());
             //执行审核
             try {
                 //业务代码 1/2/3/4
-                ComContext context=new ComContext();
-                BeanUtils.copyProperties(ctx,context);
+                ComContext context = new ComContext();
+                BeanUtils.copyProperties(ctx, context);
                 context.setCurrentState(ComStates.REJECT.getValue());
-                dbExample.update(context.getDataId(),context);
+                dbExample.update(context.getDataId(), context);
 //                dataSourceManager.commit(begin);
-            }catch (Exception e){
+            } catch (Exception e) {
 //                dataSourceManager.rollback(begin);
             }
         };

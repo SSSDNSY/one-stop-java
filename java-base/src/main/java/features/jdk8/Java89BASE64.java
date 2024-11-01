@@ -9,7 +9,7 @@ import java.util.UUID;
  * @date 2020-03-03
  */
 public class Java89BASE64 {
-    public static void main(String args[]){
+    public static void main(String args[]) {
         try {
 
             // 使用基本编码
@@ -33,7 +33,7 @@ public class Java89BASE64 {
             String mimeEncodedString = Base64.getMimeEncoder().encodeToString(mimeBytes);
             System.out.println("Base64 编码字符串 (MIME) :" + mimeEncodedString);
 
-        }catch(UnsupportedEncodingException e){
+        } catch (UnsupportedEncodingException e) {
             System.out.println("Error :" + e.getMessage());
         }
     }

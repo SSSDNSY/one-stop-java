@@ -49,13 +49,13 @@ public class ABAQuestionOfCAS {
             System.out.println(Thread.currentThread().getName() + " " + asr.getStamp() + " " + asr.getStamp());
         }, "t3").start();
         new Thread(() -> {
-            int s  = asr.getStamp();
+            int s = asr.getStamp();
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(Thread.currentThread().getName() + "修改与否： " + asr.compareAndSet(100, 1,s , asr.getStamp() + 1)+" "  + asr.getStamp());
+            System.out.println(Thread.currentThread().getName() + "修改与否： " + asr.compareAndSet(100, 1, s, asr.getStamp() + 1) + " " + asr.getStamp());
             System.out.println(Thread.currentThread().getName() + " 最终值" + asr.getReference());
         }, "t4").start();
 

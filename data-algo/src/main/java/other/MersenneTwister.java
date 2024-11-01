@@ -181,9 +181,9 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
     private static final long serialVersionUID = -4035832775130174188L;  // locked as of Version 15
 
     // Period parameters
-    private static final int N          = 624;
-    private static final int M          = 397;
-    private static final int MATRIX_A   = 0x9908b0df;   //    private static final * constant vector a
+    private static final int N = 624;
+    private static final int M = 397;
+    private static final int MATRIX_A = 0x9908b0df;   //    private static final * constant vector a
     private static final int UPPER_MASK = 0x80000000; // most significant w-r bits
     private static final int LOWER_MASK = 0x7fffffff; // least significant r bits
 
@@ -202,7 +202,7 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
        of the Gaussian code (divide by zero, and log(0), ugh!), yet its
        gaussian variables are private so we can't access them here.  :-( */
 
-    private double  __nextNextGaussian;
+    private double __nextNextGaussian;
     private boolean __haveNextNextGaussian;
 
     /* We're overriding all internal data, to my knowledge, so this should be okay */
@@ -379,8 +379,8 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -665,7 +665,7 @@ public strictfp class MersenneTwister extends java.util.Random implements Serial
 
         final long SEED = 4357L;
 
-        int  xx;
+        int xx;
         long ms;
         System.out.println("\nTime to test grabbing 100000000 ints");
 

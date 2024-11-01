@@ -29,9 +29,9 @@ public class ConcurrentDemoNotifyWait {
                 synchronized (o) {
                     for (int j = 0; j < 10; j++) {
                         try {
-                            if(cdnw.size()<5){
+                            if (cdnw.size() < 5) {
                                 cdnw.add();
-                            }else {
+                            } else {
                                 wait();
                             }
                             System.out.println(" t1 cdnw.size=" + cdnw.size());

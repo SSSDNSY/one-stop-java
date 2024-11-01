@@ -33,29 +33,29 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 <project name="DictionaryServiceProvider" default="all" basedir=".">
 
-  <target name="clean">
-    <delete dir="build"/>
-    <delete dir="dist"/>
-  </target>
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
 
-  <target name="compile"  description="Compile Dictionary service provider">
-    <mkdir dir="build" />
+    <target name="compile" description="Compile Dictionary service provider">
+        <mkdir dir="build"/>
 
-    <javac srcdir="src"
-         includeantruntime="true"
-         destdir="build"
-         fork="yes"
-         debug="on">
-        <compilerarg value="-g"/>
-        <compilerarg value="-Xlint:overrides"/>
-        <compilerarg value="-Xlint:unchecked"/>
-    </javac>
-  </target>
+        <javac srcdir="src"
+               includeantruntime="true"
+               destdir="build"
+               fork="yes"
+               debug="on">
+            <compilerarg value="-g"/>
+            <compilerarg value="-Xlint:overrides"/>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
 
-  <target name="jar" depends="compile">
-    <mkdir dir="dist"/>
-    <jar destfile="dist/DictionaryServiceProvider.jar" basedir="build"/>
-  </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/DictionaryServiceProvider.jar" basedir="build"/>
+    </target>
 
 
 </project>

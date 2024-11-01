@@ -6,10 +6,10 @@
     
     rabbitmqctl  set_permissions -p / guest '.*' '.*' '.*'
 
-## 图形界面授权    
+## 图形界面授权
+
     Set permission
 
     Set topic permission
-
 
 ## https://github.com/MassTransit/MassTransit/issues/911#issuecomment-309498889

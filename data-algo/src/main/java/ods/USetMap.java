@@ -51,7 +51,7 @@ public class USetMap<K, V> extends AbstractMap<K, V> {
     }
 
     public V put(K k, V v) {
-        Entry           p = new Entry(k, v);
+        Entry p = new Entry(k, v);
         Map.Entry<K, V> q = s.remove(p);
         s.add(p);
         return q == null ? null : q.getValue();

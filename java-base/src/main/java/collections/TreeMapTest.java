@@ -60,7 +60,7 @@ public class TreeMapTest {
         // ------A1------A2-------A3------
         // -----------J1------------------
         TreeMap<Long, String> addressRing = new TreeMap<Long, String>();
-        for (String address: addressList) {
+        for (String address : addressList) {
             for (int i = 0; i < VIRTUAL_NODE_NUM; i++) {
                 long addressHash = hash("SHARD-" + address + "-NODE-" + i);
                 addressRing.put(addressHash, address);
@@ -76,7 +76,7 @@ public class TreeMapTest {
     }
 
     public static void main(String[] args) {
-        hashJob(1, Arrays.asList("A","B","C"));
+        hashJob(1, Arrays.asList("A", "B", "C"));
         System.out.println();
     }
 

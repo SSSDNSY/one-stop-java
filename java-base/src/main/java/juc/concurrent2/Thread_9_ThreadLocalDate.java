@@ -18,12 +18,12 @@ public class Thread_9_ThreadLocalDate {
 
     static SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         final ExecutorService executorService = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 1000; i++) {
-            executorService.submit(()->{
-                 Date date = null;
+            executorService.submit(() -> {
+                Date date = null;
                 try {
                     date = simpleDateFormat.parse("2020-08-09");
                 } catch (ParseException e) {

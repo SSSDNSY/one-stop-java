@@ -19,11 +19,11 @@ public class AioHandler implements CompletionHandler<Integer, Attachment> {
 //            final byte b = byteBuffer.get();
             byte[] bytes = new byte[byteBuffer.limit()];
             byteBuffer.get(bytes);
-            System.out.println("> "+new String(bytes));
+            System.out.println("> " + new String(bytes));
         } else {
 //          1
             attachment.setReadMode(true);
-            attachment.getClient().read(attachment.getByteBuffer(),attachment,this);
+            attachment.getClient().read(attachment.getByteBuffer(), attachment, this);
 //          2 直接关掉
 //            try {
 //                attachment.getClient().close();

@@ -2,6 +2,7 @@ package netty.intermediate.demo2.domain;
 
 /**
  * 消息传输协议
+ *
  * @author fun.pengzh
  * @desc
  * @since 2023-01-12

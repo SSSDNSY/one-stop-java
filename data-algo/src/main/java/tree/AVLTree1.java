@@ -18,8 +18,8 @@ public class AVLTree1<T extends Comparable<T>> {
 
     // AVL树的节点(内部类)
     class AVLTreeNode<T extends Comparable<T>> {
-        T              key;                // 关键字(键值)
-        int            height;         // 高度
+        T key;                // 关键字(键值)
+        int height;         // 高度
         AVLTreeNode<T> left;    // 左孩子
         AVLTreeNode<T> right;    // 右孩子
 

@@ -8,6 +8,7 @@ package designpattern.strategy;
 public interface IShopStrategy {
 
     String getType();
+
     void fillInfo();
 
 }

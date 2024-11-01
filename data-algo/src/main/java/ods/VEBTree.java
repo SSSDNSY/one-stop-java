@@ -9,14 +9,14 @@ import java.util.Random;
  * @author morin
  */
 public class VEBTree {
-    protected int  n;
-    protected int  w;
+    protected int n;
+    protected int w;
     protected Node r;
 
     protected class Node {
         public int min, max;
         public Node[] children;
-        public Node   aux;
+        public Node aux;
     }
 
     /**
@@ -133,7 +133,7 @@ public class VEBTree {
         }
         int cw = childW(w);
         int aw = auxW(w);
-        int j  = hibits(x, w);
+        int j = hibits(x, w);
         int xx = lobits(x, w);
         if (add(xx, v.children[j], cw)) {
             n++;
@@ -157,9 +157,9 @@ public class VEBTree {
         if (x <= v.min) return v.min;
         int cw = childW(w);
         int aw = auxW(w);
-        int j  = hibits(x, w);
+        int j = hibits(x, w);
         int xx = lobits(x, w);
-        int s  = find(xx, v.children[j], cw); // search child[j]
+        int s = find(xx, v.children[j], cw); // search child[j]
         if (s != -1)
             return (j << cw) | s;  // success
         j = find(j + 1, v.aux, aw);  // no luck - search in aux instead
@@ -181,10 +181,10 @@ public class VEBTree {
 
 
     public static void main(String[] args) {
-        int     w    = 5;
-        int     n    = 1 << w;
-        VEBTree t    = new VEBTree(w);
-        Random  rand = new Random();
+        int w = 5;
+        int n = 1 << w;
+        VEBTree t = new VEBTree(w);
+        Random rand = new Random();
         for (int i = 0; i < n / 4; i++) {
             t.add(rand.nextInt(n));
         }

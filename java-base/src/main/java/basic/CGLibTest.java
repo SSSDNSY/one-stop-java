@@ -11,9 +11,10 @@ import java.lang.reflect.Method;
  * @since 2020-08-07
  */
 public class CGLibTest {
-    public void sayHello(String str){
-        System.out.println("CGLibTest say:"+str);
+    public void sayHello(String str) {
+        System.out.println("CGLibTest say:" + str);
     }
+
     public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(CGLibTest.class);
@@ -24,10 +25,10 @@ public class CGLibTest {
                 System.out.println("before method run...");
                 Object result = methodProxy.invokeSuper(o, args);
                 System.out.println("after  method run...");
-                return  result;
+                return result;
             }
         });
-        CGLibTest test = (CGLibTest)enhancer.create();
+        CGLibTest test = (CGLibTest) enhancer.create();
         test.sayHello("aaABDSAAa");
     }
 }

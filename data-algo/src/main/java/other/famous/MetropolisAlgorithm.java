@@ -56,8 +56,8 @@ public class MetropolisAlgorithm {
          */
         int Ps = 0, Po = 0;
         for (int i = 0; i < n; i++) {
-            double x  = RandomUtils.nextDouble(0, 2);
-            double y  = RandomUtils.nextDouble(0, 2);
+            double x = RandomUtils.nextDouble(0, 2);
+            double y = RandomUtils.nextDouble(0, 2);
             double Sx = (x - 1) * (x - 1) + (y - 1) * (y - 1);
             if (Sx <= 1) {
                 Po++;

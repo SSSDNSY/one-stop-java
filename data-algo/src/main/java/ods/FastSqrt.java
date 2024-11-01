@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class FastSqrt {
     protected static final int[] sqrtab;
     protected static final int[] logtab;
-    protected static final int   halfint = 1 << 16;
+    protected static final int halfint = 1 << 16;
 
     static {
         sqrtab = new int[halfint];
@@ -60,10 +60,10 @@ public class FastSqrt {
      * @return the floor of the square root of x
      */
     public static final int sqrt(int x) {
-        int rp      = log(x);
+        int rp = log(x);
         int upgrade = ((r - rp) / 2) * 2;
-        int xp      = x << upgrade;  // xp has r or r-1 bits
-        int s       = sqrtab[xp >> (r / 2)] >> (upgrade / 2);
+        int xp = x << upgrade;  // xp has r or r-1 bits
+        int s = sqrtab[xp >> (r / 2)] >> (upgrade / 2);
         while ((s + 1) * (s + 1) <= x) s++;  // executes at most twice
         return s;
     }
@@ -95,7 +95,7 @@ public class FastSqrt {
 
 
         n = 1 << 27;
-        long   start, stop;
+        long start, stop;
         double elapsed;
 
 

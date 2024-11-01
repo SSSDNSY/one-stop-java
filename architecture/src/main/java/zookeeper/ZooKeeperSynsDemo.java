@@ -47,7 +47,7 @@ public class ZooKeeperSynsDemo implements Watcher {
                 connnectedSemaphore.countDown();
             } else if (Event.EventType.NodeDataChanged == watchedEvent.getType()) {
                 try {
-                    System.out.println("\t\t\t\t======>服务端值已修改"+new String(zk.getData(watchedEvent.getPath(), true, stat)));
+                    System.out.println("\t\t\t\t======>服务端值已修改" + new String(zk.getData(watchedEvent.getPath(), true, stat)));
                 } catch (KeeperException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {

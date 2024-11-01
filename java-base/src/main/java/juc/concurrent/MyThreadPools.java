@@ -39,7 +39,7 @@ public class MyThreadPools {
         @Override
         public void run() {
             System.out.println("启动" + this.getName());
-            if(System.currentTimeMillis()/1000%5==0){
+            if (System.currentTimeMillis() / 1000 % 5 == 0) {
                 System.out.println("线程池等待中");
             }
             while (true) {

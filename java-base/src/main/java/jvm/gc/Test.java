@@ -12,13 +12,18 @@ public class Test {
     public static void main(String[] args) {
         UnableCreateNativeThread();
     }
-    public static void UnableCreateNativeThread(){
+
+    public static void UnableCreateNativeThread() {
         for (int i = 1; ; i++) {
-            System.out.println("*********** i="+i);
-            new Thread(()->{
+            System.out.println("*********** i=" + i);
+            new Thread(() -> {
                 //线程休眠一会
-                try{TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);}catch(Exception e){e.printStackTrace();}
-            },""+i).start();
+                try {
+                    TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }, "" + i).start();
         }
     }
 }

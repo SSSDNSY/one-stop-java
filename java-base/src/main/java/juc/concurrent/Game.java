@@ -5,11 +5,12 @@ package juc.concurrent;
  * @Date: 2019/4/2 15:49
  * @Description:
  */
-public class Game implements Runnable{
+public class Game implements Runnable {
 
-    private volatile boolean  isGoal = false;
-    public void setGoal(boolean isGoal){
-        this.isGoal  = isGoal;
+    private volatile boolean isGoal = false;
+
+    public void setGoal(boolean isGoal) {
+        this.isGoal = isGoal;
     }
 
     public boolean isGoal() {
@@ -25,9 +26,9 @@ public class Game implements Runnable{
     }
 
     public void run() {
-        while(true){
-            if(isGoal())
-            System.out.println("Goal !!!!!!");
+        while (true) {
+            if (isGoal())
+                System.out.println("Goal !!!!!!");
             setGoal(false);
         }
     }

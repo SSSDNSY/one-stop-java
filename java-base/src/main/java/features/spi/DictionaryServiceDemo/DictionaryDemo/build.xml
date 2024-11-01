@@ -33,55 +33,55 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 <project name="rbcpsample" default="all" basedir=".">
 
-  <path id="CLASSPATH">
-    <pathelement path="../DictionaryServiceProvider/build"/>
-    <pathelement location="../DictionaryServiceProvider/dist/DictionaryServiceProvider.jar"/>
-    <pathelement location="."/>
-  </path>
+    <path id="CLASSPATH">
+        <pathelement path="../DictionaryServiceProvider/build"/>
+        <pathelement location="../DictionaryServiceProvider/dist/DictionaryServiceProvider.jar"/>
+        <pathelement location="."/>
+    </path>
 
-  <target name="clean">
-    <delete dir="build"/>
-    <delete dir="dist"/>
-  </target>
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
 
-  <target name="compile"  description="Compile Dictionary demo">
-    <mkdir dir="build" />
+    <target name="compile" description="Compile Dictionary demo">
+        <mkdir dir="build"/>
 
-    <javac srcdir="src"
-         includeantruntime="true"
-         destdir="build"
-         fork="yes"
-         debug="on">
-        <classpath refid="CLASSPATH"/>
-        <compilerarg value="-g"/>
-        <compilerarg value="-Xlint:overrides"/>
-        <compilerarg value="-Xlint:unchecked"/>
-    </javac>
-  </target>
+        <javac srcdir="src"
+               includeantruntime="true"
+               destdir="build"
+               fork="yes"
+               debug="on">
+            <classpath refid="CLASSPATH"/>
+            <compilerarg value="-g"/>
+            <compilerarg value="-Xlint:overrides"/>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
 
-  <target name="jar" depends="compile">
-    <mkdir dir="dist"/>
-    <jar destfile="dist/DictionaryDemo.jar" basedir="build"/>
-  </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/DictionaryDemo.jar" basedir="build"/>
+    </target>
 
     <target name="run">
-    <exec executable="java">
-      <arg line="-Djava.ext.dirs=../DictionaryServiceProvider/dist:../ExtendedDictionary/dist -cp dist/DictionaryDemo.jar dictionary.DictionaryDemo"/>
-    </exec>
-  </target>
+        <exec executable="java">
+            <arg line="-Djava.ext.dirs=../DictionaryServiceProvider/dist:../ExtendedDictionary/dist -cp dist/DictionaryDemo.jar dictionary.DictionaryDemo"/>
+        </exec>
+    </target>
 
-  <target name="runED">
-    <exec executable="java">
-      <arg line="-Djava.ext.dirs=../DictionaryServiceProvider/dist:../ExtendedDictionary/dist -cp dist/DictionaryDemo.jar dictionary.DictionaryDemo"/>
-    </exec>
-  </target>
+    <target name="runED">
+        <exec executable="java">
+            <arg line="-Djava.ext.dirs=../DictionaryServiceProvider/dist:../ExtendedDictionary/dist -cp dist/DictionaryDemo.jar dictionary.DictionaryDemo"/>
+        </exec>
+    </target>
 
-  <target name="runGD">
-    <exec executable="java">
-      <arg line="-Djava.ext.dirs=../DictionaryServiceProvider/dist:../GeneralDictionary/dist -cp dist/DictionaryDemo.jar dictionary.DictionaryDemo"/>
-    </exec>
-  </target>
+    <target name="runGD">
+        <exec executable="java">
+            <arg line="-Djava.ext.dirs=../DictionaryServiceProvider/dist:../GeneralDictionary/dist -cp dist/DictionaryDemo.jar dictionary.DictionaryDemo"/>
+        </exec>
+    </target>
 
-  </project>
+</project>
 
 

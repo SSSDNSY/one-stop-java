@@ -1,6 +1,7 @@
 package utils;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.zip.GZIPInputStream;
@@ -63,7 +64,7 @@ public final class GZipUtils {
         System.out.println("解压后文件大小（Byte）：" + unGzipData.length);
 
         String writePath = System.getProperty("user.dir") + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar +
-                "resources"  + File.separatorChar + "login-panda-1.png";
+                "resources" + File.separatorChar + "login-panda-1.png";
         FileOutputStream fos = new FileOutputStream(writePath);
         fos.write(unGzipData);
         fos.close();

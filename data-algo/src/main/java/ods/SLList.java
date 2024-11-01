@@ -14,7 +14,7 @@ import java.util.Queue;
  */
 public class SLList<T> extends AbstractQueue<T> {
     class Node {
-        T    x;
+        T x;
         Node next;
     }
 

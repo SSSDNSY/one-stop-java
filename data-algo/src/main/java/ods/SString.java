@@ -7,8 +7,8 @@ package ods;
  * @author morin
  */
 public class SString {
-    int    i;        // index of first character
-    int    m;        // length
+    int i;        // index of first character
+    int m;        // length
     byte[] data;  // data
 
     public SString(String s) {

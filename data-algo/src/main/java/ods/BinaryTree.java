@@ -111,7 +111,7 @@ public class BinaryTree<Node extends BinaryTree.BTNode<Node>> {
      */
     public int size2() {
         Node u = r, prev = nil, next;
-        int  n = 0;
+        int n = 0;
         while (u != nil) {
             if (prev == u.parent) {
                 n++;

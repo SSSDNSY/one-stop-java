@@ -17,7 +17,7 @@ public class SkiplistSSet<T> implements SSet<T> {
 
     @SuppressWarnings("unchecked")
     protected static class Node<T> {
-        T         x;
+        T x;
         Node<T>[] next;
 
         public Node(T ix, int h) {
@@ -71,7 +71,7 @@ public class SkiplistSSet<T> implements SSet<T> {
     }
 
     public T find(Finger f, T x) {
-        int     r = 0;
+        int r = 0;
         Node<T> u = f.s[r];
         // find an edge that passes over x
         while (r < h
@@ -113,7 +113,7 @@ public class SkiplistSSet<T> implements SSet<T> {
      */
     protected Node<T> findPredNode(T x) {
         Node<T> u = sentinel;
-        int     r = h;
+        int r = h;
         while (r >= 0) {
             while (u.next[r] != null && c.compare(u.next[r].x, x) < 0)
                 u = u.next[r];   // go right in list r
@@ -137,7 +137,7 @@ public class SkiplistSSet<T> implements SSet<T> {
     public T findLT(T x) {
         if (x == null) {  // return last node<T>
             Node<T> u = sentinel;
-            int     r = h;
+            int r = h;
             while (r >= 0) {
                 while (u.next[r] != null)
                     u = u.next[r];
@@ -151,9 +151,9 @@ public class SkiplistSSet<T> implements SSet<T> {
 
     public boolean remove(T x) {
         boolean removed = false;
-        Node<T> u       = sentinel;
-        int     r       = h;
-        int     comp    = 0;
+        Node<T> u = sentinel;
+        int r = h;
+        int comp = 0;
         while (r >= 0) {
             while (u.next[r] != null
                     && (comp = c.compare(u.next[r].x, x)) < 0) {
@@ -246,9 +246,9 @@ public class SkiplistSSet<T> implements SSet<T> {
     }
 
     public boolean add(T x) {
-        Node<T> u    = sentinel;
-        int     r    = h;
-        int     comp = 0;
+        Node<T> u = sentinel;
+        int r = h;
+        int comp = 0;
         while (r >= 0) {
             while (u.next[r] != null
                     && (comp = c.compare(u.next[r].x, x)) < 0)
@@ -268,7 +268,7 @@ public class SkiplistSSet<T> implements SSet<T> {
     }
 
     public static void main(String[] args) {
-        int                   n  = 100000;
+        int n = 100000;
         SkiplistSSet<Integer> sl = new SkiplistSSet<Integer>();
         System.out.println("Adding " + n + " elements");
         for (int i = 0; i < n; i++)
@@ -287,7 +287,7 @@ public class SkiplistSSet<T> implements SSet<T> {
         System.out.println("Searching (random - with finger)");
         Random r = new Random();
         for (int i = 0; i < 2 * n; i++) {
-            int     j = r.nextInt(2 * n);
+            int j = r.nextInt(2 * n);
             Integer x = sl.find(f, j);
             Utils.myassert(j > 2 * (n - 1) || Math.abs(x - j) <= 1);
         }

@@ -32,8 +32,8 @@ public class EmployeeImportHandler implements ImportHandler<Employee> {
 
     @Override
     public void init(ExcelContext ctx, DataParam param) {
-        ReadSheet     readSheet = EasyExcel.readSheet().sheetNo(0).headRowNumber(2).build();
-        ImportContext impCtx    = (ImportContext) ctx;
+        ReadSheet readSheet = EasyExcel.readSheet().sheetNo(0).headRowNumber(2).build();
+        ImportContext impCtx = (ImportContext) ctx;
         impCtx.setReadSheet(readSheet);
     }
 
@@ -47,7 +47,7 @@ public class EmployeeImportHandler implements ImportHandler<Employee> {
             throws Exception {
         List<ErrorMsg> errorList = new ArrayList<>();
         List<Employee> saveUsers = new ArrayList<>();
-        int            i         = 1;
+        int i = 1;
         for (Employee employee : list) {
             if (employee.getPhone().contains("00000000")) {
                 ErrorMsg msg = new ErrorMsg(i++, "手机号包含太多0");

@@ -7,7 +7,7 @@ public class ConcurrentDemoSynchronized4 {
     private String name = "foo";
     private String pwd = "xxx";
 
-    public synchronized void setValue(String name,String pwd) {
+    public synchronized void setValue(String name, String pwd) {
         this.name = name;
         try {
             Thread.sleep(3000);
@@ -16,18 +16,20 @@ public class ConcurrentDemoSynchronized4 {
         }
         this.pwd = pwd;
     }
-    public synchronized void getValue(){
-        System.out.println("name="+this.name+"  pwd="+pwd);
+
+    public synchronized void getValue() {
+        System.out.println("name=" + this.name + "  pwd=" + pwd);
     }
+
     public static void main(String[] args) {
-       final ConcurrentDemoSynchronized4 c4 = new ConcurrentDemoSynchronized4();
+        final ConcurrentDemoSynchronized4 c4 = new ConcurrentDemoSynchronized4();
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                c4.setValue("bar","ooooooo");
+                c4.setValue("bar", "ooooooo");
                 c4.getValue();
             }
-        },"t1");
+        }, "t1");
         t1.start();
         try {
             Thread.sleep(1000);

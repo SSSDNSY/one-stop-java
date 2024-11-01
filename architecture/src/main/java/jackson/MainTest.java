@@ -1,4 +1,3 @@
-
 package jackson;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

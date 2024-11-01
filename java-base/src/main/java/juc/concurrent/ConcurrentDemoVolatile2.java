@@ -10,21 +10,21 @@ public class ConcurrentDemoVolatile2 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println(Thread.currentThread().getName()+" 进入 ");
+                System.out.println(Thread.currentThread().getName() + " 进入 ");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 md.addNumber();
-                System.out.println(Thread.currentThread().getName()+" 修改:"+md.number);
+                System.out.println(Thread.currentThread().getName() + " 修改:" + md.number);
 
             }
         }).start();
-        while (md.number==0){
+        while (md.number == 0) {
 
         }
-        System.out.println(Thread.currentThread().getName()+" md.number=:"+md.number);
+        System.out.println(Thread.currentThread().getName() + " md.number=:" + md.number);
     }
 }
 
@@ -32,7 +32,7 @@ class MyData {
     /**
      * 体会可见性  volatile
      */
-    volatile int  number = 0;
+    volatile int number = 0;
 
     void addNumber() {
         this.number = 666;

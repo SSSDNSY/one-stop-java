@@ -129,7 +129,7 @@ public class PrintInTurns {
     @Test
     public void waitNotify() {
 
-       Object lock = new Object();
+        Object lock = new Object();
         t1 = new Thread(new Runnable() {
             @Override
             public void run() {

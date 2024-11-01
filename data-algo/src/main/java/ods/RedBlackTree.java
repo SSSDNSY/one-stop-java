@@ -9,7 +9,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         byte colour;
     }
 
-    static byte red   = 0;
+    static byte red = 0;
     static byte black = 1;
 
     public RedBlackTree(Comparator<T> c) {
@@ -306,7 +306,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         SortedSet<Integer> ts = new TreeSet<Integer>();
         s.clear();
         Random rand = new Random();
-        int    n    = 100000;
+        int n = 100000;
         for (int i = 0; i < n; i++) {
             Integer x = rand.nextInt();
             ts.add(x);
@@ -315,7 +315,7 @@ public class RedBlackTree<T> extends BinarySearchTree<RedBlackTree.Node<T>, T>
         s.verify();
         Utils.myassert(ts.size() == s.size());
         Iterator<Integer> tsi = ts.iterator();
-        Iterator<Integer> si  = s.iterator();
+        Iterator<Integer> si = s.iterator();
         while (tsi.hasNext()) {
             Utils.myassert(tsi.next().equals(si.next()));
         }

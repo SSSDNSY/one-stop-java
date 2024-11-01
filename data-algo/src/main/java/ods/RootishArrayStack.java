@@ -42,7 +42,7 @@ public class RootishArrayStack<T> extends AbstractList<T> {
      */
     protected static int i2b(int i) {
         double db = (-3.0 + Math.sqrt(9 + 8 * i)) / 2.0;
-        int    b  = (int) Math.ceil(db);
+        int b = (int) Math.ceil(db);
         return b;
     }
 
@@ -69,7 +69,7 @@ public class RootishArrayStack<T> extends AbstractList<T> {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
         int b = i2b(i);
         int j = i - b * (b + 1) / 2;
-        T   y = blocks.get(b)[j];
+        T y = blocks.get(b)[j];
         blocks.get(b)[j] = x;
         return y;
     }

@@ -41,7 +41,7 @@ public class MyClientHandler extends ChannelInboundHandlerAdapter {
                     new NettyClient().connect("127.0.0.1", 7397);
                     System.out.println("netty client start done. ");
                     Thread.sleep(500);
-                } catch (Exception e){
+                } catch (Exception e) {
                     System.out.println("netty client start error go reconnect ... ");
                 }
             }

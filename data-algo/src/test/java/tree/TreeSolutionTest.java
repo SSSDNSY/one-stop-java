@@ -69,13 +69,13 @@ public class TreeSolutionTest {
 
         Node c6 = new Node(6);
 
-        Node c2 = new Node(2,Arrays.asList(c5,c6));
+        Node c2 = new Node(2, Arrays.asList(c5, c6));
 
-        Node c3= new Node(3,Arrays.asList(c7,c8));
+        Node c3 = new Node(3, Arrays.asList(c7, c8));
 
-        Node c4 = new Node(4,Arrays.asList(c9));
+        Node c4 = new Node(4, Arrays.asList(c9));
 
-        rootN = new Node(1, Arrays.asList(c2,c3,c4));
+        rootN = new Node(1, Arrays.asList(c2, c3, c4));
     }
 
 
@@ -210,15 +210,15 @@ public class TreeSolutionTest {
 
     /**
      * 测试多叉树的层序遍历
-     *     1
-     *  2  3  4
+     * 1
+     * 2  3  4
      * 56  78  9
      */
     @Test
     public void testNTreeLevelOrder() {
         List<List<Integer>> lists = solution.levelOrder(rootN);
         lists.forEach(System.out::println);
-        assert lists.size() == 3 && lists.get(1).get(2)==4;
+        assert lists.size() == 3 && lists.get(1).get(2) == 4;
     }
 
     /**
@@ -233,7 +233,7 @@ public class TreeSolutionTest {
     public void testNTreePath() {
         List<List<Integer>> lists = solution.nTreePath(rootN);
         lists.forEach(System.out::println);
-        assert lists.size() == 5 && lists.get(1).get(2)==6;
+        assert lists.size() == 5 && lists.get(1).get(2) == 6;
     }
 
 }

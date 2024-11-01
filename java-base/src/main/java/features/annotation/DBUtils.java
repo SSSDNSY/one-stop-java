@@ -19,12 +19,12 @@ public class DBUtils {
     private DBUtils() {
     }
 
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         Connection connection = null;
-        String urlStr = String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s",HOST,PORT,DATABASE,CHAR_SET);
-        try{
-            connection = DriverManager.getConnection(urlStr,USERNAME,PASSWORD);
-        }catch(Exception e){
+        String urlStr = String.format("jdbc:mysql://%s:%d/%s?characterEncoding=%s", HOST, PORT, DATABASE, CHAR_SET);
+        try {
+            connection = DriverManager.getConnection(urlStr, USERNAME, PASSWORD);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return connection;

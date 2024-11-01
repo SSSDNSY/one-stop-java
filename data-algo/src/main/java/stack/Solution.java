@@ -40,9 +40,9 @@ public class Solution {
      * @createDate: 2019/6/4 17:46
      */
     public int evalRPN(String[] tokens) {
-        Stack   st   = new Stack();
+        Stack st = new Stack();
         boolean flag = true;
-        int     val  = 0;
+        int val = 0;
         for (int i = 0; i < tokens.length; i++) {
             if ("+".equals(tokens[i])) {
                 int a = Integer.valueOf(st.pop().toString());
@@ -187,9 +187,9 @@ public class Solution {
     }
 
     public String removeDuplicates1(String s) {
-        char[] ch   = s.toCharArray();
-        int    fast = 0;
-        int    slow = 0;
+        char[] ch = s.toCharArray();
+        int fast = 0;
+        int slow = 0;
         while (fast < s.length()) {
             // 直接用fast指针覆盖slow指针的值
             ch[slow] = ch[fast];

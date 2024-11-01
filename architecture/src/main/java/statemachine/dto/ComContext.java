@@ -49,7 +49,7 @@ public class ComContext {
          * 1 - 审核通过
          * 2 - 审核驳回
          */
-        Integer state = 0 ;
+        Integer state = 0;
 
         /**
          * 当状态为2时候填写驳回原因

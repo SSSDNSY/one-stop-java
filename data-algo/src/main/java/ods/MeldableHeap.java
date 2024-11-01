@@ -170,8 +170,8 @@ public class MeldableHeap<T> extends
     }
 
     public boolean retainAll(Collection<?> c) {
-        boolean     modified = false;
-        Iterator<T> it       = iterator();
+        boolean modified = false;
+        Iterator<T> it = iterator();
         while (it.hasNext()) {
             if (!c.contains(it.next())) {
                 it.remove();
@@ -192,7 +192,7 @@ public class MeldableHeap<T> extends
 
     public Object[] toArray() {
         Object[] a = new Object[n];
-        int      i = 0;
+        int i = 0;
         for (T x : this) {
             a[i++] = x;
         }
@@ -209,8 +209,8 @@ public class MeldableHeap<T> extends
     protected static void speedTests(Queue<Integer> q) {
         Random r = new Random();
         q.clear();
-        int    n = 1000000;
-        long   start, stop;
+        int n = 1000000;
+        long start, stop;
         double elapsed;
         System.out.print("performing " + n + " adds...");
         start = System.nanoTime();

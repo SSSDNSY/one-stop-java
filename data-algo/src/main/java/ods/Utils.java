@@ -63,8 +63,8 @@ public class Utils {
      */
     public static void main(String[] args) {
         System.out.println(-1 >>> 1);
-        Random    r = new Random();
-        int       n = 25;
+        Random r = new Random();
+        int n = 25;
         Integer[] a = new Integer[n];
         for (int i = 0; i < n; i++) {
             a[i] = r.nextInt(2500);

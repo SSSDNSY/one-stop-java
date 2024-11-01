@@ -9,13 +9,13 @@ import java.util.concurrent.Executors;
  * @since 2020-06-30
  */
 public class Thread_12_ThreadUnsafeExample {
-    private  int count;
+    private int count;
 
-    public  int getCount() {
+    public int getCount() {
         return count;
     }
 
-    public  void addCount() {
+    public void addCount() {
         this.count++;
     }
 
@@ -30,7 +30,7 @@ public class Thread_12_ThreadUnsafeExample {
                 @Override
                 public void run() {
                     countDownLatch.countDown();
-                        example.addCount();
+                    example.addCount();
                 }
             }));
         }

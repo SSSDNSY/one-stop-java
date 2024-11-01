@@ -42,8 +42,8 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node, T>, T>
 
     public boolean add(T x) {
         if (super.add(x)) {
-            int  i, c = 0, ix = it.intValue(x);
-            Node u    = r.child[(ix >>> w - 1) & 1];
+            int i, c = 0, ix = it.intValue(x);
+            Node u = r.child[(ix >>> w - 1) & 1];
             for (i = 1; i <= w; i++) {
                 u.prefix = ix >>> w - i;
                 t[i].add(u);
@@ -57,7 +57,7 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node, T>, T>
 
     public boolean remove(T x) {
         // 1 - find leaf, u, containing x
-        int  i = 0, c, ix = it.intValue(x);
+        int i = 0, c, ix = it.intValue(x);
         Node u = r;
         for (i = 0; i < w; i++) {
             c = (ix >>> w - i - 1) & 1;
@@ -94,7 +94,7 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node, T>, T>
 
     protected Node findNode(int ix) {
         // find lowest node that is an ancestor of ix
-        int  l    = 0, h = w + 1;
+        int l = 0, h = w + 1;
         Node v, u = r, q = newNode();
         while (h - l > 1) {
             int i = (l + h) / 2;
@@ -118,7 +118,7 @@ public class XFastTrie<Node extends XFastTrie.Nöde<Node, T>, T>
     }
 
     public T find(T x) {
-        int  l    = 0, h = w + 1, ix = it.intValue(x);
+        int l = 0, h = w + 1, ix = it.intValue(x);
         Node v, u = r, q = newNode();
         while (h - l > 1) {
             int i = (l + h) / 2;

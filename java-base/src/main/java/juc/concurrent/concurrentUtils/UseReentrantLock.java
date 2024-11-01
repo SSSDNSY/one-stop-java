@@ -49,12 +49,12 @@ public class UseReentrantLock {
             }
         }, "T1");
         t1.start();
-        new Thread(()->{
+        new Thread(() -> {
             new phone().sendSMS();
-        },"t2").start();
-        new Thread(()->{
+        }, "t2").start();
+        new Thread(() -> {
             new phone().sendSMS();
-        },"t3").start();
+        }, "t3").start();
     }
 }
 
@@ -63,6 +63,7 @@ class phone {
         System.out.println(Thread.currentThread().getId() + " :发送短信！");
         sendEmail();
     }
+
     public synchronized void sendEmail() {
         System.out.println(Thread.currentThread().getId() + " :发送邮件！");
     }

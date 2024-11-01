@@ -26,7 +26,7 @@ public class AkkaHello {
         AkkaHello akkaHello = new AkkaHello();
         akkaHello.init();
 
-        akkaHello.ask(new Message("1"),Message.class);
+        akkaHello.ask(new Message("1"), Message.class);
     }
 
     public void init() {
@@ -57,7 +57,7 @@ public class AkkaHello {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> CompletionStage<T> ask( Serializable request, Class<T> clz) throws RuntimeException {
+    public <T> CompletionStage<T> ask(Serializable request, Class<T> clz) throws RuntimeException {
         ActorSelection actorSelection = fetchActorSelection();
         return (CompletionStage<T>) Patterns.ask(actorSelection, request, Duration.ofMillis(5000L));
     }

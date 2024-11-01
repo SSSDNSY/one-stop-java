@@ -47,7 +47,7 @@ public class MultiplicativeHashSet<T> extends AbstractSet<T> {
     }
 
     public static void main(String[] args) {
-        int          n = 100002;
+        int n = 100002;
         Set<Integer> t = new MultiplicativeHashSet<Integer>();
         for (int i = 0; i < n; i++) {
             t.add(i * 2);

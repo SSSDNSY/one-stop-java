@@ -16,6 +16,7 @@ import java.util.concurrent.Executors;
  */
 public class LongEventMain {
     static final int MAX_VALUE = 100000;
+
     public static void main(String[] args) {
         ExecutorService es = Executors.newCachedThreadPool();
         LongEventFactory factory = new LongEventFactory();
@@ -32,8 +33,8 @@ public class LongEventMain {
 
         //提交事件两个过程
         ByteBuffer bb = ByteBuffer.allocate(8);
-        for (long i = 0; i <MAX_VALUE; i++) {
-            bb.putLong(0,i);
+        for (long i = 0; i < MAX_VALUE; i++) {
+            bb.putLong(0, i);
             longEventProducer.onData(bb);
         }
         disruptor.shutdown();

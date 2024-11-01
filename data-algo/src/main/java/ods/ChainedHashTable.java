@@ -184,7 +184,7 @@ public class ChainedHashTable<T> implements USet<T> {
      * @param args
      */
     public static void main(String[] args) {
-        int                       n = 100000;
+        int n = 100000;
         ChainedHashTable<Integer> t = new ChainedHashTable<Integer>();
         for (int i = 0; i < n; i++) {
             t.add(i * 2);

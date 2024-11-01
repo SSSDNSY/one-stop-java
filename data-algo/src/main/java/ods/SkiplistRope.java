@@ -5,8 +5,8 @@ import java.util.Random;
 public class SkiplistRope {
     class Node {
         SString s;
-        Node[]  next;
-        int[]   length;
+        Node[] next;
+        int[] length;
 
         public Node(SString s, int h) {
             this.s = s;
@@ -44,8 +44,8 @@ public class SkiplistRope {
 
     public char charAt(int i) {
         Node u = sentinel;
-        int  r = height - 1;
-        int  j = -1;   // the index of the first character of u's string
+        int r = height - 1;
+        int j = -1;   // the index of the first character of u's string
         while (r >= 0) {
             while (u.next[r] != null && j + u.length[r] < i) {
                 j += u.length[r];

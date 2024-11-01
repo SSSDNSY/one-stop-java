@@ -12,7 +12,7 @@ import java.util.ListIterator;
  */
 public class DLList<T> extends AbstractSequentialList<T> {
     class Node {
-        T    x;
+        T x;
         Node prev, next;
     }
 
@@ -117,7 +117,7 @@ public class DLList<T> extends AbstractSequentialList<T> {
     public T set(int i, T x) {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
         Node u = getNode(i);
-        T    y = u.x;
+        T y = u.x;
         u.x = x;
         return y;
     }

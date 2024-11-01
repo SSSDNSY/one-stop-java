@@ -15,8 +15,8 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class ExecutorRouteLFU extends ExecutorRouter {
 
-    private static ConcurrentMap<Integer, HashMap<String, Integer>> jobLfuMap        = new ConcurrentHashMap<Integer, HashMap<String, Integer>>();
-    private static long                                             CACHE_VALID_TIME = 0;
+    private static ConcurrentMap<Integer, HashMap<String, Integer>> jobLfuMap = new ConcurrentHashMap<Integer, HashMap<String, Integer>>();
+    private static long CACHE_VALID_TIME = 0;
 
     public String route(int jobId, List<String> addressList) {
 
@@ -62,7 +62,7 @@ public class ExecutorRouteLFU extends ExecutorRouter {
         });
 
         Map.Entry<String, Integer> addressItem = lfuItemList.get(0);
-        String                     minAddress  = addressItem.getKey();
+        String minAddress = addressItem.getKey();
         addressItem.setValue(addressItem.getValue() + 1);
 
         return addressItem.getKey();

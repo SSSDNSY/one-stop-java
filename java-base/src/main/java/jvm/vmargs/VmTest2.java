@@ -24,13 +24,13 @@ public class VmTest2 {
 //          -XX:InitialHeapSize=268435456 -XX:MaxHeapSize=4263510016
 
         //-Xms
-        System.out.println("JVM的内存总量" + Runtime.getRuntime().totalMemory()+" ("
-        +(Runtime.getRuntime().totalMemory()/1024/1024)+"MB)");
+        System.out.println("JVM的内存总量" + Runtime.getRuntime().totalMemory() + " ("
+                + (Runtime.getRuntime().totalMemory() / 1024 / 1024) + "MB)");
 
         System.out.println("JVM空闲的内存" + Runtime.getRuntime().freeMemory());
         //-Xmx
-        System.out.println("JVM试图使用的内存总量" + Runtime.getRuntime().maxMemory()+" ("
-                +(Runtime.getRuntime().maxMemory()/1024/1024)+"MB)");
+        System.out.println("JVM试图使用的内存总量" + Runtime.getRuntime().maxMemory() + " ("
+                + (Runtime.getRuntime().maxMemory() / 1024 / 1024) + "MB)");
         TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
 
     }

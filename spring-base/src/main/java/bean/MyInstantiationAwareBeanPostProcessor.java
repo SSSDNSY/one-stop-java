@@ -1,15 +1,14 @@
 package bean;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
+import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;
 
 /**
  * @Desc 继承InstantiationAwareBeanPostProcessorAdapter的类
  * @Author pengzh
  * @Since 2023-02-24
  */
-public class MyInstantiationAwareBeanPostProcessor extends
-        InstantiationAwareBeanPostProcessorAdapter {
+public class MyInstantiationAwareBeanPostProcessor implements SmartInstantiationAwareBeanPostProcessor {
 
     public MyInstantiationAwareBeanPostProcessor() {
         super();

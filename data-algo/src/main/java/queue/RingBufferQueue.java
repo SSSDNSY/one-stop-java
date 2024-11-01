@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * @Since 2020-10-12
  */
 public class RingBufferQueue<E> {
-    private final int        mask;
-    private final E[]        buffer;
+    private final int mask;
+    private final E[] buffer;
     private final AtomicLong tail = new AtomicLong(0L);
     private final AtomicLong head = new AtomicLong(0L);
 
@@ -36,7 +36,7 @@ public class RingBufferQueue<E> {
             throw new NullPointerException("Null is not a valid element");
         } else {
             long currentTail = this.tail.get();
-            long wrapPoint   = currentTail - (long) this.buffer.length;
+            long wrapPoint = currentTail - (long) this.buffer.length;
             if (this.head.get() <= wrapPoint) {
                 return false;
             } else {
@@ -53,7 +53,7 @@ public class RingBufferQueue<E> {
             return null;
         } else {
             int index = (int) currentHead & this.mask;
-            E   e     = this.buffer[index];
+            E e = this.buffer[index];
             this.buffer[index] = null;
             this.head.lazySet(currentHead + 1L);
             return e;
@@ -113,8 +113,8 @@ public class RingBufferQueue<E> {
 
 class IntArr {
     int[] array;
-    int   mask;
-    int   t, h = 0;
+    int mask;
+    int t, h = 0;
 
     public IntArr(int cap) {
         cap = findNextPositivePowerOfTwo(cap);
@@ -134,8 +134,8 @@ class IntArr {
     }
 
     public int poll() {
-        int       idx = h++ & mask;
-        final int i   = array[idx];
+        int idx = h++ & mask;
+        final int i = array[idx];
         array[idx] = 0;
         return i;
     }

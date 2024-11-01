@@ -18,8 +18,8 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class ExecutorRouteLRU extends ExecutorRouter {
 
-    private static ConcurrentMap<Integer, LinkedHashMap<String, String>> jobLRUMap        = new ConcurrentHashMap<Integer, LinkedHashMap<String, String>>();
-    private static long                                                  CACHE_VALID_TIME = 0;
+    private static ConcurrentMap<Integer, LinkedHashMap<String, String>> jobLRUMap = new ConcurrentHashMap<Integer, LinkedHashMap<String, String>>();
+    private static long CACHE_VALID_TIME = 0;
 
     public String route(int jobId, List<String> addressList) {
 
@@ -61,7 +61,7 @@ public class ExecutorRouteLRU extends ExecutorRouter {
         }
 
         // load
-        String eldestKey   = lruItem.entrySet().iterator().next().getKey();
+        String eldestKey = lruItem.entrySet().iterator().next().getKey();
         String eldestValue = lruItem.get(eldestKey);
         return eldestValue;
     }

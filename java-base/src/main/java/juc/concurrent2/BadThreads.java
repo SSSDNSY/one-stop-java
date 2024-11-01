@@ -16,7 +16,8 @@ public class BadThreads {
         public void run() {
             try {
                 sleep(1000);
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
             // Key statement 1:
             message = "Mares do eat oats.";
         }

@@ -25,8 +25,8 @@ public class Algorithms {
      * @param i
      */
     public static void bfs(Graph g, int r) {
-        boolean[]      seen = new boolean[g.nVertices()];
-        Queue<Integer> q    = new SLList<Integer>();
+        boolean[] seen = new boolean[g.nVertices()];
+        Queue<Integer> q = new SLList<Integer>();
         q.add(r);
         seen[r] = true;
         while (!q.isEmpty()) {
@@ -41,8 +41,8 @@ public class Algorithms {
     }
 
     public static void bfsZ(Graph g, int r) {
-        boolean[]      seen = new boolean[g.nVertices()];
-        Queue<Integer> q    = new SLList<Integer>();
+        boolean[] seen = new boolean[g.nVertices()];
+        Queue<Integer> q = new SLList<Integer>();
         q.add(r);
         seen[r] = true;
         while (!q.isEmpty()) {
@@ -106,7 +106,7 @@ public class Algorithms {
      * @param r
      */
     public static void dfs2(Graph g, int r) {
-        byte[]         c = new byte[g.nVertices()];
+        byte[] c = new byte[g.nVertices()];
         Stack<Integer> s = new Stack<Integer>();
         s.push(r);
         while (!s.isEmpty()) {
@@ -120,7 +120,7 @@ public class Algorithms {
     }
 
     public static void dfs2Z(Graph g, int r) {
-        byte[]         c = new byte[g.nVertices()];
+        byte[] c = new byte[g.nVertices()];
         Stack<Integer> s = new Stack<Integer>();
         s.push(r);
         while (!s.isEmpty()) {
@@ -231,7 +231,7 @@ public class Algorithms {
      */
     public static <T> void quickSort(T[] a, int i, int n, Comparator<T> c) {
         if (n <= 1) return;
-        T   x = a[i + rand.nextInt(n)];
+        T x = a[i + rand.nextInt(n)];
         int p = i - 1, j = i, q = i + n;
         // a[i..p]<x,  a[p+1..q-1]??x, a[q..i+n-1]>x
         while (j < q) {
@@ -250,10 +250,10 @@ public class Algorithms {
     }
 
     public static void main(String[] args) {
-        long      start, stop;
-        int       n    = 1000000;
-        Random    rand = new Random();
-        Integer[] a    = new Integer[1000000];
+        long start, stop;
+        int n = 1000000;
+        Random rand = new Random();
+        Integer[] a = new Integer[1000000];
         for (int i = 0; i < a.length; i++)
             a[i] = rand.nextInt();
         System.out.print("Sorting " + n + " integers using quickSort...");

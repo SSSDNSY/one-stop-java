@@ -95,7 +95,7 @@ class MyClassLoader extends ClassLoader {
     }
 // 只需要去重写这个 findClass 方法就能实现自定义的类加载器
 
-//    这里有几点需要注意 :
+    //    这里有几点需要注意 :
 //            1、这里传递的文件名需要是类的全限定性名称，即com.pdai.jvm.classloader.Test2格式的，因为 defineClass 方法是按这种格式进行处理的。
 //            2、最好不要重写loadClass方法，因为这样容易破坏双亲委托模式。
 //            3、这类Test 类本身可以被 AppClassLoader 类加载，因此我们不能把com/pdai/jvm/classloader/Test2.class 放在类路径下。否则，由于双亲委托机制的存在，会直接导致该类由 AppClassLoader 加载，而不会通过我们自定义类加载器来加载。

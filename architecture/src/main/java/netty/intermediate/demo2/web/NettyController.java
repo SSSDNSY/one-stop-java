@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 
 /**
  * 消息传输协议
+ *
  * @author fun.pengzh
  * @desc
  * @since 2023-01-12
@@ -20,7 +21,7 @@ public class NettyController {
     private NettyServer nettyServer;
 
     @RequestMapping("/index")
-    public String index(Model model){
+    public String index(Model model) {
         model.addAttribute("name", "xiaohao");
         return "index";
     }

@@ -20,34 +20,37 @@ public class Master {
         worker.setWorkQueue(this.workQueue);
         worker.setResultMap(this.resultMap);
         for (int i = 0; i < workerCount; i++) {
-            workers.put("子节点" + i , new Thread(worker));
+            workers.put("子节点" + i, new Thread(worker));
         }
     }
 
-    public void submit(Task task){
+    public void submit(Task task) {
         this.workQueue.add(task);
     }
-    public void excute(){
-        for(Map.Entry<String,Thread> w: workers.entrySet()){
+
+    public void excute() {
+        for (Map.Entry<String, Thread> w : workers.entrySet()) {
             w.getValue().start();
         }
     }
-    public boolean isComplete(){
-        for(Map.Entry<String,Thread> w: workers.entrySet()){
-            if(w.getValue().getState()!=Thread.State.TERMINATED){
+
+    public boolean isComplete() {
+        for (Map.Entry<String, Thread> w : workers.entrySet()) {
+            if (w.getValue().getState() != Thread.State.TERMINATED) {
                 return false;
             }
         }
         return true;
     }
-    public void stop(){
+
+    public void stop() {
 
     }
 
     public float getRusult() {
         float ret = 0;
-        for (Map.Entry<String,Object> rlt : resultMap.entrySet()){
-                ret += (float)rlt.getValue();
+        for (Map.Entry<String, Object> rlt : resultMap.entrySet()) {
+            ret += (float) rlt.getValue();
         }
         return ret;
     }

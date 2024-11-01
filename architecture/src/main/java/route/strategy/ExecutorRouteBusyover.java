@@ -14,11 +14,11 @@ public class ExecutorRouteBusyover extends ExecutorRouter {
     @Override
     public String route(String triggerParam, List<String> addressList) {
         StringBuffer idleBeatResultSB = new StringBuffer();
-        String       idleBeatResult   = "FAIL_CODE";
+        String idleBeatResult = "FAIL_CODE";
         for (String address : addressList) {
             // beat
             try {
-                idleBeatResult = HttpUtil.post("xxx", address,3);
+                idleBeatResult = HttpUtil.post("xxx", address, 3);
             } catch (Exception e) {
                 logger.error(e.getMessage(), e);
             }

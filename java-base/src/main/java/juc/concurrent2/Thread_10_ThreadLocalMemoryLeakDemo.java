@@ -51,8 +51,8 @@ public class Thread_10_ThreadLocalMemoryLeakDemo {
      * 代码出处来源于Stack Overflow：https://stackoverflow.com/questions/17968803/threadlocal-memory-leak
      */
     static class TestClass {
-        private int                    id;
-        private int[]                  arr;
+        private int id;
+        private int[] arr;
         private ThreadLocal<TestClass> threadLocal;
 
         TestClass(int id) {

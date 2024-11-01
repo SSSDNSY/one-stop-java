@@ -108,7 +108,8 @@ class EnumSingleton {
             return instance;
         }
     }
-    public static EnumSingleton getInstance(){
-        return  EnumSingletons.INSTANCE.getInstance();
+
+    public static EnumSingleton getInstance() {
+        return EnumSingletons.INSTANCE.getInstance();
     }
 }

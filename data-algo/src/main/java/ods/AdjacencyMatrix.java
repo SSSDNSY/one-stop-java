@@ -9,7 +9,7 @@ import java.util.List;
  * @author morin
  */
 public class AdjacencyMatrix implements Graph {
-    protected int         n;
+    protected int n;
     protected boolean[][] a;
 
     /**

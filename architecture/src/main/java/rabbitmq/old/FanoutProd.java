@@ -39,7 +39,7 @@ public class FanoutProd {
         channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
 
         for (int i = 0; i < 100; i++) {
-            String message = "direct 消息 " +i;
+            String message = "direct 消息 " + i;
             //发送消息到队列中
             channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes("UTF-8"));
             System.out.println("发送消息： " + message);

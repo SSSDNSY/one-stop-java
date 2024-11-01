@@ -22,7 +22,7 @@ public class DriectCons {
         final String name = "consumer-" + RandomUtil.randomString(5);
 
         //判断服务器是否启动
-    	RabbitMQUtil.checkServer();
+        RabbitMQUtil.checkServer();
         // 创建连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         //设置RabbitMQ地址
@@ -33,7 +33,7 @@ public class DriectCons {
         Channel channel = connection.createChannel();
         //声明要关注的队列
         channel.queueDeclare(QUEUE_NAME, false, false, true, null);
-        System.out.println(name +" 等待接受消息");
+        System.out.println(name + " 等待接受消息");
         //DefaultConsumer类实现了Consumer接口，通过传入一个频道，
         // 告诉服务器我们需要那个频道的消息，如果频道中有消息，就会执行回调函数handleDelivery
         Consumer consumer = new DefaultConsumer(channel) {

@@ -3,7 +3,7 @@ package ods;
 public class ScapegoatTree2<T> extends ScapegoatTree<T> {
 
     protected void rebuild(Node<T> u) {
-        int     n = size(u);
+        int n = size(u);
         Node<T> p = u.parent;
         // FIXME: check if p is root
         if (p == nil) {
@@ -29,7 +29,7 @@ public class ScapegoatTree2<T> extends ScapegoatTree<T> {
             x.left = nil;
             return x;
         }
-        int     k = n / 2;
+        int k = n / 2;
         Node<T> r = buildTree(k, x);
         Node<T> s = buildTree(n - k - 1, r.right);
         r.right = s.left;

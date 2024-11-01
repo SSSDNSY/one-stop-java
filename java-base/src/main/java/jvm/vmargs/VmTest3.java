@@ -7,7 +7,7 @@ package jvm.vmargs;
  * -XX:SurvivorRatio=8  eden:s0:s1
  * -XX:NewRatio=4
  * -XX:MaxTenuringThreshould 15
- *
+ * <p>
  * java堆GC角度划分：
  * 新生代 (占堆总内存1/3)：Eden,from,to
  * 老年代 (占堆总内存2/3)：tenured

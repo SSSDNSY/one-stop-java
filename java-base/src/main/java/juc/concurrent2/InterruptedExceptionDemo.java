@@ -30,9 +30,10 @@ public class InterruptedExceptionDemo {
         t1.interrupt();
         System.out.println("main run");
     }
+
     private static void interruptDeadloop() throws InterruptedException {
         Thread t1 = new Thread(() -> {
-            while (!interrupted()){
+            while (!interrupted()) {
                 System.out.println(interrupted());
             }
             System.out.println(" interrupted");

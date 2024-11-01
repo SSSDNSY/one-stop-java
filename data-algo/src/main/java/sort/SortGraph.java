@@ -10,14 +10,14 @@ import java.awt.*;
  * @createDate: 2019/6/7$ 21:37$
  */
 public class SortGraph extends JPanel {
-    static int W                                 = 1280;
-    static int H                                 = 720;
+    static int W = 1280;
+    static int H = 720;
     static int x, y, width, height, _x, _y, size = 15;
-    static        int[]    array;
-    static        Graphics graphics = null;
-    public static JPanel   jpanel   = null;
+    static int[] array;
+    static Graphics graphics = null;
+    public static JPanel jpanel = null;
     public static JMenuBar jMenuBar = null;
-    public static JLabel   jLabel   = new JLabel();
+    public static JLabel jLabel = new JLabel();
 
     public SortGraph() {
         super();
@@ -82,15 +82,15 @@ public class SortGraph extends JPanel {
         jLabel.setBounds(0, 0, 10, 15);
         // 菜单栏
         jMenuBar = new JMenuBar();
-        JMenu     mAlg           = new JMenu("算法选择");
-        JMenu     mAbt           = new JMenu("关于");
-        JMenuItem jMenuBar_bub   = new JMenuItem("冒泡");
-        JMenuItem jMenuBar_sel   = new JMenuItem("选择");
-        JMenuItem jMenuBar_ins   = new JMenuItem("插入");
+        JMenu mAlg = new JMenu("算法选择");
+        JMenu mAbt = new JMenu("关于");
+        JMenuItem jMenuBar_bub = new JMenuItem("冒泡");
+        JMenuItem jMenuBar_sel = new JMenuItem("选择");
+        JMenuItem jMenuBar_ins = new JMenuItem("插入");
         JMenuItem jMenuBar_quick = new JMenuItem("快速");
         JMenuItem jMenuBar_shell = new JMenuItem("希尔");
         JMenuItem jMenuBar_merge = new JMenuItem("归并");
-        JMenuItem jMenuBar_heap  = new JMenuItem("堆");
+        JMenuItem jMenuBar_heap = new JMenuItem("堆");
         JMenuItem jMenuBar_radix = new JMenuItem("基数");
         mAlg.add(jMenuBar_bub);
         mAlg.add(jMenuBar_sel);

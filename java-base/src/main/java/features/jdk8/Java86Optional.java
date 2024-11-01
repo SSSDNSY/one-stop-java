@@ -8,7 +8,7 @@ import java.util.Optional;
  */
 public class Java86Optional {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         Java86Optional java8Tester = new Java86Optional();
         Integer value1 = null;
@@ -19,10 +19,10 @@ public class Java86Optional {
 
         // Optional.of - 如果传递的参数是 null，抛出异常 NullPointerException
         Optional<Integer> b = Optional.of(value2);
-        System.out.println(java8Tester.sum(a,b));
+        System.out.println(java8Tester.sum(a, b));
     }
 
-    public Integer sum(Optional<Integer> a, Optional<Integer> b){
+    public Integer sum(Optional<Integer> a, Optional<Integer> b) {
 
         // Optional.isPresent - 判断值是否存在
 

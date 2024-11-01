@@ -36,7 +36,7 @@ public class Java8SortTest {
         System.out.println("========================");
         list = list.stream()
                 .sorted(Comparator.comparing(people::getBirth, Comparator.nullsLast(Date::compareTo)).reversed()
-                .thenComparing(Comparator.comparing(people::getMarry,Comparator.nullsLast(Date::compareTo)).reversed()))
+                        .thenComparing(Comparator.comparing(people::getMarry, Comparator.nullsLast(Date::compareTo)).reversed()))
                 .collect(Collectors.toList());
         list.forEach(System.out::println);
     }
@@ -46,7 +46,7 @@ public class Java8SortTest {
 
 @Data
 @Builder
- class people {
+class people {
     int id;
     Date birth;
     Date marry;

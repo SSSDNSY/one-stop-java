@@ -12,7 +12,7 @@ public class MyQueue<T> implements Queue {
     // store elements
     private List<Integer> data;
     // a pointer to indicate the start position
-    private int           p_start;
+    private int p_start;
 
     public MyQueue() {
         data = new ArrayList<Integer>();

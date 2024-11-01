@@ -15,15 +15,15 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class A31ReadWriteLock {
 
     private volatile Map cache = new HashMap<>();
-    private  ReadWriteLock rwLock = new ReentrantReadWriteLock();
+    private ReadWriteLock rwLock = new ReentrantReadWriteLock();
 
-    public void put(String k,Object v){
+    public void put(String k, Object v) {
         rwLock.writeLock().lock();
         try {
-            System.out.println(Thread.currentThread().getName()+">>>正在写入缓存:"+k);
-            cache.put(k,v);
+            System.out.println(Thread.currentThread().getName() + ">>>正在写入缓存:" + k);
+            cache.put(k, v);
             TimeUnit.MICROSECONDS.sleep(1500);
-            System.out.println(Thread.currentThread().getName()+"写入缓存完成");
+            System.out.println(Thread.currentThread().getName() + "写入缓存完成");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -31,14 +31,14 @@ public class A31ReadWriteLock {
         }
     }
 
-    public Object get(String k){
+    public Object get(String k) {
         rwLock.readLock().lock();
         Object o = null;
         try {
-            System.out.println(Thread.currentThread().getName()+"<<<正在读取缓存"+k);
+            System.out.println(Thread.currentThread().getName() + "<<<正在读取缓存" + k);
             TimeUnit.MICROSECONDS.sleep(1000);
             o = cache.get(k);
-            System.out.println(Thread.currentThread().getName()+"读取缓存完成:"+o);
+            System.out.println(Thread.currentThread().getName() + "读取缓存完成:" + o);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -48,21 +48,21 @@ public class A31ReadWriteLock {
     }
 
     public static void main(String[] args) throws InterruptedException {
-       // final A31ReadWriteLock  rw = new A31ReadWriteLock();
-       //  for ( int i = 1; i < 5; i++) {
-       //      final int temp = i;
-       //      new Thread(()->{
-       //          rw.put("k"+temp,temp);
-       //      },"W-"+i).start();
-       //  }
-       //
-       //  for (int i = 1; i < 5; i++) {
-       //      final int temp = i;
-       //      new Thread(()->{
-       //          rw.get("k"+temp);
-       //      },"R-"+i).start();
-       //  }
-       //  Thread.currentThread().join();
+        // final A31ReadWriteLock  rw = new A31ReadWriteLock();
+        //  for ( int i = 1; i < 5; i++) {
+        //      final int temp = i;
+        //      new Thread(()->{
+        //          rw.put("k"+temp,temp);
+        //      },"W-"+i).start();
+        //  }
+        //
+        //  for (int i = 1; i < 5; i++) {
+        //      final int temp = i;
+        //      new Thread(()->{
+        //          rw.get("k"+temp);
+        //      },"R-"+i).start();
+        //  }
+        //  Thread.currentThread().join();
 
         ReentrantReadWriteLock rrwLock = new ReentrantReadWriteLock();
         ReadThread rt1 = new ReadThread("rt1", rrwLock);
@@ -75,7 +75,6 @@ public class A31ReadWriteLock {
     }
 
 }
-
 
 
 class ReadThread extends Thread {

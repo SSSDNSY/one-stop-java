@@ -85,7 +85,7 @@ public class DualArrayDeque<T> extends AbstractList<T> {
     protected void balance() {
         int n = size();
         if (3 * front.size() < back.size()) {
-            int     s  = n / 2 - front.size();
+            int s = n / 2 - front.size();
             List<T> l1 = newStack();
             List<T> l2 = newStack();
             l1.addAll(back.subList(0, s));
@@ -95,7 +95,7 @@ public class DualArrayDeque<T> extends AbstractList<T> {
             front = l1;
             back = l2;
         } else if (3 * back.size() < front.size()) {
-            int     s  = front.size() - n / 2;
+            int s = front.size() - n / 2;
             List<T> l1 = newStack();
             List<T> l2 = newStack();
             l1.addAll(front.subList(s, front.size()));
@@ -138,8 +138,8 @@ public class DualArrayDeque<T> extends AbstractList<T> {
         }
         System.out.println(l);
 
-        Integer       n = 1000;
-        Integer       x = 20;
+        Integer n = 1000;
+        Integer x = 20;
         List<Integer> q = new DualArrayDeque<Integer>(Integer.class);
         for (int i = 0; i < n; i++) {
             q.add(i);

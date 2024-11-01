@@ -33,37 +33,37 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 <project name="rbcpsample" default="all" basedir=".">
 
-  <path id="CLASSPATH">
-    <pathelement path="../DictionaryServiceProvider/build"/>
-    <pathelement location="../DictionaryServiceProvider/dist/DictionaryServiceProvider.jar"/>
-  </path>
+    <path id="CLASSPATH">
+        <pathelement path="../DictionaryServiceProvider/build"/>
+        <pathelement location="../DictionaryServiceProvider/dist/DictionaryServiceProvider.jar"/>
+    </path>
 
-  <target name="clean">
-    <delete dir="build"/>
-    <delete dir="dist"/>
-  </target>
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
 
-  <target name="compile"  description="Compile StringSwitchDemo">
-    <mkdir dir="build" />
-    <javac srcdir="src"
-         includeantruntime="true"
-         destdir="build"
-         fork="yes"
-         debug="on">
-        <classpath refid="CLASSPATH"/>
-        <compilerarg value="-g"/>
-        <compilerarg value="-Xlint:overrides"/>
-        <compilerarg value="-Xlint:unchecked"/>
-    </javac>
-    <mkdir dir="build/META-INF"/>
-    <mkdir dir="build/META-INF/services"/>
-    <copy file="src/META-INF/services/dictionary.spi.Dictionary"
-      todir="build/META-INF/services"/>
-  </target>
+    <target name="compile" description="Compile StringSwitchDemo">
+        <mkdir dir="build"/>
+        <javac srcdir="src"
+               includeantruntime="true"
+               destdir="build"
+               fork="yes"
+               debug="on">
+            <classpath refid="CLASSPATH"/>
+            <compilerarg value="-g"/>
+            <compilerarg value="-Xlint:overrides"/>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+        <mkdir dir="build/META-INF"/>
+        <mkdir dir="build/META-INF/services"/>
+        <copy file="src/META-INF/services/dictionary.spi.Dictionary"
+              todir="build/META-INF/services"/>
+    </target>
 
-  <target name="jar" depends="compile">
-    <mkdir dir="dist"/>
-    <jar destfile="dist/GeneralDictionary.jar" basedir="build"/>
-  </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/GeneralDictionary.jar" basedir="build"/>
+    </target>
 
 </project>

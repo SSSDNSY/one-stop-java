@@ -6,14 +6,14 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * @author pengzh
- * @desc  循环队列  learn from com\netflix\eureka\registry\AbstractInstanceRegistry.java
+ * @desc 循环队列  learn from com\netflix\eureka\registry\AbstractInstanceRegistry.java
  * @since 2023-12-12
  */
 public class CircularQueue<E> extends AbstractQueue<E> {
 
-    private ArrayBlockingQueue<E>  delegate;
+    private ArrayBlockingQueue<E> delegate;
 
-    public CircularQueue(int capacity ){
+    public CircularQueue(int capacity) {
         delegate = new ArrayBlockingQueue<>(capacity);
     }
 
@@ -32,7 +32,7 @@ public class CircularQueue<E> extends AbstractQueue<E> {
         /**
          * 精髓再次，满了就就丢一个放进去为止
          */
-        while(!delegate.offer(e)){
+        while (!delegate.offer(e)) {
             delegate.poll();
         }
         return true;

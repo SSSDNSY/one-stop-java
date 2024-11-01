@@ -6,13 +6,14 @@ package juc.concurrent;
  * @Description:
  */
 public class CounterImpl implements Counter {
-    private long i  =0;
-    public long  getCounter() {
+    private long i = 0;
+
+    public long getCounter() {
         return i;
     }
 
     public void doProcessor() {
-        synchronized(this){
+        synchronized (this) {
             i++;
         }
     }

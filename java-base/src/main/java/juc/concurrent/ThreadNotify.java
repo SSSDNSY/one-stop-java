@@ -9,24 +9,24 @@ public class ThreadNotify {
     public static void main(String[] args) {
         //减血
         final Hero hero = new Hero();
-        new Thread(new Runnable(){
+        new Thread(new Runnable() {
             public void run() {
-                while(true){
-                        while (hero.getHp() == 1) {
-                            continue;
-                        }
-                        try {
-                            Thread.sleep(10);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        hero.hurted();
+                while (true) {
+                    while (hero.getHp() == 1) {
+                        continue;
+                    }
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    hero.hurted();
                 }
             }
         }).start();
-        new Thread(new Runnable(){
+        new Thread(new Runnable() {
             public void run() {
-                while(true){
+                while (true) {
                     while (hero.getHp() == 1) {
                         continue;
                     }
@@ -40,22 +40,22 @@ public class ThreadNotify {
             }
         }).start();
         //加血
-        new Thread(new Runnable(){
+        new Thread(new Runnable() {
             public void run() {
-           while(true){
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        hero.recover();
+                while (true) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    hero.recover();
                 }
             }
         }).start();
 
-        new Thread(new Runnable(){
+        new Thread(new Runnable() {
             public void run() {
-                while(true){
+                while (true) {
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException e) {
@@ -76,14 +76,14 @@ public class ThreadNotify {
 class Hero {
 
     private String name = "PA";
-    private  int  hp = 5;
+    private int hp = 5;
 
     public synchronized void recover() {
-        System.out.println(this.name+"正在回血 hp="+this.hp);
-        if(this.getHp()<100){
+        System.out.println(this.name + "正在回血 hp=" + this.hp);
+        if (this.getHp() < 100) {
             this.hp++;
             notify();
-        }else{
+        } else {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -93,9 +93,9 @@ class Hero {
     }
 
     public synchronized void hurted() {
-        System.out.println(this.name+"正在掉血 hp="+this.hp);
+        System.out.println(this.name + "正在掉血 hp=" + this.hp);
         this.hp--;
-        if(this.hp<=1){
+        if (this.hp <= 1) {
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -104,8 +104,8 @@ class Hero {
         }
     }
 
-    boolean isDead(){
-        return hp>0?false:true;
+    boolean isDead() {
+        return hp > 0 ? false : true;
     }
 
     public String getName() {

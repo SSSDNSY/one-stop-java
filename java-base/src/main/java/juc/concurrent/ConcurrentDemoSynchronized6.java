@@ -9,7 +9,7 @@ public class ConcurrentDemoSynchronized6 {
 
         public synchronized void setSupI() {
             i--;
-            System.out.println("prarent i="+i);
+            System.out.println("prarent i=" + i);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

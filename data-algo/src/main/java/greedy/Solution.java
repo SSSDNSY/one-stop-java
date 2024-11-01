@@ -83,7 +83,7 @@ public class Solution {
      * 最大子序列和
      */
     public int maxSubseqSum(int[] nums) {
-        int sum  = Integer.MIN_VALUE;
+        int sum = Integer.MIN_VALUE;
         int temp = 0;
         for (int i = 0; i < nums.length; i++) {
             temp += nums[i];
@@ -180,7 +180,7 @@ public class Solution {
      */
     public int canCompleteCircuitWhile(int[] gas, int cost[]) {
         for (int i = 0; i < gas.length; i++) {
-            int rest  = cost[i] - gas[i];
+            int rest = cost[i] - gas[i];
             int index = (i + 1) % cost.length;
             while (rest > 0 && index != i) {
                 rest = cost[i] - gas[i];
@@ -194,9 +194,9 @@ public class Solution {
     }
 
     public int canCompleteCircuitGreedy(int[] gas, int[] cost) {
-        int curRest   = 0;
+        int curRest = 0;
         int totalRest = 0;
-        int start     = 0;
+        int start = 0;
         for (int i = 0; i < gas.length; i++) {
             curRest += gas[i] - cost[i];
             totalRest += gas[i] - cost[i];
@@ -219,7 +219,7 @@ public class Solution {
     public int candy(int[] score) {
 
 
-        int   len    = score.length;
+        int len = score.length;
         int[] candys = new int[len];
         Arrays.fill(candys, 1);
 
@@ -334,14 +334,14 @@ public class Solution {
      * 划分字母区间
      */
     public List<Integer> partitionLabels(String s) {
-        List<Integer> list  = new ArrayList<>();
-        char[]        chars = s.toCharArray();
-        int[]         edge  = new int[26];
+        List<Integer> list = new ArrayList<>();
+        char[] chars = s.toCharArray();
+        int[] edge = new int[26];
         for (int i = 0; i < chars.length; i++) {
             edge[chars[i] - 'a'] = i;
         }
 
-        int idx  = 0;
+        int idx = 0;
         int last = -1;
         for (int i = 0; i < chars.length; i++) {
             idx = Math.max(idx, edge[chars[i] - 'a']);
@@ -361,7 +361,7 @@ public class Solution {
         // 按照左边界排序
         Arrays.sort(intervals, (x, y) -> Integer.compare(x[0], y[0]));
         // initial start 是最小左边界
-        int start               = intervals[0][0];
+        int start = intervals[0][0];
         int rightmostRightBound = intervals[0][1];
         for (int i = 1; i < intervals.length; i++) {
             // 如果左边界大于最大右边界
@@ -383,9 +383,9 @@ public class Solution {
      * 单调递增的数字
      */
     public int monotoneIncreasingDigits(int n) {
-        String s     = String.valueOf(n);
+        String s = String.valueOf(n);
         char[] chars = s.toCharArray();
-        int    start = s.length();
+        int start = s.length();
         for (int i = s.length() - 2; i >= 0; i--) {
             if (chars[i] > chars[i + 1]) {
                 chars[i]--;
@@ -424,7 +424,7 @@ public class Solution {
             // 空节点默认为 有覆盖状态，避免在叶子节点上放摄像头
             return 2;
         }
-        int left  = minCame(root.left);
+        int left = minCame(root.left);
         int right = minCame(root.right);
 
         // 如果左右节点都覆盖了的话, 那么本节点的状态就应该是无覆盖,没有摄像头
@@ -455,7 +455,7 @@ class TreeNode<T> {
     public TreeNode<T> left;
     public TreeNode<T> right;
     public TreeNode<T> next;
-    public T           value;
+    public T value;
 
     public TreeNode(TreeNode<T> left, TreeNode<T> right, T value) {
         this.left = left;

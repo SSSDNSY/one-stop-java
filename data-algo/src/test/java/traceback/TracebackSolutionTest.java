@@ -45,7 +45,7 @@ public class TracebackSolutionTest {
 
     @Test
     public void TestCombineSum2() {
-        int[]               arr   = new int[]{2, 3, 6, 7};
+        int[] arr = new int[]{2, 3, 6, 7};
         List<List<Integer>> lists = solution.combineSum(arr, 7);
         System.out.println(lists);
         assert lists.size() == 2;
@@ -53,7 +53,7 @@ public class TracebackSolutionTest {
 
     @Test
     public void TestCombineSum3() {
-        int[]               arr   = new int[]{10, 1, 2, 7, 6, 1, 5};
+        int[] arr = new int[]{10, 1, 2, 7, 6, 1, 5};
         List<List<Integer>> lists = solution.combineSum3(arr, 8);
         System.out.println(lists);
         assert lists.size() == 4;
@@ -95,7 +95,7 @@ public class TracebackSolutionTest {
 
     @Test
     public void TestArrange() {
-        int[]               arr     = new int[]{1, 2, 3};
+        int[] arr = new int[]{1, 2, 3};
         List<List<Integer>> arrange = solution.arrange(arr);
         System.out.println(arrange);
         assert arrange.size() == 6;
@@ -103,7 +103,7 @@ public class TracebackSolutionTest {
 
     @Test
     public void TestTracebackArrangeUnique() {
-        int[]               arr   = new int[]{1, 2, 3};
+        int[] arr = new int[]{1, 2, 3};
         List<List<Integer>> lists = solution.arrangeUnique(arr);
         System.out.println(lists);
         assert lists.size() == 6;

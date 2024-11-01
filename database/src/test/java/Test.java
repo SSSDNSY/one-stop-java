@@ -1,6 +1,5 @@
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.junit.Assert;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -11,6 +10,9 @@ import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @Auther: imi
@@ -59,7 +61,7 @@ public class Test {
 
     public static void testBigDecimal() {
         BigDecimal addAppend = new BigDecimal(2d).add(new BigDecimal(1d)).add(new BigDecimal(8d));
-        double score = addAppend.divide(new BigDecimal(3d), 2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        double score = addAppend.divide(new BigDecimal(2d), 2, BigDecimal.ROUND_HALF_UP).doubleValue();
         System.out.println(score);
     }
 
@@ -85,7 +87,6 @@ public class Test {
         Runtime.getRuntime().exec("W:/server/nginx_proxy_tomcat/tomcat_8222/bin/showdown.bat");
     }
 
-    @org.junit.Test
     public void stringFormatTest() {
         String updSql = " update %s set %s='%s' where id='%d' ";
         updSql = String.format(updSql, "op_dj_base", "atttachemt10", "http//asdfzxc.comasdf.co", 123);
@@ -101,16 +102,15 @@ public class Test {
         return false;
     }
 
-    @org.junit.Test
     public void checkContainsChinese() {
 //        Assert.assertTrue(containsChinese("䒦"));//error
 //        Assert.assertTrue(containsChinese("发送到"));
 //        Assert.assertFalse(containsChinese("ff000"));
 //        Assert.assertFalse(containsChinese("fwefwefwef//.,431234#$#$#/.,"));
-        Assert.assertTrue(containChinese("asdf䒦afd"));
-        Assert.assertTrue(containChinese("发送到234"));
-        Assert.assertFalse(containChinese("ff0f00"));
-        Assert.assertFalse(containChinese("fwefwefwef//.,431234#$#$#/.,"));
+        assertTrue(containChinese("asdf䒦afd"));
+        assertTrue(containChinese("发送到234"));
+        assertFalse(containChinese("ff0f00"));
+        assertFalse(containChinese("fwefwefwef//.,431234#$#$#/.,"));
     }
 
     public boolean containChinese(char c) {
@@ -130,7 +130,6 @@ public class Test {
         return false;
     }
 
-    @org.junit.Test
     public void TestExtends() {
 //        Assert.assertTrue(new C() instanceof Object);
 

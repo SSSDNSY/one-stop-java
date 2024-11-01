@@ -23,10 +23,10 @@ public class QueueSolution {
         if ("0000".equals(target)) {
             return 0;
         }
-        int           step     = 0;
-        List<String>  deadList = Arrays.asList(deadends);
-        Queue<String> queue    = new LinkedList();
-        Set<String>   used     = new HashSet();
+        int step = 0;
+        List<String> deadList = Arrays.asList(deadends);
+        Queue<String> queue = new LinkedList();
+        Set<String> used = new HashSet();
 
         queue.offer("0000");
         used.add("0000");
@@ -57,10 +57,10 @@ public class QueueSolution {
         String[] s = new String[8];
         // cur= "abcd"
         int curInt = Integer.parseInt(cur);
-        int a      = curInt / 1000;
-        int b      = curInt / 100 - a * 10;
-        int c      = curInt / 10 - a * 100 - b * 10;
-        int d      = curInt % 10;
+        int a = curInt / 1000;
+        int b = curInt / 100 - a * 10;
+        int c = curInt / 10 - a * 100 - b * 10;
+        int d = curInt % 10;
         s[0] = "" + (a + 1) % 10 + b + c + d;
         s[1] = "" + (a + 9) % 10 + b + c + d;
         s[2] = "" + a + (b + 1) % 10 + c + d;
@@ -79,9 +79,9 @@ public class QueueSolution {
      * @createDate: 2019/6/4 14:53
      */
     public static int numSquares(int n) {
-        int            num     = 0;
-        Queue<Integer> queue   = new LinkedList<Integer>();
-        Set<Integer>   visited = new HashSet<Integer>();
+        int num = 0;
+        Queue<Integer> queue = new LinkedList<Integer>();
+        Set<Integer> visited = new HashSet<Integer>();
         queue.offer(n);
         while (!queue.isEmpty()) {
             for (int i = 0; i < queue.size(); i++) {

@@ -192,9 +192,9 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
     private static final long serialVersionUID = -8219700664442619525L;  // locked as of Version 15
 
     // Period parameters
-    private static final int N          = 624;
-    private static final int M          = 397;
-    private static final int MATRIX_A   = 0x9908b0df;   //    private static final * constant vector a
+    private static final int N = 624;
+    private static final int M = 397;
+    private static final int MATRIX_A = 0x9908b0df;   //    private static final * constant vector a
     private static final int UPPER_MASK = 0x80000000; // most significant w-r bits
     private static final int LOWER_MASK = 0x7fffffff; // least significant r bits
 
@@ -210,7 +210,7 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
     // a good initial seed (of int size, though stored in a long)
     // private static final long GOOD_SEED = 4357;
 
-    private double  __nextNextGaussian;
+    private double __nextNextGaussian;
     private boolean __haveNextNextGaussian;
 
     /* We're overriding all internal data, to my knowledge, so this should be okay */
@@ -378,8 +378,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -411,8 +411,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -444,8 +444,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -477,8 +477,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -522,8 +522,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
         else if (probability == 1.0f) return true;        // fix half-open issues
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -566,8 +566,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
         else if (probability == 1.0) return true; // fix half-open issues
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -592,8 +592,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -626,8 +626,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -660,8 +660,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
         for (int x = 0; x < bytes.length; x++) {
             if (mti >= N)   // generate N words at one time
             {
-                int         kk;
-                final int[] mt    = this.mt; // locals are slightly faster
+                int kk;
+                final int[] mt = this.mt; // locals are slightly faster
                 final int[] mag01 = this.mag01; // locals are slightly faster
 
                 for (kk = 0; kk < N - M; kk++) {
@@ -700,8 +700,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -726,8 +726,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -769,8 +769,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
             if (mti >= N)   // generate N words at one time
             {
-                int         kk;
-                final int[] mt    = this.mt; // locals are slightly faster
+                int kk;
+                final int[] mt = this.mt; // locals are slightly faster
                 final int[] mag01 = this.mag01; // locals are slightly faster
 
                 for (kk = 0; kk < N - M; kk++) {
@@ -795,8 +795,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
             if (mti >= N)   // generate N words at one time
             {
-                int         kk;
-                final int[] mt    = this.mt; // locals are slightly faster
+                int kk;
+                final int[] mt = this.mt; // locals are slightly faster
                 final int[] mag01 = this.mag01; // locals are slightly faster
 
                 for (kk = 0; kk < N - M; kk++) {
@@ -835,8 +835,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -861,8 +861,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -940,8 +940,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
                 if (mti >= N)   // generate N words at one time
                 {
-                    int         kk;
-                    final int[] mt    = this.mt; // locals are slightly faster
+                    int kk;
+                    final int[] mt = this.mt; // locals are slightly faster
                     final int[] mag01 = this.mag01; // locals are slightly faster
 
                     for (kk = 0; kk < N - M; kk++) {
@@ -966,8 +966,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
                 if (mti >= N)   // generate N words at one time
                 {
-                    int         kk;
-                    final int[] mt    = this.mt; // locals are slightly faster
+                    int kk;
+                    final int[] mt = this.mt; // locals are slightly faster
                     final int[] mag01 = this.mag01; // locals are slightly faster
 
                     for (kk = 0; kk < N - M; kk++) {
@@ -992,8 +992,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
                 if (mti >= N)   // generate N words at one time
                 {
-                    int         kk;
-                    final int[] mt    = this.mt; // locals are slightly faster
+                    int kk;
+                    final int[] mt = this.mt; // locals are slightly faster
                     final int[] mag01 = this.mag01; // locals are slightly faster
 
                     for (kk = 0; kk < N - M; kk++) {
@@ -1018,8 +1018,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
                 if (mti >= N)   // generate N words at one time
                 {
-                    int         kk;
-                    final int[] mt    = this.mt; // locals are slightly faster
+                    int kk;
+                    final int[] mt = this.mt; // locals are slightly faster
                     final int[] mag01 = this.mag01; // locals are slightly faster
 
                     for (kk = 0; kk < N - M; kk++) {
@@ -1067,8 +1067,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         if (mti >= N)   // generate N words at one time
         {
-            int         kk;
-            final int[] mt    = this.mt; // locals are slightly faster
+            int kk;
+            final int[] mt = this.mt; // locals are slightly faster
             final int[] mag01 = this.mag01; // locals are slightly faster
 
             for (kk = 0; kk < N - M; kk++) {
@@ -1135,8 +1135,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
             if (mti >= N)   // generate N words at one time
             {
-                int         kk;
-                final int[] mt    = this.mt; // locals are slightly faster
+                int kk;
+                final int[] mt = this.mt; // locals are slightly faster
                 final int[] mag01 = this.mag01; // locals are slightly faster
 
                 for (kk = 0; kk < N - M; kk++) {
@@ -1168,8 +1168,8 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
             if (mti >= N)   // generate N words at one time
             {
-                int         kk;
-                final int[] mt    = this.mt; // locals are slightly faster
+                int kk;
+                final int[] mt = this.mt; // locals are slightly faster
                 final int[] mag01 = this.mag01; // locals are slightly faster
 
                 for (kk = 0; kk < N - M; kk++) {
@@ -1226,7 +1226,7 @@ public strictfp class MersenneTwisterFast implements Serializable, Cloneable {
 
         final long SEED = 4357;
 
-        int  xx;
+        int xx;
         long ms;
         System.out.println("\nTime to test grabbing 100000000 ints");
 

@@ -138,7 +138,7 @@ class TestMyDefineAnnotation {
                 final java.lang.annotation.Annotation[] declaredAnnotations = method.getDeclaredAnnotations();
                 // 获取并遍历方法上的所有注解
                 for (java.lang.annotation.Annotation annotation : declaredAnnotations) {
-                    System.out.println("Method="+method+",DeclaredAnnotations =" + annotation);
+                    System.out.println("Method=" + method + ",DeclaredAnnotations =" + annotation);
                 }
                 //是否有自定义MyMethodAnnotation注解
                 if (method.isAnnotationPresent(MyMethodAnnotation.class)) {

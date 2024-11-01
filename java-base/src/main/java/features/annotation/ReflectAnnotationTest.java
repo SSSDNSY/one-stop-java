@@ -55,7 +55,7 @@ class Person {
 
     @AnnotationTest(value = {"girl", "boy"})
     public void someBody(String name, int age) {
-        System.out.println("\nsomebody:" + "name：" +name+ "，age："+age);
+        System.out.println("\nsomebody:" + "name：" + name + "，age：" + age);
     }
 
 

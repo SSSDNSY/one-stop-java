@@ -89,7 +89,7 @@ public class GreedySolutionTest {
 
     @Test
     public void testLemocadeChange() {
-        boolean bool  = solution.lemonadeChagne(new int[]{5, 5, 10, 10, 20});
+        boolean bool = solution.lemonadeChagne(new int[]{5, 5, 10, 10, 20});
         boolean bool2 = solution.lemonadeChagne(new int[]{5, 5, 10, 20});
         System.out.println(bool);
         System.out.println(bool2);
@@ -105,7 +105,7 @@ public class GreedySolutionTest {
 
     @Test
     public void testEraseOverlapIntervals() {
-        int count  = solution.eraseOverlapIntervals(new int[][]{new int[]{1, 2}, new int[]{2, 3}, new int[]{3, 4}, new int[]{1, 3}});
+        int count = solution.eraseOverlapIntervals(new int[][]{new int[]{1, 2}, new int[]{2, 3}, new int[]{3, 4}, new int[]{1, 3}});
         int count1 = solution.eraseOverlapIntervals(new int[][]{new int[]{1, 2}, new int[]{2, 3}});
         int count2 = solution.eraseOverlapIntervals(new int[][]{new int[]{1, 2}, new int[]{1, 2}, new int[]{1, 2}});
         System.out.println(count);

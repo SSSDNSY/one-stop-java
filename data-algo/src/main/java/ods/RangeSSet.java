@@ -57,7 +57,7 @@ public class RangeSSet<T> extends SortedSSet<T> {
 
     @SuppressWarnings("unchecked")
     public boolean contains(Object o) {
-        T                     x = (T) o;
+        T x = (T) o;
         Comparator<? super T> c = s.comparator();
         if (a != null && c.compare(x, a) < 0)
             return false;
@@ -72,7 +72,7 @@ public class RangeSSet<T> extends SortedSSet<T> {
 
     public int size() {
         Iterator<T> it = iterator();
-        int         n  = 0;
+        int n = 0;
         while (it.hasNext()) {
             it.next();
             n++;

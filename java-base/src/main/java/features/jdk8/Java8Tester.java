@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2020-03-03
  */
 public class Java8Tester {
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         List<String> names1 = new ArrayList<String>();
         names1.add("Google ");
@@ -38,7 +38,7 @@ public class Java8Tester {
     }
 
     // 使用 java 7 排序
-    private void sortUsingJava7(List<String> names){
+    private void sortUsingJava7(List<String> names) {
         Collections.sort(names, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -48,7 +48,7 @@ public class Java8Tester {
     }
 
     // 使用 java 8 排序
-    private void sortUsingJava8(List<String> names){
+    private void sortUsingJava8(List<String> names) {
         Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
     }
 }

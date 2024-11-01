@@ -28,7 +28,7 @@ interface FourWheeler {
     }
 }
 
- class Card implements Vehicle, FourWheeler {
+class Card implements Vehicle, FourWheeler {
     @Override
     public void print() {
         Vehicle.super.print();

@@ -122,7 +122,7 @@ public class ArrayQueue<T> extends AbstractQueue<T> {
     }
 
     public static void main(String args[]) {
-        int            m = 10000, n = 50;
+        int m = 10000, n = 50;
         Queue<Integer> q = new ArrayQueue<Integer>(Integer.class);
         for (int i = 0; i < m; i++) {
             q.add(new Integer(i));

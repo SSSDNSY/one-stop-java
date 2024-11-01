@@ -4,7 +4,8 @@
 
 ## 环境准备
 
-> 注意：本 demo 基于 Spring Boot 2.1.0.RELEASE 版本，因此 spring-kafka 的版本为 2.2.0.RELEASE，kafka-clients 的版本为2.0.0，所以 kafka 的版本选用为  kafka_2.11-2.1.0
+> 注意：本 demo 基于 Spring Boot 2.1.0.RELEASE 版本，因此 spring-kafka 的版本为 2.2.0.RELEASE，kafka-clients 的版本为2.0.0，所以
+> kafka 的版本选用为 kafka_2.11-2.1.0
 
 创建一个名为 `test` 的Topic
 
@@ -228,7 +229,7 @@ public class SpringBootDemoMqKafkaApplicationTests {
 1. Spring Boot 版本和 Spring-Kafka 的版本对应关系：https://spring.io/projects/spring-kafka
 
    | Spring for Apache Kafka Version | Spring Integration for Apache Kafka Version | kafka-clients       |
-   | ------------------------------- | ------------------------------------------- | ------------------- |
+      | ------------------------------- | ------------------------------------------- | ------------------- |
    | 2.2.x                           | 3.1.x                                       | 2.0.0, 2.1.0        |
    | 2.1.x                           | 3.0.x                                       | 1.0.x, 1.1.x, 2.0.0 |
    | 2.0.x                           | 3.0.x                                       | 0.11.0.x, 1.0.x     |
@@ -238,17 +239,27 @@ public class SpringBootDemoMqKafkaApplicationTests {
    | 1.0.x                           | 2.0.x                                       | 0.9.x.x             |
    | N/A*                            | 1.3.x                                       | 0.8.2.2             |
 
-   > **IMPORTANT:** This matrix is client compatibility; in most cases (since 0.10.2.0) newer clients can communicate with older brokers. All users with brokers >= 0.10.x.x **(and all spring boot 1.5.x users)** are recommended to use spring-kafka version 1.3.x or higher due to its simpler threading model thanks to [KIP-62](https://cwiki.apache.org/confluence/display/KAFKA/KIP-62%3A+Allow+consumer+to+send+heartbeats+from+a+background+thread). For a complete discussion about client/broker compatibility, see the Kafka [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix)
+   > **IMPORTANT:** This matrix is client compatibility; in most cases (since 0.10.2.0) newer clients can communicate
+   with older brokers. All users with brokers >= 0.10.x.x **(and all spring boot 1.5.x users)** are recommended to use
+   spring-kafka version 1.3.x or higher due to its simpler threading model thanks
+   to [KIP-62](https://cwiki.apache.org/confluence/display/KAFKA/KIP-62%3A+Allow+consumer+to+send+heartbeats+from+a+background+thread).
+   For a complete discussion about client/broker compatibility, see the
+   Kafka [Compatibility Matrix](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix)
    >
-   > - Spring Integration Kafka versions prior to 2.0 pre-dated the Spring for Apache Kafka project and therefore were not based on it.
+   > - Spring Integration Kafka versions prior to 2.0 pre-dated the Spring for Apache Kafka project and therefore were
+       not based on it.
    >
-   > These versions will be referenced transitively when using maven or gradle for version management. For the 1.1.x version, the 0.10.1.x is the default.
+   > These versions will be referenced transitively when using maven or gradle for version management. For the 1.1.x
+   version, the 0.10.1.x is the default.
    >
-   > 2.1.x uses the 1.1.x kafka-clients by default. When overriding the kafka-clients for 2.1.x see [the documentation appendix](https://docs.spring.io/spring-kafka/docs/2.1.x/reference/html/deps-for-11x.html).
+   > 2.1.x uses the 1.1.x kafka-clients by default. When overriding the kafka-clients for 2.1.x
+   see [the documentation appendix](https://docs.spring.io/spring-kafka/docs/2.1.x/reference/html/deps-for-11x.html).
    >
-   > 2.2.x uses the 2.0.x kafka-clients by default. When overriding the kafka-clients for 2.2.x see [the documentation appendix](https://docs.spring.io/spring-kafka/docs/2.2.1.BUILD-SNAPSHOT/reference/html/deps-for-21x.html).
+   > 2.2.x uses the 2.0.x kafka-clients by default. When overriding the kafka-clients for 2.2.x
+   see [the documentation appendix](https://docs.spring.io/spring-kafka/docs/2.2.1.BUILD-SNAPSHOT/reference/html/deps-for-21x.html).
    >
-   > - Spring Boot 1.5 users should use 1.3.x (Boot dependency management will use 1.1.x by default so this should be overridden).
+   > - Spring Boot 1.5 users should use 1.3.x (Boot dependency management will use 1.1.x by default so this should be
+       overridden).
    > - Spring Boot 2.0 users should use 2.0.x (Boot dependency management will use the correct version).
    > - Spring Boot 2.1 users should use 2.2.x (Boot dependency management will use the correct version).
 

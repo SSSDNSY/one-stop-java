@@ -11,7 +11,7 @@ import java.util.AbstractList;
  * O(1+min{i, size()-i}) amortized time.
  *
  * @param <T> the type of objects stored in this list
- *            TODO: Implement addAll() and removeAll() efficiently
+ *                       TODO: Implement addAll() and removeAll() efficiently
  * @author morin
  */
 public class ArrayDeque<T> extends AbstractList<T> {

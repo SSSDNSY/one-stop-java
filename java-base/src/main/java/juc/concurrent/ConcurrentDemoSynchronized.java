@@ -3,7 +3,7 @@ package juc.concurrent;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-public class ConcurrentDemoSynchronized extends Thread{
+public class ConcurrentDemoSynchronized extends Thread {
 
     private static int SIZE = 1000;
     CyclicBarrier cyclicBarrier;

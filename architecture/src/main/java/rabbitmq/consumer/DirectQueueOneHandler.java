@@ -29,9 +29,9 @@ public class DirectQueueOneHandler {
      * 如果 spring.rabbitmq.listener.direct.acknowledge-mode: auto，则可以用这个方式，会自动ack
      */
     @RabbitHandler
-    public void directHandlerAutoAck(MessageStruct message) throws Exception{
+    public void directHandlerAutoAck(MessageStruct message) throws Exception {
 
-        int i=1/0;
+        int i = 1 / 0;
         log.info("直接队列处理器，接收消息：{}", JSONUtil.toJsonStr(message));
     }
 

@@ -7,5 +7,6 @@ package juc.concurrent;
  */
 public interface Counter {
     long getCounter();
+
     void doProcessor();
 }

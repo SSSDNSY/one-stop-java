@@ -16,9 +16,9 @@ import java.util.*;
  */
 public class SkiplistList<T> extends AbstractList<T> {
     class Node {
-        T      x;
+        T x;
         Node[] next;
-        int[]  length;
+        int[] length;
 
         @SuppressWarnings("unchecked")
         public Node(T ix, int h) {
@@ -68,8 +68,8 @@ public class SkiplistList<T> extends AbstractList<T> {
      */
     protected Node findPred(int i) {
         Node u = sentinel;
-        int  r = h;
-        int  j = -1;   // index of the current node in list 0
+        int r = h;
+        int j = -1;   // index of the current node in list 0
         while (r >= 0) {
             while (u.next[r] != null && j + u.length[r] < i) {
                 j += u.length[r];
@@ -88,7 +88,7 @@ public class SkiplistList<T> extends AbstractList<T> {
     public T set(int i, T x) {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
         Node u = findPred(i).next[0];
-        T    y = u.x;
+        T y = u.x;
         u.x = x;
         return y;
     }
@@ -102,9 +102,9 @@ public class SkiplistList<T> extends AbstractList<T> {
      */
     protected Node add(int i, Node w) {
         Node u = sentinel;
-        int  k = w.height();
-        int  r = h;
-        int  j = -1; // index of u
+        int k = w.height();
+        int r = h;
+        int j = -1; // index of u
         while (r >= 0) {
             while (u.next[r] != null && j + u.length[r] < i) {
                 j += u.length[r];
@@ -150,10 +150,10 @@ public class SkiplistList<T> extends AbstractList<T> {
 
     public T remove(int i) {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
-        T    x = null;
+        T x = null;
         Node u = sentinel;
-        int  r = h;
-        int  j = -1; // index of node u
+        int r = h;
+        int j = -1; // index of node u
         while (r >= 0) {
             while (u.next[r] != null && j + u.length[r] < i) {
                 j += u.length[r];
@@ -175,8 +175,8 @@ public class SkiplistList<T> extends AbstractList<T> {
 
     public Iterator<T> iterator() {
         class SkiplistIterator implements Iterator<T> {
-            Node    u;
-            int     i;
+            Node u;
+            int i;
             boolean removable;
 
             public SkiplistIterator() {
@@ -221,7 +221,7 @@ public class SkiplistList<T> extends AbstractList<T> {
     }
 
     public static void main(String[] args) {
-        int           n  = 10;
+        int n = 10;
         List<Integer> sk = new SkiplistList<Integer>();
         for (int i = 0; i < n; i++) {
             sk.add(i);

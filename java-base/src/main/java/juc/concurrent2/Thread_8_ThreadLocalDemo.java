@@ -7,7 +7,7 @@ package juc.concurrent2;
 public class Thread_8_ThreadLocalDemo {
     public static void main(String[] args) {
         ThreadLocal<String> threadLocal = new ThreadLocal<>();
-        Thread t1  = new Thread(()->{
+        Thread t1 = new Thread(() -> {
             threadLocal.set("asdf");
             threadLocal.set("asdf11");
             try {
@@ -17,7 +17,7 @@ public class Thread_8_ThreadLocalDemo {
             }
             System.out.println(threadLocal.get());
         });
-        Thread t2  = new Thread(()->{
+        Thread t2 = new Thread(() -> {
             System.out.println(threadLocal.get());
             threadLocal.set("abc");
             System.out.println(threadLocal.get());

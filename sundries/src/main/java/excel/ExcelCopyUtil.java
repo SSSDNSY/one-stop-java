@@ -46,7 +46,8 @@ public class ExcelCopyUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        File newFile = new File("F:\\WXWork\\1688850380048787\\Cache\\File\\2023-02\\业绩整改一览表.xlsx");        XSSFWorkbook workbook = new XSSFWorkbook
+        File newFile = new File("F:\\WXWork\\1688850380048787\\Cache\\File\\2023-02\\业绩整改一览表.xlsx");
+        XSSFWorkbook workbook = new XSSFWorkbook
                 (new FileInputStream(newFile));
         XSSFSheet sheet = workbook.getSheet("Sheet1");
         copyRow(workbook, sheet, 0, 1);

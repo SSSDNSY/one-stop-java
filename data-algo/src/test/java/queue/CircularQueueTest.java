@@ -9,13 +9,13 @@ import java.util.Collections;
 
 /**
  * @author pengzh
- * @desc    cir
+ * @desc cir
  * @since 2023-12-12
  */
 public class CircularQueueTest {
 
     @Test
-    public void testCircularQueue(){
+    public void testCircularQueue() {
 
         CircularQueue<Integer> queue = new CircularQueue<>(5);
 

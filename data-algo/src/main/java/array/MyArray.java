@@ -31,8 +31,8 @@ public class MyArray {
     // find twice number
     public static int dominantIndex(int nums[]) {
         if (nums.length == 1) return 0;
-        int     max = -1, index = -1, sum = 0;
-        boolean f   = true;
+        int max = -1, index = -1, sum = 0;
+        boolean f = true;
         for (int j = 0; j < nums.length; j++) {
             if (max < nums[j]) {
                 max = nums[j];
@@ -51,7 +51,7 @@ public class MyArray {
 
     // plus one
     public static int[] plusOne(int digits[]) {
-        int    len    = digits.length;
+        int len = digits.length;
         String numStr = "";
         for (int i = 0; i < len; i++) {
             numStr += digits[i] + "";
@@ -87,7 +87,7 @@ public class MyArray {
         if (col == 0) return new int[0];
         int row = matrix[0].length;
         if (row == 0) return new int[0];
-        int   r   = 0, c = 0;
+        int r = 0, c = 0;
         int[] arr = new int[col * row];
         for (int i = 0; i < col * row; ++i) {
             arr[i] = matrix[r][c];
@@ -116,7 +116,7 @@ public class MyArray {
 
     public static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> list = new ArrayList<Integer>();
-        int           col  = matrix.length;
+        int col = matrix.length;
         if (col == 0) return list;
         int row = matrix[0].length;
         if (row == 0) return list;
@@ -138,7 +138,7 @@ public class MyArray {
 
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> lists = new ArrayList<List<Integer>>();
-        List<Integer>       list  = null;
+        List<Integer> list = null;
         if (numRows > 0) {
             for (int i = 0; i < numRows; i++) {
                 list = new ArrayList();
@@ -180,7 +180,7 @@ public class MyArray {
     // 两数之和 II - 输入有序数组
     public static int[] twoSum(int[] numbers, int target) {
         int[] a = new int[2];
-        int   l = 0, r = numbers.length - 1;
+        int l = 0, r = numbers.length - 1;
         while (l < r) {
             if (numbers[l] + numbers[r] == target) {
                 a[0] = l + 1;
@@ -197,7 +197,7 @@ public class MyArray {
 
     // 移除数组元素
     public static int removeElement(int[] nums, int val) {
-        int j   = 0;
+        int j = 0;
         int len = 0;
         for (int ii = 0; ii < nums.length; ii++) {
             if (nums[ii] != val) {

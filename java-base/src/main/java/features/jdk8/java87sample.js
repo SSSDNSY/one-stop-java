@@ -8,5 +8,5 @@ function calculate(amount, percentage) {
     return result.toPlainString();
 }
 
-var result = calculate(568000000000000000023,13.9);
+var result = calculate(568000000000000000023, 13.9);
 print(result);

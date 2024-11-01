@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
     @Resource
-     private MyServerHandler myServerHandler;
+    private MyServerHandler myServerHandler;
 
     @Override
     protected void initChannel(SocketChannel channel) {

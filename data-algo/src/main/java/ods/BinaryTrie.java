@@ -8,10 +8,10 @@ import java.util.Random;
 public class BinaryTrie<Node extends BinaryTrie.Nöde<Node, T>, T> implements SSet<T> {
 
     public static class Nöde<Node extends Nöde<Node, T>, T> {
-        T      x;
-        Node   parent;
+        T x;
+        Node parent;
         Node[] child;
-        Node   jump;
+        Node jump;
 
         @SuppressWarnings("unchecked")
         Nöde() {
@@ -24,9 +24,9 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node, T>, T> implements SS
     }
 
 
-    protected static final int prev  = 0;
-    protected static final int next  = 1;
-    protected static final int left  = 0;
+    protected static final int prev = 0;
+    protected static final int next = 1;
+    protected static final int left = 0;
     protected static final int right = 1;
 
 
@@ -88,8 +88,8 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node, T>, T> implements SS
     }
 
     public boolean add(T x) {
-        int  i, c = 0, ix = it.intValue(x);
-        Node u    = r;
+        int i, c = 0, ix = it.intValue(x);
+        Node u = r;
         // 1 - search for ix until falling out of the trie
         for (i = 0; i < w; i++) {
             c = (ix >>> w - i - 1) & 1;
@@ -162,8 +162,8 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node, T>, T> implements SS
     }
 
     public T find(T x) {
-        int  i, c = 0, ix = it.intValue(x);
-        Node u    = r;
+        int i, c = 0, ix = it.intValue(x);
+        Node u = r;
         for (i = 0; i < w; i++) {
             c = (ix >>> w - i - 1) & 1;
             if (u.child[c] == null) break;
@@ -176,8 +176,8 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node, T>, T> implements SS
 
     public boolean remove(T x) {
         // 1 - find leaf, u, containing x
-        int  i, c, ix = it.intValue(x);
-        Node u        = r;
+        int i, c, ix = it.intValue(x);
+        Node u = r;
         for (i = 0; i < w; i++) {
             c = (ix >>> w - i - 1) & 1;
             if (u.child[c] == null) return false;
@@ -234,8 +234,8 @@ public class BinaryTrie<Node extends BinaryTrie.Nöde<Node, T>, T> implements SS
      * @return The node before the node that contains x in the linked list
      */
     protected Node findPredNode(T x) {
-        int  i, c = 0, ix = it.intValue(x);
-        Node u    = r;
+        int i, c = 0, ix = it.intValue(x);
+        Node u = r;
         for (i = 0; i < w; i++) {
             c = (ix >>> w - i - 1) & 1;
             if (u.child[c] == null) break;

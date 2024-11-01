@@ -52,9 +52,8 @@ public class TheadStatus {
 /**
  * 1测试方法的main线程只保证了a，b两个线程调用start()方法（转化为RUNNABLE状态），如果CPU执行效率高一点，还没等两个线程真正开始争夺锁，就已经打印此时两个线程的状态（RUNNABLE）了。
  * 当然，如果CPU执行效率低一点，其中某个线程也是可能打印出BLOCKED状态的（此时两个线程已经开始争夺锁了）。
- *
+ * <p>
  * 2
  * a的状态转换过程：RUNNABLE（a.start()） -> TIMED_WATING（Thread.sleep(1000)）->RUNABLE（sleep(1000)时间到）->BLOCKED(未抢到锁) -> TERMINATED
  * b的状态转换过程：RUNNABLE（b.start()) -> BLOCKED(未抢到锁) ->TERMINATED
- *
  */

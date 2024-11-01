@@ -18,7 +18,7 @@ public class Solution {
         if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
             return new int[0];
         }
-        Set<Integer> set1   = new HashSet<>();
+        Set<Integer> set1 = new HashSet<>();
         Set<Integer> resSet = new HashSet<>();
         // 遍历数组1
         for (int i : nums1) {
@@ -110,7 +110,7 @@ public class Solution {
      */
 
     public int[] twoSum(int[] nums, int target) {
-        int[]                     res = new int[2];
+        int[] res = new int[2];
         HashMap<Integer, Integer> map = new HashMap();
         for (int i = 0; i < nums.length; i++) {
             Integer num = target - nums[i];
@@ -126,9 +126,9 @@ public class Solution {
 
     @Test
     public void TestTwoSum() {
-        int[] nums   = new int[]{2, 7, 11, 15};
-        int   target = 9;
-        int[] res    = twoSum(nums, target);
+        int[] nums = new int[]{2, 7, 11, 15};
+        int target = 9;
+        int[] res = twoSum(nums, target);
         System.out.println(res);
     }
 
@@ -151,8 +151,8 @@ public class Solution {
      * (1, 1, 0, 0) -> A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
      */
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-        int                   count = 0;
-        Map<Integer, Integer> map   = new HashMap<>();
+        int count = 0;
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i : nums1) {
             for (int j : nums2) {
                 map.put(i + j, map.getOrDefault(i + j, 0) + 1);
@@ -173,7 +173,7 @@ public class Solution {
         int[] nums2 = new int[]{-2, -1};
         int[] nums3 = new int[]{-1, 2};
         int[] nums4 = new int[]{0, 2};
-        int   count = fourSumCount(nums1, nums2, nums3, nums4);
+        int count = fourSumCount(nums1, nums2, nums3, nums4);
         System.out.println(count);
     }
 
@@ -258,7 +258,7 @@ public class Solution {
                 continue;
             }
 
-            int left  = i + 1;
+            int left = i + 1;
             int right = nums.length - 1;
             while (right > left) {
                 int sum = nums[i] + nums[left] + nums[right];
@@ -305,7 +305,7 @@ public class Solution {
                     continue;
                 }
 
-                int left  = j + 1;
+                int left = j + 1;
                 int right = nums.length - 1;
                 while (right > left) {
                     // nums[k] + nums[i] + nums[left] + nums[right] > target int会溢出

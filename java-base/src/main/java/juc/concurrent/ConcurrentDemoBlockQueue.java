@@ -29,7 +29,7 @@ public class ConcurrentDemoBlockQueue {
                 }
             }
             queue.add(obj);
-            System.out.println(Thread.currentThread().getName() + "放入对象：" + obj+",   queue.size()="+counter.get());
+            System.out.println(Thread.currentThread().getName() + "放入对象：" + obj + ",   queue.size()=" + counter.get());
             lockObj.notifyAll();
             counter.incrementAndGet();
         }
@@ -59,17 +59,17 @@ public class ConcurrentDemoBlockQueue {
             @Override
             public void run() {
                 int i = 0;
-                while (i < 10){
-                    cdbq.put("obj"+i);
+                while (i < 10) {
+                    cdbq.put("obj" + i);
                     i++;
                 }
             }
-        },"t1");
+        }, "t1");
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 int i = 0;
-                while (i < 20){
+                while (i < 20) {
                     Object obj = cdbq.take();
                     try {
                         Thread.sleep(300);
@@ -80,7 +80,7 @@ public class ConcurrentDemoBlockQueue {
                     i++;
                 }
             }
-        },"t2");
+        }, "t2");
         t1.start();
         t2.start();
     }

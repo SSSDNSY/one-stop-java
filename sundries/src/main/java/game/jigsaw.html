@@ -228,23 +228,20 @@
             };
             //各类元素对应的基本样式
             var puzzleStyle = {
-                listContainer: {
-                    position: "relative",
-                    width: imageWidth,
-                    height
-        :
-            imageHeght,
-                margin
-        :
-            "0 auto"
-        },
-            list: {
-            }
-        ,
-            item: {
-                position: "absolute"
-            }
-        }
+                    listContainer: {
+                        position: "relative",
+                        width: imageWidth,
+                        height:
+                        imageHeght,
+                        margin:
+                            "0 auto"
+                    },
+                    list: {}
+                    ,
+                    item: {
+                        position: "absolute"
+                    }
+                }
             ;
             //计算得到每一块拼图的尺寸
             puzzleSizeX = puzzleConfig.sizeX;
@@ -314,22 +311,17 @@
                     //添加关键样式
                     randomItem.setStyles({
                         width: Math.ceil(puzzleItemWidth),
-                        height
-                :
-                    Math.ceil(puzzleItemHeght),
-                        background
-                :
-                    backgroundString,
-                        left
-                :
-                    leftSet,
-                        top
-                :
-                    topSet,
-                        zIndex
-                :
-                    posIndex
-                })
+                        height:
+                            Math.ceil(puzzleItemHeght),
+                        background:
+                        backgroundString,
+                        left:
+                        leftSet,
+                        top:
+                        topSet,
+                        zIndex:
+                        posIndex
+                    })
                     ;
 
                     //生成合理的位置坐标数组

@@ -4,7 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 
 /**
- * @Desc  spring生命周期
+ * @Desc spring生命周期
  * @Author pengzh
  * @Since 2023-02-24
  */

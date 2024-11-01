@@ -19,9 +19,9 @@ public class A46Executor {
         ExecutorService es3 = Executors.newSingleThreadExecutor();
 
         //useFixed
-        for(int idx = 1; idx < 10; idx++) {
-            es3.execute(()->{
-                System.out.println(Thread.currentThread().getName()+"\t办理业务");
+        for (int idx = 1; idx < 10; idx++) {
+            es3.execute(() -> {
+                System.out.println(Thread.currentThread().getName() + "\t办理业务");
             });
         }
     }

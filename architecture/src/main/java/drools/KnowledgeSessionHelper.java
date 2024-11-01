@@ -7,6 +7,7 @@ import org.kie.api.event.rule.*;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.StatelessKieSession;
+
 public class KnowledgeSessionHelper {
 
     public static KieContainer createRuleBase() {
@@ -24,9 +25,9 @@ public class KnowledgeSessionHelper {
 
     public static KieSession getStatefulKnowledgeSession(KieContainer kieContainer, String sessionName) {
 
-    	KieSession kSession = kieContainer.newKieSession(sessionName);
+        KieSession kSession = kieContainer.newKieSession(sessionName);
 
-    	return kSession;
+        return kSession;
     }
 
     public static KieSession getStatefulKnowledgeSessionWithCallback(

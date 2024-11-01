@@ -7,9 +7,9 @@ public class TestBuffer {
 
         //静态方法初始化
         IntBuffer intBuffer = IntBuffer.allocate(Integer.MAX_VALUE);
-        intBuffer.put( 1);
+        intBuffer.put(1);
         intBuffer.put(13);
-        intBuffer.put( 5);
+        intBuffer.put(5);
         intBuffer.flip();
         System.out.println("intBuffer=" + intBuffer);
 //        intBuffer.get();

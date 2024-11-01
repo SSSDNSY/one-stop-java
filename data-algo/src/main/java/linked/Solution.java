@@ -8,7 +8,7 @@ package linked;
  */
 
 class ListNode {
-    int      val;
+    int val;
     ListNode next;
 
     public ListNode(int val) {
@@ -90,7 +90,7 @@ public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode curA = headA;
         ListNode curB = headB;
-        int      lenA = 0, lenB = 0;
+        int lenA = 0, lenB = 0;
         while (curA != null) { // 求链表A的长度
             lenA++;
             curA = curA.next;

@@ -44,8 +44,8 @@ public class ExportController {
         employeeService.poiExport().addCallback(employees -> {
             // 创建Excel文件并填充数据
             Workbook workbook = new XSSFWorkbook();
-            Sheet    sheet    = workbook.createSheet("Employees");
-            int      rowNum   = 0;
+            Sheet sheet = workbook.createSheet("Employees");
+            int rowNum = 0;
             // 在sheet中填充employees的数据
             // 创建表头
             Row headerRow = sheet.createRow(rowNum++);
@@ -56,16 +56,16 @@ public class ExportController {
 
             // 填充数据
             for (Employee employee : employees) {
-                Row     dataRow = sheet.createRow(rowNum++);
-                String  id      = employee.getId();
-                String  wechat  = employee.getWechat();
-                String  phone   = employee.getPhone();
-                String  name    = employee.getName();
-                Integer age     = employee.getAge();
-                String  email   = employee.getEmail();
-                String  address = employee.getAddress();
-                String  preview = employee.getPreview();
-                String  detail  = employee.getDetail();
+                Row dataRow = sheet.createRow(rowNum++);
+                String id = employee.getId();
+                String wechat = employee.getWechat();
+                String phone = employee.getPhone();
+                String name = employee.getName();
+                Integer age = employee.getAge();
+                String email = employee.getEmail();
+                String address = employee.getAddress();
+                String preview = employee.getPreview();
+                String detail = employee.getDetail();
 
                 dataRow.createCell(0).setCellValue(employee.getId());
                 dataRow.createCell(1).setCellValue(employee.getName());

@@ -111,8 +111,8 @@ public class SortUtils {
      * @createDate: 2019/6/8 17:54
      */
     public static void shellSort(int[] arr) {
-        long t0  = System.currentTimeMillis();
-        int  inc = arr.length / 2;
+        long t0 = System.currentTimeMillis();
+        int inc = arr.length / 2;
         while (true) {
             inc /= 2;
             for (int i = 0; i < inc; i++) {
@@ -255,7 +255,7 @@ public class SortUtils {
         swap(a, e2, left);
         swap(a, e4, right);
 
-        int less  = left + 1;
+        int less = left + 1;
         int great = right - 1;
 
         for (int k = less; k <= great; k++) {
@@ -400,8 +400,8 @@ public class SortUtils {
      * @createDate: 2019/6/6 15:35
      */
     public static void MinHeapSort(int a[], int n) {
-        long t0   = System.currentTimeMillis();
-        int  temp = 0;
+        long t0 = System.currentTimeMillis();
+        int temp = 0;
         MakeMinHeap(a, n);
 
         for (int i = n - 1; i > 0; i--) {
@@ -429,7 +429,7 @@ public class SortUtils {
      */
     public static void MinHeapFixdown(int a[], int i, int n) {
         // 子节点
-        int j    = 2 * i + 1;
+        int j = 2 * i + 1;
         int temp = 0;
 
         while (j < n) {
@@ -482,7 +482,7 @@ public class SortUtils {
         if (size < 1) {
             return null;
         }
-        int   max = -1, min = -1;
+        int max = -1, min = -1;
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] = new Random().nextInt(size);
@@ -503,7 +503,7 @@ public class SortUtils {
     }
 
     public static int[] genrateIncArray(int size, int step) {
-        long  t0  = System.currentTimeMillis();
+        long t0 = System.currentTimeMillis();
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] += i * step;

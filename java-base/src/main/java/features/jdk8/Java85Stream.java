@@ -246,7 +246,7 @@ public class Java85Stream {
     @NoArgsConstructor
     @AllArgsConstructor
     private static class Person {
-        private Long   id;
+        private Long id;
         private String name;
 
     }

@@ -94,8 +94,8 @@ public class MyLinkedList {
 
     @Override
     public String toString() {
-        StringBuilder sb   = new StringBuilder();
-        LinkedNode    temp = head;
+        StringBuilder sb = new StringBuilder();
+        LinkedNode temp = head;
         while (temp.next != null) {
             sb.append(temp.next.val);
             temp = temp.next;
@@ -106,7 +106,7 @@ public class MyLinkedList {
 
     class LinkedNode {
         LinkedNode next;
-        Object     val;
+        Object val;
 
         public LinkedNode() {
         }

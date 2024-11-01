@@ -38,14 +38,15 @@ public class Generics {
         final Object instance = getInstance(Class.forName("sssdnsy.abasic.ParentClass"));
         main1(args);
     }
+
     /**
      * 著作权归https://www.pdai.tech所有。
      * 链接：https://www.pdai.tech/md/java/basic/java-basic-x-generic.html
-     *
+     * <p>
      * <?> 无限制通配符
      * <? extends E> extends 关键字声明了类型的上界，表示参数化的类型可能是所指定的类型，或者是此类型的子类
      * <? super E> super 关键字声明了类型的下界，表示参数化的类型可能是指定的类型，或者是此类型的父类
-     *
+     * <p>
      * // 使用原则《Effictive Java》
      * // 为了获得最大限度的灵活性，要在表示 生产者或者消费者 的输入参数上使用通配符，使用的规则就是：生产者有上限、消费者有下限
      * 1. 如果参数化类型表示一个 T 的生产者，使用 < ? extends T>;
@@ -62,18 +63,19 @@ public class Generics {
 //    List<?>[] list14 = new ArrayList<String>[10]; //编译错误，非法创建
 //    List<?>[] list15 = new ArrayList<?>[10]; //OK
 //    List<String>[] list6 = new ArrayList[10]; //OK，但是会有警告
+    public static void main1(String args[]) {
+        Integer i[] = fun1(1, 2, 3, 4, 5, 6);   // 返回泛型数组
+        fun2(i);
+    }
 
-    public static void main1(String args[]){
-        Integer i[] = fun1(1,2,3,4,5,6) ;   // 返回泛型数组
-        fun2(i) ;
+    public static <T> T[] fun1(T... arg) {  // 接收可变参数
+        return arg;            // 返回泛型数组
     }
-    public static <T> T[] fun1(T...arg){  // 接收可变参数
-        return arg ;            // 返回泛型数组
-    }
-    public static <T> void fun2(T param[]){   // 输出
-        System.out.print("接收泛型数组：") ;
-        for(T t:param){
-            System.out.print(t + "、") ;
+
+    public static <T> void fun2(T param[]) {   // 输出
+        System.out.print("接收泛型数组：");
+        for (T t : param) {
+            System.out.print(t + "、");
         }
     }
 }

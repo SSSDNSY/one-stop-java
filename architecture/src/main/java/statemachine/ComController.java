@@ -20,36 +20,36 @@ public class ComController {
     ComAuditMachine comAuditMachine;
 
     @GetMapping("/com/get")
-    public ComContext get(String dataId){
+    public ComContext get(String dataId) {
         return dbExample.get(dataId);
     }
 
     @GetMapping("/com/submit")
-    public Object submit(String dataId){
+    public Object submit(String dataId) {
         ComContext context = dbExample.get(dataId);
-        ComContext ctx=new ComContext();
-        BeanUtils.copyProperties(context,ctx);
+        ComContext ctx = new ComContext();
+        BeanUtils.copyProperties(context, ctx);
         return comAuditMachine.fire(ComStates.getByValue(context.getCurrentState()), ComEvents.SUBMIT, ctx);
     }
 
     @GetMapping("/com/cancel")
-    public Object cancel(String dataId){
+    public Object cancel(String dataId) {
         ComContext context = dbExample.get(dataId);
-        ComContext ctx=new ComContext();
-        BeanUtils.copyProperties(context,ctx);
+        ComContext ctx = new ComContext();
+        BeanUtils.copyProperties(context, ctx);
         return comAuditMachine.fire(ComStates.getByValue(context.getCurrentState()), ComEvents.CANCEL, ctx);
     }
 
 
     @GetMapping("/com/audit")
-    public Object audit(String dataId,Long suid,Integer state,String msg){
+    public Object audit(String dataId, Long suid, Integer state, String msg) {
         ComContext context = dbExample.get(dataId);
-        ComContext ctx=new ComContext();
-        BeanUtils.copyProperties(context,ctx);
+        ComContext ctx = new ComContext();
+        BeanUtils.copyProperties(context, ctx);
         ctx.setSessionUserId(suid);
         ctx.setCurrentNodeUserId(suid);//设置一样，否则检查报错操作人员与当前登录用户不匹配
         ctx.setCurrentNodeAuditState(state);
         ctx.setCurrentNodeReason(msg);
-        return comAuditMachine.fire(ComStates.getByValue(context.getCurrentState()),ComEvents.AUDIT,ctx);
+        return comAuditMachine.fire(ComStates.getByValue(context.getCurrentState()), ComEvents.AUDIT, ctx);
     }
 }

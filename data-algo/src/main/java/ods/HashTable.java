@@ -123,7 +123,7 @@ public class HashTable<T> extends AbstractCollection<T> {
      * @return
      */
     public int removeAll(Object x) {
-        int         r  = 0;
+        int r = 0;
         Iterator<T> it = t[hash(x)].iterator();
         while (it.hasNext()) {
             T y = it.next();
@@ -176,7 +176,7 @@ public class HashTable<T> extends AbstractCollection<T> {
      */
     public List<T> findAll(Object x) {
         List<T> l = new LinkedList<T>();
-        int     i = (x.hashCode() * z) >>> (w - d);
+        int i = (x.hashCode() * z) >>> (w - d);
         for (T y : t[i]) {
             if (y.equals(x)) {
                 l.add(y);
@@ -228,7 +228,7 @@ public class HashTable<T> extends AbstractCollection<T> {
      * @param args
      */
     public static void main(String[] args) {
-        int                n = 100000;
+        int n = 100000;
         HashTable<Integer> t = new HashTable<Integer>();
         for (int i = 0; i < n; i++) {
             t.add(i * 2);

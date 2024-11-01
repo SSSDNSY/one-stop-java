@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
  * 类 Student
  * 对象 Student类的实例
  * 类对象(Class对象) :类对象，就是用于描述这种类，都有什么属性，什么方法的
- *
  */
 @Data
 @AllArgsConstructor
@@ -20,6 +19,7 @@ import lombok.NoArgsConstructor;
 public class Student {
 
     static String scholl;
+
     static {
         System.out.println("初始化 scholl");
         scholl = "版权由scholl所有";

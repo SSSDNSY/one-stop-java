@@ -12,7 +12,7 @@ public class LongEventProducer {
     }
 
     public void onData(ByteBuffer bb) {
-        long sequence =  buffer.next();
+        long sequence = buffer.next();
         try {
             LongEvent event = buffer.get(sequence);
             event.setValue(bb.getLong(0));

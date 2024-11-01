@@ -35,14 +35,14 @@ public class SEList<T> extends AbstractSequentialList<T> {
 
     protected class Node {
         BDeque d;
-        Node   prev, next;
+        Node prev, next;
     }
 
     protected Node dummy;
 
     protected class Location {
         Node u;
-        int  j;
+        int j;
 
         public Location(Node u, int j) {
             this.u = u;
@@ -95,8 +95,8 @@ public class SEList<T> extends AbstractSequentialList<T> {
             }
             return new Location(u, i);
         } else {
-            Node u   = dummy;
-            int  idx = n;
+            Node u = dummy;
+            int idx = n;
             while (i < idx) {
                 u = u.prev;
                 idx -= u.d.size();
@@ -114,7 +114,7 @@ public class SEList<T> extends AbstractSequentialList<T> {
     public T set(int i, T x) {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
         Location l = getLocation(i);
-        T        y = l.u.d.get(l.j);
+        T y = l.u.d.get(l.j);
         l.u.d.set(l.j, x);
         return y;
     }
@@ -170,8 +170,8 @@ public class SEList<T> extends AbstractSequentialList<T> {
             return;
         }
         Location l = getLocation(i);
-        Node     u = l.u;
-        int      r = 0;
+        Node u = l.u;
+        int r = 0;
         while (r < b && u != dummy && u.d.size() == b + 1) {
             u = u.next;
             r++;
@@ -194,9 +194,9 @@ public class SEList<T> extends AbstractSequentialList<T> {
     public T remove(int i) {
         if (i < 0 || i > n - 1) throw new IndexOutOfBoundsException();
         Location l = getLocation(i);
-        T        y = l.u.d.get(l.j);
-        Node     u = l.u;
-        int      r = 0;
+        T y = l.u.d.get(l.j);
+        Node u = l.u;
+        int r = 0;
         while (r < b && u != dummy && u.d.size() == b - 1) {
             u = u.next;
             r++;
@@ -231,7 +231,7 @@ public class SEList<T> extends AbstractSequentialList<T> {
     }
 
     public String toString() {
-        Node   u = dummy.next;
+        Node u = dummy.next;
         String s = "";
         while (u != dummy) {
             s += u.d.toString();
@@ -383,8 +383,8 @@ public class SEList<T> extends AbstractSequentialList<T> {
 //	}
 
     public static void main(String[] args) {
-        int             n = 51;
-        int             b = 4;
+        int n = 51;
+        int b = 4;
         SEList<Integer> l = new SEList<Integer>(b, Integer.class);
         for (int i = 0; i < n; i++) {
             l.add(i * 10);

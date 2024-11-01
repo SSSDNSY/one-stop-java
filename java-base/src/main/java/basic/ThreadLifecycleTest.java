@@ -63,14 +63,14 @@ class Main extends Thread {
 /**
  * 使用alive处理并发冲突
  */
- class Main1 extends Thread {
+class Main1 extends Thread {
     public static int amount = 0;
 
     public static void main(String[] args) {
         Main thread = new Main();
         thread.start();
         // Wait for the thread to finish
-        while(thread.isAlive()) {
+        while (thread.isAlive()) {
             System.out.println("Waiting...");
         }
         // Update amount and print its value
@@ -78,12 +78,11 @@ class Main extends Thread {
         amount++;
         System.out.println("Main: " + amount);
     }
+
     public void run() {
         amount++;
     }
 }
-
-
 
 
 /**

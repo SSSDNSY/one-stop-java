@@ -9,17 +9,16 @@ import java.util.Random;
  * @Description: 串行垃圾回收器
  * vm args:
  * 串行：-XX:+UseSerialGC -XX:+PrintGCDetails -Xms16m -Xmx16m
- *
+ * <p>
  * 并行：-XX:+UseParNewGC
- *
- *       -XX:+UseParallelGC
- *       -XX:+UseParallelOldGC
- *       -XX:MaxGCPauseMillis=100
- *
+ * <p>
+ * -XX:+UseParallelGC
+ * -XX:+UseParallelOldGC
+ * -XX:MaxGCPauseMillis=100
+ * <p>
  * CMS: +XX:+UseConcMarkSweepGC
- *
+ * <p>
  * G1:-XX:+UseG1GC
- *
  * @Author: pengzh
  * @date: 2019/11/17
  */

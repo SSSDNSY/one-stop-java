@@ -234,8 +234,8 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
      */
     public static void main(String[] args) {
         BinaryHeap<Integer> h = new BinaryHeap<Integer>(Integer.class);
-        Random              r = new Random();
-        int                 n = 20;
+        Random r = new Random();
+        int n = 20;
         for (int i = 0; i < n; i++) {
             h.add(r.nextInt(2500));
         }
@@ -256,7 +256,7 @@ public class BinaryHeap<T> extends AbstractQueue<T> {
         System.out.println("");
 
         n = 100000;
-        long   start, stop;
+        long start, stop;
         double elapsed;
         System.out.print("performing " + n + " adds...");
         start = System.nanoTime();

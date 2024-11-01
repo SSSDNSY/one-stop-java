@@ -11,7 +11,7 @@ public class FontPrinter {
     public static void main(String[] args) {
         GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String[] fontNames = e.getAvailableFontFamilyNames();
-        for(String name:fontNames){
+        for (String name : fontNames) {
             System.out.println(name);
         }
     }

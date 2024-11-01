@@ -55,7 +55,7 @@ public abstract class AbstractBinarySearchTree {
         }
         // finde position to insert new Node
         Node insertParentNode = null;
-        Node searchTempNode   = root;
+        Node searchTempNode = root;
         while (searchTempNode != null && searchTempNode.value != null) {
             insertParentNode = searchTempNode;
             if (element < searchTempNode.value) {
@@ -200,7 +200,7 @@ public abstract class AbstractBinarySearchTree {
             return getMinimum(node.right);
         } else {
             Node currentNode = node;
-            Node parentNode  = node.parent;
+            Node parentNode = node.parent;
             while (parentNode != null && currentNode == parentNode.right) {
                 currentNode = parentNode;
                 parentNode = parentNode.parent;
@@ -317,9 +317,9 @@ public abstract class AbstractBinarySearchTree {
     public static class Node {
 
         public Integer value;
-        public Node    parent;
-        public Node    left;
-        public Node    right;
+        public Node parent;
+        public Node left;
+        public Node right;
 
         public Node(Integer value, Node parent, Node left, Node right) {
             super();
@@ -357,8 +357,8 @@ public abstract class AbstractBinarySearchTree {
 
         @Override
         public int hashCode() {
-            final int prime  = 31;
-            int       result = 1;
+            final int prime = 31;
+            int result = 1;
             return prime * result + ((value == null) ? 0 : value.hashCode());
         }
     }

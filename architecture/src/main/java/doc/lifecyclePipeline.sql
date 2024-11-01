@@ -28,39 +28,37 @@ GET _ilm/policy/my_policy
 
 
 DELETE _ilm/policy/my_policy
-
-
-POST _ilm/move/my_index
-{
-  "current_step": { 
+    POST _ilm/move/my_index
+    {
+    "current_step": {
     "phase": "new",
     "action": "complete",
     "name": "complete"
-  },
-  "next_step": { 
+    },
+    "next_step": {
     "phase": "warm",
     "action": "forcemerge",
     "name": "forcemerge"
-  }
-}
+    }
+    }
 
 ## 数据预处理管道
-PUT _ingest/pipeline/my-pipeline-id
-{
-  "description" : "describe pipeline",
-  "processors" : [
+    PUT _ingest/pipeline/my-pipeline-id
     {
-      "set" : {
-        "field": "foo",
-        "value": "bar"
-      }
+    "description" : "describe pipeline",
+    "processors" : [
+    {
+    "set" : {
+    "field": "foo",
+    "value": "bar"
     }
-  ]
-}
+    }
+    ]
+    }
 
 
 GET /_xpack
 
 
-GET twitter/_search?q=user:kimchy
+GET twitter/_search?q= user :kimchy
 

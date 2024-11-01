@@ -5,7 +5,7 @@ import java.util.Set;
 
 class Pair<V> {
     public Object key;
-    public V      value;
+    public V value;
 
     public Pair(Object ikey, V ivalue) {
         key = ikey;

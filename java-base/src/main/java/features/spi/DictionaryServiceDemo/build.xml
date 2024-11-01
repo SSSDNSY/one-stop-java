@@ -66,8 +66,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <target name="zip">
         <delete file="./DictionaryServiceDemo.zip"/>
         <zip destfile="./DictionaryServiceDemo.zip"
-            basedir="."
-            excludes="**/*.zip"/>
+             basedir="."
+             excludes="**/*.zip"/>
     </target>
 
 </project>

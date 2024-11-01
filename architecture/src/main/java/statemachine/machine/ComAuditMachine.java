@@ -43,31 +43,31 @@ public class ComAuditMachine implements BaseMachine<ComStates, ComEvents, ComCon
 
         //初审
         builder.externalTransition()
-                        .from(ComStates.PENDING_AUDIT)
-                        .to(ComStates.MULTI_AUDIT)
-                        .on(ComEvents.AUDIT)
-                        .when(comCondition.defaultPassCondition())
-                        .perform(comAction.auditAction());
+                .from(ComStates.PENDING_AUDIT)
+                .to(ComStates.MULTI_AUDIT)
+                .on(ComEvents.AUDIT)
+                .when(comCondition.defaultPassCondition())
+                .perform(comAction.auditAction());
 
         //审核/多人会审
         builder.internalTransition()
-                        .within(ComStates.MULTI_AUDIT)
-                        .on(ComEvents.AUDIT)
-                        .when(comCondition.auditCondition())
-                        .perform(comAction.auditAction());
+                .within(ComStates.MULTI_AUDIT)
+                .on(ComEvents.AUDIT)
+                .when(comCondition.auditCondition())
+                .perform(comAction.auditAction());
 
         //审核通过
         builder.externalTransition()
-                        .from(ComStates.MULTI_AUDIT)
-                        .to(ComStates.SUCCESS)
-                        .on(ComEvents.PASS_AUDIT)
-                        .when(comCondition.defaultPassCondition())
-                        .perform(comAction.passAction());
+                .from(ComStates.MULTI_AUDIT)
+                .to(ComStates.SUCCESS)
+                .on(ComEvents.PASS_AUDIT)
+                .when(comCondition.defaultPassCondition())
+                .perform(comAction.passAction());
 
 
         //审核驳回
         builder.externalTransitions()
-                .fromAmong(ComStates.MULTI_AUDIT,ComStates.PENDING_AUDIT)
+                .fromAmong(ComStates.MULTI_AUDIT, ComStates.PENDING_AUDIT)
                 .to(ComStates.REJECT)
                 .on(ComEvents.REJECT_AUDIT)
                 .when(comCondition.defaultPassCondition())

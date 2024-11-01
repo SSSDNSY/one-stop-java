@@ -32,7 +32,7 @@ public class NioClient {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(sc!=null){
+            if (sc != null) {
                 try {
                     sc.close();
                 } catch (IOException e) {

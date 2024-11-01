@@ -319,7 +319,7 @@ public class BinarySearchTree<Node extends BinarySearchTree.BSTNode<Node, T>, T>
     }
 
     public String toString() {
-        String      s  = "[";
+        String s = "[";
         Iterator<T> it = iterator();
         while (it.hasNext()) {
             s += it.next().toString() + (it.hasNext() ? "," : "");

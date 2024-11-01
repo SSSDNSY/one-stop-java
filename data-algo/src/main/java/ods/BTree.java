@@ -49,7 +49,7 @@ public class BTree<T> implements SSet<T> {
     protected int findIt(T[] a, T x) {
         int lo = 0, hi = a.length;
         while (hi != lo) {
-            int m   = (hi + lo) / 2;
+            int m = (hi + lo) / 2;
             int cmp = a[m] == null ? -1 : c.compare(x, a[m]);
             if (cmp < 0)
                 hi = m;      // look in first half
@@ -162,7 +162,7 @@ public class BTree<T> implements SSet<T> {
          */
         protected Node split() {
             Node w = new Node();
-            int  j = keys.length / 2;
+            int j = keys.length / 2;
             System.arraycopy(keys, j, w.keys, 0, keys.length - j);
             Arrays.fill(keys, j, keys.length, null);
             System.arraycopy(children, j + 1, w.children, 0, children.length - j - 1);
@@ -246,7 +246,7 @@ public class BTree<T> implements SSet<T> {
      */
     protected Node addRecursive(T x, int ui) throws DuplicateValueException {
         Node u = bs.readBlock(ui);
-        int  i = findIt(u.keys, x);
+        int i = findIt(u.keys, x);
         if (i < 0) throw new DuplicateValueException();
         if (u.children[i] < 0) { // leaf node, just add it
             u.add(x, -1);
@@ -284,7 +284,7 @@ public class BTree<T> implements SSet<T> {
     protected boolean removeRecursive(T x, int ui) {
         if (ui < 0) return false;  // didn't find it
         Node u = bs.readBlock(ui);
-        int  i = findIt(u.keys, x);
+        int i = findIt(u.keys, x);
         if (i < 0) { // found it
             i = -(i + 1);
             if (u.isLeaf()) {
@@ -375,8 +375,8 @@ public class BTree<T> implements SSet<T> {
      * @param w the left sibling of v
      */
     protected void shiftLR(Node u, int i, Node v, Node w) {
-        int sw    = w.size();
-        int sv    = v.size();
+        int sw = w.size();
+        int sv = v.size();
         int shift = ((sw + sv) / 2) - sw;  // num. keys to shift from v to w
         // make space for new keys in w
         System.arraycopy(w.keys, 0, w.keys, shift, sw);
@@ -413,8 +413,8 @@ public class BTree<T> implements SSet<T> {
      * @param w the right sibling of v
      */
     protected void shiftRL(Node u, int i, Node v, Node w) {
-        int sw    = w.size();
-        int sv    = v.size();
+        int sw = w.size();
+        int sv = v.size();
         int shift = ((sw + sv) / 2) - sw;  // num. keys to shift from v to w
         // shift keys and children from v to w
         w.keys[sw] = u.keys[i];
@@ -439,11 +439,11 @@ public class BTree<T> implements SSet<T> {
     }
 
     public T find(T x) {
-        T   z  = null;
+        T z = null;
         int ui = ri;
         while (ui >= 0) {
             Node u = bs.readBlock(ui);
-            int  i = findIt(u.keys, x);
+            int i = findIt(u.keys, x);
             if (i < 0) return u.keys[-(i + 1)]; // found it
             if (u.keys[i] != null)
                 z = u.keys[i];
@@ -457,11 +457,11 @@ public class BTree<T> implements SSet<T> {
     }
 
     public T findLT(T x) {
-        T   z  = null;
+        T z = null;
         int ui = ri;
         while (ui >= 0) {
             Node u = bs.readBlock(ui);
-            int  i = findIt(u.keys, x);
+            int i = findIt(u.keys, x);
             if (i < 0) i = -(i + 1);
             if (i > 0)
                 z = u.keys[i - 1];
@@ -471,7 +471,7 @@ public class BTree<T> implements SSet<T> {
     }
 
     protected class BTIterator implements Iterator<T> {
-        protected List<Node>    nstack;
+        protected List<Node> nstack;
         protected List<Integer> istack;
 
         public BTIterator() {
@@ -489,7 +489,7 @@ public class BTree<T> implements SSet<T> {
 
         public BTIterator(T x) {
             Node u;
-            int  i;
+            int i;
             nstack = new ArrayList<Node>(); // <Node>(Node.class);
             istack = new ArrayList<Integer>(); // <Integer>(Integer.class);
             if (n == 0) return;
@@ -515,8 +515,8 @@ public class BTree<T> implements SSet<T> {
 
         public T next() {
             Node u = nstack.get(nstack.size() - 1);
-            int  i = istack.get(istack.size() - 1);
-            T    y = u.keys[i++];
+            int i = istack.get(istack.size() - 1);
+            T y = u.keys[i++];
             istack.set(istack.size() - 1, i);
             advance();
             return y;
@@ -524,7 +524,7 @@ public class BTree<T> implements SSet<T> {
 
         protected void advance() {
             Node u = nstack.get(nstack.size() - 1);
-            int  i = istack.get(istack.size() - 1);
+            int i = istack.get(istack.size() - 1);
             if (u.isLeaf()) { // this is a leaf, walk up
                 while (!nstack.isEmpty() && i == u.size()) {
                     nstack.remove(nstack.size() - 1);
@@ -579,7 +579,7 @@ public class BTree<T> implements SSet<T> {
     public void toString(int ui, StringBuffer sb) {
         if (ui < 0) return;
         Node u = bs.readBlock(ui);
-        int  i = 0;
+        int i = 0;
         while (i < b && u.keys[i] != null) {
             toString(u.children[i], sb);
             sb.append(u.keys[i++] + ", ");
@@ -594,8 +594,8 @@ public class BTree<T> implements SSet<T> {
      * @param args
      */
     public static void main(String[] args) {
-        int                b  = 60, n = 100000, c = 10, reps = 500;
-        BTree<Integer>     t  = new BTree<Integer>(b, Integer.class);
+        int b = 60, n = 100000, c = 10, reps = 500;
+        BTree<Integer> t = new BTree<Integer>(b, Integer.class);
         SortedSet<Integer> ss = new TreeSet<Integer>();
         for (int seed = 0; seed < reps; seed++) {
             System.out.println("Adding " + n + " elements");

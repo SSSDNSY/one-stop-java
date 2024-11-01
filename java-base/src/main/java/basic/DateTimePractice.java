@@ -6,13 +6,11 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
 
 /**
- * @Desc  日期时间
+ * @Desc 日期时间
  * @Author pengzh
  * @Since 2023-05-18
  */
 public class DateTimePractice {
-
-
 
 
     private static void test1() {
@@ -33,7 +31,7 @@ public class DateTimePractice {
 
     private static void test3() {
 
-        LocalDate date     = LocalDate.now();
+        LocalDate date = LocalDate.now();
         LocalDate firstDay = date.with(TemporalAdjusters.firstDayOfMonth()); //LocalDateTime 获取当前月的第一天
         LocalDate lastDay = date.with(TemporalAdjusters.lastDayOfMonth()); // 获取当前月的最后一天
         date.minusMonths(1);
@@ -47,7 +45,7 @@ public class DateTimePractice {
      */
     private static void test4() {
 
-        LocalDate date     = LocalDate.now();
+        LocalDate date = LocalDate.now();
         LocalDate firstDay = date.with(TemporalAdjusters.firstDayOfMonth());
         LocalDate lastDay = date.with(TemporalAdjusters.lastDayOfMonth()); // 获取当前月的最后一天
         System.out.println(date);
@@ -55,13 +53,13 @@ public class DateTimePractice {
         System.out.println(lastDay);
         date.minusMonths(1);
 
-         firstDay = date.with(TemporalAdjusters.firstDayOfMonth());
-         lastDay = date.with(TemporalAdjusters.lastDayOfMonth()); // 获取当前月的最后一天
+        firstDay = date.with(TemporalAdjusters.firstDayOfMonth());
+        lastDay = date.with(TemporalAdjusters.lastDayOfMonth()); // 获取当前月的最后一天
         System.out.println(date);
         System.out.println(firstDay);
         System.out.println(lastDay);
 
-        System.out.println(LocalDateTime.of(2023,12,1,0,0,0));
+        System.out.println(LocalDateTime.of(2023, 12, 1, 0, 0, 0));
     }
 
 

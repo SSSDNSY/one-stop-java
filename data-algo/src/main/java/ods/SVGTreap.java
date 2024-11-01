@@ -4,11 +4,11 @@ import java.io.PrintStream;
 
 public class SVGTreap extends Treap<Integer> {
 
-    protected static double pagewidth  = 215.9; // 8.5 in
+    protected static double pagewidth = 215.9; // 8.5 in
     protected static double pageheight = 279.4;  // 11 in
-    protected static double width      = 152.4; // 6 in
-    protected static double height     = 76.2; // 3 in
-    protected static int    maxp       = 2000000000;
+    protected static double width = 152.4; // 6 in
+    protected static double height = 76.2; // 3 in
+    protected static int maxp = 2000000000;
 
     protected double radius, thickness, xscale, yscale;
 

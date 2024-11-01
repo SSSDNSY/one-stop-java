@@ -12,10 +12,10 @@ import static linked.SimpleSkipList.Type.*;
  */
 public class SimpleSkipList {
 
-    private Node   head;
-    private Node   tail;
-    private int    size;
-    private int    height;
+    private Node head;
+    private Node tail;
+    private int size;
+    private int height;
     private Random random;
 
 
@@ -86,11 +86,11 @@ public class SimpleSkipList {
         }
         for (int i = height + 1; i > 0; i--) {
             System.out.printf(" height (current/height=%d/%d) ", i, height + 1);
-            Node node           = temp.right;
+            Node node = temp.right;
             Node tempBottomHead = bottomHead.right;
-            int  m              = 0;
+            int m = 0;
             while (node.type == DATA) {
-                int  n     = 0;
+                int n = 0;
                 Node tempN = tempBottomHead;
                 while (node.value.intValue() != tempN.value.intValue()) {
                     n++;
@@ -151,7 +151,7 @@ public class SimpleSkipList {
         SimpleSkipList skipList = new SimpleSkipList();
 
         Random random = new Random();
-        int    num    = 100;
+        int num = 100;
         for (int i = 0; i < num; i++) {
             skipList.add(random.nextInt(num * 10));
         }
@@ -164,7 +164,7 @@ public class SimpleSkipList {
      */
     private class Node {
         private Integer value;
-        private Node    up, down, left, right;
+        private Node up, down, left, right;
         private Type type;
 
         public Node(Integer value, Node up, Node down, Node left, Node right, Type type) {

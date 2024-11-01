@@ -20,8 +20,8 @@ public class ProcessTask implements Runnable {
         int i = 0;
         while (i < loopTime) {
             countingProcessor.doProcessor();
-            i ++;
+            i++;
         }
-        System.out.println("Finally, the count is {}"+countingProcessor.getCounter());
+        System.out.println("Finally, the count is {}" + countingProcessor.getCounter());
     }
 }
