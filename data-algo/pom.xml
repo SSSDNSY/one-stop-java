@@ -1,21 +1,34 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>fun.sssdnsy</groupId>
-    <artifactId>one-stop-java</artifactId>
-    <version>1.1.0</version>
-  </parent>
-  <name>data-algo</name>
-  <description>data-algo</description>
+    <parent>
+        <groupId>fun.sssdnsy</groupId>
+        <artifactId>one-stop-java</artifactId>
+        <version>1.1.0</version>
+    </parent>
+    <name>data-algo</name>
+    <description>data-algo</description>
 
-  <groupId>sssdnsy</groupId>
-  <artifactId>data-algo</artifactId>
-  <version>1.0.0</version>
+    <groupId>sssdnsy</groupId>
+    <artifactId>data-algo</artifactId>
+    <version>1.0.0</version>
 
 
-  <dependencies>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
