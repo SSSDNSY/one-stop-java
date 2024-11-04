@@ -10,33 +10,30 @@
 ## 模块结构
 
 ```xml
-
-.
-        |-- architecture 架构
-        |   |-- src
-        |   `-- target
-        |-- data-algo    数据结构与算法
-        |   |-- src
-        |   `-- target
-        |-- database     数据库
-        |   |-- src
-        |   `-- target
-        |-- deploy-tool  运维工具
-        |   |-- src
-        |   `-- target
-        |-- java-base    Java基础
-        |   |-- src
-        |   `-- target
-        |-- spring-base  Spring
-        |   |-- src
-        |   `-- target
-        |-- sundries     杂项
-        |   |-- src
-        |   `-- target
-
+|-- architecture 架构
+|   |-- src
+|   `-- target
+|-- data-algo    数据结构与算法
+|   |-- src
+|   `-- target
+|-- database     数据库
+|   |-- src
+|   `-- target
+|-- deploy-tool  运维工具
+|   |-- src
+|   `-- target
+|-- java-base    Java基础
+|   |-- src
+|   `-- target
+|-- spring-base  Spring
+|   |-- src
+|   `-- target
+|-- sundries     杂项
+|   |-- src
+|   `-- target
 ```
 
 ## 范例链接
 
-- [Spring Bean Lifecycle](/tree/main/spring-base/src/main/java/bean)
-- [JMX example](/tree/main/java-base/src/main/java/features/jmx)
+- [Spring Bean Lifecycle](./spring-base/src/main/java/bean/BeanLifeCycle.java)
+- [JMX example](/java-base/src/main/java/features/jmx/*)
