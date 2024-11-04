@@ -4,7 +4,7 @@ package features.jdk21;
  * @Description
  * @Since 2024-11-04
  */
-public class StringTest {
+public class STRTest {
 
     public static void main(String[] args) {
         String name = "JDK21";
