@@ -3,8 +3,8 @@
   <a href="https://docs.spring.io/spring-boot/docs/3.3.x/"><img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-3.3.3.RELEASE-brightgreen.svg"/></a>
 </p>
 
-# One-stop-java
-
+# One-stop-java 
+ - [☛简体中文](README_ZH.md)
  - This repository is about personal work and learning software engineering's everything;
  - Personal playground with massive examples and figure out "talk is cheap, show me the code!;
 
