@@ -51,3 +51,5 @@
 - [skip-list](./data-algo/src/main/java/ods/SkiplistList.java)
 - [leetcode solution](./data-algo/src/test/java)
 - [jvm](./java-base/src/main/java/jvm)
+
+[![LICENSE](https://img.shields.io/badge/license-NPL%20(The%20996%20Prohibited%20License)-blue.svg)](LICENSE)
