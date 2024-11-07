@@ -22,7 +22,6 @@
         <module>sundries</module>
         <module>spring-base</module>
     </modules>
-
     <properties>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,17 +32,31 @@
 
         <spring-cloud.version>2023.0.2</spring-cloud.version>
         <spring-cloud-kubernetes.version>1.1.10.RELEASE</spring-cloud-kubernetes.version>
-
-        <mysql.version>8.0.21</mysql.version>
-        <hutool.version>5.8.16</hutool.version>
-        <guava.version>29.0-jre</guava.version>
+        <pagehelper-spring-boot.version>2.1.0</pagehelper-spring-boot.version>
+        <guava.version>30.1.1-jre</guava.version>
+        <hutool.version>5.8.26</hutool.version>
+        <easyexcel.version>3.3.4</easyexcel.version>
         <user.agent.version>1.20</user.agent.version>
 
+        <mysql.version>8.0.21</mysql.version>
+        <mongodb-driver-core.version>5.1.2</mongodb-driver-core.version>
+        <mongo-java-driver.version>3.12.14</mongo-java-driver.version>
+        <mysql-connector-j.version>9.0.0</mysql-connector-j.version>
+        <mybatis-plus-spring-boot3-starter.version>3.5.8</mybatis-plus-spring-boot3-starter.version>
+        <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.5.16</mybatis.version>
         <junit5.version>5.10.3</junit5.version>
-        <cxf.version>2.2.6</cxf.version>
+        <cxf.version>${joda-time.version}.6</cxf.version>
         <drools.version>7.64.0.Final</drools.version>
         <javax.annotation.version>1.3.2</javax.annotation.version>
 
+        <reactor-bom.version>2023.0.11</reactor-bom.version>
+        <kryo-parent.version>5.6.0</kryo-parent.version>
+        <lombok.version>1.18.34</lombok.version>
+        <ecj.version>4.4.2</ecj.version>
+        <joda-time.version>2.10</joda-time.version>
+        <javafx-controls.version>22.0.1</javafx-controls.version>
+        <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
     </properties>
 
     <dependencyManagement>
@@ -53,6 +66,7 @@
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
+                <!-- 注意这里是import -->
                 <scope>import</scope>
             </dependency>
             <dependency>
@@ -63,9 +77,49 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver-core</artifactId>
+                <version>${mongodb-driver-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongo-java-driver</artifactId>
+                <version>${mongo-java-driver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql-connector-j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus-spring-boot3-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.projectreactor</groupId>
                 <artifactId>reactor-bom</artifactId>
-                <version>2023.0.11</version>
+                <version>${reactor-bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -76,23 +130,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- mysql connector -->
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
             <!-- hutool工具类 -->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-            <!-- guava工具类 -->
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
             </dependency>
             <!-- 解析 UserAgent 信息 -->
             <dependency>
@@ -104,7 +151,13 @@
             <dependency>
                 <groupId>com.esotericsoftware</groupId>
                 <artifactId>kryo-parent</artifactId>
-                <version>5.6.0</version>
+                <version>${kryo-parent.version}</version>
+            </dependency>
+            <!-- 导入导出 easyexcel  -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -116,12 +169,16 @@
             <artifactId>javax.annotation-api</artifactId>
             <version>${javax.annotation.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
+            <version>${lombok.version}</version>
             <scope>compile</scope>
         </dependency>
         <!-- hutool工具类 -->
@@ -140,17 +197,10 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        <!-- guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.2</version>
+            <version>${joda-time.version}</version>
         </dependency>
         <dependency>
             <groupId>org.drools</groupId>
@@ -160,7 +210,7 @@
         <dependency>
             <groupId>org.eclipse.jdt.core.compiler</groupId>
             <artifactId>ecj</artifactId>
-            <version>4.4.2</version>
+            <version>${ecj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
@@ -175,7 +225,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>22.0.1</version>
+            <version>${javafx-controls.version}</version>
         </dependency>
     </dependencies>
 
@@ -218,7 +268,6 @@
                     <mainClass>HelloFX</mainClass>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
