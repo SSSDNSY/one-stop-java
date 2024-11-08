@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author fun.pengzh
+
  * @class netty.intermediate.demo5.server.NetterServer
  * @desc 心跳检测与重连
  * @since 2023-01-12

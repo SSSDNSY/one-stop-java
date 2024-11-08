@@ -6,7 +6,6 @@ import netty.basic.demo8.codec.MyDecoder;
 import netty.basic.demo8.codec.MyEncoder;
 
 /**
- * @author pengzh
  * @desc
  * @since 2022-05-10
  */

@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 /**
- * @author fun.pengzh
+
  * @desc
  * @since 2023-01-12
  */

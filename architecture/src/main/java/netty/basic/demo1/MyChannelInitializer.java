@@ -4,7 +4,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 
 /**
- * @author fun.pengzh
+
  * @class netty.basic.demo1.MyChannelIntializer
  * @desc
  * @since 2022-05-06

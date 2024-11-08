@@ -8,7 +8,6 @@ import io.netty.util.CharsetUtil;
 import java.util.List;
 
 /**
- * @author pengzh
  * @desc
  * @since 2022-05-10
  */

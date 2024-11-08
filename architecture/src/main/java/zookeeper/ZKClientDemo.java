@@ -17,7 +17,6 @@ import org.apache.zookeeper.data.Stat;
 import java.io.IOException;
 
 /**
- * @author pengzh
  * @since 2020-08-07
  */
 public class ZKClientDemo {

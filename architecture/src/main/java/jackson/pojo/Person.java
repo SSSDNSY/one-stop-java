@@ -5,7 +5,6 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @author pengzh
  * @desc
  * @class Person
  * @since 2022-02-11

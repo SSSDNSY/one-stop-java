@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author pengzh
  * @class CommandPattern
  * @since 2021-07-21
  * <p>

@@ -5,7 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
- * @author pengzh
  * @desc
  * @class NettyServer
  * @since 2022-05-10

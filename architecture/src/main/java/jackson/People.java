@@ -1,7 +1,6 @@
 package jackson;
 
 /**
- * @author pengzh
  * @desc
  * @class People
  * @since 2022-02-11

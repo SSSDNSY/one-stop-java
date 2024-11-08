@@ -7,7 +7,6 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pengzh
  * @desc retransform的限制
  * @class MathGame
  * @since 2022-04-08

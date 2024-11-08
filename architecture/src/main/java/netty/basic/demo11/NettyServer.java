@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import java.net.InetSocketAddress;
 
 /**
- * @author pengzh
  * @desc
  * @class NettyServer
  * @since 2022-05-10

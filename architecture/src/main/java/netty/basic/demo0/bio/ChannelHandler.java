@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 
 /**
- * @author fun.pengzh
+
  * @class netty.basic.demo0.bio.ChannelHandler
  * @desc
  * @since 2022-05-03

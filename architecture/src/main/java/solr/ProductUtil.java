@@ -17,7 +17,7 @@
 //import java.util.List;
 //
 ///**
-// * @author fun.pengzh
+//
 // * @class middleware.solr.ProductUtil
 // * @desc
 // * @since 2021-04-16

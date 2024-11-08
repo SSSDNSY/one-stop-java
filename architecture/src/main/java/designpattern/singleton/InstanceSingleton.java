@@ -1,7 +1,6 @@
 package designpattern.singleton;
 
 /**
- * @author pengzh
  * @desc Effective Java作者推荐的枚举单例(线程安全)
  * @class InstanceSingleton
  * @since 2022-06-01

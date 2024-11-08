@@ -12,7 +12,6 @@ import io.netty.util.CharsetUtil;
 import java.net.InetSocketAddress;
 
 /**
- * @author pengzh
  * @desc
  * @class UDPClient
  * @since 2022-05-10

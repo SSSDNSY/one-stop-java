@@ -9,7 +9,6 @@ import java.nio.charset.Charset;
 
 
 /**
- * @author pengzh
  * @desc
  * @class MyChannelIntializer
  * @since 2022-05-07

@@ -11,7 +11,6 @@ import jackson.pojo.Person;
 import java.io.IOException;
 
 /**
- * @author pengzh
  * @desc 自定义反序列化
  * @class CustomSerializer
  * @since 2022-02-11

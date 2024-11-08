@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author fun.pengzh
+
  * @class middleware.lucenes.TestLucene
  * @desc
  * @since 2021-03-25

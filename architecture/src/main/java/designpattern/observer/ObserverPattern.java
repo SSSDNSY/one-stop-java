@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.util.*;
 
 /**
- * @author pengzh
  * @class ObserverPattern
  * @since 2021-07-14
  * <p>

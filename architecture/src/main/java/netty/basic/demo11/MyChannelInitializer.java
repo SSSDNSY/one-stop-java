@@ -12,7 +12,6 @@ import java.util.Date;
 
 
 /**
- * @author pengzh
  * @desc
  * @class MyChannelInitializer
  * @since 2022-05-10

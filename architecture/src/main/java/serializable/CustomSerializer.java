@@ -16,7 +16,6 @@ import jackson.pojo.Person;
 import java.io.IOException;
 
 /**
- * @author pengzh
  * @desc
  * @class CustomSerializer
  * @since 2022-02-11

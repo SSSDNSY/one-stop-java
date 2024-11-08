@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author fun.pengzh
+
  * @class netty.basic.demo0.aio.ChannelAdapter
  * @desc
  * @since 2022-05-05

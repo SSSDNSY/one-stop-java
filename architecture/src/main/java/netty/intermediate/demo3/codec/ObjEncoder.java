@@ -6,7 +6,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import netty.intermediate.demo3.util.SerializationUtil;
 
 /**
- * @author fun.pengzh
+
  * @desc
  * @since 2023-01-12
  */

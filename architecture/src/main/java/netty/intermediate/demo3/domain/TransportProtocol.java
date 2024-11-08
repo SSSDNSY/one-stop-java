@@ -1,7 +1,7 @@
 package netty.intermediate.demo3.domain;
 
 /**
- * @author fun.pengzh
+
  * @desc
  * @since 2023-01-12
  */

@@ -5,7 +5,6 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * @author pengzh
  * @desc
  * @class Student
  * @since 2022-02-11

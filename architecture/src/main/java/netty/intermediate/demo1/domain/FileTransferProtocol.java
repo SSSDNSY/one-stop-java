@@ -1,7 +1,7 @@
 package netty.intermediate.demo1.domain;
 
 /**
- * @author fun.pengzh
+
  * @class netty.intermediate.demo14.domain.FileTransferProtocol
  * @desc
  * @since 2022-05-15

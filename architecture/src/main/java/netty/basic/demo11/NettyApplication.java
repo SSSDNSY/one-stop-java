@@ -11,7 +11,6 @@ import org.springframework.context.annotation.PropertySource;
 import java.net.InetSocketAddress;
 
 /**
- * @author pengzh
  * @desc
  * @class NettyApplication
  * @since 2022-05-10

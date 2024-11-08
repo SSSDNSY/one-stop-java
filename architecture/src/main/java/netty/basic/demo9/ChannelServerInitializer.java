@@ -5,7 +5,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 
 /**
- * @author pengzh
  * @desc
  * @class ChannelServerInitializer
  * @since 2022-05-10

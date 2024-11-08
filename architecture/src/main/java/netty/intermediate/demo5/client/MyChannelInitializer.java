@@ -8,7 +8,7 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
 
 /**
- * @author fun.pengzh
+
  * @desc
  * @since 2023-01-12
  */

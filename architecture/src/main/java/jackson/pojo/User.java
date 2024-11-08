@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author pengzh
  * @desc
  * @class User
  * @JsonProperty 用于属性，把属性的名称序列化时转换为另外一个名称。示例：@JsonProperty("birth_date") private Date birthDate

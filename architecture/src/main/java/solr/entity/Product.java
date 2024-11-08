@@ -11,7 +11,7 @@
 //import org.apache.solr.client.solrj.beans.Field;
 //
 ///**
-// * @author fun.pengzh
+//
 // * @class middleware.solr.entity.Product
 // * @desc
 // * @since 2021-04-16

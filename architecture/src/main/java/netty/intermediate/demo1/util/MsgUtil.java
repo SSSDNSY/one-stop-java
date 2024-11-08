@@ -3,7 +3,7 @@ package netty.intermediate.demo1.util;
 import netty.intermediate.demo1.domain.*;
 
 /**
- * @author fun.pengzh
+
  * @class netty.intermediate.demo14.util.MsgUtil
  * @desc
  * @since 2022-05-15

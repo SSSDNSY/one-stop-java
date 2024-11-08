@@ -10,7 +10,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 
 /**
- * @author fun.pengzh
+
  * @class netty.basic.demo0.nio.NioClient
  * @desc
  * @since 2022-05-04

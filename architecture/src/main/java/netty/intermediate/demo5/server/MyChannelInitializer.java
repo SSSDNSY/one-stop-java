@@ -9,7 +9,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.CharsetUtil;
 
 /**
- * @author fun.pengzh
+
  * @desc
  * @since 2023-01-12
  */

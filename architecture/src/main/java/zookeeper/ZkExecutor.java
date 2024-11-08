@@ -19,7 +19,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * @author pengzh
  * @date 2020-03-09
  * It contains both the ZooKeeper object, DataMonitor, as described above in Program Design.
  */

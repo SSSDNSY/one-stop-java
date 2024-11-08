@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author pengzh
  * @desc
  * @class MyChannelHandler
  * @since 2022-05-07

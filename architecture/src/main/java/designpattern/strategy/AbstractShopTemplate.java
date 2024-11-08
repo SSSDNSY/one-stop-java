@@ -2,7 +2,7 @@ package designpattern.strategy;
 
 /**
  * @Desc
- * @Author pengzh
+
  * @Since 2023-02-16
  */
 public abstract class AbstractShopTemplate implements IShopStrategy {

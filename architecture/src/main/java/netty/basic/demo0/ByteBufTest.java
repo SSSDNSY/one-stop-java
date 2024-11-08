@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author pengzh
  * @desc
  * @class ByteBufTest
  * @since 2022-05-17

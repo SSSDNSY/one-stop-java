@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @author fun.pengzh
+
  * @class netty.basic.demo0.nio.ChannelAdapter
  * @desc nio adapter of client、server
  * @since 2022-05-04

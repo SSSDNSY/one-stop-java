@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.net.InetSocketAddress;
 
 /**
- * @author fun.pengzh
+
  * @class netty.basic.demo7.MyChannelHandler
  * @desc
  * @since 2022-05-09

@@ -9,7 +9,7 @@
 package solr;
 
 /**
- * @author fun.pengzh
+
  * @class middleware.solr.SolrUtil
  * @desc
  * @since 2021-04-16

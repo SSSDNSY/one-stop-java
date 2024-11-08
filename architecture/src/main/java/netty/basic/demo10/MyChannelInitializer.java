@@ -6,7 +6,6 @@ import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
 
 /**
- * @author pengzh
  * @desc
  * @class MyChannelInitializer
  * @since 2022-05-10

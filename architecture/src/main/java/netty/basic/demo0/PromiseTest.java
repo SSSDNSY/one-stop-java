@@ -10,7 +10,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pengzh
  * @desc
  * @class PromiseTest
  * @since 2022-05-17

@@ -18,7 +18,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 */
 /**
  * @Desc 测试nacos自动注册
- * @author fun.pengzh
+
  * @desc
  * @since 2023-01-12
  *//*
