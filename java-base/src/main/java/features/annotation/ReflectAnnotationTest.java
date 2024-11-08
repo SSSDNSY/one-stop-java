@@ -6,7 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Method;
 
 /**
- * @author pengzh
  * @date 2020-03-10
  */
 public class ReflectAnnotationTest {

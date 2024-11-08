@@ -6,10 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * @author fun.pengzh
- * @class PACKAGE_NAME.Application
- * @desc Application starter
- * @since 2022-12-15
+ * Application
  */
 @EnableAsyncExcel
 @SpringBootApplication(scanBasePackages = {"fun.sssdnsy"})

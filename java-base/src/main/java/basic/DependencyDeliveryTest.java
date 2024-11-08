@@ -3,7 +3,6 @@ package basic;
 import java.io.Serializable;
 
 /**
- * @author pengzh
  * @date 2020-04-07
  */
 public class DependencyDeliveryTest {

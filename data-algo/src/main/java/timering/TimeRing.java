@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author fun.pengzh
+
  * @class algorithm.timering.TimeRing
  * @desc
  * @since 2022-07-23

@@ -3,7 +3,6 @@ package juc.concurrent2;
 import org.junit.Test;
 
 /**
- * @author pengzh
  * @desc 线程的状态
  * @class ThreadStatus
  * @since 2022-06-01

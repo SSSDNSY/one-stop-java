@@ -4,7 +4,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @author pengzh
  * @since 2020-07-02
  */
 public class SynchronizedDemo {

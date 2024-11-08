@@ -1,7 +1,6 @@
 package features.jdk8;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  */
 public class Java84DefaultMethod {

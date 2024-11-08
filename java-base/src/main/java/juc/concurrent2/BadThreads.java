@@ -1,7 +1,7 @@
 package juc.concurrent2;
 
 /**
- * @author fun.pengzh
+
  * @class sssdnsy.cjuc.concurrent2.BadThreads
  * @desc
  * @since 2021-03-11

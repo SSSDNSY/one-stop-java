@@ -7,7 +7,6 @@ import org.springframework.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
- * @author pengzh
  * @since 2020-08-07
  */
 public class CGLibTest {

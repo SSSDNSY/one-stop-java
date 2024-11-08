@@ -4,7 +4,7 @@ import tree.base.AbstractBinarySearchTree;
 import tree.base.AbstractSelfBalancingBinarySearchTree;
 
 /**
- * @author fun.pengzh
+
  * @class algorithm.tree.AVLTree
  * @desc the heights of the two child subtrees of any node differ by at most one.
  * @since 2021-02-15

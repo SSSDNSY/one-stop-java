@@ -3,7 +3,6 @@ package basic;
 import java.io.*;
 
 /**
- * @author pengzh
  * @since 2020-06-29
  * <p>
  * 只有当父加载器在它的搜索范围中没有找到所需的类时，即无法完成该加载，子加载器才会尝试自己去加载该类。

@@ -6,7 +6,6 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * @author pengzh
  * @desc
  * @class Thread_7_ForkJoin
  * @since 2022-06-01

@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 
 /**
  * @Description: 发令枪  集齐了才能出发  做加法
- * @Author: pengzh
+
  * @date: 2019/9/14
  */
 public class UseCyclicBarrier implements Runnable {

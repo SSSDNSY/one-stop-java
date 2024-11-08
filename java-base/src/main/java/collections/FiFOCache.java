@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author pengzh
  * @since 2020-06-30
  */
 public class FiFOCache<K, V> extends LinkedHashMap<K, V> {

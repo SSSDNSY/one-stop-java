@@ -1,7 +1,6 @@
 package basic;
 
 /**
- * @author pengzh
  * @date 2020-03-05
  * 修饰符        类内部       同包     子类     任何地方
  * private 		yes

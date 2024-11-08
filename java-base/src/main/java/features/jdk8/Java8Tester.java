@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  */
 public class Java8Tester {

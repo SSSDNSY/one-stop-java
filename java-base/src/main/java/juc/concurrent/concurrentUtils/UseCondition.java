@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Description: condition 类似Object类里面的 wati notify/notifyAll
- * @Author: pengzh
+
  * @date: 2019/9/15
  */
 public class UseCondition {

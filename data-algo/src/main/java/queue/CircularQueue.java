@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
- * @author pengzh
  * @desc 循环队列  learn from com\netflix\eureka\registry\AbstractInstanceRegistry.java
  * @since 2023-12-12
  */

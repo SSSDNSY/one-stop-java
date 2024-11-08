@@ -1,7 +1,6 @@
 package features.jdk8;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  * <p>
  * Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。

@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @author pengzh
  * @since 2020-06-30
  */
 public class Thread_12_ThreadUnsafeExample {

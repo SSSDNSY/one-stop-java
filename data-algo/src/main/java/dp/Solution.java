@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
  * @Desc DP 动态规划
- * @Author pengzh
+
  * @Since 2023-09-21
  */
 public class Solution {

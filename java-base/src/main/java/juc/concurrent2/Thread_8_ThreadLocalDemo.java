@@ -1,7 +1,6 @@
 package juc.concurrent2;
 
 /**
- * @author pengzh
  * @since 2020-07-02
  */
 public class Thread_8_ThreadLocalDemo {

@@ -3,7 +3,6 @@ package other.famous;
 import org.apache.commons.lang3.RandomUtils;
 
 /**
- * @author pengzh
  * @desc
  * @class MetropolisAlgorithm
  * @since 2022-01-05

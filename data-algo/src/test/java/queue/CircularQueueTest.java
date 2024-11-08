@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * @author pengzh
  * @desc cir
  * @since 2023-12-12
  */

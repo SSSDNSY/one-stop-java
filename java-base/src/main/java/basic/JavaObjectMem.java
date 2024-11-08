@@ -2,7 +2,7 @@ package basic;
 
 /**
  * @Desc java对象尺寸
- * @Author pengzh
+
  * @Since 2023-08-10
  */
 public class JavaObjectMem {

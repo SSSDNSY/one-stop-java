@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * @author pengzh
  * @date 2020-03-11
  */
 @JDBCconfig(database = "test", charSet = "UTF8", userName = "root", passWord = "123456")

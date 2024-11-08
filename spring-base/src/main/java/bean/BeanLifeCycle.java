@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @Desc 测试类BeanLifeCycle
- * @Author pengzh
+
  * @Since 2023-02-24
  */
 public class BeanLifeCycle {

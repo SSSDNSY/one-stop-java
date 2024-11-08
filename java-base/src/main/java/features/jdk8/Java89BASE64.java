@@ -5,7 +5,6 @@ import java.util.Base64;
 import java.util.UUID;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  */
 public class Java89BASE64 {

@@ -3,7 +3,6 @@ package basic;
 /**
  * 异常性能和耗时
  *
- * @author pengzh
  * @since 2020-06-29
  */
 public class ExceptionTest {

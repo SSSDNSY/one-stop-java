@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Description: synchronized reentrantLock都是典型的可重入锁
- * @Author: pengzh
+
  * @date: 2019/9/15
  */
 public class UseReentrantLock {

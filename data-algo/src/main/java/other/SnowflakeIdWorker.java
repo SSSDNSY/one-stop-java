@@ -9,7 +9,6 @@ import java.net.Inet4Address;
 import java.net.UnknownHostException;
 
 /**
- * @author pengzh
  * @since 2020-05-15
  */
 public class SnowflakeIdWorker {

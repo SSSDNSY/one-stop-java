@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 /**
  * @Desc stream与parallelStream性能测试对比
- * @Author pengzh
+
  * @Since 2023-06-30
  */
 public class Java85StreamParallelStream {

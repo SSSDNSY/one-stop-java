@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * @author pengzh
  * @date 2020-03-11
  */
 public class DBUtils {

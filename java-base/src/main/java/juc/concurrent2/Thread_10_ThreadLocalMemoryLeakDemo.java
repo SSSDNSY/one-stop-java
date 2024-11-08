@@ -5,7 +5,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author pengzh
  * @desc
  * @class ThreadLocalMemoryLeakDemo
  * @since 2022-02-10

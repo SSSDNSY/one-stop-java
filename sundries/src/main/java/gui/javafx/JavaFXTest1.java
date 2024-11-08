@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * @author pengzh
  * @since 2020-05-20
  */
 public class JavaFXTest1 extends Application {

@@ -3,7 +3,6 @@ package features.reflection;
 /**
  * 对象instance的模板是类class，类class在JVM中模板是类对象Class
  *
- * @author pengzh
  * @date 2020-03-10
  */
 public class RefTest1 {

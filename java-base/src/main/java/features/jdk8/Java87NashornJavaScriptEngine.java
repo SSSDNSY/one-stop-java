@@ -5,7 +5,6 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  */
 public class Java87NashornJavaScriptEngine {

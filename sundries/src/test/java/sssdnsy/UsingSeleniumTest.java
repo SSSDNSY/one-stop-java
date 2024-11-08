@@ -14,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
- * @author pengzh
  * @desc
  * @class UsingSeleniumTest
  * @since 2024-04-22

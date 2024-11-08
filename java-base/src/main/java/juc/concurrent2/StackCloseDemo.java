@@ -6,7 +6,6 @@ import java.util.concurrent.Executors;
 /**
  * 线程封闭方案
  *
- * @author pengzh
  * @since 2020-07-02
  */
 public class StackCloseDemo {

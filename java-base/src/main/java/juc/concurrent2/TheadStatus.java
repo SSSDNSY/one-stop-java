@@ -1,7 +1,6 @@
 package juc.concurrent2;
 
 /**
- * @author pengzh
  * @desc
  * @class TheadStatus
  * @since 2022-04-14

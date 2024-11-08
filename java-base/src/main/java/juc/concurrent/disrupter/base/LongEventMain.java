@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 /**
  * @Description: 主函数
- * @Author: pengzh
+
  * @date: 2019/9/16
  */
 public class LongEventMain {

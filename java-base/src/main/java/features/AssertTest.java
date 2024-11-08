@@ -1,7 +1,6 @@
 package features;
 
 /**
- * @author pengzh
  * @date 2020-03-12
  * <p>
  * 我一直以为 assert 仅仅是个报错函数，事实上，它居然是个宏，并且作用并非"报错"。

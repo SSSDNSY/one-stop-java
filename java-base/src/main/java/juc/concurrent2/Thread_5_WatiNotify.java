@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @author pengzh
  * @desc
  * @class Thread_5_WatiNotify
  * @since 2022-06-01

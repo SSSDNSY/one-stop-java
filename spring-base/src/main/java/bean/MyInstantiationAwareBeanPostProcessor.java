@@ -5,7 +5,7 @@ import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostP
 
 /**
  * @Desc 继承InstantiationAwareBeanPostProcessorAdapter的类
- * @Author pengzh
+
  * @Since 2023-02-24
  */
 public class MyInstantiationAwareBeanPostProcessor implements SmartInstantiationAwareBeanPostProcessor {

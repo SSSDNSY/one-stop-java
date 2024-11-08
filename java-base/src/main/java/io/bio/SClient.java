@@ -9,7 +9,7 @@ import java.util.UUID;
 
 /**
  * @Description: 客户端
- * @Author: pengzh
+
  * @date: 2019/9/26
  */
 public class SClient {

@@ -9,7 +9,6 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 
 /**
- * @author pengzh
  * @date 2020-03-25
  */
 public final class TimeTool {

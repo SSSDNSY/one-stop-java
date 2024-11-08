@@ -1,7 +1,7 @@
 package tree.base;
 
 /**
- * @author fun.pengzh
+
  * @class algorithm.tree.base.AbstractSelfBalancingBinarySearchTree
  * @desc abstract class for self balancing binary search trees
  * @since 2021-02-14

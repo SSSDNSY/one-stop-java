@@ -14,7 +14,6 @@ import java.util.concurrent.RecursiveTask;
  * fork / join
  * 斐波那契数列: 1、1、2、3、5、8、13、21、34、…… 公式 : F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)(n>=3，n∈N*)
  *
- * @author pengzh
  * @since 2020-06-22
  */
 public class A45ForkJoin {

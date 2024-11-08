@@ -3,7 +3,7 @@ package juc.concurrent2;
 import java.util.concurrent.locks.LockSupport;
 
 /**
- * @author fun.pengzh
+
  * @class sssdnsy.cjuc.concurrent2.ParkUnparkDemo
  * @desc W:\code\algorithm\gh\src\main\java\lang\cjuc\concurrent2\WaitAndNotifyDemo.java
  * W:\code\algorithm\gh\src\main\java\lang\cjuc\concurrent2\java-thread-x-locksupport-1.png

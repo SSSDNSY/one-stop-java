@@ -3,7 +3,6 @@ package features.annotation;
 import java.util.Date;
 
 /**
- * @author pengzh
  * @date 2020-03-10
  */
 public class SuppressWarningTest {

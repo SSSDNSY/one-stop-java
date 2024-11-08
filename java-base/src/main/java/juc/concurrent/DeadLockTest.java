@@ -2,7 +2,7 @@ package juc.concurrent;
 
 /**
  * @Description: 死锁测试
- * @Author: pengzh
+
  * @date: 2019/11/17
  */
 public class DeadLockTest {

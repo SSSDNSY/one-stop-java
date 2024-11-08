@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * @Desc
- * @Author pengzh
+
  * @Since 2023-08-14
  */
 public class MyLinkedListTest {

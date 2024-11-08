@@ -1,7 +1,6 @@
 package basic;
 
 /**
- * @author pengzh
  * @since 2020-06-28
  * <p>
  * Java泛型这个特性是从JDK 1.5才开始加入的，因此为了兼容之前的版本，Java泛型的实现采取了“伪泛型”的策略，即Java在语法上支持泛型，

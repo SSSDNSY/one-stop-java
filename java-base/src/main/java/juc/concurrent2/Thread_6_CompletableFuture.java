@@ -3,7 +3,6 @@ package juc.concurrent2;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * @author pengzh
  * @desc
  * @class Thread_6_CompletableFuture
  * @since 2022-06-01

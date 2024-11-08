@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  */
 public class Java83FunctionProm {

@@ -3,7 +3,6 @@ package juc.concurrent2;
 import org.junit.Test;
 
 /**
- * @author pengzh
  * @desc 如果线程需要执行一个长时间任务，就可能需要能中断线程。
  * 中断线程就是其他线程给该线程发一个信号，该线程收到信号后结束执行run()方法，使得自身线程能立刻结束运行。
  * <p>

@@ -19,7 +19,7 @@ import java.util.Random;
  * CMS: +XX:+UseConcMarkSweepGC
  * <p>
  * G1:-XX:+UseG1GC
- * @Author: pengzh
+
  * @date: 2019/11/17
  */
 public class SerialGCTest {

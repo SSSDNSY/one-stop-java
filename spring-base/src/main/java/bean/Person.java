@@ -5,7 +5,7 @@ import org.springframework.beans.factory.*;
 
 /**
  * @Desc spring生命周期
- * @Author pengzh
+
  * @Since 2023-02-24
  */
 public class Person implements BeanFactoryAware, BeanNameAware, InitializingBean, DisposableBean {

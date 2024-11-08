@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author fun.pengzh
+
  * @class util.RandomUtil
  * @desc
  * @since 2023-01-12

@@ -1,7 +1,6 @@
 package basic;
 
 /**
- * @author pengzh
  * @since 2020-06-29
  * 字节码文件常用于分析语义问题
  * javap -v ClassCodeTest.class

@@ -3,7 +3,6 @@ package features.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author pengzh
  * @date 2020-03-11
  */
 @Target({ElementType.METHOD, ElementType.TYPE})

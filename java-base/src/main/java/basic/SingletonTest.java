@@ -3,7 +3,6 @@ package basic;
 /**
  * 单例
  *
- * @author pengzh
  * @since 2020-08-07
  */
 public class SingletonTest extends Thread {

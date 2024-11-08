@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @Description: 队列应支持两种操作：入队和出队。入队会向队列追加一个新元素，而出队会删除第一个元素。 所以我们需要一个索引来指出起点
- * @Author: pengzh
+
  * @CreateDate: 2019/5/30 19:31
  */
 public class MyQueue<T> implements Queue {

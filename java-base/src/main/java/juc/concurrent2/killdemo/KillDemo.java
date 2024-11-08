@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * @author fun.pengzh
+
  * @class sssdnsy.cjuc.concurrent2.killdemo.KillDemo
  * @desc 秒杀实际demo
  * <p>

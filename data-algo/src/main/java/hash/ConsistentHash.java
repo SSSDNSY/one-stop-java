@@ -1,7 +1,7 @@
 package hash;
 
 /**
- * @author fun.pengzh
+
  * @class hash.C
  * @desc
  * @since 2023-01-08

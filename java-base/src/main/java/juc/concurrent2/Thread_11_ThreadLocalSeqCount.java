@@ -1,7 +1,6 @@
 package juc.concurrent2;
 
 /**
- * @author pengzh
  * @class ThreadLocalMemLeak
  * @since 2021-06-30
  */

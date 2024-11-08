@@ -7,7 +7,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 /**
  * @Desc 实现BeanFactoryPostProcessor的类
- * @Author pengzh
+
  * @Since 2023-02-24
  */
 public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {

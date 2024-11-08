@@ -7,7 +7,7 @@ import java.nio.channels.SocketChannel;
 
 /**
  * @Description: nio的客户端
- * @Author: pengzh
+
  * @date: 2019/10/5
  */
 public class NioClient {

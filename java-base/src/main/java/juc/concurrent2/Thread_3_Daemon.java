@@ -3,7 +3,6 @@ package juc.concurrent2;
 import java.time.LocalTime;
 
 /**
- * @author pengzh
  * @desc
  * @class ThreadDaemon
  * @since 2022-06-01

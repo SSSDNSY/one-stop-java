@@ -4,7 +4,7 @@ package array;
 import sort.SortUtils;
 
 /**
- * @author fun.pengzh
+
  * @class algorithm.array1string.BinarySolution
  * @desc 二分查找
  * @since 2021-02-06

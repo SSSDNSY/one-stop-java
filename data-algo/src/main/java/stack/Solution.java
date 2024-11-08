@@ -4,13 +4,13 @@ import java.util.*;
 
 /**
  * @Desc 栈
- * @Author pengzh
+
  * @Since 2023-08-24
  */
 public class Solution {
     /**
      * @description: 有效括号
-     * @author: pengzh
+
      * @createDate: 2019/6/4 17:46
      */
     public boolean isValid(String str) {
@@ -36,7 +36,7 @@ public class Solution {
 
     /**
      * @description: 逆波兰表达式求值
-     * @author: pengzh
+
      * @createDate: 2019/6/4 17:46
      */
     public int evalRPN(String[] tokens) {
@@ -69,7 +69,7 @@ public class Solution {
 
     /**
      * @description: 对应位置的输入是你需要再等待多久温度才会升高的天数。如果之后都不会升高，请输入 0 来代替。
-     * @author: pengzh
+
      * @createDate: 2019/6/4 17:46
      */
     public static int[] dailyTemperatures(int[] T) {

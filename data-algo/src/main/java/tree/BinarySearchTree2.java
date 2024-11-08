@@ -4,7 +4,7 @@ package tree;
 import tree.base.AbstractBinarySearchTree;
 
 /**
- * @author fun.pengzh
+
  * @class algorithm.tree.BinarySearchTree2
  * @desc
  * @since 2021-02-14

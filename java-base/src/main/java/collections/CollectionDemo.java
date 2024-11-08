@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
- * @author pengzh
  * @since 2020-06-30
  */
 public class CollectionDemo {

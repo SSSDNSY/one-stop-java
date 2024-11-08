@@ -4,7 +4,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * @author pengzh
  * @date 2020-03-10
  */
 public class RefTest2 {

@@ -3,7 +3,6 @@ package features.jdk8;
 import java.util.Optional;
 
 /**
- * @author pengzh
  * @date 2020-03-03
  */
 public class Java86Optional {

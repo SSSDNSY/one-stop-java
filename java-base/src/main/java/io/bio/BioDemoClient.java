@@ -7,7 +7,6 @@ import java.net.Socket;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author pengzh
  * @since 2020-07-07
  */
 public class BioDemoClient {

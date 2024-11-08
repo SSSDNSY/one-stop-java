@@ -1,7 +1,6 @@
 package basic;
 
 /**
- * @author pengzh
  * @date 2020-03-05
  */
 public abstract class ParentClass {

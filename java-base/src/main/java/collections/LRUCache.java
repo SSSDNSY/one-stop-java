@@ -6,7 +6,6 @@ import java.util.Map;
 /**
  * last recent use
  *
- * @author pengzh
  * @since 2020-06-29
  */
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {

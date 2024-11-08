@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author pengzh
  * @date 2020-03-10
  * 类 Student
  * 对象 Student类的实例

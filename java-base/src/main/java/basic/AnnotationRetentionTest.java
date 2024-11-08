@@ -4,7 +4,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * @author pengzh
  * @since 2020-06-29
  */
 public class AnnotationRetentionTest {

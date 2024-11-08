@@ -4,7 +4,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
 /**
- * @author pengzh
  * @since 2020-06-29
  * <p>
  * JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；

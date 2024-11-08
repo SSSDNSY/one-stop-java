@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @Description: wait notify   某线程等待其他线程初始化完成才继续执行
- * @Author: pengzh 做减法 全部怎么 了才能怎么
+ 做减法 全部怎么 了才能怎么
  * @date: 2019/9/14
  */
 public class UseCountDown {

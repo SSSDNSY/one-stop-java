@@ -5,7 +5,6 @@ import java.io.*;
 /**
  * 序列化、反序列化
  *
- * @author pengzh
  * @since 2020-08-07
  */
 public class SerializablizeTest {

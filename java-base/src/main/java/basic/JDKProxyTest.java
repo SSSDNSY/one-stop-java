@@ -7,7 +7,6 @@ import java.lang.reflect.Proxy;
 /**
  * JDK 动态代理
  *
- * @author pengzh
  * @since 2020-08-06
  */
 public class JDKProxyTest {
