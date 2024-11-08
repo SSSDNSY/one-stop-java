@@ -1,7 +1,11 @@
+## server
 server:
-  port: 8080
+  port: 8888
 
+## spring
 spring:
+  application:
+    name: one-stop-java
   datasource:
     jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&&useCursorFetch=true&&rewriteBatchedStatements=true
     username: root
@@ -27,3 +31,8 @@ spring:
   sql:
     init:
       mode: never
+
+## mybatis
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
