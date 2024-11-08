@@ -4,7 +4,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
-
  * @class designpattern.chainofresponsibility.InstanceCreateHandler
  * @desc 实例处理
  * @since 2023-01-20

@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
-
  * @class sssdnsy.cjuc.concurrent2.ThreadLocalDemo2
  * @desc TODO to resolve error
  * @since 2021-03-09

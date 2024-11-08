@@ -1,7 +1,6 @@
 package lucenes;
 
 /**
-
  * @class middleware.lucenes.TestLunceneByFile
  * @desc 从140k条产品记录中索引
  * @since 2021-04-03

@@ -1,20 +1,18 @@
 package fun.sssdnsy.repository.dataobject;
 
-import com.baomidou.mybatisplus.annotation.*;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.math.BigDecimal;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
-* 
-*
-* @author 彭智慧
-* @since 2024-11-08
-*/
+ * @author 彭智慧
+ * @since 2024-11-08
+ */
 @Getter
 @Setter
 @ToString
@@ -23,63 +21,63 @@ public class EmployeeDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-        /**
-        * 主键
-        */
+    /**
+     * 主键
+     */
     @TableId("id")
     private String id;
 
-        /**
-        * 手机
-        */
+    /**
+     * 手机
+     */
     @TableField("phone")
     private String phone;
 
-        /**
-        * QQ
-        */
+    /**
+     * QQ
+     */
     @TableField("qq")
     private String qq;
 
-        /**
-        * 微信
-        */
+    /**
+     * 微信
+     */
     @TableField("wechat")
     private String wechat;
 
-        /**
-        * 地址
-        */
+    /**
+     * 地址
+     */
     @TableField("address")
     private String address;
 
-        /**
-        * 年龄
-        */
+    /**
+     * 年龄
+     */
     @TableField("age")
     private Integer age;
 
-        /**
-        * 邮箱
-        */
+    /**
+     * 邮箱
+     */
     @TableField("email")
     private String email;
 
-        /**
-        * 姓名
-        */
+    /**
+     * 姓名
+     */
     @TableField("name")
     private String name;
 
-        /**
-        * 概述
-        */
+    /**
+     * 概述
+     */
     @TableField("preview")
     private String preview;
 
-        /**
-        * 详情
-        */
+    /**
+     * 详情
+     */
     @TableField("detail")
     private String detail;
 

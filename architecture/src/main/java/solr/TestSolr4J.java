@@ -19,7 +19,6 @@ import java.util.List;
 
 */
 /**
-
  * @class middleware.solr.TestSolr4J
  * @desc
  * @since 2021-04-16

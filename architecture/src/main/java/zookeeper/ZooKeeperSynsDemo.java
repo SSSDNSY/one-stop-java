@@ -19,7 +19,6 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @Description: zookeeper 分布式客户端配置同步 示例
-
  * @date: 2019/10/18
  */
 public class ZooKeeperSynsDemo implements Watcher {

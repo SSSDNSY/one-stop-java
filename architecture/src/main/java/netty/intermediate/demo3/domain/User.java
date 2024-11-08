@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import java.util.Date;
 
 /**
-
  * @desc
  * @since 2023-01-12
  */

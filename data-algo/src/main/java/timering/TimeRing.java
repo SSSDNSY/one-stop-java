@@ -13,7 +13,6 @@ import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 /**
-
  * @class algorithm.timering.TimeRing
  * @desc
  * @since 2022-07-23

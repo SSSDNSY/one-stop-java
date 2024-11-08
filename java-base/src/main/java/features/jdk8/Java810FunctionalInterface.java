@@ -15,7 +15,6 @@ import java.util.stream.Stream;
 
 /**
  * @Desc
-
  * @Since 2023-06-30
  */
 public class Java810FunctionalInterface {

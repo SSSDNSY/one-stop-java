@@ -1,19 +1,15 @@
 package fun.sssdnsy.dto.command;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
-* 
-*
-* @author 彭智慧
-* @since 2024-11-08
-*/
+ * @author 彭智慧
+ * @since 2024-11-08
+ */
 @Getter
 @Setter
 @ToString

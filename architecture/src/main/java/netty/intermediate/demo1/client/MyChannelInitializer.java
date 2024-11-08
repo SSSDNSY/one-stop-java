@@ -7,7 +7,6 @@ import netty.intermediate.demo1.codec.ObjEncoder;
 import netty.intermediate.demo1.domain.FileTransferProtocol;
 
 /**
-
  * @class netty.intermediate.demo14.client.MyChannelInitializer
  * @desc
  * @since 2022-05-15

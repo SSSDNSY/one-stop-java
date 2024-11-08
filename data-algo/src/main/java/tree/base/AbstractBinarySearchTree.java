@@ -1,7 +1,6 @@
 package tree.base;
 
 /**
-
  * @class algorithm.tree.base.AbstractBinarySearchTree
  * @desc 二叉搜索树的抽象类，包括基本方法的实现。
  * @since 2021-02-14

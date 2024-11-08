@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 /**
  * 消息传输协议
  *
-
  * @desc
  * @since 2023-01-12
  */

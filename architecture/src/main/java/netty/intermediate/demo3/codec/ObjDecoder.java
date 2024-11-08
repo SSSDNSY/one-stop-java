@@ -8,7 +8,6 @@ import netty.intermediate.demo3.util.SerializationUtil;
 import java.util.List;
 
 /**
-
  * @desc
  * @since 2023-01-12
  */

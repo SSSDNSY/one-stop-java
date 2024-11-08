@@ -1,7 +1,6 @@
 package tree.base;
 
 /**
-
  * @class algorithm.tree.base.AbstractSelfBalancingBinarySearchTree
  * @desc abstract class for self balancing binary search trees
  * @since 2021-02-14

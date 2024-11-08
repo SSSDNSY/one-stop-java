@@ -11,7 +11,7 @@ public class SwitchTest {
             case "cm" -> "厘米";
             case "m" -> {
                 System.out.println("测试多行");
-                yield  "米";
+                yield "米";
             }
             case "mm" -> "毫米";
             case "km" -> "千米";

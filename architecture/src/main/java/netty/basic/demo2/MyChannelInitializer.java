@@ -8,7 +8,6 @@ import io.netty.handler.codec.string.StringDecoder;
 import java.nio.charset.Charset;
 
 /**
-
  * @class netty.basic.demo1.MyChannelIntializer
  * @desc
  * @since 2022-05-06

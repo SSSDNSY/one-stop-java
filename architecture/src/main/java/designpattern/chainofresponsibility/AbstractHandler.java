@@ -1,7 +1,6 @@
 package designpattern.chainofresponsibility;
 
 /**
-
  * @class designpattern.chainofresponsibility.AbstractHandler
  * @desc 责任链抽象处理类
  * 业务处理类继承该类：

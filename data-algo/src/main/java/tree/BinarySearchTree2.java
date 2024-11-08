@@ -4,7 +4,6 @@ package tree;
 import tree.base.AbstractBinarySearchTree;
 
 /**
-
  * @class algorithm.tree.BinarySearchTree2
  * @desc
  * @since 2021-02-14

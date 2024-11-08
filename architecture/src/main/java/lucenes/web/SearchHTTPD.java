@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
-
  * @class middleware.lucenes.web.SearchServlet
  * @desc NanoHTTPD是一个可以提供http服务的Java类，简易使用如下。
  * @since 2021-04-15

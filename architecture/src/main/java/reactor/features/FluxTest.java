@@ -184,7 +184,6 @@ public class FluxTest {
         assertThat(errorCount).hasValue(6);*/
 
 
-
     }
 
     public static String alphabet(int letterNumber) {

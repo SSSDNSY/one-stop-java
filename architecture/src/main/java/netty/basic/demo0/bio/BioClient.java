@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
-
  * @class netty.basic.demo0.bio.BioClient
  * @desc
  * @since 2022-05-04

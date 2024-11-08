@@ -5,7 +5,6 @@ import java.util.Random;
 import static linked.SimpleSkipList.Type.*;
 
 /**
-
  * @class linked.SimpleSkipList
  * @desc 跳表的简单实现
  * @since 2023-01-07

@@ -8,7 +8,6 @@ import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
 /**
-
  * @class netty.basic.demo0.aio.ChannelAdapter
  * @desc
  * @since 2022-05-05

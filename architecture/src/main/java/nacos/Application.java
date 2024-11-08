@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
-
  * @Desc nacos测试启动类
  * @desc
  * @since 2023-01-12

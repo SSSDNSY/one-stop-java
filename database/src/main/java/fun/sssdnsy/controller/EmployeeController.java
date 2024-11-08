@@ -1,23 +1,22 @@
 package fun.sssdnsy.controller;
 
-import fun.sssdnsy.common.DataResponse;
-import org.springframework.web.bind.annotation.RequestMapping;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import fun.sssdnsy.dto.query.EmployeeQry;
-import fun.sssdnsy.dto.command.EmployeeCmd;
+import fun.sssdnsy.common.DataResponse;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
-import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.RestController;
+import fun.sssdnsy.dto.command.EmployeeCmd;
+import fun.sssdnsy.dto.query.EmployeeQry;
 import fun.sssdnsy.service.EmployeeService;
+import jakarta.annotation.Resource;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
-* 接口
-*
-* @author 彭智慧
-* @since 2024-11-08
-*/
+ * 接口
+ *
+ * @author 彭智慧
+ * @since 2024-11-08
+ */
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -46,7 +45,7 @@ public class EmployeeController {
      * 修改
      */
     @PostMapping("/update")
-        public DataResponse modify(@RequestBody EmployeeCmd cmd) {
+    public DataResponse modify(@RequestBody EmployeeCmd cmd) {
         return DataResponse.of(employeeService.update(cmd));
     }
 

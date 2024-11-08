@@ -6,7 +6,6 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
-
  * @class netty.basic.demo7.MyChannelInitializer
  * @desc
  * @since 2022-05-09

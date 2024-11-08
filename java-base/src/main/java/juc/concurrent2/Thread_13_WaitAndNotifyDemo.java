@@ -3,7 +3,6 @@ package juc.concurrent2;
 import java.util.concurrent.TimeUnit;
 
 /**
-
  * @class sssdnsy.cjuc.concurrent2.WaitAndNotifyDemo
  * @desc
  * @since 2020-11-26

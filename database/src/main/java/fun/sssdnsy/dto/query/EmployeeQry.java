@@ -1,22 +1,14 @@
 package fun.sssdnsy.dto.query;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
-* 
-*
-* @author 彭智慧
-* @since 2024-11-08
-*/
+ * @author 彭智慧
+ * @since 2024-11-08
+ */
 @Getter
 @Setter
 @ToString
@@ -24,54 +16,54 @@ public class EmployeeQry extends Page {
 
     private static final long serialVersionUID = 1L;
 
-        /**
-        * 主键
-        */
+    /**
+     * 主键
+     */
     private String id;
 
-        /**
-        * 手机
-        */
+    /**
+     * 手机
+     */
     private String phone;
 
-        /**
-        * QQ
-        */
+    /**
+     * QQ
+     */
     private String qq;
 
-        /**
-        * 微信
-        */
+    /**
+     * 微信
+     */
     private String wechat;
 
-        /**
-        * 地址
-        */
+    /**
+     * 地址
+     */
     private String address;
 
-        /**
-        * 年龄
-        */
+    /**
+     * 年龄
+     */
     private Integer age;
 
-        /**
-        * 邮箱
-        */
+    /**
+     * 邮箱
+     */
     private String email;
 
-        /**
-        * 姓名
-        */
+    /**
+     * 姓名
+     */
     private String name;
 
-        /**
-        * 概述
-        */
+    /**
+     * 概述
+     */
     private String preview;
 
-        /**
-        * 详情
-        */
+    /**
+     * 详情
+     */
     private String detail;
 
 

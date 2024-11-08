@@ -1,48 +1,45 @@
 package fun.sssdnsy.service;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.bean.copier.BeanCopier;
-import cn.hutool.core.bean.copier.BeanToBeanCopier;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.stereotype.Service;
-import org.springframework.beans.BeanUtils;
-import fun.sssdnsy.repository.dataobject.EmployeeDO;
-import fun.sssdnsy.dto.query.EmployeeQry;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
 import fun.sssdnsy.dto.command.EmployeeCmd;
+import fun.sssdnsy.dto.query.EmployeeQry;
 import fun.sssdnsy.repository.EmployeeRepository;
+import fun.sssdnsy.repository.dataobject.EmployeeDO;
 import jakarta.annotation.Resource;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /**
-*  服务类
-*
-* @author 彭智慧
-* @since 2024-11-08
-*/
+ * 服务类
+ *
+ * @author 彭智慧
+ * @since 2024-11-08
+ */
 @Service
 public class EmployeeService {
 
     @Resource
-    private  EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
     public Page<EmployeeCO> page(EmployeeQry qry) {
-        Page page = employeeRepository.page(new Page(qry.getCurrent(),qry.getSize()));
+        Page page = employeeRepository.page(new Page(qry.getCurrent(), qry.getSize()));
         return page;
     }
 
     public boolean create(EmployeeCmd cmd) {
         EmployeeDO dataObj = new EmployeeDO();
         BeanUtils.copyProperties(cmd, dataObj);
-        boolean    save    = employeeRepository.save(dataObj);
+        boolean save = employeeRepository.save(dataObj);
         return save;
     }
 
     public boolean update(EmployeeCmd cmd) {
         EmployeeDO dataObj = new EmployeeDO();
         BeanUtils.copyProperties(cmd, dataObj);
-        boolean    save    = employeeRepository.updateById(dataObj);
+        boolean save = employeeRepository.updateById(dataObj);
         return save;
     }
 

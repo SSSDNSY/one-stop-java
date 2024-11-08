@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
-
  * @class sssdnsy.cjuc.concurrent2.killdemo.KillDemo
  * @desc 秒杀实际demo
  * <p>

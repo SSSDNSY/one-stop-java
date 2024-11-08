@@ -1,7 +1,6 @@
 package designpattern.chainofresponsibility;
 
 /**
-
  * @class designpattern.chainofresponsibility.Handler
  * @desc 责任链处理器接口 object可以替换为队友的DTO或DO
  * @since 2023-01-20

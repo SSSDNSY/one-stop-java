@@ -46,7 +46,6 @@ public class A44ProdConsumerBlockQueue {
 
 /**
  * @Description： 资源类
-
  * @date: 2020/2/1
  */
 class ResData {

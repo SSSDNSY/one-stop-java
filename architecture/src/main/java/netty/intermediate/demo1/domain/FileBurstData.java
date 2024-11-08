@@ -1,7 +1,6 @@
 package netty.intermediate.demo1.domain;
 
 /**
-
  * @class netty.intermediate.demo14.domain.FileBurstData
  * @desc
  * @since 2022-05-15

@@ -4,7 +4,6 @@ import com.thoughtworks.xstream.XStream;
 
 /**
  * @Desc CVE_2021_21343
-
  * @Since 2023-08-08
  */
 public class XstreamCVE {

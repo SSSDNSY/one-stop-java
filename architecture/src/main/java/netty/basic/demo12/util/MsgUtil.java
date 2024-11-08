@@ -3,7 +3,6 @@ package netty.basic.demo12.util;
 import netty.basic.demo12.domain.MsgBody;
 
 /**
-
  * @class netty.basic.demo12.util.MsgUtil
  * @desc
  * @since 2022-05-11

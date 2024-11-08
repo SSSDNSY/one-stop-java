@@ -8,7 +8,6 @@ import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
 
 /**
-
  * @class netty.basic.demo6.MyChannelInitializer
  * @desc
  * @since 2022-05-08

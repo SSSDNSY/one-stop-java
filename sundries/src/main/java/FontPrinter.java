@@ -1,9 +1,7 @@
 import java.awt.*;
 
 /**
- * @Desc
-
- * {@link }
+ * @Desc {@link }
  * @Since 2024-04-17
  */
 public class FontPrinter {

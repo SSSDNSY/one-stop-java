@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 */
 /**
-
  * @class algorithm.tree.benchmark.TreesInsertSortedBenchmark
  * @desc
  * @since 2021-02-15

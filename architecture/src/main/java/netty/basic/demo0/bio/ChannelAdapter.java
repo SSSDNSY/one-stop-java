@@ -8,7 +8,6 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 
 /**
-
  * @class netty.basic.demo0.bio.ChannelAdapter
  * @desc
  * @since 2022-05-03

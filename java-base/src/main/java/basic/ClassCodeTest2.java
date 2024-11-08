@@ -1,7 +1,6 @@
 package basic;
 
 /**
-
  * @class sssdnsy.abasic.ClassCodeTest2
  * @desc
  * @since 2021-02-09

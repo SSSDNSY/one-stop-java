@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
-
  * @class netty.basic.demo6.NettyServer
  * @desc 群发消息
  * @since 2022-05-08

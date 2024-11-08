@@ -12,7 +12,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
-
  * @class rabbitmq.Application
  * @desc
  * @since 2022-12-19

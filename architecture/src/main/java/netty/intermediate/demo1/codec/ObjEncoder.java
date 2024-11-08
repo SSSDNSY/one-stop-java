@@ -6,7 +6,6 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import netty.intermediate.demo1.util.SerializationUtil;
 
 /**
-
  * @class netty.intermediate.demo14.codec.ObjEncoder
  * @desc
  * @since 2022-05-15

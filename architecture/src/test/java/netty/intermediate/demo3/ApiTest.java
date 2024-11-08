@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
-
  * @desc
  * @since 2023-01-12
  */

@@ -77,7 +77,7 @@ public class CodeGenerator {
                 )
                 // 策略配置
                 .strategyConfig((scanner, builder) -> builder.addInclude(getTables(scanner.apply("请输入表名，多个英文逗号分隔，所有输入 all")))
-                        .addTablePrefix(List.of("cs_", "co_","t_"))
+                        .addTablePrefix(List.of("cs_", "co_", "t_"))
                         .entityBuilder().disable()
                         .enableLombok().logicDeleteColumnName("deleted")
                         .enableTableFieldAnnotation().enableFileOverride()

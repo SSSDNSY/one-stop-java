@@ -17,7 +17,6 @@ import java.util.Arrays;
 /**
  * @Description: A simple class that monitors the data and existence of a ZooKeeper
  * node. It uses asynchronous ZooKeeper APIs.
-
  * @date: 2019/10/20
  */
 public class DataMonitor implements Watcher, AsyncCallback.StatCallback {

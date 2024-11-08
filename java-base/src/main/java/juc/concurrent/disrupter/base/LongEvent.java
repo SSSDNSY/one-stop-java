@@ -2,7 +2,6 @@ package juc.concurrent.disrupter.base;
 
 /**
  * @Description: 基本事件单元
-
  * @date: 2019/9/16
  */
 public class LongEvent {

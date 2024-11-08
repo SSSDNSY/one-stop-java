@@ -9,7 +9,6 @@ import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import netty.basic.demo12.domain.MsgBody;
 
 /**
-
  * @class netty.basic.demo12.server.MyChannelInitializer
  * @desc
  * @since 2022-05-11
