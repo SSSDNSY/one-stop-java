@@ -7,8 +7,10 @@ import fun.sssdnsy.dto.command.EmployeeCmd;
 import fun.sssdnsy.dto.query.EmployeeQry;
 import fun.sssdnsy.service.EmployeeService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -31,6 +33,14 @@ public class EmployeeController {
     public DataResponse<Page<EmployeeCO>> page(@RequestBody EmployeeQry qry) {
         Page<EmployeeCO> page = employeeService.page(qry);
         return DataResponse.of(page);
+    }
+
+    /**
+     * 分页查询
+     */
+    @PostMapping("/export")
+    public void export(@RequestBody EmployeeQry qry, HttpServletResponse response) throws IOException {
+        employeeService.export(qry, response);
     }
 
     /**
