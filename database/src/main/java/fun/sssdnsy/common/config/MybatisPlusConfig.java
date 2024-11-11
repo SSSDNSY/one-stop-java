@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
- * @author kevin
+ * 
  * @date 2018/2/22
  */
 @Configuration
@@ -119,6 +119,6 @@ public class MybatisPlusConfig {
      */
     @Bean
     public MetaObjectHandler metaObjectHandler() {
-        return new CustomizeMetaObjectHandler();
+        return new CustomizeMetaObjectConfig();
     }
 }

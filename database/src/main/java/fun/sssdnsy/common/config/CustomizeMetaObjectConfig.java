@@ -4,10 +4,9 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 
 /**
- * @author kevin
- * @date 2018/12/1 14:28
+ * 公共字段填充
  */
-public class CustomizeMetaObjectHandler implements MetaObjectHandler {
+public class CustomizeMetaObjectConfig implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {

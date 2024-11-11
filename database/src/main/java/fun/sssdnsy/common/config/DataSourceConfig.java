@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
- * @author kevin
+ * 
  * @date 2018/8/21
  */
 @Configuration
