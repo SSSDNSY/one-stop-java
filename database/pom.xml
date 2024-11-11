@@ -62,11 +62,22 @@
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.asyncexcel</groupId>
             <artifactId>async-excel-springboot-starter</artifactId>
             <version>1.1.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.ttzero</groupId>-->
+<!--            <artifactId>eec</artifactId>-->
+<!--        </dependency>-->
 
     </dependencies>
 

@@ -22,8 +22,8 @@
         <module>sundries</module>
         <module>spring-base</module>
     </modules>
-    <properties>
 
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>21</java.version>
@@ -57,6 +57,11 @@
         <joda-time.version>2.10</joda-time.version>
         <javafx-controls.version>22.0.1</javafx-controls.version>
         <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
+
+        <easyexcel.version>3.3.4</easyexcel.version>
+        <eec.version>3.5.7</eec.version>
+
+        <orika-core.version>1.5.4</orika-core.version>
     </properties>
 
     <dependencyManagement>
@@ -75,16 +80,6 @@
                 <version>${spring-cloud-kubernetes.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mongodb</groupId>
-                <artifactId>mongodb-driver-core</artifactId>
-                <version>${mongodb-driver-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mongodb</groupId>
-                <artifactId>mongo-java-driver</artifactId>
-                <version>${mongo-java-driver.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.mysql</groupId>
@@ -147,18 +142,29 @@
                 <artifactId>UserAgentUtils</artifactId>
                 <version>${user.agent.version}</version>
             </dependency>
-
+            <!-- 解析 UserAgent 信息 -->
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika-core.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.esotericsoftware</groupId>
                 <artifactId>kryo-parent</artifactId>
                 <version>${kryo-parent.version}</version>
             </dependency>
-            <!-- 导入导出 easyexcel  -->
+            <!-- 导入导出  FIXME easyexcel迁移到easyexcel-plus 原项目停止更新只维护了 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.version}</version>
             </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.ttzero</groupId>-->
+<!--                <artifactId>eec</artifactId>-->
+<!--                <version>${eec.version}</version>-->
+<!--            </dependency>-->
+
         </dependencies>
     </dependencyManagement>
 
