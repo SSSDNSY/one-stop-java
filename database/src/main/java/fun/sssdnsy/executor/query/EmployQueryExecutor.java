@@ -61,7 +61,7 @@ public class EmployQueryExecutor {
 
     public void exportExcel(EmployeeQry qry, HttpServletResponse response) throws IOException {
 
-        List<EmployeeCO> employeeCOS = this.list(qry);
+        List<EmployeeCO> employeeCOS = this.page(qry).getRecords();
 
         String[] headList = new String[]{"账号", "姓名", "手机", "QQ", "微信", "地址", "年龄", "邮箱", "预览", "详情"};
 
