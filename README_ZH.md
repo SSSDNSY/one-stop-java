@@ -9,7 +9,7 @@
 
 - 这个知识库是关于个人工作和学习软件工程的一切
 
-- 有海量的例子的个人练习场，为了弄清楚“talk is cheap, show me the code!”
+- 有海量的例子的个人练习场，践行“talk is cheap, show me the code!”
 
 ## 项目结构
 
