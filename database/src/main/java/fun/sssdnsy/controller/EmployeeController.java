@@ -36,11 +36,19 @@ public class EmployeeController {
     }
 
     /**
-     * 分页查询
+     * easyexcel导出
      */
-    @PostMapping("/export")
-    public void export(@RequestBody EmployeeQry qry, HttpServletResponse response) throws IOException {
-        employeeService.export(qry, response);
+    @PostMapping("/easyExcelExport")
+    public void easyExcelExport(@RequestBody EmployeeQry qry, HttpServletResponse response) throws IOException {
+        employeeService.easyExcelExport(qry, response);
+    }
+
+    /**
+     * eec导出
+     */
+    @PostMapping("/eecExport")
+    public void eecExport(@RequestBody EmployeeQry qry, HttpServletResponse response) throws IOException {
+        employeeService.eecExport(qry, response);
     }
 
     /**

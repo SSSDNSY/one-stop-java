@@ -30,10 +30,21 @@ public class EmployeeService {
     private EmployeeUpdateExecutor employeeUpdateExecutor;
 
 
+    public boolean create(EmployeeCmd cmd) {
+        return employeeUpdateExecutor.create(cmd);
+    }
+
+    public boolean update(EmployeeCmd cmd) {
+        return employeeUpdateExecutor.update(cmd);
+    }
+
+    public void delete(List<String> ids) {
+        employeeUpdateExecutor.delete(ids);
+    }
+
     public EmployeeCO get(String id) {
         return employQueryExecutor.get(id);
     }
-
 
     public Page<EmployeeCO> page(EmployeeQry qry) {
         return employQueryExecutor.page(qry);
@@ -47,20 +58,11 @@ public class EmployeeService {
         return employQueryExecutor.list(qry);
     }
 
-    public void export(EmployeeQry qry, HttpServletResponse response) throws IOException {
+    public void easyExcelExport(EmployeeQry qry, HttpServletResponse response) throws IOException {
         employQueryExecutor.exportExcel(qry, response);
     }
 
-    public boolean create(EmployeeCmd cmd) {
-        return employeeUpdateExecutor.create(cmd);
+    public void eecExport(EmployeeQry qry, HttpServletResponse response) throws IOException{
+        employQueryExecutor.eecExport(qry,response);
     }
-
-    public boolean update(EmployeeCmd cmd) {
-        return employeeUpdateExecutor.update(cmd);
-    }
-
-    public void delete(List<String> ids) {
-        employeeUpdateExecutor.delete(ids);
-    }
-
 }

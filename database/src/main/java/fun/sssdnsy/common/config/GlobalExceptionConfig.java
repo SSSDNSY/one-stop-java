@@ -20,7 +20,7 @@ import static cn.hutool.core.text.StrPool.COLON;
  **/
 @ControllerAdvice
 // 排序必须比最高级晚1，便于其他异常装载，否则会先进入到未知的异常
-@Order(Ordered.HIGHEST_PRECEDENCE + 1)
+@Order(0)
 public class GlobalExceptionConfig {
 
     private final Logger LOG = LoggerFactory.getLogger(GlobalExceptionConfig.class);

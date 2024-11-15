@@ -63,10 +63,10 @@
             <artifactId>easyexcel</artifactId>
         </dependency>
 
+        <!--  https://github.com/wangguanquan/eec/wiki/3-%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%87%8F%E5%AF%BC%E5%87%BA#%E4%BD%BF%E7%94%A8data-supplier%E6%8B%89%E5%8F%96%E6%95%B0%E6%8D%AE   -->
         <dependency>
             <groupId>com.asyncexcel</groupId>
             <artifactId>async-excel-springboot-starter</artifactId>
-            <version>1.1.1</version>
         </dependency>
 
         <dependency>
@@ -74,10 +74,10 @@
             <artifactId>orika-core</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.ttzero</groupId>-->
-<!--            <artifactId>eec</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.ttzero</groupId>
+            <artifactId>eec</artifactId>
+        </dependency>
 
     </dependencies>
 

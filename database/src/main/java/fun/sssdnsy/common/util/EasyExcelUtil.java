@@ -4,6 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.formula.functions.T;
 
@@ -21,6 +22,7 @@ import static fun.sssdnsy.common.util.DateFormatUtil.PATTERN_DEFAULT_ON_SECOND;
 /**
  * 关于alibaba的easyExcel用法，参考文档 https://www.yuque.com/easyexcel/doc/write
  */
+@Slf4j
 public class EasyExcelUtil {
     /**
      * 使用easyExcel导出
@@ -34,11 +36,7 @@ public class EasyExcelUtil {
     public static void exportExcel(HttpServletRequest request, HttpServletResponse response, String fileName, Class head, List data, Set<String> excludeColumn) throws IOException {
         excludeColumn.addAll(getDefaultExcludeColumn());
         downloadExcel(request, response, fileName);
-        EasyExcel.write(response.getOutputStream(), head)
-                .registerWriteHandler(new CustomCellWriteHandler())
-                .excludeColumnFiledNames(excludeColumn)
-                .sheet(fileName)
-                .doWrite(data);
+        EasyExcel.write(response.getOutputStream(), head).registerWriteHandler(new CustomCellWriteHandler()).excludeColumnFiledNames(excludeColumn).sheet(fileName).doWrite(data);
     }
 
 
@@ -52,11 +50,7 @@ public class EasyExcelUtil {
      */
     public static void exportExcel(HttpServletRequest request, HttpServletResponse response, String fileName, Class head, List data) throws IOException {
         downloadExcel(request, response, fileName);
-        EasyExcel.write(response.getOutputStream(), head)
-                .excludeColumnFiledNames(getDefaultExcludeColumn())
-                .registerWriteHandler(new CustomCellWriteHandler())
-                .sheet(fileName)
-                .doWrite(data);
+        EasyExcel.write(response.getOutputStream(), head).excludeColumnFiledNames(getDefaultExcludeColumn()).registerWriteHandler(new CustomCellWriteHandler()).sheet(fileName).doWrite(data);
     }
 
     /**
@@ -85,9 +79,7 @@ public class EasyExcelUtil {
      * @param fieldList 类字段属性
      * @param dataList  数据list
      */
-    public static void exportExcel(HttpServletResponse response, String fileName, String sheetName,
-                                   List<String> headList, List<String> fieldList,
-                                   List dataList) {
+    public static void exportExcel(HttpServletResponse response, String fileName, String sheetName, List<String> headList, List<String> fieldList, List dataList) {
         try {
             if (StringUtils.isEmpty(sheetName)) {
                 sheetName = "Sheet1";
@@ -98,7 +90,7 @@ public class EasyExcelUtil {
                 EasyExcel.write(getOutputStream(fileName, response)).head(head(headList)).sheet(sheetName).doWrite(dataList(fieldList, dataList));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
     }
 
@@ -110,18 +102,14 @@ public class EasyExcelUtil {
      * @return
      * @throws Exception
      */
-    public static OutputStream getOutputStream(String fileName, HttpServletResponse response) throws Exception {
-        try {
-            response.setContentType("application/vnd.ms-excel");
-            response.setCharacterEncoding("utf8");
-            response.setHeader("Content-disposition", "attachment;filename=" + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()) + ".xlsx");
-            response.setHeader("Pragma", "public");
-            response.setHeader("Cache-Control", "no-store");
-            response.addHeader("Cache-Control", "max-age=0");
-            return response.getOutputStream();
-        } catch (IOException e) {
-            throw new Exception("导出excel表格失败!", e);
-        }
+    public static OutputStream getOutputStream(String fileName, HttpServletResponse response) throws IOException {
+        response.setContentType("application/vnd.ms-excel");
+        response.setCharacterEncoding("utf8");
+        response.setHeader("Content-disposition", STR."attachment;filename=\{URLEncoder.encode(fileName, StandardCharsets.UTF_8)}.xlsx");
+        response.setHeader("Pragma", "public");
+        response.setHeader("Cache-Control", "no-store");
+        response.addHeader("Cache-Control", "max-age=0");
+        return response.getOutputStream();
     }
 
     /**
@@ -167,7 +155,7 @@ public class EasyExcelUtil {
                 mapList.add(m);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
         return mapList;
     }
@@ -193,10 +181,10 @@ public class EasyExcelUtil {
     }
 
     /**
-     * @param fileName  文件名
-     * @param heads     表头
-     * @param columns   表头对应字段
-     * @param dataList  数据
+     * @param fileName 文件名
+     * @param heads    表头
+     * @param columns  表头对应字段
+     * @param dataList 数据
      * @return 阿里云oss相对路径
      * @throws IOException
      */
@@ -256,7 +244,7 @@ public class EasyExcelUtil {
                 fileName = new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
             }
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
         return fileName;
     }

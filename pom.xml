@@ -59,7 +59,9 @@
         <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
 
         <easyexcel.version>3.3.4</easyexcel.version>
-        <eec.version>3.5.7</eec.version>
+        <async-excel-springboot-starter.version>1.1.1</async-excel-springboot-starter.version>
+        <eec.version>0.5.19</eec.version>
+
 
         <orika-core.version>1.5.4</orika-core.version>
     </properties>
@@ -159,11 +161,16 @@
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.ttzero</groupId>-->
-<!--                <artifactId>eec</artifactId>-->
-<!--                <version>${eec.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>org.ttzero</groupId>
+                <artifactId>eec</artifactId>
+                <version>${eec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.asyncexcel</groupId>
+                <artifactId>async-excel-springboot-starter</artifactId>
+                <version>${async-excel-springboot-starter.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
