@@ -6,11 +6,18 @@ server:
 spring:
   application:
     name: one-stop-java
+  data:
+    ## redis
+    redis:
+      host: localhost
+      port: 6379
+  ## mysql
   datasource:
     jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&&useCursorFetch=true&&rewriteBatchedStatements=true
     username: root
     password: imi123
     driver-class-name: com.mysql.cj.jdbc.Driver
+  ## async excel
   excel:
     datasource:
       hikari:
@@ -19,6 +26,7 @@ spring:
       username: root
       password: imi123
       driver-class-name: com.mysql.cj.jdbc.Driver
+  ## jpa
   jpa:
     show-sql: true
     properties:
