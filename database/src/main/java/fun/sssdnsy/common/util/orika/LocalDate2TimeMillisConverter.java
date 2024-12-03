@@ -1,7 +1,7 @@
 
 package fun.sssdnsy.common.util.orika;
 
-import fun.sssdnsy.common.util.LocalDateTimeUtil;
+import fun.sssdnsy.common.util.DateFormatUtil;
 import java.time.LocalDate;
 import ma.glasnost.orika.MappingContext;
 import ma.glasnost.orika.converter.BidirectionalConverter;
@@ -12,10 +12,10 @@ public class LocalDate2TimeMillisConverter extends BidirectionalConverter<LocalD
     }
 
     public Long convertTo(LocalDate source, Type<Long> destinationType, MappingContext mappingContext) {
-        return LocalDateTimeUtil.localDate2TimeMillis(source);
+        return DateFormatUtil.localDate2TimeMillis(source);
     }
 
     public LocalDate convertFrom(Long source, Type<LocalDate> destinationType, MappingContext mappingContext) {
-        return LocalDateTimeUtil.timeMillis2LocalDate(source);
+        return DateFormatUtil.timeMillis2LocalDate(source);
     }
 }

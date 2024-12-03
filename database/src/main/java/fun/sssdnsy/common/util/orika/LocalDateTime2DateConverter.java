@@ -1,7 +1,7 @@
 
 package fun.sssdnsy.common.util.orika;
 
-import fun.sssdnsy.common.util.LocalDateTimeUtil;
+import fun.sssdnsy.common.util.DateFormatUtil;
 import java.time.LocalDateTime;
 import java.util.Date;
 import ma.glasnost.orika.MappingContext;
@@ -13,10 +13,10 @@ public class LocalDateTime2DateConverter extends BidirectionalConverter<LocalDat
     }
 
     public Date convertTo(LocalDateTime source, Type<Date> destinationType, MappingContext mappingContext) {
-        return LocalDateTimeUtil.localDateTime2Date(source);
+        return DateFormatUtil.localDateTime2Date(source);
     }
 
     public LocalDateTime convertFrom(Date source, Type<LocalDateTime> destinationType, MappingContext mappingContext) {
-        return LocalDateTimeUtil.date2LocalDateTime(source);
+        return DateFormatUtil.date2LocalDateTime(source);
     }
 }
