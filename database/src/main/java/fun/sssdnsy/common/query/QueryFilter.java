@@ -1,14 +1,15 @@
 package fun.sssdnsy.common.query;
 
 import fun.sssdnsy.common.util.BeanUtils;
-import jakarta.transaction.SystemException;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
-import java.sql.SQLTransientException;
+import java.sql.SQLSyntaxErrorException;
 import java.util.*;
+
+import static fun.sssdnsy.common.contants.SQLConst.API_IGNORE_GROUP;
 
 
 /**
@@ -68,7 +69,7 @@ public class QueryFilter {
         this.clazz = clazz;
     }
 
-    public static org.kie.internal.query.QueryFilter build() {
+    public static QueryFilter build() {
         return new QueryFilter();
     }
 
@@ -119,8 +120,7 @@ public class QueryFilter {
         return this;
     }
 
-    public Map<String, Object> getParams() throws SystemException {
-
+    public Map<String, Object> getParams() throws SQLSyntaxErrorException {
         // 生成SQL语句到params中
         generatorSQL();
         // 初始化查询元素中的查询参数到params中
@@ -207,7 +207,7 @@ public class QueryFilter {
         this.clazz = clazz;
     }
 
-    private void generatorSQL() throws SystemException {
+    private void generatorSQL() throws SQLSyntaxErrorException {
         // 生成查询的SQL语句
         String querySQL = generatorQuerySQL();
         if (StringUtils.isNotEmpty(querySQL)) {
@@ -227,7 +227,7 @@ public class QueryFilter {
         }
     }
 
-    private String generatorQuerySQL() throws SQLTransientException {
+    private String generatorQuerySQL() throws SQLSyntaxErrorException {
         int size = querys.size();
         if (size == 0) return "";
         if (size == 1) {
@@ -256,12 +256,12 @@ public class QueryFilter {
                 StringBuffer sqlBuf = new StringBuffer();
                 String group = it.next();
                 List<QueryField> list = map.get(group);
-                QueryField firstField = list.get(0);
-                String relation = firstField.getRelation().value();
+                QueryField firstField = list.getFirst();
+                String relation = firstField.getRelation().name();
                 int fieldList = list.size();
                 for (int i = 0; i < fieldList; i++) {
                     if (i > 0) {
-                        sqlBuf.append(" " + relation + " ");
+                        sqlBuf.append(STR." \{relation} ");
                     }
                     sqlBuf.append(list.get(i).toSql(clazz));
                 }
@@ -275,7 +275,7 @@ public class QueryFilter {
             StringBuffer result = new StringBuffer();
             for (int i = 0; i < sbList.size(); i++) {
                 if (i > 0) {
-                    result.append(" " + groupRelation.value() + " ");
+                    result.append(STR." \{groupRelation.name()} ");
                 }
                 result.append(sbList.get(i).toString());
             }
@@ -301,7 +301,7 @@ public class QueryFilter {
                 continue;
             }
             String property = queryField.getProperty();
-            if (property.indexOf(".") > -1) {
+            if (property.contains(".")) {
                 property = property.substring(property.indexOf(".") + 1);
             }
             Object value = queryField.getValue();
@@ -408,8 +408,8 @@ public class QueryFilter {
      * @param property 属性
      * @return value 值
      */
-    public Char geCharProp(String property) {
-        return getPropertyValue(property) != null && getPropertyValue(property) instanceof Char ? (Char) getPropertyValue(property) : null;
+    public Character geCharProp(String property) {
+        return getPropertyValue(property) != null && getPropertyValue(property) instanceof Character ? (Character) getPropertyValue(property) : null;
     }
 
     /**

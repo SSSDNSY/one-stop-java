@@ -3,7 +3,7 @@ package fun.sssdnsy.common.util.orika;
 
 import java.time.LocalDateTime;
 
-import fun.sssdnsy.common.util.LocalDateTimeUtil;
+import fun.sssdnsy.common.util.DateFormatUtil;
 import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.MappingContext;
 import ma.glasnost.orika.metadata.Type;
@@ -14,9 +14,9 @@ public class Object2LocalDateTimeConverter extends CustomConverter<Object, Local
 
     public LocalDateTime convert(Object source, Type<? extends LocalDateTime> destinationType, MappingContext mappingContext) {
         if (source instanceof Number) {
-            return LocalDateTimeUtil.timeMillis2LocalDateTime(((Number)source).longValue());
+            return DateFormatUtil.timeMillis2LocalDateTime(((Number)source).longValue());
         } else {
-            return source instanceof String ? LocalDateTimeUtil.timeMillis2LocalDateTime(Long.parseLong((String)source)) : null;
+            return source instanceof String ? DateFormatUtil.timeMillis2LocalDateTime(Long.parseLong((String)source)) : null;
         }
     }
 

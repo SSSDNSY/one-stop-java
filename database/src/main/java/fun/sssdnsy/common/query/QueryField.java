@@ -3,19 +3,21 @@ package fun.sssdnsy.common.query;
 import cn.hutool.extra.spring.SpringUtil;
 import fun.sssdnsy.common.contants.SQLConst;
 import fun.sssdnsy.common.util.BeanUtils;
+import fun.sssdnsy.common.util.DateFormatUtil;
 import fun.sssdnsy.common.util.FieldConvertUtil;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
-import java.sql.SQLTransientException;
+import java.sql.SQLSyntaxErrorException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import static fun.sssdnsy.common.contants.DateTimeConst.DATE_FORMAT_DATETIME;
 import static fun.sssdnsy.common.util.DateFormatUtil.PATTERN_DEFAULT_ON_SECOND;
 
 /**
@@ -153,14 +155,14 @@ public class QueryField {
      * @return SQL语句
      */
     @SuppressWarnings("rawtypes")
-    public String toSql(Class clazz) throws SQLTransientException {
+    public String toSql(Class clazz) throws SQLSyntaxErrorException {
         initSqlValue();
         if (operation == null) {
             operation = QueryOP.EQUAL;
         }
         String fieldParam;
         if (property == null) {
-            throw new SQLTransientException("The 'property' in QueryField can not be empty.");
+            throw new SQLSyntaxErrorException("The 'property' in QueryField can not be empty.");
         }
         if (property.indexOf(".") > -1) {
             fieldParam = "#{" + property.substring(property.indexOf(".") + 1) + "}";
@@ -314,7 +316,7 @@ public class QueryField {
                             dataStr = dataStr.replace("Z", " UTC");//UTC是本地时间
                             DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS Z");
                             LocalDateTime date = LocalDateTime.parse(dataStr, format);
-                            dataStr = DateFormatUtil.format(date, StringPool.DATE_FORMAT_DATETIME);
+                            dataStr = DateFormatUtil.format(date, DATE_FORMAT_DATETIME);
                         } catch (Exception e) {
                         }
                     }
@@ -385,15 +387,4 @@ public class QueryField {
         return newSql.toString();
     }
 
-    @Override
-    public String toString() {
-        return "QueryField{" +
-                "property='" + property + '\'' +
-                ", operation=" + operation +
-                ", value=" + value +
-                ", relation=" + relation +
-                ", group='" + group + '\'' +
-                ", hasInitValue=" + hasInitValue +
-                '}';
-    }
 }

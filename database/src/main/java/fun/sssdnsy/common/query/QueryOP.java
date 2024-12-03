@@ -2,9 +2,6 @@ package fun.sssdnsy.common.query;
 
 /**
  * 查询字段和值的操作类型枚举
- *
- * @author heyifan
- * @date 2017年12月12日
  */
 public enum QueryOP {
     EQUAL("EQ", "=", "等于"),

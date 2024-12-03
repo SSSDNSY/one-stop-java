@@ -89,4 +89,10 @@ public interface SQLConst {
      */
     String CUSTOMER_COLUMN_CREATETIME = "CREATETIME";
 
+    /**
+     * 跳过接口入参到SQL，表明该字段只用作接口判断逻辑
+     */
+    public static final String  API_IGNORE_GROUP = "_ignore_group_";
+
+
 }
