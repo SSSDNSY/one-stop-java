@@ -2,7 +2,6 @@ package fun.sssdnsy.repository.dao;
 
 import fun.sssdnsy.common.query.MyBatisDao;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +11,6 @@ import java.util.Map;
  * @desc
  * @since 2024-12-03
  */
-@Mapper
 public interface EmployeeDao extends MyBatisDao<String, EmployeeCO> {
 
     /**

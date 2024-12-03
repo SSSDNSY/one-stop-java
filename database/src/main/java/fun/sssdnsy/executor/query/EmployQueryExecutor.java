@@ -2,10 +2,7 @@ package fun.sssdnsy.executor.query;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import fun.sssdnsy.common.query.AbstractManagerImpl;
-import fun.sssdnsy.common.query.MyBatisDao;
-import fun.sssdnsy.common.query.PageList;
-import fun.sssdnsy.common.query.QueryFilter;
+import fun.sssdnsy.common.query.*;
 import fun.sssdnsy.common.util.BeanToolkit;
 import fun.sssdnsy.common.util.EasyExcelUtil;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
@@ -31,7 +28,7 @@ import java.util.Objects;
  * 查询执行器
  */
 @Component
-public class EmployQueryExecutor extends AbstractManagerImpl<String, EmployeeCO> {
+public class EmployQueryExecutor extends AbstractManagerImpl<String, EmployeeCO> implements Manager<String, EmployeeCO> {
 
     @Resource
     private EmployeeRepository employeeRepository;

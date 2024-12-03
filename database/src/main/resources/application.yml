@@ -1,6 +1,20 @@
 ## server
 server:
   port: 8888
+  http2:
+    enabled: true
+  undertow:
+    # io-threads：IO线程数, 它主要执行非阻塞的任务，它们会负责多个连接，默认设置每个CPU核心一个线程，不可设置过大，否则启动项目会报错：打开文件数过多。
+    # worker-threads：阻塞任务线程池，当执行类似servlet请求阻塞IO操作，undertow会从这个线程池中取得线程。它的值取决于系统线程执行任务的阻塞系数，默认值是 io-threads*8
+    threads:
+      io: 16
+      worker: 256
+    # 以下配置会影响buffer，这些buffer会用于服务器连接的IO操作，有点类似netty的池化内存管理。
+    # buffer-size：每块buffer的空间大小，越小的空间被利用越充分，不要设置太大，以免影响其他应用，合适即可
+    # buffers-per-region：每个区分配的buffer数量，所以pool的大小是buffer-size * buffers-per-region
+    # direct-buffers：是否分配的直接内存(NIO直接分配的堆外内存)
+    buffer-size: 1024
+    direct-buffers: true
 
 ## spring
 spring:
