@@ -3,10 +3,9 @@ package fun.sssdnsy.common.query;
 import fun.sssdnsy.common.util.BeanUtils;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
-import java.sql.SQLSyntaxErrorException;
+import java.sql.SQLException;
 import java.util.*;
 
 import static fun.sssdnsy.common.contants.SQLConst.API_IGNORE_GROUP;
@@ -17,7 +16,6 @@ import static fun.sssdnsy.common.contants.SQLConst.API_IGNORE_GROUP;
  */
 @Getter
 @Setter
-@ToString
 public class QueryFilter {
     /**
      * 条件SQL的KEY
@@ -120,7 +118,7 @@ public class QueryFilter {
         return this;
     }
 
-    public Map<String, Object> getParams() throws SQLSyntaxErrorException {
+    public Map<String, Object> getParams() throws SQLException {
         // 生成SQL语句到params中
         generatorSQL();
         // 初始化查询元素中的查询参数到params中
@@ -207,7 +205,7 @@ public class QueryFilter {
         this.clazz = clazz;
     }
 
-    private void generatorSQL() throws SQLSyntaxErrorException {
+    private void generatorSQL() throws SQLException {
         // 生成查询的SQL语句
         String querySQL = generatorQuerySQL();
         if (StringUtils.isNotEmpty(querySQL)) {
@@ -227,7 +225,7 @@ public class QueryFilter {
         }
     }
 
-    private String generatorQuerySQL() throws SQLSyntaxErrorException {
+    private String generatorQuerySQL() throws SQLException {
         int size = querys.size();
         if (size == 0) return "";
         if (size == 1) {
@@ -256,12 +254,12 @@ public class QueryFilter {
                 StringBuffer sqlBuf = new StringBuffer();
                 String group = it.next();
                 List<QueryField> list = map.get(group);
-                QueryField firstField = list.getFirst();
+                QueryField firstField = list.get(0);
                 String relation = firstField.getRelation().name();
                 int fieldList = list.size();
                 for (int i = 0; i < fieldList; i++) {
                     if (i > 0) {
-                        sqlBuf.append(STR." \{relation} ");
+                        sqlBuf.append(" " + relation + " ");
                     }
                     sqlBuf.append(list.get(i).toSql(clazz));
                 }
@@ -275,7 +273,7 @@ public class QueryFilter {
             StringBuffer result = new StringBuffer();
             for (int i = 0; i < sbList.size(); i++) {
                 if (i > 0) {
-                    result.append(STR." \{groupRelation.name()} ");
+                    result.append(" " + groupRelation.name() + " ");
                 }
                 result.append(sbList.get(i).toString());
             }
@@ -301,7 +299,7 @@ public class QueryFilter {
                 continue;
             }
             String property = queryField.getProperty();
-            if (property.contains(".")) {
+            if (property.indexOf(".") > -1) {
                 property = property.substring(property.indexOf(".") + 1);
             }
             Object value = queryField.getValue();

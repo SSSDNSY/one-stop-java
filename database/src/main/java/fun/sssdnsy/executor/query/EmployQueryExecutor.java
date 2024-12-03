@@ -2,11 +2,16 @@ package fun.sssdnsy.executor.query;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import fun.sssdnsy.common.query.AbstractManagerImpl;
+import fun.sssdnsy.common.query.MyBatisDao;
+import fun.sssdnsy.common.query.PageList;
+import fun.sssdnsy.common.query.QueryFilter;
 import fun.sssdnsy.common.util.BeanToolkit;
 import fun.sssdnsy.common.util.EasyExcelUtil;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
 import fun.sssdnsy.dto.query.EmployeeQry;
 import fun.sssdnsy.repository.EmployeeRepository;
+import fun.sssdnsy.repository.dao.EmployeeDao;
 import fun.sssdnsy.repository.dataobject.EmployeeDO;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +22,7 @@ import org.ttzero.excel.entity.ListSheet;
 import org.ttzero.excel.entity.Workbook;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +31,22 @@ import java.util.Objects;
  * 查询执行器
  */
 @Component
-public class EmployQueryExecutor {
+public class EmployQueryExecutor extends AbstractManagerImpl<String, EmployeeCO> {
 
     @Resource
     private EmployeeRepository employeeRepository;
+
+    @Resource
+    private EmployeeDao employeeDao;
+
+    @Override
+    protected MyBatisDao<String, EmployeeCO> getDao() {
+        return employeeDao;
+    }
+
+    public PageList<EmployeeCO> query(QueryFilter filter) throws SQLException {
+        return super.query(filter);
+    }
 
     public EmployeeCO get(String id) {
         EmployeeDO dataObject = employeeRepository.getById(id);
@@ -100,5 +118,6 @@ public class EmployQueryExecutor {
                 //  直接写到Response流
                 .writeTo(EasyExcelUtil.getOutputStream("员工信息", response));
     }
+
 
 }

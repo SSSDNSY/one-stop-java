@@ -21,6 +21,7 @@ public final class CmdExecutorUtil {
      * @param command 命令
      * @return 结果字符串
      */
+    @SuppressWarnings("")
     public static String cmd(String command) {
         StringBuilder sb = new StringBuilder();
         try {

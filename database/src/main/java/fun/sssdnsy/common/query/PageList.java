@@ -1,12 +1,18 @@
 package fun.sssdnsy.common.query;
 
 import com.github.pagehelper.Page;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
 /**
  * Restful接口返回的分页列表数据
  */
+@Getter
+@Setter
+@ToString
 public class PageList<E> {
 
     /**

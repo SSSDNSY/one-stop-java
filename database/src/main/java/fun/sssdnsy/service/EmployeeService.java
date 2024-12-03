@@ -1,6 +1,8 @@
 package fun.sssdnsy.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import fun.sssdnsy.common.query.PageList;
+import fun.sssdnsy.common.query.QueryFilter;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
 import fun.sssdnsy.dto.command.EmployeeCmd;
 import fun.sssdnsy.dto.query.EmployeeQry;
@@ -11,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -29,6 +32,9 @@ public class EmployeeService {
     @Resource
     private EmployeeUpdateExecutor employeeUpdateExecutor;
 
+    public PageList<EmployeeCO> query(QueryFilter filter)throws SQLException {
+        return employQueryExecutor.query(filter);
+    }
 
     public boolean create(EmployeeCmd cmd) {
         return employeeUpdateExecutor.create(cmd);
@@ -65,4 +71,5 @@ public class EmployeeService {
     public void eecExport(EmployeeQry qry, HttpServletResponse response) throws IOException{
         employQueryExecutor.eecExport(qry,response);
     }
+
 }

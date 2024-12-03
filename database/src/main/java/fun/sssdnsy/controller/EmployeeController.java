@@ -2,6 +2,8 @@ package fun.sssdnsy.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import fun.sssdnsy.common.DataResponse;
+import fun.sssdnsy.common.query.PageList;
+import fun.sssdnsy.common.query.QueryFilter;
 import fun.sssdnsy.dto.clientobject.EmployeeCO;
 import fun.sssdnsy.dto.command.EmployeeCmd;
 import fun.sssdnsy.dto.query.EmployeeQry;
@@ -11,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -25,6 +28,15 @@ public class EmployeeController {
 
     @Resource
     private EmployeeService employeeService;
+
+    /**
+     * 分页查询
+     */
+    @PostMapping("/query")
+    public DataResponse page(@RequestBody QueryFilter queryFilter) throws SQLException {
+        PageList<EmployeeCO> query = employeeService.query(queryFilter);
+        return DataResponse.of(query);
+    }
 
     /**
      * 分页查询
