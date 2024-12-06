@@ -137,11 +137,11 @@ public class QueryField {
         }
         if (BeanUtils.isNotEmpty(value)) {
             if (QueryOP.LIKE.equals(operation) && !value.toString().startsWith("%") && !value.toString().endsWith("%")) {
-                this.value = "%" + value + "%";
+                this.value = STR."%\{value}%";
             } else if (QueryOP.LEFT_LIKE.equals(operation) && !value.toString().startsWith("%")) {
-                this.value = "%" + value;
+                this.value = STR."%\{value}";
             } else if (QueryOP.RIGHT_LIKE.equals(operation) && !value.toString().endsWith("%")) {
-                this.value = value + "%";
+                this.value = STR."\{value}%";
             } else if (QueryOP.EQUAL_IGNORE_CASE.equals(operation)) {
                 this.value = this.value.toString().toUpperCase();
             }
@@ -165,34 +165,34 @@ public class QueryField {
             throw new SQLSyntaxErrorException("The 'property' in QueryField can not be empty.");
         }
         if (property.indexOf(".") > -1) {
-            fieldParam = "#{" + property.substring(property.indexOf(".") + 1) + "}";
+            fieldParam = STR."#{\{property.substring(property.indexOf(".") + 1)}}";
         } else {
-            fieldParam = "#{" + property + "}";
+            fieldParam = STR."#{\{property}}";
         }
         String sql = FieldConvertUtil.property2Field(property, clazz);
         if (QueryOP.EQUAL.equals(operation)) {
-            sql += " = " + fieldParam;
+            sql += STR." = \{fieldParam}";
         } else if (QueryOP.EQUAL_IGNORE_CASE.equals(operation)) {
-            sql = "upper(" + sql + ")" + " = " + fieldParam;
+            sql = STR."upper(\{sql}) = \{fieldParam}";
         } else if (QueryOP.LESS.equals(operation)) {
-            sql += " < " + fieldParam;
+            sql += STR." < \{fieldParam}";
         } else if (QueryOP.LESS_EQUAL.equals(operation)) {
-            sql += " <= " + fieldParam;
+            sql += STR." <= \{fieldParam}";
         } else if (QueryOP.GREAT.equals(operation)) {
-            sql += " > " + fieldParam;
+            sql += STR." > \{fieldParam}";
         } else if (QueryOP.GREAT_EQUAL.equals(operation)) {
-            sql += " >= " + fieldParam;
+            sql += STR." >= \{fieldParam}";
         } else if (QueryOP.NOT_EQUAL.equals(operation)) {
-            sql += " != " + fieldParam;
+            sql += STR." != \{fieldParam}";
         } else if (QueryOP.IFNULL.equals(operation)) {
-            sql = " IFNULL(" + sql + ", '')" + " != " + fieldParam;
+            sql = STR." IFNULL(\{sql}, '') != \{fieldParam}";
             ;
         } else if (QueryOP.LEFT_LIKE.equals(operation)) {
-            sql += " like " + fieldParam;
+            sql += STR." like \{fieldParam}";
         } else if (QueryOP.RIGHT_LIKE.equals(operation)) {
-            sql += " like  " + fieldParam;
+            sql += STR." like  \{fieldParam}";
         } else if (QueryOP.LIKE.equals(operation)) {
-            sql += " like  " + fieldParam;
+            sql += STR." like  \{fieldParam}";
         } else if (QueryOP.IS_NULL.equals(operation)) {
             sql += " is null ";
         } else if (QueryOP.NOTNULL.equals(operation)) {
@@ -208,20 +208,20 @@ public class QueryField {
                 if (len > 1000) {
                     sql = getOutLimitInSql(sql, strList);
                 } else {
-                    sql += " in  " + this.value;
+                    sql += STR." in  \{this.value}";
                 }
             } else {
-                sql += " in  " + this.value;
+                sql += STR." in  \{this.value}";
             }
         } else if (QueryOP.NOT_IN.equals(operation)) {
-            sql += " not in  " + this.value;
+            sql += STR." not in  \{this.value}";
 
         } else if (QueryOP.BETWEEN.equals(operation)) {
             sql += getBetweenSql();
         } else if (QueryOP.NOT_EQUAL_OR_NULL.equals(operation)) {
-            sql = "(" + sql + " != " + fieldParam + " or " + sql + " is null)";
+            sql = STR."(\{sql} != \{fieldParam} or \{sql} is null)";
         } else {
-            sql += " =  " + fieldParam;
+            sql += STR." =  \{fieldParam}";
         }
         return sql;
     }
@@ -236,7 +236,7 @@ public class QueryField {
     private String getInValueSql() {
         String inValueSql = "";
         if (BeanUtils.isEmpty(value)) {
-            return inValueSql = "('')";
+            return "('')";
         }
         if (value instanceof String) { // 字符串形式，通过逗号分隔
             StringBuilder sb = new StringBuilder();
@@ -257,10 +257,10 @@ public class QueryField {
             sb.append("(");
             for (Object obj : objList) {
                 if (obj.toString().startsWith("'") && obj.toString().endsWith("'")) {
-                    sb.append(obj.toString());
+                    sb.append(obj);
                 } else {
                     sb.append("'");
-                    sb.append(obj.toString());
+                    sb.append(obj);
                     sb.append("'");
                 }
                 sb.append(",");
@@ -274,10 +274,10 @@ public class QueryField {
             sb.append("(");
             for (Object obj : objList) {
                 if (obj.toString().startsWith("'") && obj.toString().endsWith("'")) {
-                    sb.append(obj.toString());
+                    sb.append(obj);
                 } else {
                     sb.append("'");
-                    sb.append(obj.toString());
+                    sb.append(obj);
                     sb.append("'");
                 }
                 sb.append(",");
@@ -305,9 +305,9 @@ public class QueryField {
                 if (obj instanceof LocalDateTime) {
                     String dateString = DateFormatUtil.format((LocalDateTime) obj, PATTERN_DEFAULT_ON_SECOND);
                     if (SQLConst.DB_ORACLE.equals(dbType)) {
-                        sb.append("TO_DATE(substr('" + dateString + "',1,19),'yyyy-mm-dd hh24:mi:ss')");
+                        sb.append(STR."TO_DATE(substr('\{dateString}',1,19),'yyyy-mm-dd hh24:mi:ss')");
                     } else {
-                        sb.append("'" + dateString + "'");
+                        sb.append(STR."'\{dateString}'");
                     }
                 } else {
                     String dataStr = obj.toString();
@@ -321,9 +321,9 @@ public class QueryField {
                         }
                     }
                     if (SQLConst.DB_ORACLE.equals(dbType)) {
-                        sb.append("TO_DATE(substr('" + dataStr + "',1,19),'yyyy-mm-dd hh24:mi:ss')");
+                        sb.append(STR."TO_DATE(substr('\{dataStr}',1,19),'yyyy-mm-dd hh24:mi:ss')");
                     } else {
-                        sb.append("'" + dataStr + "'");
+                        sb.append(STR."'\{dataStr}'");
                     }
                 }
             }
@@ -353,38 +353,33 @@ public class QueryField {
             index++;
             i++;
             if (index % 1000 == 0) {
-                if (times > 0) {
-                    newSql.append(" or ");
-                }
-                times++;
-                newSql.append(" ");
-                newSql.append(field);
-                newSql.append(" in ");
-                newSql.append("(");
-                newSql.append(StringUtils.join(newValue));
-                newSql.append(")");
-                newSql.append(" ");
+                times = getTimes(times, field, newValue, newSql);
                 int size = len - 1000 * times;
                 newValue = size >= 1000 ? new String[1000] : new String[size];
                 index = 0;
             } else {
                 if (i == len) {
-                    if (times > 0) {
-                        newSql.append(" or ");
-                    }
-                    times++;
-                    newSql.append(" ");
-                    newSql.append(field);
-                    newSql.append(" in ");
-                    newSql.append("(");
-                    newSql.append(StringUtils.join(newValue));
-                    newSql.append(")");
-                    newSql.append(" ");
+                    times = getTimes(times, field, newValue, newSql);
                 }
             }
         }
         newSql.append(" ) ");
         return newSql.toString();
+    }
+
+    private int getTimes(int times, String field, String[] newValue, StringBuilder newSql) {
+        if (times > 0) {
+            newSql.append(" or ");
+        }
+        times++;
+        newSql.append(" ");
+        newSql.append(field);
+        newSql.append(" in ");
+        newSql.append("(");
+        newSql.append(StringUtils.join(newValue));
+        newSql.append(")");
+        newSql.append(" ");
+        return times;
     }
 
 }
