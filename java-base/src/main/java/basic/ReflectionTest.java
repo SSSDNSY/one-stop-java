@@ -108,7 +108,7 @@ public class ReflectionTest {
     }
 
     private static void classMethod() throws Exception {
-        Class<Dog> dog = Dog.class;
+        Class<Cat> dog = Cat.class;
         //类名打印
         System.out.println(dog.getName()); //com.cry.Dog
         System.out.println(dog.getSimpleName()); //Dog
@@ -122,7 +122,7 @@ public class ReflectionTest {
         //父类
         System.out.println(dog.getSuperclass());//class com.cry.Animal
         //创建对象
-        Dog d = dog.newInstance();
+        Cat d = dog.newInstance();
         //字段
         for (Field f : dog.getFields()) {
             System.out.println(f.getName());

@@ -3,7 +3,7 @@ package reactor.callbackhell;
 /**
  * @Description
  * @Since 2024-11-06
- * @Copyright ©OPPEIN HOME GROUP INC.All Rights Reserved
+ * 
  */
 public class HellTest {
 

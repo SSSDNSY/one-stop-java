@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 /**
  * @Description 测试
  * @Since 2024-11-15
- * @Copyright ©OPPEIN HOME GROUP INC.All Rights Reserved
+ * 
  */
 
 @RestController
