@@ -66,14 +66,17 @@ class ScSingleton {
  * 双重检验
  */
 class DbCheckLazySingleton {
+    // volatile 可见性 非一致性，还是得要锁 ，指令重排
     private static volatile DbCheckLazySingleton instance = null;
 
     private DbCheckLazySingleton() {
     }
 
     public DbCheckLazySingleton getInstance() {
+        // 剔除了不必要的锁竞争
         if (instance == null) {
             synchronized (DbCheckLazySingleton.class) {
+                // 下面的3个步骤不是原子的，也就是可能会有多个实例 二次校验就是为了检验单例
                 if (instance == null) {
                     //1 声明变量分配内存空间
                     //2 绑定
