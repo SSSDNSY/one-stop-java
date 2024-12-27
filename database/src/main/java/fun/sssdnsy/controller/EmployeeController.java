@@ -72,6 +72,14 @@ public class EmployeeController {
     }
 
     /**
+     * 创建
+     */
+    @PostMapping("/asyncExport")
+    public DataResponse asyncExport(@RequestBody EmployeeCmd cmd) {
+        return DataResponse.of(employeeService.create(cmd));
+    }
+
+    /**
      * 修改
      */
     @PostMapping("/update")
