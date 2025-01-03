@@ -128,19 +128,25 @@ public class SnowIdUtils {
         }
     }
 
+
     /**
      * 获取long类型雪花ID
      */
-    public static long uniqueLong() {
+    public static long nextLongID() {
         return SnowIdUtils.SnowFlake.SNOW_FLAKE.nextId();
     }
 
-    /**
-     * 获取String类型雪花ID
-     */
-    public static String uniqueLonghex() {
-        return String.format("%016x", uniqueLong());
+    public static String nextStringID() {
+        return Long.toString(nextLongID());
     }
+
+    /**
+     * 获取HexString类型雪花ID
+     */
+    public static String uniqueHexString() {
+        return String.format("%016x", nextLongID());
+    }
+
 
     /**
      * 测试
@@ -156,7 +162,7 @@ public class SnowIdUtils {
             // 创建100个线程
             new Thread(() -> {
                 for (int s = 0; s < 2000; s++) {
-                    long snowID = SnowIdUtils.uniqueLong();
+                    long snowID = SnowIdUtils.nextLongID();
                     System.out.println(snowID);
                     Integer put = map.put(snowID, 1);
                     if (put != null) {

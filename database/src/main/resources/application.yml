@@ -58,3 +58,10 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+easy-es:
+  address: 127.0.0.1:9200
+  global-config:
+    process-index-mode: manual
+#  username: elastic #es用户名,若无则删去此行配置
+#  password: WG7WVmuNMtM4GwNYkyWH #es密码,若无则删去此行配置
