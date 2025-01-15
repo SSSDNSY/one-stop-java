@@ -638,6 +638,45 @@ public class Solution {
     }
 
 
+    /**
+     * 309.最佳买卖股票时机含冷冻期
+     * https://programmercarl.com/0309.%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F.html#%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E7%89%88%E6%9C%AC
+     * https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+     * 给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。
+     * <p>
+     * 设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
+     * <p>
+     * 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     * 卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
+     * 示例:
+     * <p>
+     * 输入: [1,2,3,0,2]
+     * 输出: 3
+     * 解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitDpV(int[] prices) {
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
+        int[][] dp = new int[prices.length][2];
+
+        // bad case
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        dp[1][0] = Math.max(dp[0][0], dp[0][1] + prices[1]);
+        dp[1][1] = Math.max(dp[0][1], -prices[1]);
+
+        for (int i = 2; i < prices.length; i++) {
+            // dp公式
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 2][0] - prices[i]);
+        }
+        return dp[prices.length - 1][0];
+    }
+
 }
 
 

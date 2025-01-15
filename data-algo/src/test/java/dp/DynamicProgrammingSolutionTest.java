@@ -211,5 +211,13 @@ public class DynamicProgrammingSolutionTest {
         assert maxProfit == 7;
     }
 
+    @Test
+    public void tesMmaxProfitDpV() {
+        int[] arr = new int[]{1, 2, 3, 0, 2};
+        int maxProfit = solution.maxProfitDpV(arr);
+        System.out.println(maxProfit);
+        assert maxProfit == 3;
+    }
+
 
 }
