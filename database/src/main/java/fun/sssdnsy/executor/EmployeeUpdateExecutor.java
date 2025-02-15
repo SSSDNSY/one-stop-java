@@ -18,7 +18,6 @@ public class EmployeeUpdateExecutor {
     @Resource
     private EmployeeRepository employeeRepository;
 
-
     public boolean create(EmployeeCmd cmd) {
         EmployeeDO dataObj = new EmployeeDO();
         BeanUtils.copyProperties(cmd, dataObj);
