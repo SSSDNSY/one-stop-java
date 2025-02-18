@@ -32,6 +32,27 @@ public class Solution {
         return s.isEmpty();
     }
 
+    public boolean isValid2(String str) {
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+        Map<Character, Character> map = new HashMap<>() {{
+            put('{', '}');
+            put('[', ']');
+            put('(', ')');
+        }};
+        Stack<Character> stack = new Stack() ;
+        for (Character c : str.toCharArray()) {
+            if (map.containsKey(c)) {
+                stack.push(c);
+            } else if (c != map.get(stack.pop())) {
+                return false;
+            }
+        }
+        return stack.empty();
+    }
+
+
     /**
      * @description: 逆波兰表达式求值
      * @createDate: 2019/6/4 17:46
