@@ -151,5 +151,20 @@ public class Solution {
         return null;
     }
 
+    /**
+     * 合并链表
+     */
+    public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
+        if (head1 == null) {
+            return head2;
+        }
+        if (head2 == null) {
+            return head1;
+        }
+        ListNode res = head1.val < head2.val ? head1 : head2;
+        res.next = mergeTwoLists(res.next, head1.val >= head2.val ? head1 : head2);
+        return res;
+    }
+
 }
 
