@@ -4,7 +4,7 @@
 </p>
 
 # One-stop-java 
- - [☛简体中文](README_ZH.md)
+ - [👉🏻简体中文](README_ZH.md)
  - This repository is about personal work and learning software engineering's everything;
  - Personal playground with massive examples and figure out "talk is cheap, show me the code!;
 
