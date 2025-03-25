@@ -14,8 +14,11 @@
         .
         |-- architecture architecture
         |   |-- src
+        |   ╰-- target       
+        |-- cs           computer science
+        |   |-- src
         |   ╰-- target
-        |-- data-algo    datastruct & algo
+        |-- data-algo    dataStruct & algo
         |   |-- src
         |   ╰-- target
         |-- database     database

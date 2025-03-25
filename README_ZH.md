@@ -15,25 +15,28 @@
 
 ```text
         .
-        |-- architecture architecture
+        |-- architecture  架构实践
         |   |-- src
         |   ╰-- target
-        |-- data-algo    datastruct & algo
+        |-- cs           计算机科学基础 
         |   |-- src
         |   ╰-- target
-        |-- database     database
+        |-- data-algo    数据结构与算法
         |   |-- src
         |   ╰-- target
-        |-- deploy-tool  devops
+        |-- database     数据库
+        |   |-- src
+        |   ╰-- target
+        |-- deploy-tool  部署
         |   |-- src
         |   ╰-- target
         |-- java-base    java basic
         |   |-- src
         |   ╰-- target
-        |-- spring-base  spring basic
+        |-- spring-base  Spring
         |   |-- src
         |   ╰-- target
-        |-- sundries     miscellaneous
+        |-- sundries     杂项
         |   |-- src
         |   ╰-- target
 ```
