@@ -21,6 +21,7 @@
         <module>deploy-tool</module>
         <module>sundries</module>
         <module>spring-base</module>
+        <module>cs</module>
     </modules>
 
     <properties>
