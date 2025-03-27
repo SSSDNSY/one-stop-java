@@ -2,6 +2,8 @@ package juc.concurrent2;
 
 import org.junit.Test;
 
+import java.time.Duration;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.LockSupport;
 
@@ -169,6 +171,52 @@ public class PrintInTurns {
         t1.start();
         t2.start();
         sleep(10000);
+    }
+
+    @Test
+    public void cyclebarriePrint() throws InterruptedException {
+        Semaphore sa = new Semaphore(1);
+        Semaphore sb = new Semaphore(0);
+        Semaphore sc = new Semaphore(0);
+        Thread a = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                try {
+                    sa.acquire();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("A");
+                sb.release();
+            }
+        }, "thread-A");
+        Thread b = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                try {
+                    sb.acquire();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("B");
+                sc.release();
+            }
+        }, "thread-B");
+        Thread c = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                try {
+                    sc.acquire();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("C");
+                sa.release();
+            }
+        }, "thread-C");
+
+        a.start();
+        b.start();
+        c.start();
+        Thread.sleep(Duration.ofSeconds(5L));
+
     }
 
     public static void sleep(long ms) {
