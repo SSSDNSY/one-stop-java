@@ -1,19 +1,12 @@
 package linked;
 
 
+import java.util.List;
+
 /**
  * @Desc
  * @Since 2023-08-22
  */
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    public ListNode(int val) {
-        this.val = val;
-    }
-}
 
 public class Solution {
 
@@ -21,15 +14,13 @@ public class Solution {
     /**
      * 两两交换链表中的节点
      */
-
-    // 递归版本
-    public ListNode swapPairs(ListNode head) {
+    public Node swapPairs(Node head) {
         // base case 退出提交
         if (head == null || head.next == null) return head;
         // 获取当前节点的下一个节点
-        ListNode next = head.next;
+        Node next = head.next;
         // 进行递归
-        ListNode newNode = swapPairs(next.next);
+        Node newNode = swapPairs(next.next);
         // 这里进行交换
         next.next = head;
         head.next = newNode;
@@ -37,13 +28,13 @@ public class Solution {
         return next;
     }
 
-    public ListNode swapPairs2(ListNode head) {
-        ListNode dumyhead = new ListNode(-1); // 设置一个虚拟头结点
+    public Node swapPairs2(Node head) {
+        Node dumyhead = new Node(-1); // 设置一个虚拟头结点
         dumyhead.next = head; // 将虚拟头结点指向head，这样方面后面做删除操作
-        ListNode cur = dumyhead;
-        ListNode temp; // 临时节点，保存两个节点后面的节点
-        ListNode firstnode; // 临时节点，保存两个节点之中的第一个节点
-        ListNode secondnode; // 临时节点，保存两个节点之中的第二个节点
+        Node cur = dumyhead;
+        Node temp; // 临时节点，保存两个节点后面的节点
+        Node firstnode; // 临时节点，保存两个节点之中的第一个节点
+        Node secondnode; // 临时节点，保存两个节点之中的第二个节点
         while (cur.next != null && cur.next.next != null) {
             temp = cur.next.next.next;
             firstnode = cur.next;
@@ -59,12 +50,12 @@ public class Solution {
     /**
      * 删除链表的倒数第N个节点
      */
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummyNode = new ListNode(0);
+    public Node removeNthFromEnd(Node head, int n) {
+        Node dummyNode = new Node(0);
         dummyNode.next = head;
 
-        ListNode fastIndex = dummyNode;
-        ListNode slowIndex = dummyNode;
+        Node fastIndex = dummyNode;
+        Node slowIndex = dummyNode;
 
         // 只要快慢指针相差 n 个结点即可
         for (int i = 0; i < n; i++) {
@@ -86,9 +77,9 @@ public class Solution {
     /**
      * 链表相交
      */
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode curA = headA;
-        ListNode curB = headB;
+    public Node getIntersectionNode(Node headA, Node headB) {
+        Node curA = headA;
+        Node curB = headB;
         int lenA = 0, lenB = 0;
         while (curA != null) { // 求链表A的长度
             lenA++;
@@ -107,7 +98,7 @@ public class Solution {
             lenA = lenB;
             lenB = tmpLen;
             // 2. swap (curA, curB);
-            ListNode tmpNode = curA;
+            Node tmpNode = curA;
             curA = curB;
             curB = tmpNode;
         }
@@ -131,15 +122,15 @@ public class Solution {
     /**
      * 环形链表
      */
-    public ListNode detectCycle(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public Node detectCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {// 有环
-                ListNode index1 = fast;
-                ListNode index2 = head;
+                Node index1 = fast;
+                Node index2 = head;
                 // 两个指针，从头结点和相遇结点，各走一步，直到相遇，相遇点即为环入口
                 while (index1 != index2) {
                     index1 = index1.next;
@@ -154,17 +145,46 @@ public class Solution {
     /**
      * 合并链表
      */
-    public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
+    public Node mergeTwoLists(Node<Integer> head1, Node<Integer> head2) {
         if (head1 == null) {
             return head2;
         }
         if (head2 == null) {
             return head1;
         }
-        ListNode res = head1.val < head2.val ? head1 : head2;
-        res.next = mergeTwoLists(res.next, head1.val >= head2.val ? head1 : head2);
+        Node res = head1.item < head2.item ? head1 : head2;
+        res.next = mergeTwoLists(res.next, head1.item >= head2.item ? head1 : head2);
         return res;
     }
+
+    /**
+     * 反转链表
+     * <p>
+     * 1、利用栈先进后出的特性 O(n) O(n)
+     * 2、递归（本质还是栈）
+     * 3、原地反转，需要利用一个dump的节点  O(n) O(1)
+     * 4、利用数组随机访问的特性，顺序遍历链表的时候倒序放入数组
+     */
+
+    public void inverseLinkedList1(LinkList<Integer> list) {
+        if (list == null || list.first == null) return;
+        int desc = list.size-1, size = list.size, asc = 0;
+        int[] array = new int[size];
+        for (Node<Integer> temp = list.first; temp.next != null; temp = temp.next) {
+            array[desc--] = temp.item;
+        }
+       for (int i = 0; i < size; i++) {
+           System.out.println(array[i]);
+       }
+
+        //双向链表我可以从还没变开始便利
+        for (Node<Integer> temp = list.last; temp.prev != null; temp = temp.prev) {
+            array[asc++] = temp.item;
+        }
+        List.of(array).stream().forEach(System.out::print);
+
+    }
+
 
 }
 

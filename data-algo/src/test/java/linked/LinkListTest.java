@@ -1,0 +1,88 @@
+package linked;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Arrays;
+
+/**
+ * @Desc
+ * @Since 2023-08-14
+ */
+public class LinkListTest {
+
+    private LinkList list;
+    Solution solution;
+    @Test
+    public void linkList() {
+        LinkList l1 = new LinkList();
+        LinkList<Integer> l2 = new LinkList(Arrays.asList(1, 2, 3, 4, 5));
+        System.out.println(l1);
+        System.out.println(l2);
+
+        assert l1.size == 0;
+        assert l2.size == 5;
+        assert l2.getSize() == 5;
+
+        assert l2.get(1) == 2;
+        assert l2.get(4) == 5;
+
+
+        l2.addLast(6);
+        System.out.println(l2);
+        assert l2.size == 6;
+
+        l2.addFirst(0);
+        System.out.println(l2);
+        assert l2.size == 7;
+
+        l2.add(0, -1);
+        System.out.println(l2);
+        assert l2.size == 8;
+
+        l2.removeFirst();
+        System.out.println(l2);
+        assert l2.size == 7;
+
+        l2.removeLast();
+        System.out.println(l2);
+        assert l2.size == 6;
+
+        l2.addAll(Arrays.asList(6));
+        System.out.println(l2);
+        assert l2.size == 7;
+        l2.addAll(Arrays.asList(8, 8));
+        System.out.println(l2);
+        assert l2.size == 9;
+
+        assert l2.first.item == 0;
+        System.out.println(l2.first);
+        assert l2.last.item == 8;
+        System.out.println(l2.last);
+
+        l2.remove((Integer) 8);
+        l2.remove((Integer) 8);
+        l2.remove((Integer) 5);
+        System.out.println(l2);
+
+        l2.remove(5);
+        System.out.println(l2);
+
+        l2.add(4, 5);
+        l2.add(5, 6);
+        System.out.println(l2);
+
+    }
+
+    @Before
+    public  void setUp() throws Exception {
+        list = new LinkList(Arrays.asList(1, 2, 3, 4, 5));
+        solution = new Solution();
+    }
+
+    @Test
+    public void inverseLinkedList1() {
+        solution.inverseLinkedList1(list);
+    }
+
+}
