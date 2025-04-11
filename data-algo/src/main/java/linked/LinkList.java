@@ -202,6 +202,12 @@ public class LinkList<E> {
         }
         return builder.toString();
     }
+
+
+    public void print() {
+        System.out.println(this);
+    }
+
 }
 
 
@@ -233,4 +239,7 @@ class Node<E> {
     public String toString() {
         return "" + item;
     }
+
+
+
 }

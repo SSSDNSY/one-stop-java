@@ -1,7 +1,10 @@
 package linked;
 
 
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Stack;
+
+import static util.GeneralUtil.printArray;
 
 /**
  * @Desc
@@ -168,21 +171,79 @@ public class Solution {
 
     public void inverseLinkedList1(LinkList<Integer> list) {
         if (list == null || list.first == null) return;
-        int desc = list.size-1, size = list.size, asc = 0;
+        int desc = list.size - 1, size = list.size, asc = 0;
         int[] array = new int[size];
-        for (Node<Integer> temp = list.first; temp.next != null; temp = temp.next) {
+        list.print();
+        // 数组从倒序放入值，链表正常便利
+        for (Node<Integer> temp = list.first; temp != null; temp = temp.next) {
             array[desc--] = temp.item;
         }
-       for (int i = 0; i < size; i++) {
-           System.out.println(array[i]);
-       }
 
-        //双向链表我可以从还没变开始便利
+        printArray(array);
+
+        //双向链表 可以从末尾开始遍历
         for (Node<Integer> temp = list.last; temp.prev != null; temp = temp.prev) {
             array[asc++] = temp.item;
         }
-        List.of(array).stream().forEach(System.out::print);
+        printArray(array);
+    }
 
+    // 利用栈特性 先入后出 FIFO
+    public void inverseLinkedList2(LinkList<Integer> list) {
+        if (list == null || list.first == null) return;
+        list.print();
+        LinkedList<Integer> stack = new LinkedList<>();
+        for (Node<Integer> temp = list.first; temp != null; temp = temp.next) {
+            stack.push(temp.item);
+        }
+        int[] array = new int[stack.size()];
+        int i = 0;
+        while (!stack.isEmpty()) {
+            array[i++] = stack.pop();
+        }
+        printArray(array);
+        Stack<Integer> stack2 = new Stack<>();
+        for (Node<Integer> temp = list.first; temp != null; temp = temp.next) {
+            stack2.push(temp.item);
+        }
+        i = 0;
+        while (!stack2.isEmpty()) {
+            array[i++] = stack2.pop();
+        }
+        printArray(array);
+    }
+
+    public void inverseLinkedList3(LinkList<Integer> list) {
+        if (list == null || list.first == null) return;
+        list.print();
+        int[] array = new int[list.size];
+        reverseLinkedList(list.first, array, list.size);
+        printArray(array);
+    }
+
+    private Integer reverseLinkedList(Node<Integer> node, int[] array, int i) {
+        if (node == null) return -1;
+        array[--i] = node.item;
+        return reverseLinkedList(node.next, array, i);
+    }
+
+    // 原地反转的话
+    // 1 -> 2 -> 3 -> 4
+    // 1 -> 2 -> 3 -> 4
+    public void inverseLinkedList4(LinkList<Integer> list) {
+        if (list == null || list.first == null) return;
+        list.print();
+        Node<Integer> a = list.first, b = list.last;
+        int i = 0, mid = list.size / 2;
+        for (; i < mid; a = a.next, b = b.prev, i++) {
+            //a=1,b=5,6=1+5
+            b.item = a.item + b.item;
+            //a=5=6-1
+            a.item = b.item - a.item;
+            //b=1=6-5
+            b.item = b.item - a.item;
+        }
+        list.print();
     }
 
 

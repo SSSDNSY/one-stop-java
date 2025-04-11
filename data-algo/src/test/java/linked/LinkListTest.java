@@ -13,6 +13,13 @@ public class LinkListTest {
 
     private LinkList list;
     Solution solution;
+
+    @Before
+    public void setUp() throws Exception {
+        list = new LinkList(Arrays.asList(1, 2, 3, 4, 5));
+        solution = new Solution();
+    }
+
     @Test
     public void linkList() {
         LinkList l1 = new LinkList();
@@ -74,15 +81,28 @@ public class LinkListTest {
 
     }
 
-    @Before
-    public  void setUp() throws Exception {
-        list = new LinkList(Arrays.asList(1, 2, 3, 4, 5));
-        solution = new Solution();
-    }
 
+    /**
+     * 反转链表
+     */
     @Test
     public void inverseLinkedList1() {
         solution.inverseLinkedList1(list);
+    }
+
+    @Test
+    public void inverseLinkedList2() {
+        solution.inverseLinkedList2(list);
+    }
+
+    @Test
+    public void inverseLinkedList3() {
+        solution.inverseLinkedList3(list);
+    }
+
+    @Test
+    public void inverseLinkedList4() {
+        solution.inverseLinkedList4(list);
     }
 
 }
