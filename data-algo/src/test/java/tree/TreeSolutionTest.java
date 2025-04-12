@@ -235,4 +235,12 @@ public class TreeSolutionTest {
         assert lists.size() == 5 && lists.get(1).get(2) == 6;
     }
 
+    @Test
+    public void testRestoreTree(){
+        int[] preOrder = new int[]{1,2,4,5,3,6,7};
+        int[] inOrder = new int[]{4,2,5,1,6,3,7};
+        TreeNode<Integer> root = solution.restoreTree(preOrder, inOrder);
+        System.out.println(root);
+    }
+
 }

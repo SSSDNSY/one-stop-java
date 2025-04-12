@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
  * @desc
  * @since 2025-04-02
  */
-public class ArrayTest {
+public class ArraySolutionTest {
 
     @Test
     public void findNumberInMatrixTest() {

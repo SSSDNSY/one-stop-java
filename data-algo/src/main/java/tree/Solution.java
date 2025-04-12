@@ -27,9 +27,14 @@ class TreeNode<T> {
         this.value = value;
     }
 
+    public TreeNode<T> newTreeNode(T value) {
+        return new TreeNode<>(value);
+    }
+
     public TreeNode(T value) {
         this.value = value;
     }
+
 }
 
 /**
@@ -1428,6 +1433,32 @@ public class Solution {
         sum += root.value;
         root.value = sum;
         convertSumBST(root.left);
+    }
+
+    /**
+     * 复原二叉树
+     */
+    public TreeNode<Integer> restoreTree(int[] preOrder, int[] inOrder) {
+        if (preOrder == null || preOrder.length < 1 || inOrder == null || inOrder.length < 1) {
+            return null;
+        }
+        Map<Integer, Integer> map = HashMap.newHashMap(100);
+        for (int i = 0; i < inOrder.length; i++) {
+            map.put(inOrder[i], i);
+        }
+        TreeNode root = restoreTree(preOrder, 0, preOrder.length - 1, inOrder, 0, inOrder.length - 1, map);
+        return root;
+    }
+
+    private TreeNode restoreTree(int[] preOrder, int l1, int r1, int[] inOrder, int l2, int r2, Map<Integer, Integer> map) {
+        if (l1 > r1 || l2 > r2) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preOrder[l1]);
+        int rootIdx = map.get(root.value);
+        root.left = restoreTree(preOrder, l1 + 1, l1 + rootIdx - l2, inOrder, l2, rootIdx - 1, map);
+        root.right = restoreTree(preOrder, l1 + rootIdx - l2 + 1, r1, inOrder, rootIdx + 1, r2, map);
+        return root;
     }
 
 }

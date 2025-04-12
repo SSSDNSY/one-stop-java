@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @Desc
  * @Since 2023-08-14
  */
-public class LinkListTest {
+public class LinkListSolutionTest {
 
     private LinkList list;
     Solution solution;
