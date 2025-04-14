@@ -41,7 +41,7 @@ public class Solution {
             put('[', ']');
             put('(', ')');
         }};
-        Stack<Character> stack = new Stack() ;
+        Stack<Character> stack = new Stack();
         for (Character c : str.toCharArray()) {
             if (map.containsKey(c)) {
                 stack.push(c);
