@@ -59,22 +59,21 @@ public class QueueTest {
     }
 
     @Test
-    public void CQueue(){
+    public void CQueue() {
         Solution.Cqueue cqueue = new Solution.Cqueue();
         cqueue.push(1);
         int num = cqueue.pop();
-        assert num==1;
+        assert num == 1;
         System.out.println(num);
         cqueue.push(2);
         cqueue.push(3);
         num = cqueue.pop();
-        assert num==2;
+        assert num == 2;
         System.out.println(num);
         cqueue.pop();
         num = cqueue.pop();
-        assert num==-1;
+        assert num == -1;
         System.out.println(num);
-
     }
 
 

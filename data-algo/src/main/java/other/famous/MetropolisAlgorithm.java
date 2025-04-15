@@ -34,7 +34,6 @@ import org.apache.commons.lang3.RandomUtils;
  */
 public class MetropolisAlgorithm {
 
-
     public static void main(String[] args) {
         menteCarlo(10);
         menteCarlo(100);
@@ -65,4 +64,5 @@ public class MetropolisAlgorithm {
         }
         System.out.println("n=" + n + ",Pi= " + (4 * 1.0 * Po / Ps));
     }
+
 }
