@@ -1,6 +1,7 @@
 package array;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author pengzh
@@ -9,40 +10,31 @@ import org.junit.jupiter.api.Test;
  */
 public class ArraySolutionTest {
 
+    private Solution solution;
+    private int[] rotateArray;
+
+    @Before
+    public void setUp() {
+        rotateArray = new int[]{4, 5, 6, 7};
+        rotateArray = new int[]{4, 5, 6, 7, 1, 2, 3,};
+        solution = new Solution();
+    }
+
     @Test
     public void findNumberInMatrixTest() {
         int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        assert findNumberInMatrixTest(matrix, 7) == true;
-        assert findNumberInMatrixTest(matrix, 1) == true;
-        assert findNumberInMatrixTest(matrix, 4) == true;
-        assert findNumberInMatrixTest(matrix, 41) == false;
+        assert solution.findNumberInMatrixTest(matrix, 7) == true;
+        assert solution.findNumberInMatrixTest(matrix, 1) == true;
+        assert solution.findNumberInMatrixTest(matrix, 4) == true;
+        assert solution.findNumberInMatrixTest(matrix, 41) == false;
     }
 
-    /**
-     * 二维数组里么找一个数 有序矩阵里么找一个数
-     * @param matrix
-     * @param number
-     * @return
-     */
-    public boolean findNumberInMatrixTest(int[][] matrix, int number) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return false;
-        }
-
-        int row = matrix.length;
-        int col = matrix[0].length;
-
-        int p = row - 1, m = 0;
-        while (p > -1 && m < col - 1) {
-            if (matrix[p][m] == number) {
-                return true;
-            } else if (matrix[p][m] < number) {
-                m++;
-            } else if (matrix[p][m] > number) {
-                p--;
-            }
-        }
-        return false;
+    @Test
+    public void testFindArrayMin() {
+        int arrayMin = solution.findArrayMin(rotateArray);
+        System.out.println(arrayMin);
+        assert arrayMin == 4;
     }
+
 
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @author pengzh
- * @desc 不知都分类的算法题解放这里
+ * @desc 其他分类的算法题解放这里
  * @since 2025-04-15
  */
 public class Solution {

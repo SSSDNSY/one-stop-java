@@ -102,8 +102,49 @@ public class Solution {
         return res;
     }
 
+    /**
+     * 二维数组里么找一个数 有序矩阵里么找一个数
+     *
+     * @param matrix
+     * @param number
+     * @return
+     */
+    public boolean findNumberInMatrixTest(int[][] matrix, int number) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
 
+        int row = matrix.length;
+        int col = matrix[0].length;
 
+        int p = row - 1, m = 0;
+        while (p > -1 && m < col - 1) {
+            if (matrix[p][m] == number) {
+                return true;
+            } else if (matrix[p][m] < number) {
+                m++;
+            } else if (matrix[p][m] > number) {
+                p--;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 旋转数组的最小值
+     */
+    public int findArrayMin(int[] array) {
+        int low = 0, high = array.length - 1;
+        int mid = low + (high - low) / 2;
+        while (low < high) {
+            if (array[mid] < array[high]) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return array[low];
+    }
 
 
 }
