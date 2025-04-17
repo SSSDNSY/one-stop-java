@@ -135,8 +135,8 @@ public class Solution {
      */
     public int findArrayMin(int[] array) {
         int low = 0, high = array.length - 1;
-        int mid = low + (high - low) / 2;
         while (low < high) {
+            int mid = low + (high - low) / 2;
             if (array[mid] < array[high]) {
                 high = mid;
             } else {

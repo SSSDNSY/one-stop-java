@@ -15,7 +15,7 @@ public class ArraySolutionTest {
 
     @Before
     public void setUp() {
-        rotateArray = new int[]{4, 5, 6, 7};
+//        rotateArray = new int[]{4, 5, 6, 7};
         rotateArray = new int[]{4, 5, 6, 7, 1, 2, 3,};
         solution = new Solution();
     }
@@ -33,7 +33,7 @@ public class ArraySolutionTest {
     public void testFindArrayMin() {
         int arrayMin = solution.findArrayMin(rotateArray);
         System.out.println(arrayMin);
-        assert arrayMin == 4;
+        assert arrayMin == 1;
     }
 
 
