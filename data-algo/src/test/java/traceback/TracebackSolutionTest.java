@@ -149,5 +149,12 @@ public class TracebackSolutionTest {
         assert sudoku[8][0] == '3' && sudoku[7][1] == '8';
     }
 
+    @Test
+    public void TestWordPuzzle() {
+        char[][] word = new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        assert solution.wordPuzzle(word, "SEE");
+        assert solution.wordPuzzle(word, "BFCE");
+    }
+
 
 }

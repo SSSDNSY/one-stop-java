@@ -620,5 +620,37 @@ public class Solution {
         System.out.println();
     }
 
+    /**
+     * LCR 129. 字母迷宫 （矩阵中的路径）
+     * https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/description/
+     * O(n*m)
+     * O(n*m)
+     */
+    public boolean wordPuzzle(char[][] grid, String word) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (dfsWordPuzzle(grid, i, j, 0, word)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean dfsWordPuzzle(char[][] grid, int i, int j, int idx, String word) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == '\n' || grid[i][j] != word.charAt(idx)) {
+            return false;
+        }
+        if (idx == word.length() - 1) {
+            return true;
+        }
+        grid[i][j] = '\n';
+        boolean res = dfsWordPuzzle(grid, i + 1, j, idx + 1, word)
+                || dfsWordPuzzle(grid, i - 1, j, idx + 1, word)
+                || dfsWordPuzzle(grid, i, j + 1, idx + 1, word)
+                || dfsWordPuzzle(grid, i, j - 1, idx + 1, word);
+        grid[i][j] = word.charAt(idx);
+        return res;
+    }
 
 }
