@@ -61,7 +61,7 @@ public class OtherSolutionTest {
     }
 
     @Test
-    public void testFeb3(){
+    public void testFeb3() {
         long start = System.currentTimeMillis();
 
         int a = solution.feb3(1);
@@ -80,6 +80,17 @@ public class OtherSolutionTest {
         assert b == 5;
         assert d == 6765;
         System.out.println(System.currentTimeMillis() - start);
+    }
+
+    /**
+     * 切绳子 测试
+     * 2>1
+     * 10>36
+     */
+    @Test
+    public void testCuttingRope() {
+        assert 1 == solution.cutingRope(2);
+        assert 36 == solution.cutingRope(10);
     }
 
 }

@@ -60,7 +60,7 @@ public class Solution {
     }
 
     /**
-     *
+     * 原地斐波那契
      */
     public int feb3(int n) {
         if (n <= 1) {
@@ -76,4 +76,44 @@ public class Solution {
         }
         return c;
     }
+
+    /**
+     * 切绳子
+     * 数学推导得，绳子分为n段，其中每段长度为3(最接近自然常数e的整数），有3中情况
+     * 余数为
+     * 0：3^n
+     * 1：把1给其中一个3 凑成  3^(n-1)*4
+     * 2：3^(n-1)*2
+     * <p>
+     * PS:
+     * ‌除数（Divisor）‌：在除法算式中，除号后面的数叫做除数‌
+     * ‌商（Quotient）‌：除法运算的结果称为商‌
+     * ‌余数（Remainder）‌：被除数除以除数后剩余的数称为余数‌
+     * ‌被除数（Dividend）‌：在除法运算中被另一个数所除的数称为被除数‌
+     */
+    public int cutingRope(int n) {
+        if (n <= 2) {
+            return 1;
+        }
+        if (n == 3) {
+            return 2;
+        }
+        int quitient = n / 3;
+        int remainder = n % 3;
+        if (remainder == 1) {
+            return pow(3, quitient - 2) * 4;
+        } else if (remainder == 2) {
+            return pow(3, quitient - 1) * 2;
+        } else {
+            return pow(3, quitient);
+        }
+    }
+
+    private int pow(int a, int b) {
+        for (int i = 1; i <= b; i++) {
+            a *= a;
+        }
+        return a;
+    }
+
 }
