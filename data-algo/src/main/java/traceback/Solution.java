@@ -653,4 +653,37 @@ public class Solution {
         return res;
     }
 
+    /**
+     * 机器人的移动路径
+     * 在m*n的矩阵中
+     * 机器人不能进入 数位之和大于k的位置
+     */
+    int rowLen, colLen;
+    boolean[][] visited;
+
+    public int movingCount(int row, int col, int k) {
+        rowLen = row;
+        colLen = col;
+        visited = new boolean[rowLen][colLen];
+        return dfsMovingCount(0, 0, k);
+    }
+
+    private int dfsMovingCount(int i, int j, int k) {
+
+        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || visited[i][j] || k < sum(i) + sum(j)) {
+            return 0;
+        }
+        visited[i][j] = true;
+        return 1 + dfsMovingCount(i + 1, j, k) + dfsMovingCount(i, j + 1, k)
+                + dfsMovingCount(i - 1, j, k) + dfsMovingCount(i, j - 1, k);
+    }
+
+    private int sum(int x) {
+        int res = 0;
+        while (x != 0) {
+            res += x % 10;
+            x /= 10;
+        }
+        return res;
+    }
 }

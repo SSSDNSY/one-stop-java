@@ -156,5 +156,11 @@ public class TracebackSolutionTest {
         assert solution.wordPuzzle(word, "BFCE");
     }
 
+    @Test
+    public void TestMovingCount() {
+        assert 3 == solution.movingCount(2, 3, 1);
+        assert 1 == solution.movingCount(3, 1, 0);
+    }
+
 
 }
