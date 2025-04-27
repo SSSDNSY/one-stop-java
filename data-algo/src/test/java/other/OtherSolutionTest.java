@@ -84,13 +84,57 @@ public class OtherSolutionTest {
 
     /**
      * 切绳子 测试
-     * 2>1
-     * 10>36
+     * 2=1
+     * 10=36
      */
     @Test
     public void testCuttingRope() {
         assert 1 == solution.cutingRope(2);
         assert 36 == solution.cutingRope(10);
     }
+
+    /**
+     * 切绳子2 测试
+     * 2=1
+     * 10=36
+     */
+    @Test
+    public void testCuttingRope2() {
+        assert 1 == solution.cutingRope2(2);
+        assert 36 == solution.cutingRope2(10);
+    }
+
+    /**
+     * 切绳子2 测试
+     * 2=1
+     * 10=36
+     */
+    @Test
+    public void testCountOneInNum() {
+        assert 2 == solution.countOneInNum(3);
+        assert 1 == solution.countOneInNum(4);
+        assert 3 == solution.countOneInNum(11);
+    }
+
+    @Test
+    public void testCountOneInNum2() {
+        assert 2 == solution.countOneInNum2(3);
+        assert 1 == solution.countOneInNum2(4);
+        assert 3 == solution.countOneInNum2(11);
+    }
+
+    @Test
+    public void testFastPow() {
+        assert 4 == solution.fastPow(2,2);
+        assert 81 == solution.fastPow(3,4);
+    }
+
+    @Test
+    public void testCountNumbers() {
+        assert 99 == solution.countNumbers(2)[98];
+        assert 999 == solution.countNumbers(3).length;
+    }
+
+
 
 }

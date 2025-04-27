@@ -116,4 +116,93 @@ public class Solution {
         return a;
     }
 
+    public int cutingRope2(int n) {
+        if (n <= 2) {
+            return 1;
+        }
+        if (n == 3) {
+            return 2;
+        }
+        int p = 1000000007;
+        int quitient = n / 3;
+        int remainder = n % 3;
+        if (remainder == 1) {
+            return pow2(3, quitient - 2) * 4 % p;
+        } else if (remainder == 2) {
+            return pow2(3, quitient - 1) * 2 % p;
+        } else {
+            return pow2(3, quitient);
+        }
+    }
+
+    private int pow2(int a, int b) {
+        for (int i = 1; i <= b; i++) {
+            a *= a;
+        }
+        return a;
+    }
+
+    /**
+     * 求一个整数的二进制表示中有多少个1
+     */
+    public int countOneInNum(int num) {
+        int sum = 0;
+        while (num != 0) {
+            if (num % 2 == 1) {
+                sum++;
+            }
+            num /= 2;
+        }
+        return sum;
+    }
+
+    public int countOneInNum2(int num) {
+        int sum = 0;
+        while (num != 0) {
+            num = num & num - 1;
+            sum++;
+        }
+        return sum;
+    }
+
+    /**
+     * 求一个数的幂，pow(x,n),不能使用库函数，不考虑大数问题
+     */
+    public double fastPow(int x, int n) {
+        int res = 1;
+        long number = n;
+        if(number<0){
+            number = -number;
+            x =1/x;
+        }
+        while(number>0){
+            if(number%2==1){
+                res*=x;
+            }
+            x *=x;
+            number/=2;
+        }
+        return res;
+    }
+
+    /**
+     * 剑指 Offer 17. 打印从1到最大的n位
+     *
+     * 剑指offer最优解
+     * 本问题对应的 leetcode 原文链接：剑指 Offer 17. 打印从1到最大的n位
+     *
+     * 问题描述
+     * 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。
+     * 比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。
+     */
+
+    public int[] countNumbers(int cnt) {
+        int max =(int) Math.pow(10,cnt);
+        int[] arr = new int[max-1];
+        for (int i =0;i<max-1;i++){
+            arr[i] = i+1;
+            System.out.println(arr[i]);
+        }
+        return arr;
+    }
 }
