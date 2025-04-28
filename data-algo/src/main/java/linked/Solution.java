@@ -76,6 +76,37 @@ public class Solution {
         return dummyNode.next;
     }
 
+    /**
+     * 删除链表中的值 （链表没有重复值）
+     */
+    public Node removeLinkedListValue(Node head, int val) {
+        if (head == null) {
+            return null;
+        }
+        if (head.item == null) {
+            return null;
+        }
+        if (val == (int) head.item) {
+            return head.next;
+        }
+        Node temp = head;
+        Node cur = temp.next;
+        Node pre = temp;
+        while (cur != null && cur.item != null) {
+            if (val == (int) cur.item) {
+                if (cur.next == null) {
+                    pre.next = null;
+                } else {
+                    pre.next = cur.next;
+                }
+                return temp;
+            }
+            cur = cur.next;
+            pre = pre.next;
+        }
+        return temp;
+    }
+
 
     /**
      * 链表相交

@@ -12,11 +12,16 @@ import java.util.Arrays;
 public class LinkListSolutionTest {
 
     private LinkList list;
+    private Node head;
     Solution solution;
 
     @Before
     public void setUp() throws Exception {
         list = new LinkList(Arrays.asList(1, 2, 3, 4, 5));
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
         solution = new Solution();
     }
 
@@ -103,6 +108,17 @@ public class LinkListSolutionTest {
     @Test
     public void inverseLinkedList4() {
         solution.inverseLinkedList4(list);
+    }
+
+
+    @Test
+    public void testRemoveNode() {
+        Node n2 = solution.removeLinkedListValue(head, 1);
+        assert (int) n2.item == 2;
+        Node n1 = solution.removeLinkedListValue(head, 3);
+        assert (int) n1.item == 1;
+        Node n11 = solution.removeLinkedListValue(head, 4);
+        assert (int) n11.item == 1;
     }
 
 }
