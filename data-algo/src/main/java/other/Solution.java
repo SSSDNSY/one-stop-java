@@ -171,38 +171,80 @@ public class Solution {
     public double fastPow(int x, int n) {
         int res = 1;
         long number = n;
-        if(number<0){
+        if (number < 0) {
             number = -number;
-            x =1/x;
+            x = 1 / x;
         }
-        while(number>0){
-            if(number%2==1){
-                res*=x;
+        while (number > 0) {
+            if (number % 2 == 1) {
+                res *= x;
             }
-            x *=x;
-            number/=2;
+            x *= x;
+            number /= 2;
         }
         return res;
     }
 
     /**
      * 剑指 Offer 17. 打印从1到最大的n位
-     *
+     * <p>
      * 剑指offer最优解
      * 本问题对应的 leetcode 原文链接：剑指 Offer 17. 打印从1到最大的n位
-     *
+     * <p>
      * 问题描述
      * 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。
      * 比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。
      */
 
     public int[] countNumbers(int cnt) {
-        int max =(int) Math.pow(10,cnt);
-        int[] arr = new int[max-1];
-        for (int i =0;i<max-1;i++){
-            arr[i] = i+1;
+        int max = (int) Math.pow(10, cnt);
+        int[] arr = new int[max - 1];
+        for (int i = 0; i < max - 1; i++) {
+            arr[i] = i + 1;
             System.out.println(arr[i]);
         }
         return arr;
     }
+
+    public boolean isNumber(String str) {
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+        char[] ch = str.trim().toCharArray();
+        int len = ch.length;
+        if (len == 0) {
+            return false;
+        }
+
+        boolean isNumber = false;
+        boolean isDot = false;
+        boolean isEe = false;
+        for (int i = 0; i < len; i++) {
+            if ('0' <= ch[i] && ch[i] <= '9') {
+                if (isEe || isDot) {
+                    return false;
+                }
+                isNumber = true;
+            } else if (ch[i] == '.') {
+                if (isDot || isEe) {
+                    return false;
+                }
+                isDot = true;
+            } else if (ch[i] == 'e' || ch[i] == 'e') {
+                if (isEe || !isNumber) {
+                    return false;
+                }
+                isEe = true;
+                isNumber = false;
+            } else if (ch[i] == '-' || ch[i] == '+') {
+                if (i != 0 && ch[i - 1] != 'e' && ch[i - 1] != 'E') {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return isNumber;
+    }
+
 }
