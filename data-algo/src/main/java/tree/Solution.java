@@ -124,7 +124,6 @@ public class Solution {
     /**
      * 二叉树的迭代遍历
      */
-
     public List<Integer> preOrder2(TreeNode<Integer> root) {
         if (root == null) {
             return null;
@@ -1460,5 +1459,36 @@ public class Solution {
         root.right = restoreTree(preOrder, l1 + rootIdx - l2 + 1, r1, inOrder, rootIdx + 1, r2, map);
         return root;
     }
+
+    /**
+     * 二叉树B是否是二叉树A的子结构
+     */
+    public boolean isSubStructure(TreeNode parent, TreeNode child) {
+        if (parent == null || child == null) {
+            return false;
+        }
+        if (isSubTree(parent, child)) {
+            return true;
+        }
+        if (isSubStructure(parent.left, child) || isSubStructure(parent.right, child)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isSubTree(TreeNode parent, TreeNode child) {
+        if (child == null) {
+            return true;
+        }
+        if (parent == null) {
+            return false;
+        }
+        if (parent.value != child.value) {
+            return false;
+        }
+
+        return isSubTree(parent.left, child.left) || isSubTree(parent.right, child.left);
+    }
+
 
 }

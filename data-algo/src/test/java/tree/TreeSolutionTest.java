@@ -15,6 +15,7 @@ import java.util.stream.IntStream;
 public class TreeSolutionTest {
 
     TreeNode<Integer> root;
+    TreeNode<Integer> root1;
 
     TreeNode<Integer> bstRoot;
 
@@ -56,6 +57,16 @@ public class TreeSolutionTest {
 
         TreeNode t4 = new TreeNode<>(t2, t7, 4);
         bstRoot = t4;
+
+        /**
+         *     2
+         *   4   5
+         */
+
+        TreeNode t21 = new TreeNode<>(null, null, 4);
+        TreeNode t71 = new TreeNode<>(null, null, 5);
+        TreeNode t41 = new TreeNode<>(t21, t71, 2);
+        root1 = t41;
 
 
         Node c9 = new Node(9);
@@ -236,11 +247,16 @@ public class TreeSolutionTest {
     }
 
     @Test
-    public void testRestoreTree(){
-        int[] preOrder = new int[]{1,2,4,5,3,6,7};
-        int[] inOrder = new int[]{4,2,5,1,6,3,7};
+    public void testRestoreTree() {
+        int[] preOrder = new int[]{1, 2, 4, 5, 3, 6, 7};
+        int[] inOrder = new int[]{4, 2, 5, 1, 6, 3, 7};
         TreeNode<Integer> root = solution.restoreTree(preOrder, inOrder);
         System.out.println(root);
+    }
+
+    @Test
+    public void testIsSubStructure() {
+        assert solution.isSubStructure(root, root1);
     }
 
 }
