@@ -13,15 +13,21 @@ public class LinkListSolutionTest {
 
     private LinkList list;
     private Node head;
+    private Node head1;
     Solution solution;
 
     @Before
     public void setUp() throws Exception {
         list = new LinkList(Arrays.asList(1, 2, 3, 4, 5));
         head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
+        head.next = new Node(5);
+        head.next.next = new Node(9);
+        head.next.next.next = new Node(12);
+
+        head1 = new Node(2);
+        head1.next = new Node(3);
+        head1.next.next = new Node(8);
+        head1.next.next.next = new Node(9);
         solution = new Solution();
     }
 
@@ -86,6 +92,20 @@ public class LinkListSolutionTest {
 
     }
 
+    /**
+     * 合并链表
+     */
+    @Test
+    public void mergedList() {
+        Node node = solution.mergeTwoLists(head, head1);
+        System.out.println(node);
+    }
+
+    @Test
+    public void mergedList2() {
+        Node node = solution.mergeTwoLists2(head, head1);
+        System.out.println(node);
+    }
 
     /**
      * 反转链表
@@ -110,7 +130,6 @@ public class LinkListSolutionTest {
         solution.inverseLinkedList4(list);
     }
 
-
     @Test
     public void testRemoveNode() {
         Node n2 = solution.removeLinkedListValue(head, 1);
@@ -119,6 +138,12 @@ public class LinkListSolutionTest {
         assert (int) n1.item == 1;
         Node n11 = solution.removeLinkedListValue(head, 4);
         assert (int) n11.item == 1;
+    }
+
+    @Test
+    public void testFindNthFromEnd() {
+        assert solution.findNthFromEnd(head, 2) == 3;
+        assert solution.findNthFromEnd(head, 1) == 4;
     }
 
 }

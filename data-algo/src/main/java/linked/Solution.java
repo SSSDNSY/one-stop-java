@@ -191,6 +191,26 @@ public class Solution {
         return res;
     }
 
+    public Node mergeTwoLists2(Node<Integer> l1, Node<Integer> l2) {
+        if (l1 == null || l2 == null) {
+            return null;
+        }
+        Node<Integer> merge = new Node<>();
+        Node<Integer> temp = merge;
+        while (l1 != null && l2 != null) {
+            if (l1.item < l2.item) {
+                temp.next = l1;
+                l1 = l1.next;
+            } else {
+                temp.next = l2;
+                l2 = l2.next;
+            }
+            temp = temp.next;
+        }
+        temp.next = l1 == null ? l2 : l1;
+        return merge.next;
+    }
+
     /**
      * 反转链表
      * <p>
@@ -244,6 +264,7 @@ public class Solution {
         printArray(array);
     }
 
+    // 利用递归 ，本质使用jvm的方法栈
     public void inverseLinkedList3(LinkList<Integer> list) {
         if (list == null || list.first == null) return;
         list.print();
@@ -277,6 +298,20 @@ public class Solution {
         list.print();
     }
 
+    public Integer findNthFromEnd(Node<Integer> head, int n) {
+        if (head == null) {
+            return null;
+        }
+        Node<Integer> fast = head, slow = head;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow.item;
+    }
 
 }
 
