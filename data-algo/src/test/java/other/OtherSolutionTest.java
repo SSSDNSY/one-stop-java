@@ -3,6 +3,8 @@ package other;
 import org.junit.Before;
 import org.junit.Test;
 
+import static util.GeneralUtil.printArray;
+
 /**
  * @author pengzh
  * @desc
@@ -125,8 +127,8 @@ public class OtherSolutionTest {
 
     @Test
     public void testFastPow() {
-        assert 4 == solution.fastPow(2,2);
-        assert 81 == solution.fastPow(3,4);
+        assert 4 == solution.fastPow(2, 2);
+        assert 81 == solution.fastPow(3, 4);
     }
 
     @Test
@@ -135,6 +137,34 @@ public class OtherSolutionTest {
         assert 999 == solution.countNumbers(3).length;
     }
 
+    @Test
+    public void testIsNumber() {
+        assert solution.isNumber("-100");
+        assert solution.isNumber("-100.3");
+        assert solution.isNumber("+100E3");
+        assert solution.isNumber(" 01223 ");
+        assert solution.isNumber(" +100e-5 ");
+    }
+
+    @Test
+    public void testExchangeArr() {
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6};
+        printArray(arr);
+        solution.exchangeArr(arr);
+        printArray(arr);
+        assert arr[5] == 6;
+        assert arr[4] == 2;
+    }
+
+    @Test
+    public void testExchangeArr2() {
+        int[] arr = new int[]{1, 2, 3, 1, 6};
+        printArray(arr);
+        solution.exchangeArr2(arr);
+        printArray(arr);
+//        assert arr[5] == 6;
+//        assert arr[4] == 4;
+    }
 
 
 }

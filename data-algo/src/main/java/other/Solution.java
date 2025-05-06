@@ -206,6 +206,9 @@ public class Solution {
         return arr;
     }
 
+    /**
+     * 表示数字的字符串
+     */
     public boolean isNumber(String str) {
         if (str == null || str.length() == 0) {
             return false;
@@ -221,16 +224,13 @@ public class Solution {
         boolean isEe = false;
         for (int i = 0; i < len; i++) {
             if ('0' <= ch[i] && ch[i] <= '9') {
-                if (isEe || isDot) {
-                    return false;
-                }
                 isNumber = true;
             } else if (ch[i] == '.') {
                 if (isDot || isEe) {
                     return false;
                 }
                 isDot = true;
-            } else if (ch[i] == 'e' || ch[i] == 'e') {
+            } else if (ch[i] == 'E' || ch[i] == 'e') {
                 if (isEe || !isNumber) {
                     return false;
                 }
@@ -245,6 +245,46 @@ public class Solution {
             }
         }
         return isNumber;
+    }
+
+    /**
+     * 调整数组顺序使奇数在偶数前面
+     */
+    public int[] exchangeArr(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return arr;
+        }
+        int len = arr.length, l = 0, r = len - 1;
+        while (l < r) {
+            if (arr[l] % 2 == 0) {
+                int temp = arr[l];
+                arr[l] = arr[r];
+                arr[r] = temp;
+            } else {
+                l++;
+            }
+            if (arr[r] % 2 == 1) {
+                int temp = arr[r];
+                arr[r] = arr[l];
+                arr[l] = temp;
+            } else {
+                r--;
+            }
+        }
+        return arr;
+    }
+
+    /**
+     * 调整数组顺序使奇数在偶数前面
+     * 保持有序性
+     */
+    public int[] exchangeArr2(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return arr;
+        }
+        int len = arr.length;
+       // todo
+        return arr;
     }
 
 }
