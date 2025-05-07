@@ -3,6 +3,8 @@ package array;
 import org.junit.Before;
 import org.junit.Test;
 
+import static util.GeneralUtil.printArray;
+
 /**
  * @author pengzh
  * @desc
@@ -12,11 +14,13 @@ public class ArraySolutionTest {
 
     private Solution solution;
     private int[] rotateArray;
+    private int[][] antiClockMatrix;
 
     @Before
     public void setUp() {
 //        rotateArray = new int[]{4, 5, 6, 7};
         rotateArray = new int[]{4, 5, 6, 7, 1, 2, 3,};
+        antiClockMatrix = new int[][]{new int[]{1, 2, 3,4}, new int[]{ 5, 6,7,8}, new int[]{9, 10, 11,12}};
         solution = new Solution();
     }
 
@@ -36,5 +40,10 @@ public class ArraySolutionTest {
         assert arrayMin == 1;
     }
 
+    @Test
+    public void testFindArrayMax() {
+        int[] intArr = solution.anticlockwiseMatrix(antiClockMatrix);
+        printArray(intArr);
+    }
 
 }

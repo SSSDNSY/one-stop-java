@@ -146,5 +146,51 @@ public class Solution {
         return array[low];
     }
 
+    /**
+     * 逆时针螺旋打印二维数组
+     */
+    public int[] anticlockwiseMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return new int[]{};
+        }
+        int left = 0, top = 0, right = matrix[0].length - 1, bottom = matrix.length - 1, idx = 0;
+        int[] res = new int[matrix.length * matrix[0].length];
+        while (true) {
+            // ➡
+            for (int i = top, j = left; j <= right; j++) {
+                res[idx++] = matrix[i][j];
+            }
+            // 这里的条件限制向下的循环 top ,i
+            if (++top > bottom) {
+                break;
+            }
+            // ⬇
+            for (int i = top, j = right; i <= bottom; i++) {
+                res[idx++] = matrix[i][j];
+            }
+            // 这里的条件限制向左的循环 right ,j
+            if (--right < left) {
+                break;
+            }
+            // ⬅
+            for (int i = bottom, j = right; j >= left; j--) {
+                res[idx++] = matrix[i][j];
+            }
+
+            // 这里的条件限制向上的循环 bottom ,i
+            if (--bottom < top) {
+                break;
+            }
+            // ⬆
+            for (int i = bottom, j = left; i >= top; i--) {
+                res[idx++] = matrix[i][j];
+            }
+            // 这里的条件限制向右的循环 left ,j
+            if (++left > right) {
+                break;
+            }
+        }
+        return res;
+    }
 
 }
