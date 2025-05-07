@@ -1,5 +1,7 @@
 package stack;
 
+import cn.hutool.core.lang.Assert;
+
 import java.util.*;
 
 /**
@@ -7,6 +9,7 @@ import java.util.*;
  * @Since 2023-08-24
  */
 public class Solution {
+
     /**
      * @description: 有效括号
      * @createDate: 2019/6/4 17:46
@@ -17,12 +20,9 @@ public class Solution {
         }
         Stack s = new Stack();
         for (char c : str.toCharArray()) {
-            if (c == '{')
-                s.push('}');
-            else if (c == '[')
-                s.push(']');
-            else if (c == '(')
-                s.push(')');
+            if (c == '{') s.push('}');
+            else if (c == '[') s.push(']');
+            else if (c == '(') s.push(')');
             else if (s.size() > 0 && (Character) s.peek() == c) {
                 s.pop();
             } else {
@@ -161,14 +161,12 @@ public class Solution {
      */
     Queue<Integer> queue = new LinkedList<>();
 
-
     // 每 offer 一个数（A）进来，都重新排列，把这个数（A）放到队列的队首
     public void push1(int x) {
         queue.offer(x);
         int size = queue.size();
         // 移动除了 A 的其它数
-        while (size-- > 1)
-            queue.offer(queue.poll());
+        while (size-- > 1) queue.offer(queue.poll());
     }
 
     public int pop1() {
@@ -249,5 +247,40 @@ public class Solution {
         return ans;
     }
 
+    /**
+     * 含有min函数的栈
+     */
+    static class MinStack {
+
+        Stack<Integer> stack = new Stack();
+        Stack<Integer> minStack = new Stack();
+
+        public void push(Integer x) {
+            Assert.notNull(x);
+            stack.push(x);
+            if (minStack.isEmpty() || x.intValue() <= minStack.peek().intValue()) {
+                minStack.push(x);
+            }
+        }
+
+        public Integer pop() {
+            if (!stack.isEmpty()) {
+                Integer pop = stack.pop();
+                if (pop == minStack.peek()) {
+                    minStack.pop();
+                }
+                return pop;
+            }
+            return null;
+        }
+
+        public Integer peek() {
+            return stack.peek();
+        }
+
+        public Integer min() {
+            return minStack.peek();
+        }
+    }
 
 }
