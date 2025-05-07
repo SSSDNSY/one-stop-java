@@ -1490,5 +1490,48 @@ public class Solution {
         return isSubTree(parent.left, child.left) || isSubTree(parent.right, child.left);
     }
 
+    /**
+     * 二叉树的镜像
+     */
+
+    public TreeNode mirrorTree(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
+            return root;
+        }
+
+        TreeNode left = mirrorTree(root.left);
+        TreeNode right = mirrorTree(root.right);
+
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
+
+    /**
+     * 是否对称的二叉树
+     */
+
+    public boolean isSymmetricTree(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
+            return true;
+        }
+
+        return isSymmetric2(root.left, root.right);
+    }
+
+    private boolean isSymmetric2(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        }
+        if (left == null || right == null) {
+            return false;
+        }
+        if (left.value != right.value) {
+            return false;
+        }
+        return isSymmetric2(left.left, right.right) && isSymmetric2(left.right, right.left);
+    }
+
 
 }

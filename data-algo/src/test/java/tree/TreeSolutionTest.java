@@ -19,6 +19,8 @@ public class TreeSolutionTest {
 
     TreeNode<Integer> bstRoot;
 
+    TreeNode<Integer> symmetricTree;
+
     Node rootN;
 
     Solution solution;
@@ -67,6 +69,25 @@ public class TreeSolutionTest {
         TreeNode t71 = new TreeNode<>(null, null, 5);
         TreeNode t41 = new TreeNode<>(t21, t71, 2);
         root1 = t41;
+
+
+        /**
+         *     3
+         *   1   1
+         * 6 8  8  6
+         */
+
+        TreeNode s11 = new TreeNode<>(null, null, 6);
+        TreeNode s12 = new TreeNode<>(null, null, 8);
+        TreeNode s13 = new TreeNode<>(null, null, 8);
+        TreeNode s14 = new TreeNode<>(null, null, 6);
+
+        TreeNode s2 = new TreeNode<>(s11, s12, 1);
+        TreeNode s3 = new TreeNode<>(s13, s14, 1);
+
+        TreeNode s1 = new TreeNode<>(s2, s3, 3);
+
+        symmetricTree = s1;
 
 
         Node c9 = new Node(9);
@@ -258,5 +279,18 @@ public class TreeSolutionTest {
     public void testIsSubStructure() {
         assert solution.isSubStructure(root, root1);
     }
+
+    @Test
+    public void testMirrorTree() {
+        TreeNode treeNode = solution.mirrorTree(root);
+        System.out.println(treeNode);
+    }
+
+    @Test
+    public void testSymmetricTree() {
+        assert solution.isSymmetricTree(symmetricTree);
+        assert !solution.isSymmetricTree(root);
+    }
+
 
 }
