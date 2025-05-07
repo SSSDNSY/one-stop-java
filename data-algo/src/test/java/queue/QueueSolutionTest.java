@@ -11,7 +11,7 @@ import java.util.Collections;
  * @desc cir
  * @since 2023-12-12
  */
-public class QueueTest {
+public class QueueSolutionTest {
 
     @Test
     public void testCircularQueue() {
