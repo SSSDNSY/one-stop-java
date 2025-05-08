@@ -283,4 +283,25 @@ public class Solution {
         }
     }
 
+    /**
+     * 栈的压入、弹出序列
+     */
+    public boolean validStackSequence(int[] pushed, int[] poped) {
+        if (pushed == null || pushed.length == 0) {
+            return true;
+        }
+
+        Stack<Integer> stack = new Stack();
+        int idx = 0;
+
+        for (int i = 0; i < pushed.length; i++) {
+            stack.push(poped[i]);
+            if (!stack.isEmpty() && stack.peek() == poped[i]) {
+                stack.pop();
+                idx++;
+            }
+        }
+        return stack.isEmpty();
+    }
+
 }

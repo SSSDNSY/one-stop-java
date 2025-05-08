@@ -1,4 +1,4 @@
-package utils.doc;
+package doc;
 
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;

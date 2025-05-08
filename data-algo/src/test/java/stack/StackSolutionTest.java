@@ -53,4 +53,14 @@ public class StackSolutionTest {
 
     }
 
+    @Test
+    public void testValidStackSequence(){
+
+        int[] pushed = new int[]{1,2,3,4,5};
+        int[] popped = new int[]{4,5,3,2,1};
+
+        assert  solution.validStackSequence(pushed, popped);
+
+    }
+
 }
