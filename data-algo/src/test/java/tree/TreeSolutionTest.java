@@ -292,5 +292,23 @@ public class TreeSolutionTest {
         assert !solution.isSymmetricTree(root);
     }
 
+    @Test
+    public void testLevelOrderTree1() {
+        int[] ints = solution.levelOrderTree1(root);
+        assert ints[ints.length - 1] == 8;
+    }
+
+    @Test
+    public void testLevelOrderTree2() {
+        List<List<Integer>> lists = solution.levelOrderTree2(root);
+        assert lists.get(3).get(0) == 8;
+    }
+
+    @Test
+    public void testLevelOrderTree3() {
+        List<List<Integer>> lists = solution.levelOrderTree3(root);
+        assert lists.get(1).get(0) == 3;
+    }
+
 
 }

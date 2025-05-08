@@ -1533,5 +1533,99 @@ public class Solution {
         return isSymmetric2(left.left, right.right) && isSymmetric2(left.right, right.left);
     }
 
+    /**
+     * 从上到下打印二叉树(层序遍历二叉树)
+     */
+    public int[] levelOrderTree1(TreeNode root) {
+        if (root == null || root.value == null) {
+            return new int[]{};
+        }
+        List<Integer> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode<Integer> node = queue.poll();
+            if (null != node.left) {
+                queue.add(node.left);
+            }
+            if (null != node.right) {
+                queue.add(node.right);
+            }
+            result.add(node.getValue());
+        }
+        return result.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    /**
+     * 打印二叉树	,二维数组存放，每一层放在子数组中
+     */
+    public List<List<Integer>> levelOrderTree2(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null || root.value == null) {
+            return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            //遍历二叉树的每一层
+            int levelSize = queue.size();
+            List<Integer> level = new ArrayList<>();
+            //遍历每一层的元素
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode<Integer> node = queue.poll();
+                level.add(node.getValue());
+                if (null != node.left) {
+                    queue.add(node.left);
+                }
+                if (null != node.right) {
+                    queue.add(node.right);
+                }
+            }
+            result.add(level);
+        }
+        return result;
+    }
+
+    /**
+     * 打印二叉树，二位数组存放，安装之字形放到子数组中
+     */
+    public List<List<Integer>> levelOrderTree3(TreeNode root) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null || root.value == null) {
+            return result;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        int idx = 1;
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            //遍历二叉树的每一层
+            int levelSize = queue.size();
+            List<Integer> level = new ArrayList<>();
+
+            for (int i = 0; i < levelSize; i++) {
+                //遍历每一层的元素
+                TreeNode<Integer> node = queue.poll();
+                if (idx % 2 == 1) {
+                    // level.addLast(node.getValue());
+                    level.add(node.getValue());
+                } else {
+                    level.addFirst(node.getValue());
+                }
+                if (null != node.left) {
+                    queue.add(node.left);
+                }
+                if (null != node.right) {
+                    queue.add(node.right);
+                }
+            }
+            result.add(level);
+            idx++;
+        }
+        return result;
+    }
 
 }
