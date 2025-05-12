@@ -1628,4 +1628,35 @@ public class Solution {
         return result;
     }
 
+    /**
+     * 是否二叉搜索树的后序遍历序列
+     */
+    public boolean verifyPostorder(int[] postorder) {
+        if (postorder == null || postorder.length == 0) {
+            return false;
+        }
+        return verifyPostorderRecusive(postorder, 0, postorder.length - 1);
+    }
+
+    private boolean verifyPostorderRecusive(int[] postorder, int left, int right) {
+        if (left >= right) {
+            return true;
+        }
+        int root = postorder[right];
+        int idx = left;
+        // 找到第一个比root节点小的值 ml
+        while (postorder[idx] < root) {
+            idx++;
+        }
+        //找出 比ml右边比root小的
+        for (int i = idx; i < right; i++) {
+            if (postorder[i] < root) {
+                return false;
+            }
+        }
+        // 递归左右子树
+        return verifyPostorderRecusive(postorder, left, idx - 1) && verifyPostorderRecusive(postorder, idx, right - 1);
+    }
+
+
 }

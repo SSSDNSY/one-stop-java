@@ -310,5 +310,11 @@ public class TreeSolutionTest {
         assert lists.get(1).get(0) == 3;
     }
 
+    @Test
+    public void testVerifyPostorder() {
+        assert !solution.verifyPostorder(new int[]{1, 6, 3, 2, 5});
+        assert solution.verifyPostorder(new int[]{1, 3, 2, 6, 5});
+    }
+
 
 }
