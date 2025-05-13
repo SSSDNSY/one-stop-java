@@ -26,7 +26,7 @@ public class TreeSolutionTest {
     Solution solution;
 
     @Before
-    public void constructureTree() {
+    public void before() {
 
         /**
          *       1
@@ -316,5 +316,10 @@ public class TreeSolutionTest {
         assert solution.verifyPostorder(new int[]{1, 3, 2, 6, 5});
     }
 
+    @Test
+    public void testPathSum() {
+        assert   solution.pathSum(root, 7).size()==0;
+        assert   solution.pathSum(root, 10).size()==1;
+    }
 
 }

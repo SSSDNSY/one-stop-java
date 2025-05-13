@@ -1658,5 +1658,33 @@ public class Solution {
         return verifyPostorderRecusive(postorder, left, idx - 1) && verifyPostorderRecusive(postorder, idx, right - 1);
     }
 
+    /**
+     * 二叉树中和为某一值的路径
+     * 递归 回溯
+     */
+    List<Integer> res = new ArrayList<>();
+    List result = new ArrayList<>();
+
+    public List<List<Integer>> pathSum(TreeNode root, int target) {
+        pathSumRecursive(root, target);
+        return result;
+    }
+
+    private void pathSumRecursive(TreeNode<Integer> root, int target) {
+        if (root == null) {
+            return;
+        }
+        res.add(root.value);
+        target = target - root.value;
+        if (root.left == null && root.right == null && target == 0) {
+            result.add(new ArrayList<>(res));
+        }
+
+        pathSumRecursive(root.left, target);
+        pathSumRecursive(root.right, target);
+
+        res.remove(res.size() - 1);
+    }
+
 
 }
