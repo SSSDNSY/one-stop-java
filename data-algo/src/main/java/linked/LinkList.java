@@ -219,6 +219,7 @@ public class LinkList<E> {
  */
 class Node<E> {
     E item;
+    Node<E> random;
     Node<E> prev;
     Node<E> next;
 

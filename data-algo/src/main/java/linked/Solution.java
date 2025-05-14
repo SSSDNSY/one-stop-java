@@ -219,7 +219,6 @@ public class Solution {
      * 3、原地反转，需要利用一个dump的节点  O(n) O(1)
      * 4、利用数组随机访问的特性，顺序遍历链表的时候倒序放入数组
      */
-
     public void inverseLinkedList1(LinkList<Integer> list) {
         if (list == null || list.first == null) return;
         int desc = list.size - 1, size = list.size, asc = 0;
@@ -298,6 +297,10 @@ public class Solution {
         list.print();
     }
 
+
+    /**
+     * 找到倒数第N个节点
+     */
     public Integer findNthFromEnd(Node<Integer> head, int n) {
         if (head == null) {
             return null;
@@ -312,6 +315,44 @@ public class Solution {
         }
         return slow.item;
     }
+
+    /**
+     * 复杂链表的复制
+     */
+    public Node copyRandomList(Node<Integer> head) {
+        if (head == null) {
+            return null;
+        }
+        // 复制链表节点
+        Node cur = head;
+        while (cur != null) {
+            Node next = cur.next;
+            cur.next = new Node(cur.item);
+            cur.next.next = next;
+            cur = next;
+        }
+        // 复制随机节点
+        cur = head;
+        while (cur != null) {
+            Node curNew = cur.random;
+            curNew.random = cur.random == null ? null : cur.random.next;
+            cur = cur.next.next;
+        }
+
+        // 拆分复制链表
+        cur = head;
+        Node headNew = head.next;
+        Node curNew = headNew;
+        while (cur != null) {
+            cur.next = cur.next.next;
+            cur = cur.next;
+            curNew = cur == null ? null : curNew.next;
+            curNew = curNew.next;
+        }
+
+        return headNew;
+    }
+
 
 }
 
