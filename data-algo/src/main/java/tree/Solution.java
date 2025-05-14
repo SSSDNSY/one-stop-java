@@ -1,68 +1,9 @@
 package tree;
 
-import lombok.*;
 import org.assertj.core.util.Lists;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
-
-/**
- * 树节点
- */
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-class TreeNode<T> {
-    public TreeNode<T> left;
-    public TreeNode<T> right;
-    public TreeNode<T> next;
-    public T value;
-
-    public TreeNode(TreeNode<T> left, TreeNode<T> right, T value) {
-        this.left = left;
-        this.right = right;
-        this.value = value;
-    }
-
-    public TreeNode<T> newTreeNode(T value) {
-        return new TreeNode<>(value);
-    }
-
-    public TreeNode(T value) {
-        this.value = value;
-    }
-
-}
-
-/**
- * 多叉树
- */
-class Node {
-
-    public TreeNode left;
-
-    public TreeNode right;
-
-    public int val;
-    public List<Node> children;
-
-    public Node next;
-
-    public Node() {
-    }
-
-    public Node(int _val) {
-        val = _val;
-    }
-
-    public Node(int _val, List<Node> _children) {
-        val = _val;
-        children = _children;
-    }
-}
 
 
 /**
@@ -1686,5 +1627,35 @@ public class Solution {
         res.remove(res.size() - 1);
     }
 
+    /**
+     * 二叉搜索树与双向链表 todo 栈溢出
+     */
+    public TreeNode treeToDoublyList(TreeNode<Integer> root) {
+        if (root == null) {
+            return null;
+        }
+        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+        treeToDoublyListInorder(root, queue);
+        TreeNode<Integer> head = queue.poll();
+        TreeNode<Integer> pre = head;
+        while (!queue.isEmpty()) {
+            TreeNode<Integer> cur = queue.poll();
+            pre.right = cur;
+            cur.left = pre;
+            pre = cur;
+        }
+        pre.right = head;
+        head.left = pre;
+        return head;
+    }
+
+    private void treeToDoublyListInorder(TreeNode<Integer> root, Queue<TreeNode<Integer>> queue) {
+        if (root == null) {
+            return;
+        }
+        treeToDoublyListInorder(root.left, queue);
+        queue.add(new TreeNode<>(root.value));
+        treeToDoublyListInorder(root.right, queue);
+    }
 
 }

@@ -322,4 +322,12 @@ public class TreeSolutionTest {
         assert   solution.pathSum(root, 10).size()==1;
     }
 
+    @Test
+    public void testTreeToDoublyLinkedList() {
+        TreeNode<Integer> treeNode = solution.treeToDoublyList(root);
+        System.out.println(treeNode);
+        assert treeNode.value == 8 ;
+        assert treeNode.right.value == 4;
+        assert treeNode.left.value == 3;
+    }
 }
