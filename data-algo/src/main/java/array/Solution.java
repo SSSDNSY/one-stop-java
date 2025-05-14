@@ -211,7 +211,7 @@ public class Solution {
      *
      *      时间      空间
      * 哈希  O(n)     O(n)
-     * 排序  O(nlogn) O(n)
+     * 排序  O(nlogn) O(1)
      * 摩尔  O(n)     O(1)
      */
     public int majoyrityElement(int[] arr) {
