@@ -1,28 +1,19 @@
 package string;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
- * @Auther: imi
- * @Date: 2019/5/9 17:05
  * @Description: 字符串
  */
 public class Solution {
 
-    public static void main(String[] args) {
 
-
-//        String a = "1";
-//        String b = "11";
-//        System.out.println(addBinary(a, b));
-//        strStr("aaa",
-//                "a");
-//        String[] strs = new String[]{"dog","racecar","car"};
-//        System.out.println(longestCommonPrefix(strs));
-        reverseString(new char[]{'h', 'e', 'l', 'l', 'o'});
-    }
-
-    // 二进制求和
+    /**
+     * 二进制求和
+     */
     public static String addBinary(String a, String b) {
         String result = "";
         char[] aa = a.toCharArray();
@@ -104,8 +95,7 @@ public class Solution {
                 if (s0 != strs[j].charAt(i)) {
                     break;
                 } else {
-                    if (j == strs.length - 1)
-                        s += s0;
+                    if (j == strs.length - 1) s += s0;
                 }
             }
             if (judge == 0) {
@@ -178,8 +168,7 @@ public class Solution {
         for (int i = 0; i < m; i++) {
             rslt[i] = 0;
             for (int j = 0; j < n; j++) {
-                if (q[i][0] <= stars[j][0] && stars[j][0] <= q[i][2] &&
-                        q[i][1] <= stars[j][1] && stars[j][1] <= q[i][3]) {
+                if (q[i][0] <= stars[j][0] && stars[j][0] <= q[i][2] && q[i][1] <= stars[j][1] && stars[j][1] <= q[i][3]) {
                     rslt[i]++;
                 }
             }
@@ -247,18 +236,6 @@ public class Solution {
     }
 
     /**
-     * 移除元素
-     */
-    public void removeElement(int[] nums, int val) {
-        int slow = 0;
-        for (int fast = 0; fast < nums.length; fast++) {
-            if (nums[fast] != val) {
-                nums[slow++] = nums[fast];
-            }
-        }
-    }
-
-    /**
      * 翻转字符串里的单词
      */
 
@@ -319,6 +296,57 @@ public class Solution {
             start = end + 1;
             end = start + 1;
         }
+    }
+
+    /**
+     * 字符串的排列
+     */
+    public List<String> permutation(String s) {
+        List<String> permutations = new ArrayList<>();
+        List<Character> path = new ArrayList<>();
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);
+        boolean[] visited = new boolean[chars.length];
+        permutationDfs(chars, 0, permutations, path, visited);
+        return permutations;
+    }
+
+    public void permutationDfs(char[] chars, int idx, List<String> permutations, List<Character> path, boolean[] visited) {
+
+        if (chars.length == idx) {
+            // 找到一个排列 并返回
+            permutations.add(list2Str(path));
+            return;
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+
+            // 同一层级 切没有访问过的 剪枝
+            if (i > 0 && chars[i] == chars[i - 1] && !visited[i - 1]) {
+                continue;
+            }
+            if (!visited[i]) {
+
+                visited[i] = true;
+                path.add(chars[i]);
+
+                permutationDfs(chars, idx + 1, permutations, path, visited);
+
+                // 回溯
+                visited[i] = false;
+                path.remove(path.size() - 1);
+            }
+
+        }
+
+    }
+
+    private String list2Str(List<Character> path) {
+        StringBuilder sb = new StringBuilder();
+        for (Character str : path) {
+            sb.append(str);
+        }
+        return sb.toString();
     }
 
 
