@@ -205,4 +205,35 @@ public class Solution {
         }
     }
 
+    /**
+     * 数组中出现次数超过一半的数字（众数）
+     * 摩尔计数法
+     *
+     *      时间      空间
+     * 哈希  O(n)     O(n)
+     * 排序  O(nlogn) O(n)
+     * 摩尔  O(n)     O(1)
+     */
+    public int majoyrityElement(int[] arr) {
+        if (arr.length <= 2) {
+            return arr[0];
+        }
+        int majoy = arr[0];
+        int sum = 1;
+        for (int i = 1; i < arr.length; i++) {
+            // 重新找众数
+            if (sum == 0) {
+                sum = 1;
+                majoy = arr[i];
+            } else {
+                if (arr[i] == majoy) {
+                    sum++;
+                } else {
+                    sum--;
+                }
+            }
+        }
+        return majoy;
+    }
+
 }

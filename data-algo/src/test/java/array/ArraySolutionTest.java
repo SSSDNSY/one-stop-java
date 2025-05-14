@@ -46,4 +46,11 @@ public class ArraySolutionTest {
         printArray(intArr);
     }
 
+    @Test
+    public void testFindArraySum() {
+        int [] arr = new int[]{1,2,3,2,2,5,2,4};
+        int majorityElement = solution. majoyrityElement(arr);
+        assert majorityElement == 2;
+    }
+
 }

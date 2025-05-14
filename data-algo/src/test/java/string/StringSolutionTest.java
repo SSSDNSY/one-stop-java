@@ -10,7 +10,7 @@ import java.util.List;
  * @desc
  * @since 2025-05-14
  */
-public class StringSolution {
+public class StringSolutionTest {
 
     Solution solution;
 
