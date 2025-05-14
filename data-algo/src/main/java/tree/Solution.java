@@ -1658,4 +1658,57 @@ public class Solution {
         treeToDoublyListInorder(root.right, queue);
     }
 
+    /**
+     * 序列化二叉树
+     */
+    public String serializeTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        StringBuilder builder = new StringBuilder();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                queue.add(node.left);
+                queue.add(node.right);
+                builder.append(node.getValue()).append(",");
+            } else {
+                builder.append("null,");
+            }
+        }
+        return builder.toString();
+    }
+
+    public TreeNode deserializeTree(String data) {
+        if (data == null || data.length() <= 0) {
+            return null;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        String[] dataArray = data.split(",");
+        Integer rootValue = Integer.valueOf(dataArray[0]);
+        TreeNode root = new TreeNode(rootValue);
+        queue.add(root);
+        int idx = 1;
+        while (!queue.isEmpty()) {
+            TreeNode<Integer> node = queue.poll();
+            // 构建左子树
+            if (!dataArray[idx].equals("null")) {
+                TreeNode left = new TreeNode(Integer.valueOf(dataArray[idx]));
+                node.left = left;
+                queue.add(left);
+            }
+
+            idx++;
+            if (!dataArray[idx].equals("null")) {
+                TreeNode right = new TreeNode(Integer.valueOf(dataArray[idx]));
+                node.right = right;
+                queue.add(right);
+            }
+            idx++;
+        }
+        return root;
+    }
+
 }

@@ -330,4 +330,16 @@ public class TreeSolutionTest {
         assert treeNode.right.value == 4;
         assert treeNode.left.value == 3;
     }
+
+    @Test
+    public void testSerializeTreeAndDeSerializeTree(){
+        String data = solution.serializeTree(root);
+        System.out.println(data);
+        assert  data.split(",").length ==15;
+        TreeNode<Integer> root = solution.deserializeTree(data);
+        System.out.println(root);
+        assert  root.right.value == 3;
+        assert  root.right.left.value == 6;
+
+    }
 }
