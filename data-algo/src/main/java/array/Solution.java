@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Arrays;
+
 /**
  * @Desc
  * @Since 2023-08-22
@@ -208,8 +210,8 @@ public class Solution {
     /**
      * 数组中出现次数超过一半的数字（众数）
      * 摩尔计数法
-     *
-     *      时间      空间
+     * <p>
+     * 时间      空间
      * 哈希  O(n)     O(n)
      * 排序  O(nlogn) O(1)
      * 摩尔  O(n)     O(1)
@@ -234,6 +236,81 @@ public class Solution {
             }
         }
         return majoy;
+    }
+
+    /**
+     * 最小的k个数 todo
+     */
+    public int[] getLastNumbers(int[] arr, int k) {
+        if (arr == null || arr.length == 0 || k == 0) {
+            return new int[0];
+        }
+        return quickFindLastNumbers(arr, 0, arr.length - 1, k);
+    }
+
+    private int[] quickFindLastNumbers(int[] arr, int left, int right, int k) {
+        int i = quickFindPartion(arr, left, right);
+        if (i + 1 == k) {
+            return Arrays.copyOf(arr, k);
+        }
+        if (i + 1 > k) {
+            return quickFindLastNumbers(arr, 0, i - 1, k);
+        } else {
+            return quickFindLastNumbers(arr, i + 1, right, k);
+        }
+    }
+
+    private int quickFindPartion(int[] arr, int left, int right) {
+        int pivot = arr[left];
+        int l = left + 1, r = right;
+        while (l < r) {
+            while (l <= r && arr[l] <= pivot) {
+                l++;
+            }
+            while (l <= r && arr[r] >= pivot) {
+                r--;
+            }
+            if (l >= r) {
+                break;
+            }
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+        }
+        arr[left] = arr[r];
+        arr[r] = pivot;
+        return r;
+    }
+
+    /**
+     * 连续子数组的最大和
+     */
+    public int maxSubArray1(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        // O(n) O(n)
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i-1] + nums[i], nums[i]);
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    public int maxSubArray2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int dp = nums[0], max = dp;
+        // O(n) O(1)
+        for (int i = 1; i < nums.length; i++) {
+            dp = Math.max(dp + nums[i], nums[i]);
+            max = Math.max(max, dp);
+        }
+        return max;
     }
 
 }

@@ -49,8 +49,17 @@ public class ArraySolutionTest {
     @Test
     public void testFindArraySum() {
         int [] arr = new int[]{1,2,3,2,2,5,2,4};
-        int majorityElement = solution. majoyrityElement(arr);
+        int majorityElement = solution.majoyrityElement(arr);
         assert majorityElement == 2;
+    }
+
+    @Test
+    public void testMaxSubArray(){
+        int[] arr = new int[]{4,-1,2,1};
+        int max1 = solution.maxSubArray1(arr);
+        int max2 = solution.maxSubArray2(arr);
+        assert max1 == max2;
+        assert max1 ==6;
     }
 
 }
